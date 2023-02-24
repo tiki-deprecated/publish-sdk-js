@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "jest": "^29.4.3",
+    "jest-environment-jsdom": "^29.4.3"
+  },
+  "name": "tiki-sdk-js",
+  "version": "1.0.0",
+  "repository": "git@github.com:tiki/tiki-sdk-js.git",
+  "author": "'Jurnell Cockhren' <jurnell@civichacker.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --verbose ./test/js"
+  },
+  "private": true
+}

@@ -1,7 +1,7 @@
-const { getPlatformStatus } = require('./platform');
+import { getPlatformStatus } from './platform';
 
 const tikiApi = () => {
-  return getPlatformStatus();
+  return getPlatformStatus;
 };
 
 module.exports = { tikiApi };

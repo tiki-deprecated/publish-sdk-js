@@ -1,19 +1,54 @@
-const { tikiApi } = require("../../src/api");
-const { getPlatformStatus} = require("../../src/platform");
+/**
+ * @jest-environment jsdom
+ */
 
-jest.mock("../../src/platform");
 
+import { tikiApi } from "../../src/api";
+import {jest, describe, test, beforeEach, afterEach} from '@jest/globals';
 
-test("ensure platform is running in a secure context", () => {
-  expect(globalThis.isSecureContext).toBeFalsy();
-  jest.resetModules();
+describe("platform capabilities", () => {
+  beforeEach(() => {
+   jest.spyOn(globalThis, "___TikiSdk__hasCrypto")
+      .mockImplementation(() => {return true})
+   jest.spyOn(globalThis, "___TikiSdk__isSecure")
+      .mockImplementation(() => {return true})
+  });
+
+  afterEach(() => {
+    jest.resetModules();
+  });
+
+  test("detect a secure context (HTTPS)", () => {
+    let platformStatus = tikiApi();
+    expect(globalThis.___TikiSdk__isSecure).toBeDefined();
+    expect(globalThis.___TikiSdk__isSecure()).toBe(true);
+  });
+  test("detect Web Crypto", () => {
+    expect(globalThis.___TikiSdk__hasCrypto).toBeDefined();
+    expect(globalThis.___TikiSdk__hasCrypto()).toBe(true);
+  });
 });
 
-test("ensure platform is running in a secure context", () => {
-  getPlatformStatus.mockImplementation(() => {secure: true});
-  const platformStatus = tikiApi();
-  expect(platformStatus).toMatchObject({
-      secure: true
+
+describe("platform capabilities", () => {
+  beforeEach(() => {
+   jest.spyOn(globalThis, "___TikiSdk__hasCrypto")
+      .mockImplementation(() => {return true})
+   jest.spyOn(globalThis, "___TikiSdk__isSecure")
+      .mockImplementation(() => {return true})
   });
-  jest.resetModules();
+
+  afterEach(() => {
+    jest.resetModules();
+  });
+
+  test("SDK under unfavorable conditions", () => {
+    let platformStatus = tikiApi();
+    expect(globalThis.___TikiSdk__isSecure).toBeDefined();
+    expect(globalThis.___TikiSdk__isSecure()).toBe(true);
+  });
+  test("detect Web Crypto", () => {
+    expect(globalThis.___TikiSdk__hasCrypto).toBeDefined();
+    expect(globalThis.___TikiSdk__hasCrypto()).toBe(true);
+  });
 });

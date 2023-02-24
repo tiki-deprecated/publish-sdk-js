@@ -1,7 +1,10 @@
-const getPlatformStatus = () => {
-  return {
-    secure: window.isSecureContext
-  }
+const getPlatformStatus = {
+    hasCrypto: window.___TikiSdk__hasCrypto || false,
+    secure: window.___TikiSdk__isSecure() || false,
 };
 
-module.exports = { getPlatformStatus };
+const isPlatformReady = () => {
+  return true;
+};
+
+module.exports = { getPlatformStatus, isPlatformReady };

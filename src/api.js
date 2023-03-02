@@ -1,7 +1,23 @@
-import { getPlatformStatus } from './platform';
+import { getPlatformStatus, isPlatformReady } from './platform';
 
-const tikiApi = () => {
+
+
+export const tikiApi = () => {
   return getPlatformStatus;
 };
 
-module.exports = { tikiApi };
+
+export class TikiSdk {
+  JSBuilder = null;
+  constructor() {
+    if (isPlatformReady() === true) {
+      this.JSBuilder = window.__TikiSdk__entryPoint || {}
+    }
+  }
+  platformReady() {
+    return isPlatformReady();
+  }
+}
+
+export const TikiSdkJSBuilder = () => {
+};

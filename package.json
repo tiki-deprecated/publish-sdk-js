@@ -15,7 +15,9 @@
   "author": "'Civic Hacker Engineering' <it@civichacker.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest --watch ./test/js"
+    "test": "jest --watch ./test/js",
+    "build:webdev": "webdev build",
+    "build:js": "dart compile js web/main.dart -O4 -o build/main.dart.js"
   },
   "private": true
 }

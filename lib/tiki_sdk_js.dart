@@ -1,25 +1,14 @@
-// exports the library to JS
-@JS()
 library tiki_sdk_js;
 
+import 'dart:html' as html;
 import 'package:js/js.dart';
 
-// Defines the funcion "say" in JavaScript
-@JS('say')
-external set _say(void Function(String) f);
+export 'package:tiki_sdk_dart/node/key/key_storage.dart';
+export 'package:tiki_sdk_dart/helpers/sdk_builder.dart';
 
-// Defines the funcion "say" in JavaScript
-@JS('sum')
-external set _sum(int Function(int, int) f);
+@JS('cryptosupported')
+external set _hasCryptoSupport(bool Function() f);
 
-void _internalSay(String msg) {
-  print(msg);
-}
-
-int _internalSum(int a, int b) => a + b;
-
-void main() {
-  // Implements the say() function in JS
-  _say = allowInterop(_internalSay);
-  _sum = allowInterop(_internalSum);
+bool _internalCrypto() {
+  return html.Crypto.supported;
 }

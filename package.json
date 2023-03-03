@@ -16,6 +16,7 @@
   "author": "'Civic Hacker Engineering' <opensource@civichacker.com>",
   "source": "src/index.js",
   "main": "dist/main.js",
+  "module": "dist/module.js",
   "license": "MIT",
   "scripts": {
     "test": "jest --watch ./test/js",

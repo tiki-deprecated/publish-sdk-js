@@ -1,3 +1,5 @@
+import * as dart from './main.dart.js';
+
 const getPlatformStatus = {
     hasCrypto: window.___TikiSdk__hasCrypto || false,
     secure: window.___TikiSdk__isSecure || false,

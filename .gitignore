@@ -10,3 +10,6 @@ node_modules/
 *.swp
 build/
 .parcel-cache/
+main.dart.js
+sqlite3.wasm
+dist/

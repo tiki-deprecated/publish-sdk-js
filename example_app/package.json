@@ -1,0 +1,17 @@
+{
+  "name": "example_app",
+  "version": "1.0.0",
+  "description": "sample app",
+  "main": "index.js",
+  "author": "Tatiana Johnson <tatiana.johnson@civichacker.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  },
+"scripts": {
+    "start": "parcel serve './src/*.html'",
+    "watch": "parcel watch './src/*.html'",
+    "build": "parcel build './src/*.html'",
+    "deploy": "rm -rf dist && parcel build './src/*.html'"
+  }
+}

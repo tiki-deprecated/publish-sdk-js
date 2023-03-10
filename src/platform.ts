@@ -1,17 +1,15 @@
-import * as dart from './main.dart.js';
+import './main.dart.js';
 
-const getPlatformStatus = {
+export function getPlatformStatus(): object {
+  return {
     hasCrypto: window.___TikiSdk__hasCrypto || false,
     secure: window.___TikiSdk__isSecure || false,
-    hasWallet: window.___TikiSdk__hasWallet || false,
-    sqliteVersion: window.___TikiSdk__sqliteVersion || null,
+  };
 };
 
-const isDefined = (entry) => !!(entry() !== false);
+const isDefined: (entry: any) => boolean = (entry) => !!(entry !== false);
 
 
-const isPlatformReady = () => {
-  return Object.values(getPlatformStatus).every(isDefined);
+export function isPlatformReady(): boolean {
+  return Object.values(getPlatformStatus()).every(isDefined);
 };
-
-module.exports = { getPlatformStatus, isPlatformReady };

@@ -12,7 +12,6 @@ import * as fs from 'fs';
 describe("platform capabilities", () => {
 
   beforeAll(() => {
-    //global.___TikiSdk__isSecure = jest.fn(() => {});
     Object.defineProperty(globalThis, '___TikiSdk__isSecure', {
     value: () => true,
     writable: true
@@ -24,6 +23,16 @@ describe("platform capabilities", () => {
     Object.defineProperty(globalThis, '___TikiSdk__hasCrypto', {
     value: () => true,
     writable: true
+   })
+    Object.defineProperty(globalThis, '___TikiSdk__SdkInit', {
+    value: () => true,
+    writable: true
+   })
+    Object.defineProperty(globalThis.crypto, 'subtle', {
+    value: {
+      generateKey: () => Promise.resolve(42),
+      digest: () => Promise.resolve("aaaaaabbbbbbbbccccccc")
+    }
    })
 
   });

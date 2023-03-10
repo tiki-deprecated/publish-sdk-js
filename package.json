@@ -31,7 +31,7 @@
     "build:webdev": "webdev build",
     "build:lib": "rollup -c",
     "watch:lib": "rollup -c -w",
-    "build:dart": "dart compile js web/main.dart -O4 -o src/main.dart.js"
+    "build:dart": "dart compile js web/main.dart -O4 -o src/main.dart.cjs"
   },
   "private": true
 }

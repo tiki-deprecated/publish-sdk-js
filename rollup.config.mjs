@@ -13,7 +13,7 @@ export default [
         format: 'esm'
       },
       {
-        dir: 'dist/bundle.js',
+        file: 'dist/bundle.js',
         exports: 'named',
         name: 'TikiSdk',
         format: 'cjs'

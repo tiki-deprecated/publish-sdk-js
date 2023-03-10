@@ -19,7 +19,7 @@
     "typescript": "^4.9.5"
   },
   "name": "tiki-sdk-js",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "repository": "git@github.com:tiki/tiki-sdk-js.git",
   "author": "'Civic Hacker Engineering' <opensource@civichacker.com>",
   "source": "src/index.js",

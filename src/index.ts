@@ -1,4 +1,4 @@
-import {getPlatformStatus, isPlatformReady } from './platform';
+import {isPlatformReady } from './platform';
 class TikiSdk {
     private static ___instance: TikiSdk;
     private ___address: string;
@@ -59,7 +59,7 @@ class TikiSdk {
 }
 
 export function platformReady(): boolean {
-  const c = TikiSdk.getInstance();
+  TikiSdk.getInstance();
   return isPlatformReady();
 }
 
@@ -82,10 +82,10 @@ export async function init(publishing_id:string, origin: string): Promise<boolea
   // Place Private Key in IndexedDB
 
   c.init(publishing_id, origin)
-  return new Promise((resolve, reject) => resolve(true));
+  return new Promise((resolve) => resolve(true));
 }
 
 export function settings(): any {
-  const c = TikiSdk.getInstance();
+  TikiSdk.getInstance();
 
 }

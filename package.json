@@ -23,10 +23,10 @@
   "author": "'Civic Hacker Engineering' <opensource@civichacker.com>",
   "source": "src/index.js",
   "browser": "dist/main.js",
-  "module": "dist/module.js",
   "license": "MIT",
   "scripts": {
     "test:lib": "jest ./test/js --silent",
+    "lint:lib": "eslint src/*.ts",
     "test_and_watch:lib": "jest --watch ./test/js --silent",
     "build:webdev": "webdev build",
     "build:lib": "rollup -c",

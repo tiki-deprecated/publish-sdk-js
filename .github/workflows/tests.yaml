@@ -29,3 +29,6 @@ jobs:
 
       - name: Run JS Library tests
         run: yarn test:lib
+
+      - name: Linting
+        run: yarn lint:lib

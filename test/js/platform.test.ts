@@ -13,27 +13,27 @@ describe("platform capabilities", () => {
 
   beforeAll(() => {
     Object.defineProperty(globalThis, '___TikiSdk__isSecure', {
-    value: () => true,
-    writable: true
-   })
+      value: () => true,
+      writable: true
+    });
     Object.defineProperty(globalThis, '___TikiSdk__sqliteVersion', {
-    value: () => true,
-    writable: true
-   })
+      value: () => true,
+      writable: true
+    });
     Object.defineProperty(globalThis, '___TikiSdk__hasCrypto', {
-    value: () => true,
-    writable: true
-   })
+      value: () => true,
+      writable: true
+    });
     Object.defineProperty(globalThis, '___TikiSdk__SdkInit', {
-    value: () => true,
-    writable: true
-   })
+      value: () => true,
+      writable: true
+    });
     Object.defineProperty(globalThis.crypto, 'subtle', {
-    value: {
-      generateKey: () => Promise.resolve(42),
-      digest: () => Promise.resolve("aaaaaabbbbbbbbccccccc")
-    }
-   })
+      value: {
+        generateKey: () => Promise.resolve(42),
+        digest: () => Promise.resolve("aaaaaabbbbbbbbccccccc")
+      }
+    });
 
   });
 
@@ -54,6 +54,7 @@ describe("platform capabilities", () => {
   });
 
   test("detect existing wallet", () => {
+    TikiSdk.init("11111111111", "com.examplecorp")
     expect(TikiSdk.platformReady()).toBe(true);
   });
 

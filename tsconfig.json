@@ -1,0 +1,14 @@
+{
+  "include": [
+    "./@types"
+  ],
+  "files": ["./src/index.ts"],
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "es2020",
+    "declaration": true,
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "declarationMap": false
+  }
+}

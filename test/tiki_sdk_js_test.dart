@@ -1,4 +1,3 @@
-import 'package:tiki_sdk_js/tiki_sdk_js.dart';
 import 'package:test/test.dart';
 
 void main() {

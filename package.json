@@ -26,11 +26,12 @@
   "module": "dist/module.js",
   "license": "MIT",
   "scripts": {
-    "test": "jest --watch ./test/js --silent",
+    "test:lib": "jest ./test/js --silent",
+    "test_and_watch:lib": "jest --watch ./test/js --silent",
     "build:webdev": "webdev build",
-    "build:npm": "rollup -c",
-    "watch": "rollup -c -w",
-    "build:dart2js": "dart compile js web/main.dart -O4 -o src/main.dart.js"
+    "build:lib": "rollup -c",
+    "watch:lib": "rollup -c -w",
+    "build:dart": "dart compile js web/main.dart -O4 -o src/main.dart.js"
   },
   "private": true
 }

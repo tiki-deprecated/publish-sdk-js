@@ -1,4 +1,4 @@
-import './main.dart.js';
+import './main.dart.cjs';
 
 export function getPlatformStatus(): object {
   return {
@@ -7,7 +7,9 @@ export function getPlatformStatus(): object {
   };
 }
 
-const isDefined: () => boolean = (entry) => !!(entry !== false);
+export function isDefined(entry: any): boolean {
+  return !!(entry !== false);
+}
 
 
 export function isPlatformReady(): boolean {

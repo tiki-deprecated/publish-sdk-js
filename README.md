@@ -6,20 +6,10 @@ A package for adding TIKI's decentralized infrastructure to **JavaScript** proje
 ownership, consent, and rewards to your app in minutes.
 
 
-### [🎬 How to get started ➝](https://docs.mytiki.com/docs/tiki-sdk-flutter-getting-started)
+### [🎬 How to get started ➝](https://docs.mytiki.com/docs/sdk-overview)
 
-- **[API Reference ➝](https://docs.mytiki.com/reference/tiki-sdk-flutter-tiki-sdk-flutter-builder)**
-- **[Dart Docs ➝](https://pub.dev/documentation/tiki_sdk_flutter/latest/)**
+- **[API Reference ➝](https://docs.mytiki.com/reference)**
 
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
-```js
-TikiSdk.init()
-```
 
 ## Development Quickstart
 

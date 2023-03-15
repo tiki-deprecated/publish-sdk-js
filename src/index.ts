@@ -56,6 +56,11 @@ class TikiSdk {
     set origin(o: string) {
       this.___origin = o;
     }
+
+    public async settings() {
+      const message = await globalThis.___TikiSdk__SdkSettings();
+      return message;
+    }
 }
 
 export function platformReady(): boolean {
@@ -86,6 +91,7 @@ export async function init(publishing_id:string, origin: string): Promise<boolea
 }
 
 export function settings(): any {
-  TikiSdk.getInstance();
+  const sdk = TikiSdk.getInstance();
+  return sdk.settings();
 
 }

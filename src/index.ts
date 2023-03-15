@@ -41,9 +41,10 @@ class TikiSdk {
       return hashHex;
 
     }
-    public async withAddress(addy: string): Promise<string> {
+    public async withId(addy: string): Promise<string> {
       const array = new Uint8Array(10);
       await window.crypto.getRandomValues(array);
+      const message = globalThis.___TikiSdk__SdkWithId(addy);
       var address = await globalThis.crypto.subtle.digest("SHA-256", new Uint8Array(array, 0, 5));
 
       const hashArray = Array.from(new Uint8Array(address)); // convert buffer to byte array
@@ -81,9 +82,9 @@ export async function getAddress(): Promise<string> {
   return c.address;
 }
 
-export async function withAddress(addy: string): Promise<string> {
+export async function withId(addy: string): Promise<string> {
   const c = TikiSdk.getInstance();
-  return c.withAddress(addy);
+  return c.withId(addy);
 }
 
 

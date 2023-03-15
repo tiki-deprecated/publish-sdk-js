@@ -27,6 +27,9 @@ external set _hasWallet(bool Function(String) f);
 @JS('___TikiSdk__SdkInit')
 external set _sdkInit(Future<String> Function(String, String) f);
 
+@JS('___TikiSdk__SdkWithId')
+external set _sdkWithId(Future<String> Function(String) f);
+
 void _initializeDatabase(VersionChangeEvent e) {
  print("Initializing DB!");
 }
@@ -34,12 +37,24 @@ void _initializeDatabase(VersionChangeEvent e) {
 Future<String> __sdkInit(String publishingId, String _address) async {
   InMemKeyStorage mem = new InMemKeyStorage();
   //WasmSqlite3 s = await loadSqlite();
-  Future cdb = html.window.indexedDB.open("mydb",
-    version: 1,
-      onUpgradeNeeded: _initializeDatabase);
+  /*
+  if (IdbFactory.supported) {
+    Future cdb = html.window.indexedDB.open("mydb",
+      version: 1,
+        onUpgradeNeeded: _initializeDatabase);
+  } else {
+    return await Promise.resolve("test");
+  }
+  */
   KeyService kservice = new KeyService(mem);
-  return await TikiSdk.withAddress(mem, address: _address);
+  return await TikiSdk.withId(_address, mem);
 }
+
+Future<String> __sdkWithId(String _address) async {
+  InMemKeyStorage mem = new InMemKeyStorage();
+  return await TikiSdk.withId(_address, mem);
+}
+
 
 bool _internalCrypto() {
   return html.Crypto.supported;
@@ -85,6 +100,7 @@ void main() async {
   _sqliteVersion = allowInterop(_internalSqliteVersion);
   _hasWallet = allowInterop(_internalHasWallet);
   _sdkInit = allowInterop(__sdkInit);
+  _sdkWithId = allowInterop(__sdkWithId);
 
 
 }

@@ -41,6 +41,18 @@ class TikiSdk {
       return hashHex;
 
     }
+    public async withAddress(addy: string): Promise<string> {
+      const array = new Uint8Array(10);
+      await window.crypto.getRandomValues(array);
+      var address = await globalThis.crypto.subtle.digest("SHA-256", new Uint8Array(array, 0, 5));
+
+      const hashArray = Array.from(new Uint8Array(address)); // convert buffer to byte array
+      const hashHex = hashArray
+      .map((b) => b.toString(16).padStart(2, "0"))
+      .join(""); // convert bytes to hex string
+      return hashHex;
+
+    }
 
     public async init(publishing_id: string, origin: string) {
       const message = await globalThis.___TikiSdk__SdkInit(publishing_id, origin);
@@ -71,6 +83,11 @@ export function platformReady(): boolean {
 export async function getAddress(): Promise<string> {
   const c = TikiSdk.getInstance();
   return c.address;
+}
+
+export async function withAddress(addy: string): Promise<string> {
+  const c = TikiSdk.getInstance();
+  return c.withAddress(addy);
 }
 
 

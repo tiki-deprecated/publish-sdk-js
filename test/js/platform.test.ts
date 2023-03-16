@@ -4,7 +4,6 @@
 
 
 import * as TikiSdk from "../../src/index";
-//import {jest, expect, describe, test, beforeAll, afterEach} from '@jest/globals';
 import * as fs from 'fs';
 
 

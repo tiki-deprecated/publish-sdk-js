@@ -63,13 +63,13 @@ describe("api conformance", () => {
     expect(globalThis.___TikiSdk__SdkInit).toHaveBeenCalledWith(wallet_address, origin_address);
   });
 
-  test("set wallet address", () => {
+  test("set wallet address", async () => {
     // Arrange
     let wallet_address = "111111111111111111";
     globalThis.___TikiSdk__SdkWithId = jest.fn((a) => {return wallet_address;});
 
     // Act
-    let user_wallet = TikiSdk.withId(wallet_address)
+    let user_wallet = await TikiSdk.withId(wallet_address)
 
     // Assert
     expect(globalThis.___TikiSdk__SdkWithId).toHaveBeenCalledTimes(1);

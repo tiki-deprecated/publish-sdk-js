@@ -42,16 +42,19 @@ class TikiSdk {
 
     }
     public async withId(addy: string): Promise<string> {
+      // Check if wallet address is present in indexedDB
+      // Create if not found
+
       const array = new Uint8Array(10);
       await window.crypto.getRandomValues(array);
-      const message = globalThis.___TikiSdk__SdkWithId(addy);
+      const message = await globalThis.___TikiSdk__SdkWithId(addy);
       var address = await globalThis.crypto.subtle.digest("SHA-256", new Uint8Array(array, 0, 5));
 
-      const hashArray = Array.from(new Uint8Array(address)); // convert buffer to byte array
+      const hashArray = Array.from(message); // convert buffer to byte array
       const hashHex = hashArray
-      .map((b) => b.toString(16).padStart(2, "0"))
+      .map((b) => b.toString().padStart(2, "0"))
       .join(""); // convert bytes to hex string
-      return hashHex;
+      return addy;
 
     }
 

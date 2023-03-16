@@ -21,14 +21,22 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install Dependences
-        uses: actions/setup-node@v3
+      - uses: dart-lang/setup-dart@v1.3
+
+      - uses: actions/setup-node@v3
         with:
           node-version: '16'
           cache: 'yarn'
 
-      - run: yarn install --frozen-lockfile --dev
+      - name: Install Dart dependencies
+        run: dart pub get
 
+      - name: Install JS dependencies
+        run: yarn install --frozen-lockfile --dev
+
+
+      - name: Compile Dart to JS
+        run: yarn build:dart
 
       - name: Run JS Library tests
         run: yarn test:lib

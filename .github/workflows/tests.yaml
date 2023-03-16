@@ -24,7 +24,8 @@ jobs:
         with:
           node-version: '16'
           cache: 'yarn'
-        run: yarn install --frozen-lockfile --dev
+
+      - run: yarn install --frozen-lockfile --dev
 
 
       - name: Run JS Library tests

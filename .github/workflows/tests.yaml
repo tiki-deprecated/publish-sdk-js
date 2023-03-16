@@ -1,0 +1,49 @@
+name: JS library tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: dart-lang/setup-dart@v1.3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+
+      - name: Install Dart dependencies
+        run: dart pub get
+
+      - name: Install JS dependencies
+        run: yarn install --frozen-lockfile --dev
+
+      - name: Download Sqlite3 WASM binary
+        run:  wget -O ./web/sqlite3.wasm https://github.com/simolus3/sqlite3.dart/releases/download/sqlite3-1.9.3/sqlite3.wasm
+
+      - run: ln -s web/sqlite3.wasm sqlite3.wasm
+
+      - name: Compile Dart to JS
+        run: yarn build:dart
+
+      - name: Run JS Library tests
+        run: yarn test:lib
+
+      - name: Linting
+        run: yarn lint:lib

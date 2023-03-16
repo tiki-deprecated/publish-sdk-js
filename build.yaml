@@ -1,0 +1,17 @@
+targets:
+  $default:
+    builders:
+      # Typically the builder key is just the package name, run
+      # `dart run build_runner doctor` to check your config.
+      #
+      build_web_compilers:sdk_js:
+        enabled: true
+      build_web_compilers:entrypoint:
+        options:
+          compiler: dart2js
+          dart2js_args:
+            - -O4
+        generate_for:
+          # Example glob for only the Dart files under `lib/models`
+          - web/main.dart
+          - lib/*.dart

@@ -1,39 +1,59 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+### [🍍 Console](https://console.mytiki.com) &nbsp; ⏐ &nbsp; [📚 Docs](https://docs.mytiki.com)
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+# TIKI SDK [JavaScript] —build the new data economy
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+A package for adding TIKI's decentralized infrastructure to **JavaScript** projects. Add tokenized data
+ownership, consent, and rewards to your app in minutes.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
 
-## Features
+### [🎬 How to get started ➝](https://docs.mytiki.com/docs/sdk-overview)
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- **[API Reference ➝](https://docs.mytiki.com/reference)**
 
-## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+## Development Quickstart
 
-## Usage
+### Install Dependencies
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
 
-```dart
-const like = 'sample';
+Dart:
+
+```
+dart pub get
 ```
 
-## Additional information
+JavaScript:
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+```
+yarn install --dev
+```
+
+### Run Tests
+
+Dart:
+
+```
+dart test
+```
+
+JavaScript:
+
+```
+yarn test
+```
+
+
+### Build Libraries
+
+
+Dart:
+
+```
+yarn build:dart
+```
+
+JavaScript:
+
+```
+yarn build:lib
+```

@@ -5,8 +5,22 @@
 
 import * as TikiSdk from "../../src/index";
 import * as fs from 'fs';
-
-
+import "fake-indexeddb/auto";
+//import { IDBFactory } from "fake-indexeddb";
+import {
+    indexedDB,
+    IDBCursor,
+    IDBCursorWithValue,
+    IDBDatabase,
+    IDBFactory,
+    IDBIndex,
+    IDBKeyRange,
+    IDBObjectStore,
+    IDBOpenDBRequest,
+    IDBRequest,
+    IDBTransaction,
+    IDBVersionChangeEvent,
+} from "fake-indexeddb";
 
 describe("api conformance", () => {
 
@@ -39,6 +53,10 @@ describe("api conformance", () => {
     });
     Object.defineProperty(globalThis, '___TikiSdk__SdkWithId', {
       value: () => (jest.fn(() => {})),
+      writable: true
+    });
+    Object.defineProperty(globalThis, '___TikiSdk__KeyStorageRead', {
+      value: () => (jest.fn((String) => {})),
       writable: true
     });
 
@@ -77,5 +95,19 @@ describe("api conformance", () => {
     expect(user_wallet).toBe(wallet_address);
   });
 
+  test("ensure we can read from keystore", async () => {
+    // Arrange
+    let wallet_address = "111111111111111111";
+
+    globalThis.___TikiSdk__KeyStorageRead = jest.fn((a) => {return wallet_address;});
+
+    // Act
+    let user_wallet = await TikiSdk.withId(wallet_address)
+
+    // Assert
+    expect(globalThis.___TikiSdk__KeyStorageRead).toHaveBeenCalledTimes(1);
+    expect(globalThis.___TikiSdk__KeyStorageRead).toHaveBeenCalledWith(wallet_address);
+    expect(user_wallet).toBe(wallet_address);
+  });
 
 });

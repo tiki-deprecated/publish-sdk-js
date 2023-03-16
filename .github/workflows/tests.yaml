@@ -1,6 +1,12 @@
 name: JS library tests
 
-on: pull_request
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}

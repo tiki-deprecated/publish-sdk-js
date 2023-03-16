@@ -74,7 +74,7 @@ describe("api conformance", () => {
     // Assert
     expect(globalThis.___TikiSdk__SdkWithId).toHaveBeenCalledTimes(1);
     expect(globalThis.___TikiSdk__SdkWithId).toHaveBeenCalledWith(wallet_address);
-    expect(TikiSdk.withId(wallet_address)).toBe(user_wallet);
+    expect(user_wallet).toBe(wallet_address);
   });
 
 

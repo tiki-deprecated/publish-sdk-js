@@ -10,3 +10,12 @@ node_modules/
 *.swp
 build/
 .parcel-cache/
+
+# IDEA
+.idea
+
+# Fuckin' MACs
+.DS_Store
+
+# Example Debugging
+example/dist

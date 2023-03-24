@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
+.centered {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.btns {
+  width: 25%;
+  margin: auto;
+}
+
+.btn {
+  width: 100%;
+  height: 50px;
+  margin: 25px auto;
+  display: block;
+}

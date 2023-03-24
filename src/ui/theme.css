@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --tiki-font-family: "Space Grotesk", sans-serif;
+  --tiki-primary-text-color: rgb(28 0 0);
+  --tiki-secondary-text-color: rgb(28 0 0 / 60%);
+  --tiki-primary-background-color: rgb(255 255 255);
+  --tiki-secondary-background-color: rgb(246 246 246);
+  --tiki-accent-color: rgb(0 178 114);
+}

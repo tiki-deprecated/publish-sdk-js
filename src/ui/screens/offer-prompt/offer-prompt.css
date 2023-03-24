@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
+.offer-prompt {
+  height: 300px;
+  width: 300px;
+  background-color: var(--tiki-primary-background-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--tiki-font-family);
+}

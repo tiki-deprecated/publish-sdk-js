@@ -1,3 +1,2 @@
 import "./overlay.css";
-export { display };
-declare function display(show: boolean, onDismiss?: Function): void;
+export default function display(show: boolean, onDismiss?: Function): void;

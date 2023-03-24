@@ -4,7 +4,7 @@
  */
 
 import "./used-for.css";
-import * as UsedForIcon from "./used-for-html";
+import * as Html from "./used-for-html";
 
 export default function (bullets: Map<string, boolean>): HTMLDivElement {
   const usedFor: HTMLDivElement = document.createElement("div");
@@ -21,8 +21,8 @@ export default function (bullets: Map<string, boolean>): HTMLDivElement {
     const element: HTMLLIElement = document.createElement("li");
     element.className = "tiki-used-for-list-item";
     const icon: HTMLTemplateElement = document.createElement("template");
-    if (value) icon.innerHTML = UsedForIcon.yes();
-    else icon.innerHTML = UsedForIcon.no();
+    if (value) icon.innerHTML = Html.yes();
+    else icon.innerHTML = Html.no();
     element.appendChild(icon.content);
     const text: HTMLSpanElement = document.createElement("span");
     text.innerHTML = key;

@@ -1,2 +1,4 @@
 import "./ui/theme.css";
-export declare function present(): void;
+declare function present(): void;
+declare function ending(): void;
+export { present, ending };

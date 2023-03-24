@@ -4,11 +4,11 @@
  */
 
 import "./learn-more-btn.css";
-import html from "./learn-more-btn-html";
+import Html from "./learn-more-btn-html";
 
 export default function (onClick: Function): HTMLButtonElement {
   const button: HTMLButtonElement = document.createElement("button");
-  button.innerHTML = html();
+  button.innerHTML = Html();
   button.onclick = () => onClick();
   button.className = "tiki-learn-more-button";
   return button;

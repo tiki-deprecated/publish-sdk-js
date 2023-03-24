@@ -5,7 +5,16 @@
 
 import "./ui/theme.css";
 import OfferPrompt from "./ui/screens/offer-prompt/offer-prompt";
+import EndingDeclined from "./ui/screens/ending/ending-declined";
 
-export function present() {
+function present() {
   OfferPrompt();
 }
+
+function ending() {
+  EndingDeclined(() => {
+    console.log("settings");
+  });
+}
+
+export { present, ending };

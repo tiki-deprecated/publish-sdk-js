@@ -1,2 +1,2 @@
-import "./trade-your-data.css";
+import "./your-choice.css";
 export default function (): HTMLSpanElement;

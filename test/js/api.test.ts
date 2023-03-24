@@ -81,7 +81,7 @@ describe("api conformance", () => {
     expect(globalThis.___TikiSdk__SdkInit).toHaveBeenCalledWith(wallet_address, origin_address);
   });
 
-  test("set wallet address", async () => {
+  test("set address", async () => {
     // Arrange
     let wallet_address = "111111111111111111";
     globalThis.___TikiSdk__SdkWithId = jest.fn((a) => {return wallet_address;});

@@ -12,19 +12,36 @@ class TikiSdk {
         return TikiSdk.___instance;
     }
 
-    public generateKeypair() {
-      globalThis.crypto.subtle.generateKey({
-        name: "RSA-OAEP",
-        modulusLength: 4096,
+    private async exportCryptoKey(key) {
+      const exported = await window.crypto.subtle.exportKey("pkcs8", key);
+      const exportedKeyBuffer = new Uint8Array(exported);
+
+      console.log(exportedKeyBuffer)
+      const message = await window.___TikiSdk__KeyStorageWrite("mykeykey", exportedKeyBuffer);
+      //const exportKeyOutput = document.querySelector(".exported-key");
+      //exportKeyOutput.textContent = `[${exportedKeyBuffer}]`;
+
+    }
+
+    public async generateKeypair() {
+      window.crypto.subtle.generateKey({
+        name: "RSA-PSS",
+        modulusLength: 2048,
         publicExponent: new Uint8Array([1, 0, 1]),
         hash: "SHA-256",
       },
-        false,
-        ["encrypt", "decrypt"]
+        true,
+        ["sign", "verify"]
       ).then((keypair) => {
         console.log("generated key");
         console.log("doing digest");
         console.log(keypair.publicKey);
+
+        //const exported = await window.crypto.subtle.exportKey("pkcs8", keypair.privateKey);
+        this.exportCryptoKey(keypair.privateKey);
+
+        //const exportedKeyBuffer = new Uint8Array(exported);
+        //console.log(exported)
       });
 
     }
@@ -88,7 +105,7 @@ export async function init(publishing_id:string, origin: string): Promise<boolea
   c.origin = origin;
   // Initialize SDK
   console.log("initializing...")
-  c.generateKeypair()
+  await c.generateKeypair()
   const hashHex = c.generateAddress()
   console.log(`wallet address: ${hashHex}`);
 

@@ -4,7 +4,6 @@
  */
 
 #tiki-offer-prompt {
-  height: 67vh;
   width: 100vw;
   background-color: var(--tiki-secondary-background-color);
   position: fixed;
@@ -32,6 +31,7 @@
   justify-content: space-between;
   box-sizing: border-box;
   height: fit-content;
+  margin-bottom: 2em;
 }
 
 .tiki-offer-prompt-cta {
@@ -41,6 +41,7 @@
   align-items: center;
   box-sizing: border-box;
   height: fit-content;
+  margin-top: 2em;
 }
 
 .tiki-back-off-btn {
@@ -48,6 +49,7 @@
 }
 
 .tiki-used-for {
+  margin-top: 1.5em;
   padding-left: 0.9375em;
 }
 

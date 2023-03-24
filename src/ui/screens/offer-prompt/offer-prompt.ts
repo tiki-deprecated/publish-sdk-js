@@ -9,6 +9,7 @@ import tradeYourData from "../../elements/trade-your-data/trade-your-data";
 import learnMoreBtn from "../../elements/learn-more-btn/learn-more-btn";
 import textBtn from "../../elements/text-btn/text-btn";
 import usedFor from "../../elements/used-for/used-for";
+import OfferCard from "../../elements/offer-card/offer-card";
 
 const id = "tiki-offer-prompt";
 
@@ -25,6 +26,7 @@ export default function () {
   heading.appendChild(learnMoreBtn(() => console.log("Learn More")));
   body.appendChild(heading);
 
+  const offer = document.createElement("div");
   const used = usedFor(
     new Map([
       ["Learn how our ads perform", true],
@@ -33,7 +35,14 @@ export default function () {
     ])
   );
   used.className = "tiki-used-for";
-  body.appendChild(used);
+  offer.appendChild(
+    OfferCard(
+      "https://static.vecteezy.com/system/resources/previews/011/765/527/original/smiley-face-seamless-pattern-design-cute-colorful-retro-doodle-emoji-smile-background-free-vector.jpg",
+      "Trade your IDFA (kind of like a serial # for your phone) for a discount."
+    )
+  );
+  offer.appendChild(used);
+  body.appendChild(offer);
 
   const cta = document.createElement("div");
   cta.className = "tiki-offer-prompt-cta";

@@ -6,5 +6,5 @@
 import template from "./learn-more-btn.html";
 
 export default function () {
-  return template;
+  return template.replace(/<!--[\s\S]*?-->/g, "");
 }

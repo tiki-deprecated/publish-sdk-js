@@ -6,9 +6,9 @@
 import "./learn-more-btn.css";
 import html from "./learn-more-btn-html";
 
-export default function (onClick: Function): Node {
+export default function (onClick: Function): HTMLButtonElement {
   const button: HTMLButtonElement = document.createElement("button");
-  button.innerHTML = html().replace(/<!--[\s\S]*?-->/g, "");
+  button.innerHTML = html();
   button.onclick = () => onClick();
   button.className = "tiki-learn-more-button";
   return button;

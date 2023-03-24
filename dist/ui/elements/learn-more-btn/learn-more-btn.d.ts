@@ -1,2 +1,2 @@
 import "./learn-more-btn.css";
-export default function (onClick: Function): Node;
+export default function (onClick: Function): HTMLButtonElement;

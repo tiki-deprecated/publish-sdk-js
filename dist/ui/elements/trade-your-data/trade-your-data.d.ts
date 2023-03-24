@@ -1,1 +1,1 @@
-export default function (): Node;
+export default function (): HTMLSpanElement;

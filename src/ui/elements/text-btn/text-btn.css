@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
+.tiki-text-btn {
+  width: 100%;
+  height: 2.75em;
+  border-radius: 0.625em;
+  border: solid 1px var(--tiki-accent-color);
+  cursor: pointer;
+  font-weight: 500;
+  font-size: var(--tiki-font-size-xl);
+  line-height: var(--tiki-line-height-xl);
+}
+
+.tiki-text-btn-solid {
+  background-color: var(--tiki-accent-color);
+  color: var(--tiki-primary-background-color);
+}
+
+.tiki-text-btn-outline {
+  background-color: var(--tiki-primary-background-color);
+  color: var(--tiki-primary-text-color);
+}

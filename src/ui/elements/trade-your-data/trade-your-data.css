@@ -3,7 +3,7 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-.trade-your-data {
+.tiki-trade-your-data {
   color: var(--tiki-primary-text-color);
   font-family: var(--tiki-font-family);
   font-size: var(--tiki-font-size-xl);
@@ -11,6 +11,6 @@
   font-weight: 700;
 }
 
-.trade-your-data-accent {
+.tiki-trade-your-data-accent {
   color: var(--tiki-accent-color);
 }

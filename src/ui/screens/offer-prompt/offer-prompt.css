@@ -19,6 +19,10 @@
   width: 100%;
   padding: 2em 0.9375em;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .tiki-offer-prompt-heading {
@@ -27,6 +31,24 @@
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
+  height: fit-content;
+}
+
+.tiki-offer-prompt-cta {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  height: fit-content;
+}
+
+.tiki-back-off-btn {
+  margin-right: 1.5em;
+}
+
+.tiki-used-for {
+  padding-left: 0.9375em;
 }
 
 @media (min-width: 1024px) {

@@ -1,4 +1,6 @@
 import {isPlatformReady } from './platform';
+
+
 class TikiSdk {
     private static ___instance: TikiSdk;
     private ___address: string;

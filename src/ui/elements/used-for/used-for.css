@@ -32,6 +32,7 @@
   font-size: var(--tiki-font-size-lg);
   line-height: var(--tiki-line-height-lg);
   margin-top: 0.888em;
+  margin-bottom: 0;
 }
 
 .tiki-used-for-list-item {

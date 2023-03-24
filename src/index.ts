@@ -59,16 +59,25 @@ class TikiSdk {
 
     }
     public async withId(addy: string): Promise<string> {
-      // Check if wallet address is present in indexedDB
+      // Check if address is present in indexedDB
       // Create if not found
-
       await globalThis.___TikiSdk__SdkWithId(addy);
-      return addy;
+      var message = await window.___TikiSdk__KeyStorageRead(addy);
+      return message;
 
     }
 
     public async init(publishing_id: string, origin: string) {
-      const message = await globalThis.___TikiSdk__SdkInit(publishing_id, origin);
+      await globalThis.___TikiSdk__SdkInit(publishing_id, origin);
+    }
+
+    async KeyStorageRead(id: string): Promise<string> {
+      const message = await globalThis.___TikiSdk__KeyStorageRead(id);
+      return message;
+    }
+
+    async KeyStorageWrite(id: string, value: string): Promise<string> {
+      const message = await globalThis.___TikiSdk__KeyStorageWrite(id, value);
       return message;
     }
 

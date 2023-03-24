@@ -1,6 +1,7 @@
 {
   "include": [
-    "./@types"
+    "./node_modules/fake-indexeddb",
+    "./@types",
   ],
   "files": ["./src/index.ts"],
   "compilerOptions": {

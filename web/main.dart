@@ -2,8 +2,11 @@
 import 'dart:html' as html;
 import 'dart:indexed_db';
 import 'package:js/js.dart';
+import 'package:js/js_util.dart';
+//import 'dart:js_interop';
 import 'dart:typed_data';
 
+//import 'dart:js_util';
 
 import 'package:http/http.dart' as http;
 import 'package:sqlite3/wasm.dart';

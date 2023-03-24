@@ -6,6 +6,9 @@ declare global {
     ___TikiSdk__sqliteVersion: boolean | string
     ___TikiSdk__SdkInit: (string, string) => boolean | string
     ___TikiSdk__SdkWithId: (string) => boolean | string
+    ___TikiSdk__KeyStorageRead: (string) => string
+    ___TikiSdk__KeyStorageWrite: (string, string) => void
+    ___TikiSdk__plusOne: (int) => int
     ___TikiSdk__isSecure: boolean
   }
 }

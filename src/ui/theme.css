@@ -12,4 +12,12 @@
   --tiki-primary-background-color: rgb(255 255 255);
   --tiki-secondary-background-color: rgb(246 246 246);
   --tiki-accent-color: rgb(0 178 114);
+  --tiki-font-size-sm: 0.875rem;
+  --tiki-line-height-sm: 1.25rem;
+  --tiki-font-size: 1rem;
+  --tiki-line-height: 1.5rem;
+  --tiki-font-size-lg: 1.125rem;
+  --tiki-line-height-lg: 1.75rem;
+  --tiki-font-size-xl: 1.25rem;
+  --tiki-line-height-xl: 1.75rem;
 }

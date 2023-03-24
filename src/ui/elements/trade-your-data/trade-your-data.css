@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
+.trade-your-data {
+  color: var(--tiki-primary-text-color);
+  font-family: var(--tiki-font-family);
+  font-size: var(--tiki-font-size-xl);
+  line-height: var(--tiki-line-height-xl);
+  font-weight: 700;
+}
+
+.trade-your-data-accent {
+  color: var(--tiki-accent-color);
+}

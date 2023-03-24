@@ -4,15 +4,31 @@
  */
 
 import "./offer-prompt.css";
-import html from "./offer-prompt-html";
 import * as Overlay from "../overlay/overlay";
+import tradeYourData from "../../elements/trade-your-data/trade-your-data";
+import learnMoreBtn from "../../elements/learn-more-btn/learn-more-btn";
 
 const id = "tiki-offer-prompt";
 
 export default function () {
   const prompt = document.createElement("div");
   prompt.id = id;
-  prompt.innerHTML = html();
+
+  const body = document.createElement("div");
+  body.className = "tiki-offer-prompt-body";
+
+  const heading = document.createElement("div");
+  heading.className = "tiki-offer-prompt-heading";
+  heading.appendChild(tradeYourData());
+  heading.appendChild(
+    learnMoreBtn(() => {
+      console.log("you clicked me!");
+    })
+  );
+
+  body.appendChild(heading);
+  prompt.appendChild(body);
+
   Overlay.display(true, () => {
     document.body.removeChild(prompt);
   });

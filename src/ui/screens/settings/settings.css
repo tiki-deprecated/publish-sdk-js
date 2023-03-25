@@ -1,0 +1,112 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
+#tiki-settings {
+  background-color: var(--tiki-secondary-background-color);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+}
+
+.tiki-settings-body {
+  width: 100%;
+  padding: 2em 1em;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.tiki-settings-heading {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.375em;
+}
+
+.tiki-settings-heading-left {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.tiki-settings-card {
+  margin: 1.5em 0;
+}
+
+.tiki-settings-used {
+  padding: 0 1em;
+}
+
+.tiki-settings-terms-title {
+  padding: 0 1em;
+  font-family: var(--tiki-font-family);
+  color: var(--tiki-primary-text-color);
+  line-height: var(--tiki-line-height);
+  font-size: var(--tiki-font-size);
+  font-weight: 700;
+  margin-top: 1.875em;
+  margin-bottom: 0.7em;
+  display: block;
+}
+
+.tiki-settings-content {
+  overflow: scroll;
+  margin-bottom: 1.875em;
+}
+
+.tiki-settings-content::after {
+  content: "";
+  background: var(--tiki-accent-color);
+  position: absolute;
+  bottom: 8em;
+  left: 1.8em;
+  right: 1.8em;
+  height: 1px;
+}
+
+.tiki-settings-terms-legal {
+  margin: 0.77em 1em 0;
+  padding: 0.5em;
+  background-color: var(--tiki-primary-background-color);
+  color: var(--tiki-primary-text-color);
+  font-family: var(--tiki-font-family);
+  font-size: var(--tiki-font-size-sm);
+  line-height: var(--tiki-line-height-sm);
+}
+
+.tiki-settings-terms-legal,
+h1 {
+  font-size: var(--tiki-font-size-lg);
+  line-height: var(--tiki-line-height-lg);
+}
+
+.tiki-settings-terms-legal,
+h2 {
+  font-size: var(--tiki-font-size);
+  line-height: var(--tiki-line-height);
+}
+
+.tiki-settings-terms-legal,
+h3 {
+  font-size: var(--tiki-font-size);
+  line-height: var(--tiki-line-height);
+}
+
+.tiki-settings-terms-legal,
+h4 {
+  font-size: var(--tiki-font-size-sm);
+  line-height: var(--tiki-line-height-sm);
+}
+
+.tiki-settings-terms-btn {
+  flex-shrink: 0;
+}

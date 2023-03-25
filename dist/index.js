@@ -236,7 +236,7 @@
       document.body.appendChild(prompt);
   }
 
-  var css_248z$1 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n#tiki-learn-more {\n  background-color: var(--tiki-primary-background-color);\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 100vw;\n  height: 100vh;\n}\n\n.tiki-learn-more-body {\n  width: 100%;\n  padding: 2em 1em 0;\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  height: 100%;\n}\n\n.tiki-learn-more-content {\n  width: 100%;\n  height: 100%;\n  padding: 1em 1em 0;\n  box-sizing: border-box;\n  overflow: hidden;\n}\n\n.tiki-learn-more-markdown {\n  width: 100%;\n  height: 100%;\n  box-sizing: border-box;\n  overflow: scroll;\n  font-family: var(--tiki-font-family);\n  color: var(--tiki-primary-text-color);\n}\n";
+  var css_248z$1 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n#tiki-settings {\n  background-color: var(--tiki-secondary-background-color);\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 100vw;\n  height: 100vh;\n}\n\n.tiki-settings-body {\n  width: 100%;\n  padding: 2em 1em;\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  height: 100%;\n}\n\n.tiki-settings-heading {\n  display: flex;\n  width: 100%;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 0.375em;\n}\n\n.tiki-settings-heading-left {\n  display: flex;\n  width: -moz-fit-content;\n  width: fit-content;\n  align-items: center;\n  justify-content: flex-start;\n}\n\n.tiki-settings-card {\n  margin: 1.5em 0;\n}\n\n.tiki-settings-used {\n  padding: 0 1em;\n}\n\n.tiki-settings-terms-title {\n  padding: 0 1em;\n  font-family: var(--tiki-font-family);\n  color: var(--tiki-primary-text-color);\n  line-height: var(--tiki-line-height);\n  font-size: var(--tiki-font-size);\n  font-weight: 700;\n  margin-top: 1.875em;\n  margin-bottom: 0.7em;\n  display: block;\n}\n\n.tiki-settings-content {\n  overflow: scroll;\n  margin-bottom: 1.875em;\n}\n\n.tiki-settings-content::after {\n  content: \"\";\n  background: var(--tiki-accent-color);\n  position: absolute;\n  bottom: 8em;\n  left: 1.8em;\n  right: 1.8em;\n  height: 1px;\n}\n\n.tiki-settings-terms-legal {\n  margin: 0.77em 1em 0;\n  padding: 0.5em;\n  background-color: var(--tiki-primary-background-color);\n  color: var(--tiki-primary-text-color);\n  font-family: var(--tiki-font-family);\n  font-size: var(--tiki-font-size-sm);\n  line-height: var(--tiki-line-height-sm);\n}\n\n.tiki-settings-terms-legal,\nh1 {\n  font-size: var(--tiki-font-size-lg);\n  line-height: var(--tiki-line-height-lg);\n}\n\n.tiki-settings-terms-legal,\nh2 {\n  font-size: var(--tiki-font-size);\n  line-height: var(--tiki-line-height);\n}\n\n.tiki-settings-terms-legal,\nh3 {\n  font-size: var(--tiki-font-size);\n  line-height: var(--tiki-line-height);\n}\n\n.tiki-settings-terms-legal,\nh4 {\n  font-size: var(--tiki-font-size-sm);\n  line-height: var(--tiki-line-height-sm);\n}\n\n.tiki-settings-terms-btn {\n  flex-shrink: 0;\n}\n";
   styleInject(css_248z$1);
 
   var css_248z = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-back-btn {\n  display: flex;\n  align-items: center;\n  width: -moz-fit-content;\n  width: fit-content;\n}\n\n.tiki-back-btn-btn {\n  margin-right: 1.25em;\n  height: 1.1rem;\n  width: auto;\n  background-color: transparent;\n  border: none;\n  cursor: pointer;\n  padding: 1px;\n}\n\n.tiki-back-btn-title {\n  color: var(--tiki-primary-text-color);\n  font-size: var(--tiki-font-size-lg);\n  line-height: var(--tiki-line-height-lg);\n  font-weight: 700;\n  font-family: var(--tiki-font-family);\n}\n\n.tiki-back-btn-icon {\n  fill: var(--tiki-primary-text-color);\n  height: 100%;\n  width: auto;\n}\n";
@@ -271,32 +271,156 @@
       return container;
   }
 
-  var markdownHtml = {"html":"<h1 id=\"learn-more\">learn more</h1>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna<br />\naliqua. Posuere lorem ipsum dolor sit amet consectetur. Sit amet massa vitae tortor condimentum lacinia quis vel. Dictum<br />\nnon consectetur a erat. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod. Lobortis scelerisque fermentum<br />\ndui faucibus in. Amet nulla facilisi morbi tempus. Euismod quis viverra nibh cras pulvinar mattis nunc sed blandit.<br />\nAdipiscing at in tellus integer feugiat scelerisque. Eget egestas purus viverra accumsan in. Consequat ac felis donec et<br />\nodio pellentesque. Egestas dui id ornare arcu odio ut sem. Malesuada fames ac turpis egestas sed tempus urna.</p>\n<p>Nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi. Tortor at auctor urna nunc id. Id volutpat lacus<br />\nlaoreet non curabitur. Morbi tristique senectus et netus et malesuada fames ac turpis. Mi bibendum neque egestas congue<br />\nquisque egestas diam in arcu. Eu tincidunt tortor aliquam nulla. Tincidunt ornare massa eget egestas purus viverra<br />\naccumsan. Bibendum ut tristique et egestas quis. Est ullamcorper eget nulla facilisi etiam dignissim diam. Vivamus at<br />\naugue eget arcu dictum. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. In massa<br />\ntempor nec feugiat nisl. Bibendum ut tristique et egestas quis ipsum suspendisse. Metus aliquam eleifend mi in nulla<br />\nposuere. Donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum. Nulla malesuada pellentesque elit eget<br />\ngravida. Mollis nunc sed id semper.</p>\n<p>Amet venenatis urna cursus eget nunc scelerisque. Amet justo donec enim diam vulputate ut pharetra sit. Diam vel quam<br />\nelementum pulvinar etiam. Cursus turpis massa tincidunt dui ut ornare lectus sit amet. Amet est placerat in egestas.<br />\nMassa vitae tortor condimentum lacinia quis. Vitae justo eget magna fermentum iaculis eu non diam phasellus. Urna neque<br />\nviverra justo nec ultrices dui sapien. Vitae proin sagittis nisl rhoncus mattis. Tempus urna et pharetra pharetra massa<br />\nmassa.</p>\n<p>Odio pellentesque diam volutpat commodo sed egestas. Ac tincidunt vitae semper quis lectus nulla at volutpat diam.<br />\nAdipiscing bibendum est ultricies integer quis auctor. Sed sed risus pretium quam vulputate dignissim suspendisse in<br />\nest. Dolor sed viverra ipsum nunc aliquet bibendum enim. Dapibus ultrices in iaculis nunc. Pellentesque massa placerat<br />\nduis ultricies lacus sed turpis tincidunt. Sodales ut eu sem integer vitae justo eget. Sed elementum tempus egestas sed<br />\nsed risus pretium. Enim lobortis scelerisque fermentum dui faucibus. Et odio pellentesque diam volutpat commodo sed.<br />\nCondimentum lacinia quis vel eros donec ac odio tempor orci. Congue quisque egestas diam in arcu cursus euismod. Arcu<br />\ndictum varius duis at consectetur lorem. Hac habitasse platea dictumst quisque sagittis. Tristique senectus et netus et<br />\nmalesuada. Ullamcorper eget nulla facilisi etiam dignissim diam. Volutpat odio facilisis mauris sit amet massa.</p>\n<p>Id leo in vitae turpis massa sed. Odio facilisis mauris sit amet massa vitae tortor condimentum lacinia. Sed faucibus<br />\nturpis in eu. Diam quam nulla porttitor massa id neque aliquam vestibulum. Nisl pretium fusce id velit. Sit amet<br />\nfacilisis magna etiam tempor orci eu lobortis. In eu mi bibendum neque egestas congue quisque egestas. Sem nulla<br />\npharetra diam sit amet. Elementum tempus egestas sed sed risus. Diam maecenas sed enim ut sem viverra aliquet. Tellus<br />\npellentesque eu tincidunt tortor. Ipsum consequat nisl vel pretium lectus quam id leo in.</p>","metadata":{},"filename":"learn-more.md","path":"/Users/maudi/Development/Repositories/TIKI/tiki-sdk-js/src/ui/screens/learn-more/learn-more.md"};
+  /*
+   * Copyright (c) TIKI Inc.
+   * MIT license. See LICENSE file in root directory.
+   */
+  //adapted from: https://github.com/Holixus/nano-markdown
+  const escapes = "\\[!]#{()}*+-._";
+  const esc_ofs = 16;
+  function lex(a) {
+      return a
+          .replace(/\\([(){}[\]#*+\-.!_\\])/g, function (m, ch) {
+          return String.fromCharCode(1, escapes.indexOf(ch) + esc_ofs);
+      })
+          .replace(/(\*\*|__|~~)(.*?)\1/g, function (m, delim, text) {
+          return delim === "~~" ? "<del>" + text + "</del>" : "<b>" + text + "</b>";
+      })
+          .replace(/(\n|^|\W)([_*])(.*?)\2(\W|$|\n)/g, function (m, l, di, ital, r) {
+          return l + "<i>" + ital + "</i>" + r;
+      })
+          .replace(/(!?)\[([^\]<>]+)]\((\+?)([^ )<>]+)(?: "([^()"]+)")?\)/g, function (match, is_img, text, new_tab, ref, title) {
+          var attrs = title ? ' title="' + title + '"' : "";
+          if (is_img)
+              return ('<img src="' + href(ref) + '" alt="' + text + '"' + attrs + "/>");
+          if (new_tab)
+              attrs += ' target="_blank" rel="noopener"';
+          return '<a href="' + href(ref) + '"' + attrs + ">" + text + "</a>";
+      });
+  }
+  function unesc(a) {
+      // eslint-disable-next-line no-control-regex
+      return a.replace(/\x01([\x0f-\x1c])/g, function (m, c) {
+          return escapes.charAt(c.charCodeAt(0) - esc_ofs);
+      });
+  }
+  function href(ref) {
+      return ref;
+  }
+  // eslint-disable-next-line no-unused-vars
+  function headAttrs(level, text) {
+      return ""; // return ' id=\''+text.replace(/[^a-z0-9]/g, '_').replace(/_{2,}/g, '_').replace(/^_*(.*?)_*$/, '$1').toLowerCase()+'\'';
+  }
+  function NanoMd (md) {
+      return md.replace(/.+(?:\n.+)*/g, function (m) {
+          var code = /^\s{4}([^]*)$/.exec(m);
+          if (code)
+              return "<pre><code>" + code[1].replace(/\n {4}/g, "\n") + "</code></pre>";
+          var ps = [], cur, rows = lex(m).split("\n");
+          for (var i = 0, l = rows.length; i < l; ++i) {
+              var row = rows[i], head = /^\s{0,3}(#{1,6})\s+(.*?)\s*#*\s*$/.exec(row);
+              if (head) {
+                  // heading
+                  ps.push((cur = [head[2], "h", head[1].length])); // cur = [ text, type, level ]
+                  continue;
+              }
+              var list = /^(\s*)(?:[-*]|(\d[.)])) (.+)$/.exec(row);
+              if (list)
+                  ps.push((cur = [list[3], list[2] ? "ol" : "ul", list[1].length]));
+              // cur = [ text, type, level ]
+              else if (/^\s{0,3}([-])(\s*\1){2,}\s*$/.test(row))
+                  ps.push((cur = ["", "hr"]));
+              else if (cur && cur[1] !== "hr" && cur[1] !== "h")
+                  cur[0] += "\n" + row;
+              else
+                  ps.push((cur = [row, "p", ""]));
+          }
+          var out = "", lists = [];
+          for (i = 0, l = ps.length; i < l; ++i) {
+              cur = ps[i];
+              var text = cur[0], tag = cur[1], lvl = cur[2];
+              if (tag === "ul" || tag === "ol") {
+                  if (!lists.length || lvl > lists[0][1]) {
+                      lists.unshift([tag, lvl]);
+                      out += "<" + lists[0][0] + "><li>" + text;
+                  }
+                  else if (lists.length > 1 && lvl <= lists[1][1]) {
+                      out += "</li></" + lists.shift()[0] + ">";
+                      --i;
+                  }
+                  else
+                      out += "</li><li>" + text;
+              }
+              else {
+                  while (lists.length)
+                      out += "</li></" + lists.shift()[0] + ">";
+                  out +=
+                      tag === "hr"
+                          ? "<hr/>"
+                          : "<" +
+                              tag +
+                              lvl +
+                              headAttrs() +
+                              ">" +
+                              text +
+                              "</" +
+                              tag +
+                              lvl +
+                              ">";
+              }
+          }
+          while (lists.length)
+              out += "</li></" + lists.shift()[0] + ">";
+          return unesc(out);
+      });
+  }
 
   /*
    * Copyright (c) TIKI Inc.
    * MIT license. See LICENSE file in root directory.
    */
-  const id = "tiki-learn-more";
-  function LearnMore () {
+  const id = "tiki-settings";
+  function Settings (terms, isHtml = false) {
       const page = document.createElement("div");
       page.id = id;
       const body = document.createElement("div");
-      body.className = "tiki-learn-more-body";
-      const back = BackBtn("Learn More", () => {
-          const element = document.getElementById(id);
-          if (element !== null) {
-              document.body.removeChild(element);
-          }
-      });
-      body.appendChild(back);
+      body.className = "tiki-settings-body";
+      const heading = document.createElement("div");
+      heading.className = "tiki-settings-heading";
+      const headingLeft = document.createElement("div");
+      headingLeft.className = "tiki-settings-heading-left";
+      headingLeft.appendChild(BackBtn("", () => { }));
+      headingLeft.appendChild(TradeYourData());
+      heading.appendChild(headingLeft);
+      heading.appendChild(LearnMoreBtn(() => { }));
+      body.appendChild(heading);
       const content = document.createElement("div");
-      content.className = "tiki-learn-more-content";
-      const markdown = document.createElement("div");
-      markdown.className = "tiki-learn-more-markdown";
-      markdown.innerHTML = markdownHtml.html;
-      content.appendChild(markdown);
+      content.className = "tiki-settings-content";
+      const card = OfferCard("https://static.vecteezy.com/system/resources/previews/011/765/527/original/smiley-face-seamless-pattern-design-cute-colorful-retro-doodle-emoji-smile-background-free-vector.jpg", "Trade your IDFA (kind of like a serial # for your phone) for a discount.");
+      card.className = card.className + " tiki-settings-card";
+      content.appendChild(card);
+      const used = UsedFor(new Map([
+          ["Learn how our ads perform", true],
+          ["Reach you on other platforms", false],
+          ["Sold to other companies", false],
+      ]));
+      used.className = used.className + " tiki-settings-used";
+      content.appendChild(used);
+      const legalTitle = document.createElement("span");
+      legalTitle.className = "tiki-settings-terms-title";
+      legalTitle.innerHTML = "TERMS & CONDITIONS";
+      content.appendChild(legalTitle);
+      const legalTerms = document.createElement("div");
+      legalTerms.className = "tiki-settings-terms-legal";
+      if (isHtml)
+          legalTerms.innerHTML = terms;
+      else
+          legalTerms.innerHTML = NanoMd(terms);
+      content.appendChild(legalTerms);
       body.appendChild(content);
+      const btn = TextBtn("Opt out", () => { });
+      btn.className = btn.className + " tiki-settings-terms-btn";
+      body.appendChild(btn);
       page.appendChild(body);
       document.body.appendChild(page);
   }
@@ -309,7 +433,23 @@
       OfferPrompt();
   }
   function terms() {
-      LearnMore();
+      Settings("# learn more\n" +
+          "\n" +
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna\n" +
+          "aliqua. Posuere lorem ipsum dolor sit amet consectetur. Sit amet massa vitae tortor condimentum lacinia quis vel. Dictum\n" +
+          "non consectetur a erat. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod. Lobortis scelerisque fermentum\n" +
+          "dui faucibus in. Amet nulla facilisi morbi tempus. Euismod quis viverra nibh cras pulvinar mattis nunc sed blandit.\n" +
+          "Adipiscing at in tellus integer feugiat scelerisque. Eget egestas purus viverra accumsan in. Consequat ac felis donec et\n" +
+          "odio pellentesque. Egestas dui id ornare arcu odio ut sem. Malesuada fames ac turpis egestas sed tempus urna.\n" +
+          "\n" +
+          "Nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi. Tortor at auctor urna nunc id. Id volutpat lacus\n" +
+          "laoreet non curabitur. Morbi tristique senectus et netus et malesuada fames ac turpis. Mi bibendum neque egestas congue\n" +
+          "quisque egestas diam in arcu. Eu tincidunt tortor aliquam nulla. Tincidunt ornare massa eget egestas purus viverra\n" +
+          "accumsan. Bibendum ut tristique et egestas quis. Est ullamcorper eget nulla facilisi etiam dignissim diam. Vivamus at\n" +
+          "augue eget arcu dictum. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. In massa\n" +
+          "tempor nec feugiat nisl. Bibendum ut tristique et egestas quis ipsum suspendisse. Metus aliquam eleifend mi in nulla\n" +
+          "posuere. Donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum. Nulla malesuada pellentesque elit eget\n" +
+          "gravida. Mollis nunc sed id semper.");
   }
 
   exports.present = present;

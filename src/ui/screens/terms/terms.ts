@@ -29,9 +29,11 @@ export default function (terms: string, html?: string) {
   content.className = "tiki-terms-content";
   const legal: HTMLDivElement = document.createElement("div");
   legal.className = "tiki-terms-legal";
-
-  if (html !== undefined) legal.innerHTML = terms;
-  else legal.innerHTML = NanoMd(terms);
+  const legalMd: HTMLDivElement = document.createElement("div");
+  legalMd.className = "tiki-terms-legal-md";
+  if (html !== undefined) legalMd.innerHTML = terms;
+  else legalMd.innerHTML = NanoMd(terms);
+  legal.appendChild(legalMd);
   content.appendChild(legal);
   body.appendChild(content);
 

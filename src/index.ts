@@ -5,16 +5,14 @@
 
 import "./ui/theme.css";
 import OfferPrompt from "./ui/screens/offer-prompt/offer-prompt";
-import EndingDeclined from "./ui/screens/ending/ending-declined";
+import LearnMore from "./ui/screens/learn-more/learn-more";
 
 function present() {
   OfferPrompt();
 }
 
-function ending() {
-  EndingDeclined(() => {
-    console.log("settings");
-  });
+function terms() {
+  LearnMore();
 }
 
-export { present, ending };
+export { present, terms };

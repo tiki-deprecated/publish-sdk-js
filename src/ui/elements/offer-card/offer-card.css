@@ -21,16 +21,17 @@
 .tiki-offer-card-text {
   color: var(--tiki-secondary-text-color);
   font-weight: 700;
-  font-size: var(--tiki-font-size-lg);
-  line-height: var(--tiki-line-height-lg);
+  font-size: var(--tiki-font-size);
+  line-height: var(--tiki-line-height);
   overflow: hidden;
-  height: calc(3 * var(--tiki-line-height-lg));
+  height: calc(3 * var(--tiki-line-height));
   text-overflow: ellipsis;
   display: block;
+  font-family: var(--tiki-font-family);
 }
 
 .tiki-offer-card-text-cell {
   display: table-cell;
-  height: calc(3 * var(--tiki-line-height-lg));
+  height: calc(3 * var(--tiki-line-height));
   vertical-align: middle;
 }

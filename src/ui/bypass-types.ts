@@ -3,7 +3,8 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-declare module "*.html" {
-  var _: string;
-  export default _;
-}
+declare module "*.html";
+
+declare module "https://*";
+
+declare module "*.md";

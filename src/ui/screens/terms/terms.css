@@ -1,0 +1,42 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
+#tiki-terms {
+  background-color: var(--tiki-primary-background-color);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+}
+
+.tiki-terms-body {
+  width: 100%;
+  padding: 2em 1em;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.tiki-terms-content {
+  width: 100%;
+  height: 100%;
+  padding: 1em 1em 2em;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.tiki-terms-legal {
+  display: block;
+  overflow: scroll;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--tiki-accent-color);
+  font-family: var(--tiki-font-family);
+  color: var(--tiki-primary-text-color);
+  height: 100%;
+}

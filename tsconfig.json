@@ -8,7 +8,8 @@
     "declarationMap": false,
     "allowJs": true,
     "strict": false,
-
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "./@types",

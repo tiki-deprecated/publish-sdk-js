@@ -10,6 +10,7 @@ import postcssPresetEnv from "postcss-preset-env";
 import postcssReporter from "postcss-reporter";
 import stylelint from "stylelint";
 import commonjs from "@rollup/plugin-commonjs";
+import markdown from "@jackfranklin/rollup-plugin-markdown";
 
 export default [
   {
@@ -46,15 +47,26 @@ export default [
       }),
       //terser(),
       typescript(),
+      markdown({
+        include: "src/ui/screens/learn-more/learn-more.md",
+        allowImports: true,
+      }),
     ],
   },
   {
     input: "src/index.ts",
-    output: {
-      name: "TikiSdk",
-      file: "dist/index.js",
-      format: "umd",
-    },
+    output: [
+      {
+        name: "TikiSdk",
+        file: "dist/index.js",
+        format: "umd",
+      },
+      {
+        name: "TikiSdk",
+        file: "example/dist/index.js",
+        format: "umd",
+      },
+    ],
     plugins: [
       babel({
         exclude: "node_modules/**",
@@ -73,34 +85,10 @@ export default [
       }),
       //terser(),
       typescript(),
-      commonjs(), // so Rollup can convert `ms` to an ES module
-    ],
-  },
-  {
-    input: "src/index.ts",
-    output: {
-      name: "TikiSdk",
-      file: "example/dist/index.js",
-      format: "umd",
-    },
-    plugins: [
-      babel({
-        exclude: "node_modules/**",
-        presets: ["@babel/preset-env", "@babel/preset-react"],
-        plugins: ["babel-plugin-transform-html-import-to-string"],
-        extensions: [".js", ".html"],
-        babelHelpers: "bundled",
+      markdown({
+        include: "src/ui/screens/learn-more/learn-more.md",
+        allowImports: true,
       }),
-      postcss({
-        plugins: [
-          stylelint(),
-          postcssPresetEnv(),
-          //cssnano(),
-          postcssReporter(),
-        ],
-      }),
-      //terser(),
-      typescript(),
       commonjs(), // so Rollup can convert `ms` to an ES module
     ],
   },

@@ -7,21 +7,22 @@
   height: 0.75em;
   width: auto;
   fill: #c73000;
-  margin-right: 0.55em;
+  margin-right: 0.625em;
 }
 
 .tiki-used-for-yes-icon {
   height: 0.75em;
   width: auto;
   fill: #00b272;
-  margin-right: 0.55em;
+  margin-right: 0.625em;
 }
 
 .tiki-used-for-title {
   color: var(--tiki-primary-text-color);
   font-weight: 700;
-  font-size: var(--tiki-font-size-lg);
-  line-height: var(--tiki-line-height-lg);
+  font-size: var(--tiki-font-size);
+  line-height: var(--tiki-line-height);
+  font-family: var(--tiki-font-family);
 }
 
 .tiki-used-for-list {
@@ -29,14 +30,15 @@
   padding-left: 0;
   color: var(--tiki-secondary-text-color);
   font-weight: 700;
-  font-size: var(--tiki-font-size-lg);
-  line-height: var(--tiki-line-height-lg);
-  margin-top: 0.888em;
+  font-size: var(--tiki-font-size);
+  line-height: var(--tiki-line-height);
+  margin-top: 0.5em;
   margin-bottom: 0;
+  font-family: var(--tiki-font-family);
 }
 
 .tiki-used-for-list-item {
   display: flex;
   align-items: center;
-  margin: 0.445em 0;
+  margin: 1em 0;
 }

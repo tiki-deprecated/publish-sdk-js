@@ -39,7 +39,7 @@
 }
 
 .tiki-settings-card {
-  margin: 1.5em 0;
+  margin: 1.5em 4px;
 }
 
 .tiki-settings-used {
@@ -109,4 +109,11 @@ h4 {
 
 .tiki-settings-terms-btn {
   flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  #tiki-settings {
+    max-height: 90%;
+    max-width: 390px;
+  }
 }

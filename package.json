@@ -1,37 +1,73 @@
 {
-  "devDependencies": {
-    "@babel/core": "^7.21.0",
-    "@babel/preset-env": "^7.20.2",
-    "@babel/preset-typescript": "^7.21.0",
-    "@rollup/plugin-commonjs": "^24.0.1",
-    "@rollup/plugin-typescript": "^11.0.0",
-    "@types/jest": "^29.4.0",
-    "@types/node": "16",
-    "@typescript-eslint/eslint-plugin": "^5.53.0",
-    "@typescript-eslint/parser": "^5.53.0",
-    "eslint": "^8.34.0",
-    "jest": "^29.4.3",
-    "jest-environment-jsdom": "^29.4.3",
-    "rollup": "^3.18.0",
-    "ts-jest": "^29.0.5",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.9.5"
-  },
   "name": "tiki-sdk-js",
   "version": "0.0.1",
-  "repository": "git@github.com:tiki/tiki-sdk-js.git",
-  "author": "'Civic Hacker Engineering' <opensource@civichacker.com>",
+  "description": "JS SDK for client-side integration with TIKI",
   "source": "src/index.js",
   "browser": "dist/main.js",
   "license": "MIT",
   "scripts": {
-    "test:lib": "jest ./test/js --silent",
-    "lint:lib": "eslint src/*.ts",
-    "test_and_watch:lib": "jest --watch ./test/js --silent",
+    "test:js": "jest ./test/js --silent",
+    "lint:js": "eslint src/*.ts",
+    "test_and_watch:sdk": "jest --watch ./test/js --silent",
     "build:webdev": "webdev build",
-    "build:lib": "rollup -c",
-    "watch:lib": "rollup -c -w",
-    "build:dart": "dart compile js web/main.dart -O4 -o src/main.dart.cjs"
+    "build:js": "rollup -c",
+    "watch:js": "rollup -c -w",
+    "build:dart": "dart compile js web/main.dart -O4 -o src/main.dart.cjs",
+    "clean:js": "rm -rf dist",
+    "clean:dart": "rm -f src/main.dart.cjs src/main.dart.cjs.deps src/main.dart.cjs.map"
   },
-  "private": true
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tiki/tiki-sdk-js"
+  },
+  "keywords": [
+    "TIKI",
+    "L0 Storage"
+  ],
+  "author": {
+    "name": "Tiki inc.",
+    "email": "hello@mytiki.com",
+    "url": "https://mytiki.com"
+  },
+  "bugs": {
+    "url": "https://github.com/tiki/tiki-sdk-js/issues"
+  },
+  "homepage": "https://github.com/tiki/tiki-sdk-js#readme",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@jackfranklin/rollup-plugin-markdown": "^0.4.0",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-terser": "^0.4.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@types/jest": "^29.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "babel-plugin-transform-html-import-to-string": "^2.0.0",
+    "cssnano": "^5.1.15",
+    "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "jest": "^29.4.3",
+    "jest-environment-jsdom": "^29.4.3",
+    "jest-junit": "^15.0.0",
+    "postcss": "^8.4.21",
+    "postcss-preset-env": "^8.0.1",
+    "postcss-reporter": "^7.0.5",
+    "rollup": "^3.20.1",
+    "rollup-plugin-postcss": "^4.0.2",
+    "stylelint": "^15.3.0",
+    "stylelint-config-standard": "^31.0.0",
+    "ts-jest": "^29.0.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  }
 }

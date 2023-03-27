@@ -1,0 +1,74 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
+#tiki-learn-more {
+  background-color: var(--tiki-primary-background-color);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+}
+
+.tiki-learn-more-body {
+  width: 100%;
+  padding: 2em 1em 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.tiki-learn-more-content {
+  width: 100%;
+  height: 100%;
+  padding: 1em 1em 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.tiki-learn-more-markdown {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: scroll;
+  font-family: var(--tiki-font-family);
+  color: var(--tiki-primary-text-color);
+}
+
+.tiki-learn-more-heading {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.tiki-learn-more-title {
+  color: var(--tiki-primary-text-color);
+  font-size: var(--tiki-font-size-lg);
+  line-height: var(--tiki-line-height-lg);
+  font-weight: 700;
+  font-family: var(--tiki-font-family);
+}
+
+@media (min-width: 1024px) {
+  #tiki-learn-more {
+    height: 36em;
+    max-height: 90vh;
+    max-width: 390px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.5em;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+  }
+
+  .tiki-learn-more-title {
+    font-size: var(--tiki-font-size);
+    line-height: var(--tiki-line-height);
+  }
+}

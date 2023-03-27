@@ -1,2 +1,2 @@
 import "./terms.css";
-export default function (terms: string, html?: string): void;
+export default function (terms: string, isHtml?: boolean): void;

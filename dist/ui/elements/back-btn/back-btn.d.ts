@@ -1,2 +1,2 @@
 import "./back-btn.css";
-export default function (text: string, onClick?: Function): HTMLDivElement;
+export default function (text: string, onClick?: Function): HTMLButtonElement;

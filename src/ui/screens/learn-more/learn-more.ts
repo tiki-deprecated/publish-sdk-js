@@ -23,12 +23,23 @@ export default function (): void {
 }
 
 function heading(): HTMLDivElement {
-  const div: HTMLDivElement = BackBtn("Learn More", () => {
-    const element: HTMLElement = document.getElementById(id);
-    if (element !== null) {
-      document.body.removeChild(element);
-    }
-  });
+  const div: HTMLDivElement = document.createElement("div");
+  div.className = "tiki-learn-more-heading";
+
+  div.appendChild(
+    BackBtn("Learn More", () => {
+      const element: HTMLElement = document.getElementById(id);
+      if (element !== null) {
+        document.body.removeChild(element);
+      }
+    })
+  );
+
+  const span: HTMLSpanElement = document.createElement("div");
+  span.className = "tiki-learn-more-title";
+  span.innerHTML = "Learn More";
+  div.appendChild(span);
+
   return div;
 }
 

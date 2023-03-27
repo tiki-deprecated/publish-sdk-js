@@ -4,12 +4,6 @@
  */
 
 .tiki-back-btn {
-  display: flex;
-  align-items: center;
-  width: fit-content;
-}
-
-.tiki-back-btn-btn {
   margin-right: 1.25em;
   height: 1.1rem;
   width: auto;
@@ -17,14 +11,6 @@
   border: none;
   cursor: pointer;
   padding: 1px;
-}
-
-.tiki-back-btn-title {
-  color: var(--tiki-primary-text-color);
-  font-size: var(--tiki-font-size-lg);
-  line-height: var(--tiki-line-height-lg);
-  font-weight: 700;
-  font-family: var(--tiki-font-family);
 }
 
 .tiki-back-btn-icon {

@@ -16,7 +16,7 @@ export default function (terms: string, isHtml: boolean = false): void {
 
   const body: HTMLDivElement = document.createElement("div");
   body.className = "tiki-terms-body";
-  body.appendChild(back());
+  body.appendChild(heading());
   body.appendChild(content(terms, isHtml));
   body.appendChild(TextBtn("I agree", () => {}, true));
 
@@ -24,13 +24,24 @@ export default function (terms: string, isHtml: boolean = false): void {
   document.body.appendChild(page);
 }
 
-function back(): HTMLDivElement {
-  const div: HTMLDivElement = BackBtn("Terms and Conditions", () => {
-    const element: HTMLElement = document.getElementById(id);
-    if (element !== null) {
-      document.body.removeChild(element);
-    }
-  });
+function heading(): HTMLDivElement {
+  const div: HTMLDivElement = document.createElement("div");
+  div.className = "tiki-terms-heading";
+
+  div.appendChild(
+    BackBtn("Terms and Conditions", () => {
+      const element: HTMLElement = document.getElementById(id);
+      if (element !== null) {
+        document.body.removeChild(element);
+      }
+    })
+  );
+
+  const span: HTMLSpanElement = document.createElement("div");
+  span.className = "tiki-terms-title";
+  span.innerHTML = "Terms & Conditions";
+  div.appendChild(span);
+
   return div;
 }
 

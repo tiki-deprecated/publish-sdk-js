@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
+.tiki-back-btn {
+  margin-right: 1.25em;
+  height: 1.1rem;
+  width: auto;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 1px;
+}
+
+.tiki-back-btn-icon {
+  fill: var(--tiki-primary-text-color);
+  height: 100%;
+  width: auto;
+}
+
+@media (min-width: 1024px) {
+  .tiki-back-btn {
+    height: 1rem;
+  }
+}

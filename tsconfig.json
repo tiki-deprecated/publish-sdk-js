@@ -1,15 +1,20 @@
 {
-  "include": [
-    "./node_modules/fake-indexeddb",
-    "./@types",
-  ],
-  "files": ["./src/index.ts"],
   "compilerOptions": {
     "target": "es2020",
     "module": "es2020",
     "declaration": true,
     "esModuleInterop": true,
     "outDir": "dist/@types",
-    "declarationMap": false
-  }
+    "declarationMap": false,
+    "allowJs": true,
+    "strict": false,
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "./@types",
+    "src/**/*"
+  ],
+  "exclude": ["node_modules"],
+  "files": ["./src/index.ts"]
 }

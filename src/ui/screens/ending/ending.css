@@ -1,0 +1,72 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
+.tiki-ending {
+  width: 100vw;
+  background-color: var(--tiki-primary-background-color);
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-family: var(--tiki-font-family);
+  border-radius: 2.5em 2.5em 0 0;
+}
+
+.tiki-ending-body {
+  width: 100%;
+  padding: 2em 0.9375em;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.tiki-ending-title {
+  color: var(--tiki-primary-text-color);
+  font-weight: 500;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  margin: 1.2em auto;
+}
+
+.tiki-ending-subtitle {
+  font-size: var(--tiki-font-size);
+  line-height: var(--tiki-line-height-lg);
+  margin-bottom: 1em;
+  color: var(--tiki-secondary-text-color);
+  font-weight: 300;
+  text-align: center;
+}
+
+#tiki-ending-settings {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .tiki-ending {
+    height: 15em;
+    max-height: 90vh;
+    max-width: 390px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.5em;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+  }
+
+  .tiki-ending-title {
+    font-size: var(--tiki-font-size-xl);
+    line-height: var(--tiki-line-height-xl);
+  }
+
+  .tiki-ending-subtitle {
+    font-size: var(--tiki-font-size-sm);
+    line-height: var(--tiki-line-height);
+  }
+}

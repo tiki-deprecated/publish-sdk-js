@@ -1,0 +1,72 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
+#tiki-offer-prompt {
+  width: 100vw;
+  background-color: var(--tiki-secondary-background-color);
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-family: var(--tiki-font-family);
+  border-radius: 2.5em 2.5em 0 0;
+}
+
+.tiki-offer-prompt-body {
+  width: 100%;
+  padding: 2em 0.9375em;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.tiki-offer-prompt-heading {
+  width: 100%;
+  padding: 0 0.9375em;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  height: fit-content;
+  margin-bottom: 2em;
+}
+
+.tiki-offer-prompt-cta {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  height: fit-content;
+  margin-top: 1em;
+}
+
+.tiki-back-off-btn {
+  margin-right: 1.5em;
+}
+
+.tiki-used-for {
+  margin-top: 1.5em;
+  padding-left: 0.9375em;
+}
+
+@media (min-width: 1024px) {
+  #tiki-offer-prompt {
+    height: 36em;
+    max-height: 90vh;
+    max-width: 390px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.5em;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+  }
+
+  .tiki-offer-prompt-heading {
+    margin-bottom: 1.5em;
+  }
+}

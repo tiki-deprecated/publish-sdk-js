@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
+.tiki-learn-more-button-icon {
+  fill: var(--tiki-secondary-text-color);
+  height: 100%;
+  width: auto;
+}
+
+.tiki-learn-more-button {
+  height: var(--tiki-line-height-xl);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 1px;
+}
+
+@media (min-width: 1024px) {
+  .tiki-learn-more-button {
+    height: var(--tiki-line-height-lg);
+  }
+}

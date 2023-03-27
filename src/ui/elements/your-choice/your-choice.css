@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
+.tiki-your-choice {
+  color: var(--tiki-primary-text-color);
+  font-family: var(--tiki-font-family);
+  font-size: var(--tiki-font-size-xl);
+  line-height: var(--tiki-line-height-xl);
+  font-weight: 700;
+}
+
+.tiki-your-choice-accent {
+  color: var(--tiki-accent-color);
+}
+
+@media (min-width: 1024px) {
+  .tiki-your-choice {
+    font-size: var(--tiki-font-size-lg);
+    line-height: var(--tiki-line-height-lg);
+  }
+}

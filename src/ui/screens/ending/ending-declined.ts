@@ -6,15 +6,17 @@
 import * as Settings from "./ending-settings-html";
 import Ending from "./ending";
 
-export default function (onSettings?: Function) {
-  const settings: HTMLSpanElement = document.createElement("span");
-  settings.innerHTML = Settings.declined();
-  settings.className = "tiki-ending-subtitle";
+export default function (onSettings?: Function): void {
+  const span: HTMLSpanElement = document.createElement("span");
+  span.innerHTML = Settings.declined();
+  span.className = "tiki-ending-subtitle";
 
-  const link = settings.children.namedItem(
-    "tiki-ending-settings"
-  ) as HTMLLinkElement;
-  if (onSettings !== undefined) link.onclick = () => onSettings();
+  if (onSettings !== undefined) {
+    const link = span.children.namedItem(
+      "tiki-ending-settings"
+    ) as HTMLLinkElement;
+    link.onclick = () => onSettings();
+  }
 
-  Ending("Backing Off", settings);
+  Ending("Backing Off", span);
 }

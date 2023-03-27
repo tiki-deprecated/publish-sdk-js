@@ -7,23 +7,24 @@ import "./ending.css";
 import YourChoice from "../../elements/your-choice/your-choice";
 import Overlay from "../overlay/overlay";
 
-export default function (text: string, settings: HTMLSpanElement) {
-  const ending: HTMLDivElement = document.createElement("div");
-  ending.className = "tiki-ending";
+export default function (text: string, settings: HTMLSpanElement): void {
+  const div: HTMLDivElement = document.createElement("div");
+  div.className = "tiki-ending";
 
   const body: HTMLDivElement = document.createElement("div");
   body.className = "tiki-ending-body";
   body.appendChild(YourChoice());
-
-  const title: HTMLSpanElement = document.createElement("span");
-  title.innerHTML = text;
-  title.className = "tiki-ending-title";
-  body.appendChild(title);
+  body.appendChild(title(text));
   body.appendChild(settings);
 
-  ending.appendChild(body);
-  Overlay(true, () => {
-    document.body.removeChild(ending);
-  });
-  document.body.appendChild(ending);
+  div.appendChild(body);
+  Overlay(true, () => document.body.removeChild(div));
+  document.body.appendChild(div);
+}
+
+function title(text: string): HTMLSpanElement {
+  const span: HTMLSpanElement = document.createElement("span");
+  span.innerHTML = text;
+  span.className = "tiki-ending-title";
+  return span;
 }

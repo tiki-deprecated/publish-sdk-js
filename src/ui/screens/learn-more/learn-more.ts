@@ -9,29 +9,35 @@ import markdownHtml from "./learn-more.md";
 
 const id = "tiki-learn-more";
 
-export default function () {
+export default function (): void {
   const page: HTMLDivElement = document.createElement("div");
   page.id = id;
 
   const body: HTMLDivElement = document.createElement("div");
   body.className = "tiki-learn-more-body";
+  body.appendChild(heading());
+  body.appendChild(content());
 
-  const back: HTMLDivElement = BackBtn("Learn More", () => {
+  page.appendChild(body);
+  document.body.appendChild(page);
+}
+
+function heading(): HTMLDivElement {
+  const div: HTMLDivElement = BackBtn("Learn More", () => {
     const element: HTMLElement = document.getElementById(id);
     if (element !== null) {
       document.body.removeChild(element);
     }
   });
-  body.appendChild(back);
+  return div;
+}
 
-  const content: HTMLDivElement = document.createElement("div");
-  content.className = "tiki-learn-more-content";
+function content(): HTMLDivElement {
+  const div: HTMLDivElement = document.createElement("div");
+  div.className = "tiki-learn-more-content";
   const markdown: HTMLDivElement = document.createElement("div");
   markdown.className = "tiki-learn-more-markdown";
   markdown.innerHTML = markdownHtml.html;
-  content.appendChild(markdown);
-  body.appendChild(content);
-
-  page.appendChild(body);
-  document.body.appendChild(page);
+  div.appendChild(markdown);
+  return div;
 }

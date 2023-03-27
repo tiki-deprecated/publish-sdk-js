@@ -10,35 +10,40 @@ import NanoMd from "../../nano-md";
 
 const id = "tiki-terms";
 
-export default function (terms: string, html?: string) {
+export default function (terms: string, isHtml: boolean = false): void {
   const page: HTMLDivElement = document.createElement("div");
   page.id = id;
 
   const body: HTMLDivElement = document.createElement("div");
   body.className = "tiki-terms-body";
+  body.appendChild(back());
+  body.appendChild(content(terms, isHtml));
+  body.appendChild(TextBtn("I agree", () => {}, true));
 
-  const back: HTMLDivElement = BackBtn("Terms and Conditions", () => {
+  page.appendChild(body);
+  document.body.appendChild(page);
+}
+
+function back(): HTMLDivElement {
+  const div: HTMLDivElement = BackBtn("Terms and Conditions", () => {
     const element: HTMLElement = document.getElementById(id);
     if (element !== null) {
       document.body.removeChild(element);
     }
   });
-  body.appendChild(back);
+  return div;
+}
 
-  const content: HTMLDivElement = document.createElement("div");
-  content.className = "tiki-terms-content";
-  const legal: HTMLDivElement = document.createElement("div");
-  legal.className = "tiki-terms-legal";
-  const legalMd: HTMLDivElement = document.createElement("div");
-  legalMd.className = "tiki-terms-legal-md";
-  if (html !== undefined) legalMd.innerHTML = terms;
-  else legalMd.innerHTML = NanoMd(terms);
-  legal.appendChild(legalMd);
-  content.appendChild(legal);
-  body.appendChild(content);
-
-  const agree: HTMLButtonElement = TextBtn("I agree", () => {}, true);
-  body.appendChild(agree);
-  page.appendChild(body);
-  document.body.appendChild(page);
+function content(terms: string, isHtml: boolean = false): HTMLDivElement {
+  const div: HTMLDivElement = document.createElement("div");
+  div.className = "tiki-terms-content";
+  const container: HTMLDivElement = document.createElement("div");
+  container.className = "tiki-terms-legal";
+  const html: HTMLDivElement = document.createElement("div");
+  html.className = "tiki-terms-legal-md";
+  if (isHtml) html.innerHTML = terms;
+  else html.innerHTML = NanoMd(terms);
+  container.appendChild(html);
+  div.appendChild(container);
+  return div;
 }

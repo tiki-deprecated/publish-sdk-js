@@ -7,29 +7,37 @@ import "./used-for.css";
 import * as Html from "./used-for-html";
 
 export default function (bullets: Map<string, boolean>): HTMLDivElement {
-  const usedFor: HTMLDivElement = document.createElement("div");
+  const div: HTMLDivElement = document.createElement("div");
+  div.appendChild(title());
+  div.appendChild(bulletList(bullets));
+  return div;
+}
 
-  const title: HTMLSpanElement = document.createElement("span");
-  title.innerHTML = "HOW YOUR DATA WILL BE USED";
-  title.className = "tiki-used-for-title";
-  usedFor.appendChild(title);
+function title(): HTMLSpanElement {
+  const span: HTMLSpanElement = document.createElement("span");
+  span.innerHTML = "HOW YOUR DATA WILL BE USED";
+  span.className = "tiki-used-for-title";
+  return span;
+}
 
-  const list: HTMLUListElement = document.createElement("ul");
-  list.className = "tiki-used-for-list";
+function bulletList(bullets: Map<string, boolean>): HTMLUListElement {
+  const ul: HTMLUListElement = document.createElement("ul");
+  ul.className = "tiki-used-for-list";
+  bullets.forEach((value: boolean, key: string) =>
+    ul.appendChild(bullet(key, value))
+  );
+  return ul;
+}
 
-  bullets.forEach((value: boolean, key: string) => {
-    const element: HTMLLIElement = document.createElement("li");
-    element.className = "tiki-used-for-list-item";
-    const icon: HTMLTemplateElement = document.createElement("template");
-    if (value) icon.innerHTML = Html.yes();
-    else icon.innerHTML = Html.no();
-    element.appendChild(icon.content);
-    const text: HTMLSpanElement = document.createElement("span");
-    text.innerHTML = key;
-    element.appendChild(text);
-    list.appendChild(element);
-  });
-
-  usedFor.appendChild(list);
-  return usedFor;
+function bullet(text: string, isUsed: boolean = true): HTMLLIElement {
+  const li: HTMLLIElement = document.createElement("li");
+  li.className = "tiki-used-for-list-item";
+  const template: HTMLTemplateElement = document.createElement("template");
+  if (isUsed) template.innerHTML = Html.yes();
+  else template.innerHTML = Html.no();
+  li.appendChild(template.content);
+  const span: HTMLSpanElement = document.createElement("span");
+  span.innerHTML = text;
+  li.appendChild(span);
+  return li;
 }

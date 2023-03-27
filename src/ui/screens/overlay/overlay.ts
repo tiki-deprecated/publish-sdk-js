@@ -9,14 +9,14 @@ const id = "tiki-background-overlay";
 
 export default function display(show: boolean, onDismiss?: Function): void {
   if (show) {
-    const overlay: HTMLDivElement = document.createElement("div");
-    overlay.id = id;
-    overlay.onclick = () => display(false, onDismiss);
-    document.body.appendChild(overlay);
+    const div: HTMLDivElement = document.createElement("div");
+    div.id = id;
+    div.onclick = () => display(false, onDismiss);
+    document.body.appendChild(div);
   } else {
-    const overlay: HTMLElement = document.getElementById(id);
-    if (overlay !== null) {
-      document.body.removeChild(overlay);
+    const element: HTMLElement = document.getElementById(id);
+    if (element !== null) {
+      document.body.removeChild(element);
       if (onDismiss !== undefined) onDismiss();
     }
   }

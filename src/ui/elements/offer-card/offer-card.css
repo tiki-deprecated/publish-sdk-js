@@ -35,3 +35,10 @@
   height: calc(3 * var(--tiki-line-height));
   vertical-align: middle;
 }
+
+@media (min-width: 1024px) {
+  .tiki-offer-card-text {
+    font-size: var(--tiki-font-size-sm);
+    line-height: var(--tiki-line-height-sm);
+  }
+}

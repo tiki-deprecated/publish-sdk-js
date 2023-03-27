@@ -27,10 +27,10 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$9 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n@import url(\"https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap\");\n\n:root {\n  --tiki-font-family: \"Space Grotesk\", sans-serif;\n  --tiki-primary-text-color: rgb(28, 0, 0);\n  --tiki-secondary-text-color: rgba(28, 0, 0, 0.6);\n  --tiki-primary-background-color: rgb(255, 255, 255);\n  --tiki-secondary-background-color: rgb(246, 246, 246);\n  --tiki-accent-color: rgb(0, 178, 114);\n  --tiki-font-size-sm: 0.875rem;\n  --tiki-line-height-sm: 1.25rem;\n  --tiki-font-size: 1rem;\n  --tiki-line-height: 1.5rem;\n  --tiki-font-size-lg: 1.125rem;\n  --tiki-line-height-lg: 1.75rem;\n  --tiki-font-size-xl: 1.25rem;\n  --tiki-line-height-xl: 1.75rem;\n}\n";
+var css_248z$9 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n@import url(\"https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap\");\n\n:root {\n  --tiki-font-family: \"Space Grotesk\", sans-serif;\n  --tiki-primary-text-color: rgb(28, 0, 0);\n  --tiki-secondary-text-color: rgba(28, 0, 0, 0.6);\n  --tiki-primary-background-color: rgb(255, 255, 255);\n  --tiki-secondary-background-color: rgb(246, 246, 246);\n  --tiki-accent-color: rgb(0, 178, 114);\n  --tiki-font-size-xs: 0.75rem;\n  --tiki-line-height-xs: 1rem;\n  --tiki-font-size-sm: 0.875rem;\n  --tiki-line-height-sm: 1.25rem;\n  --tiki-font-size: 1rem;\n  --tiki-line-height: 1.5rem;\n  --tiki-font-size-lg: 1.125rem;\n  --tiki-line-height-lg: 1.75rem;\n  --tiki-font-size-xl: 1.25rem;\n  --tiki-line-height-xl: 1.75rem;\n}\n";
 styleInject(css_248z$9);
 
-var css_248z$8 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-offer-prompt {\n  width: 100vw;\n  background-color: var(--tiki-secondary-background-color);\n  position: fixed;\n  bottom: 0;\n  left: 50%;\n  transform: translate(-50%, 0);\n  font-family: var(--tiki-font-family);\n  border-radius: 2.5em 2.5em 0 0;\n}\n\n.tiki-offer-prompt-body {\n  width: 100%;\n  padding: 2em 0.9375em;\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  height: 100%;\n}\n\n.tiki-offer-prompt-heading {\n  width: 100%;\n  padding: 0 0.9375em;\n  display: flex;\n  justify-content: space-between;\n  box-sizing: border-box;\n  height: -moz-fit-content;\n  height: fit-content;\n  margin-bottom: 2em;\n}\n\n.tiki-offer-prompt-cta {\n  display: flex;\n  flex-wrap: nowrap;\n  justify-content: space-between;\n  align-items: center;\n  box-sizing: border-box;\n  height: -moz-fit-content;\n  height: fit-content;\n  margin-top: 1em;\n}\n\n.tiki-back-off-btn {\n  margin-right: 1.5em;\n}\n\n.tiki-used-for {\n  margin-top: 1.5em;\n  padding-left: 0.9375em;\n}\n\n@media (min-width: 1024px) {\n  #tiki-offer-prompt {\n    height: 300px;\n    width: 600px;\n  }\n}\n";
+var css_248z$8 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n#tiki-offer-prompt {\n  width: 100vw;\n  background-color: var(--tiki-secondary-background-color);\n  position: fixed;\n  bottom: 0;\n  left: 50%;\n  transform: translate(-50%, 0);\n  font-family: var(--tiki-font-family);\n  border-radius: 2.5em 2.5em 0 0;\n}\n\n.tiki-offer-prompt-body {\n  width: 100%;\n  padding: 2em 0.9375em;\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  height: 100%;\n}\n\n.tiki-offer-prompt-heading {\n  width: 100%;\n  padding: 0 0.9375em;\n  display: flex;\n  justify-content: space-between;\n  box-sizing: border-box;\n  height: -moz-fit-content;\n  height: fit-content;\n  margin-bottom: 2em;\n}\n\n.tiki-offer-prompt-cta {\n  display: flex;\n  flex-wrap: nowrap;\n  justify-content: space-between;\n  align-items: center;\n  box-sizing: border-box;\n  height: -moz-fit-content;\n  height: fit-content;\n  margin-top: 1em;\n}\n\n.tiki-back-off-btn {\n  margin-right: 1.5em;\n}\n\n.tiki-used-for {\n  margin-top: 1.5em;\n  padding-left: 0.9375em;\n}\n\n@media (min-width: 1024px) {\n  #tiki-offer-prompt {\n    height: 36em;\n    max-height: 90vh;\n    max-width: 390px;\n    position: fixed;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    border-radius: 0.5em;\n    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);\n  }\n\n  .tiki-offer-prompt-heading {\n    margin-bottom: 1.5em;\n  }\n}\n";
 styleInject(css_248z$8);
 
 var css_248z$7 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n#tiki-background-overlay {\n  background-color: rgba(0, 0, 0, 0.3);\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 100vw;\n  height: 100vh;\n}\n";
@@ -40,16 +40,16 @@ styleInject(css_248z$7);
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
-const id$1 = "tiki-background-overlay";
+const id$2 = "tiki-background-overlay";
 function display(show, onDismiss) {
     if (show) {
         const div = document.createElement("div");
-        div.id = id$1;
+        div.id = id$2;
         div.onclick = () => display(false, onDismiss);
         document.body.appendChild(div);
     }
     else {
-        const element = document.getElementById(id$1);
+        const element = document.getElementById(id$2);
         if (element !== null) {
             document.body.removeChild(element);
             if (onDismiss !== undefined)
@@ -58,7 +58,7 @@ function display(show, onDismiss) {
     }
 }
 
-var css_248z$6 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-trade-your-data {\n  color: var(--tiki-primary-text-color);\n  font-family: var(--tiki-font-family);\n  font-size: var(--tiki-font-size-xl);\n  line-height: var(--tiki-line-height-xl);\n  font-weight: 700;\n}\n\n.tiki-trade-your-data-accent {\n  color: var(--tiki-accent-color);\n}\n";
+var css_248z$6 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-trade-your-data {\n  color: var(--tiki-primary-text-color);\n  font-family: var(--tiki-font-family);\n  font-size: var(--tiki-font-size-xl);\n  line-height: var(--tiki-line-height-xl);\n  font-weight: 700;\n}\n\n.tiki-trade-your-data-accent {\n  color: var(--tiki-accent-color);\n}\n\n@media (min-width: 1024px) {\n  .tiki-trade-your-data {\n    font-size: var(--tiki-font-size-lg);\n    line-height: var(--tiki-line-height-lg);\n  }\n}\n";
 styleInject(css_248z$6);
 
 /*
@@ -81,7 +81,7 @@ function TradeYourData () {
     return span;
 }
 
-var css_248z$5 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-learn-more-button-icon {\n  fill: var(--tiki-secondary-text-color);\n  height: 100%;\n  width: auto;\n}\n\n.tiki-learn-more-button {\n  height: var(--tiki-line-height-xl);\n  background-color: transparent;\n  border: none;\n  cursor: pointer;\n  padding: 1px;\n}\n";
+var css_248z$5 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-learn-more-button-icon {\n  fill: var(--tiki-secondary-text-color);\n  height: 100%;\n  width: auto;\n}\n\n.tiki-learn-more-button {\n  height: var(--tiki-line-height-xl);\n  background-color: transparent;\n  border: none;\n  cursor: pointer;\n  padding: 1px;\n}\n\n@media (min-width: 1024px) {\n  .tiki-learn-more-button {\n    height: var(--tiki-line-height-lg);\n  }\n}\n";
 styleInject(css_248z$5);
 
 /*
@@ -105,7 +105,7 @@ function LearnMoreBtn (onClick) {
     return button;
 }
 
-var css_248z$4 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-text-btn {\n  width: 100%;\n  height: 3.3em;\n  border-radius: 0.625em;\n  border: solid 1px var(--tiki-accent-color);\n  cursor: pointer;\n  font-weight: 500;\n  font-size: var(--tiki-font-size-xl);\n  line-height: var(--tiki-line-height-xl);\n  font-family: var(--tiki-font-family);\n}\n\n.tiki-text-btn-solid {\n  background-color: var(--tiki-accent-color);\n  color: var(--tiki-primary-background-color);\n}\n\n.tiki-text-btn-outline {\n  background-color: var(--tiki-primary-background-color);\n  color: var(--tiki-primary-text-color);\n}\n";
+var css_248z$4 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-text-btn {\n  width: 100%;\n  height: 3.3em;\n  border-radius: 0.625em;\n  border: solid 1px var(--tiki-accent-color);\n  cursor: pointer;\n  font-weight: 500;\n  font-size: var(--tiki-font-size-xl);\n  line-height: var(--tiki-line-height-xl);\n  font-family: var(--tiki-font-family);\n}\n\n.tiki-text-btn-solid {\n  background-color: var(--tiki-accent-color);\n  color: var(--tiki-primary-background-color);\n}\n\n.tiki-text-btn-outline {\n  background-color: var(--tiki-primary-background-color);\n  color: var(--tiki-primary-text-color);\n}\n\n@media (min-width: 1024px) {\n  .tiki-text-btn {\n    font-size: var(--tiki-font-size);\n    line-height: var(--tiki-line-height);\n  }\n}\n";
 styleInject(css_248z$4);
 
 /*
@@ -123,7 +123,7 @@ function TextBtn (text, onClick, isSolid = false) {
     return button;
 }
 
-var css_248z$3 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-used-for-no-icon {\n  height: 0.75em;\n  width: auto;\n  fill: #c73000;\n  margin-right: 0.625em;\n}\n\n.tiki-used-for-yes-icon {\n  height: 0.75em;\n  width: auto;\n  fill: #00b272;\n  margin-right: 0.625em;\n}\n\n.tiki-used-for-title {\n  color: var(--tiki-primary-text-color);\n  font-weight: 700;\n  font-size: var(--tiki-font-size);\n  line-height: var(--tiki-line-height);\n  font-family: var(--tiki-font-family);\n}\n\n.tiki-used-for-list {\n  list-style-type: none;\n  padding-left: 0;\n  color: var(--tiki-secondary-text-color);\n  font-weight: 700;\n  font-size: var(--tiki-font-size);\n  line-height: var(--tiki-line-height);\n  margin-top: 0.5em;\n  margin-bottom: 0;\n  font-family: var(--tiki-font-family);\n}\n\n.tiki-used-for-list-item {\n  display: flex;\n  align-items: center;\n  margin: 1em 0;\n}\n";
+var css_248z$3 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-used-for-no-icon {\n  height: 0.75em;\n  width: auto;\n  fill: #c73000;\n  margin-right: 0.625em;\n}\n\n.tiki-used-for-yes-icon {\n  height: 0.75em;\n  width: auto;\n  fill: #00b272;\n  margin-right: 0.625em;\n}\n\n.tiki-used-for-title {\n  color: var(--tiki-primary-text-color);\n  font-weight: 700;\n  font-size: var(--tiki-font-size);\n  line-height: var(--tiki-line-height);\n  font-family: var(--tiki-font-family);\n}\n\n.tiki-used-for-list {\n  list-style-type: none;\n  padding-left: 0;\n  color: var(--tiki-secondary-text-color);\n  font-weight: 700;\n  font-size: var(--tiki-font-size);\n  line-height: var(--tiki-line-height);\n  margin-top: 0.5em;\n  margin-bottom: 0;\n  font-family: var(--tiki-font-family);\n}\n\n.tiki-used-for-list-item {\n  display: flex;\n  align-items: center;\n  margin: 1em 0;\n}\n\n@media (min-width: 1024px) {\n  .tiki-used-for-title {\n    font-size: var(--tiki-font-size-sm);\n    line-height: var(--tiki-line-height-sm);\n  }\n\n  .tiki-used-for-list {\n    font-size: var(--tiki-font-size-sm);\n    line-height: var(--tiki-line-height-sm);\n  }\n}\n";
 styleInject(css_248z$3);
 
 /*
@@ -176,7 +176,7 @@ function bullet(text, isUsed = true) {
     return li;
 }
 
-var css_248z$2 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-offer-card {\n  background-color: var(--tiki-primary-background-color);\n  padding: 1.25em;\n  box-sizing: border-box;\n  border-radius: 0.625em;\n  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.05);\n}\n\n.tiki-offer-card-img {\n  width: 100%;\n  height: 5.375em;\n  -o-object-fit: cover;\n     object-fit: cover;\n  box-sizing: border-box;\n}\n\n.tiki-offer-card-text {\n  color: var(--tiki-secondary-text-color);\n  font-weight: 700;\n  font-size: var(--tiki-font-size);\n  line-height: var(--tiki-line-height);\n  overflow: hidden;\n  height: calc(3 * var(--tiki-line-height));\n  text-overflow: ellipsis;\n  display: block;\n  font-family: var(--tiki-font-family);\n}\n\n.tiki-offer-card-text-cell {\n  display: table-cell;\n  height: calc(3 * var(--tiki-line-height));\n  vertical-align: middle;\n}\n";
+var css_248z$2 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-offer-card {\n  background-color: var(--tiki-primary-background-color);\n  padding: 1.25em;\n  box-sizing: border-box;\n  border-radius: 0.625em;\n  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.05);\n}\n\n.tiki-offer-card-img {\n  width: 100%;\n  height: 5.375em;\n  -o-object-fit: cover;\n     object-fit: cover;\n  box-sizing: border-box;\n}\n\n.tiki-offer-card-text {\n  color: var(--tiki-secondary-text-color);\n  font-weight: 700;\n  font-size: var(--tiki-font-size);\n  line-height: var(--tiki-line-height);\n  overflow: hidden;\n  height: calc(3 * var(--tiki-line-height));\n  text-overflow: ellipsis;\n  display: block;\n  font-family: var(--tiki-font-family);\n}\n\n.tiki-offer-card-text-cell {\n  display: table-cell;\n  height: calc(3 * var(--tiki-line-height));\n  vertical-align: middle;\n}\n\n@media (min-width: 1024px) {\n  .tiki-offer-card-text {\n    font-size: var(--tiki-font-size-sm);\n    line-height: var(--tiki-line-height-sm);\n  }\n}\n";
 styleInject(css_248z$2);
 
 /*
@@ -211,14 +211,15 @@ function description(text) {
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
+const id$1 = "tiki-offer-prompt";
 function OfferPrompt () {
     const prompt = document.createElement("div");
-    prompt.className = "tiki-offer-prompt";
+    prompt.id = id$1;
     const body = document.createElement("div");
     body.className = "tiki-offer-prompt-body";
     body.appendChild(heading$1());
     body.appendChild(offer());
-    body.appendChild(cta());
+    body.appendChild(cta$1());
     prompt.appendChild(body);
     display(true, () => document.body.removeChild(prompt));
     document.body.appendChild(prompt);
@@ -243,7 +244,7 @@ function offer() {
     div.appendChild(usedFor);
     return div;
 }
-function cta() {
+function cta$1() {
     const div = document.createElement("div");
     div.className = "tiki-offer-prompt-cta";
     const backOff = TextBtn("Back Off", () => console.log("Back Off"));
@@ -253,10 +254,10 @@ function cta() {
     return div;
 }
 
-var css_248z$1 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n#tiki-learn-more {\n  background-color: var(--tiki-primary-background-color);\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 100vw;\n  height: 100vh;\n}\n\n.tiki-learn-more-body {\n  width: 100%;\n  padding: 2em 1em 0;\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  height: 100%;\n}\n\n.tiki-learn-more-content {\n  width: 100%;\n  height: 100%;\n  padding: 1em 1em 0;\n  box-sizing: border-box;\n  overflow: hidden;\n}\n\n.tiki-learn-more-markdown {\n  width: 100%;\n  height: 100%;\n  box-sizing: border-box;\n  overflow: scroll;\n  font-family: var(--tiki-font-family);\n  color: var(--tiki-primary-text-color);\n}\n\n.tiki-learn-more-heading {\n  display: flex;\n  align-items: center;\n  width: -moz-fit-content;\n  width: fit-content;\n}\n\n.tiki-learn-more-title {\n  color: var(--tiki-primary-text-color);\n  font-size: var(--tiki-font-size-lg);\n  line-height: var(--tiki-line-height-lg);\n  font-weight: 700;\n  font-family: var(--tiki-font-family);\n}\n";
+var css_248z$1 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n#tiki-settings {\n  background-color: var(--tiki-secondary-background-color);\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 100vw;\n  height: 100vh;\n}\n\n.tiki-settings-body {\n  width: 100%;\n  padding: 2em 1em;\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  height: 100%;\n}\n\n.tiki-settings-heading {\n  display: flex;\n  width: 100%;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 0.375em;\n}\n\n.tiki-settings-heading-left {\n  display: flex;\n  width: -moz-fit-content;\n  width: fit-content;\n  align-items: center;\n  justify-content: flex-start;\n}\n\n.tiki-settings-card {\n  margin: 1.5em 4px;\n}\n\n.tiki-settings-used {\n  padding: 0 1em;\n}\n\n.tiki-settings-terms-title {\n  padding: 0 1em;\n  font-family: var(--tiki-font-family);\n  color: var(--tiki-primary-text-color);\n  line-height: var(--tiki-line-height);\n  font-size: var(--tiki-font-size);\n  font-weight: 700;\n  margin-top: 1.875em;\n  margin-bottom: 0.7em;\n  display: block;\n}\n\n.tiki-settings-content {\n  overflow: scroll;\n  margin-bottom: 1.875em;\n}\n\n.tiki-settings-content::after {\n  content: \"\";\n  background: var(--tiki-accent-color);\n  position: absolute;\n  bottom: 8em;\n  left: 1.8em;\n  right: 1.8em;\n  height: 1px;\n}\n\n.tiki-settings-terms-legal {\n  margin: 0.77em 1em 0;\n  padding: 0.5em;\n  background-color: var(--tiki-primary-background-color);\n  color: var(--tiki-primary-text-color);\n  font-family: var(--tiki-font-family);\n  font-size: var(--tiki-font-size-sm);\n  line-height: var(--tiki-line-height-sm);\n}\n\n.tiki-settings-terms-legal,\nh1 {\n  font-size: var(--tiki-font-size-lg);\n  line-height: var(--tiki-line-height-lg);\n}\n\n.tiki-settings-terms-legal,\nh2 {\n  font-size: var(--tiki-font-size);\n  line-height: var(--tiki-line-height);\n}\n\n.tiki-settings-terms-legal,\nh3 {\n  font-size: var(--tiki-font-size);\n  line-height: var(--tiki-line-height);\n}\n\n.tiki-settings-terms-legal,\nh4 {\n  font-size: var(--tiki-font-size-sm);\n  line-height: var(--tiki-line-height-sm);\n}\n\n.tiki-settings-terms-btn {\n  flex-shrink: 0;\n}\n\n@media (min-width: 1024px) {\n  #tiki-settings {\n    height: 36em;\n    max-height: 90vh;\n    max-width: 390px;\n    position: fixed;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    border-radius: 0.5em;\n    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);\n  }\n\n  .tiki-settings-content::after {\n    bottom: 7.1em;\n    left: 1.85em;\n    right: 1.85em;\n  }\n\n  .tiki-settings-terms-title {\n    font-size: var(--tiki-font-size-sm);\n    line-height: var(--tiki-line-height-sm);\n  }\n\n  .tiki-settings-terms-legal {\n    font-size: var(--tiki-font-size-xs);\n    line-height: var(--tiki-line-height-xs);\n  }\n\n  .tiki-settings-terms-legal,\n  h1 {\n    font-size: var(--tiki-font-size);\n    line-height: var(--tiki-line-height);\n  }\n\n  .tiki-settings-terms-legal,\n  h2 {\n    font-size: var(--tiki-font-size-sm);\n    line-height: var(--tiki-line-height-sm);\n  }\n\n  .tiki-settings-terms-legal,\n  h3 {\n    font-size: var(--tiki-font-size-sm);\n    line-height: var(--tiki-line-height-sm);\n  }\n\n  .tiki-settings-terms-legal,\n  h4 {\n    font-size: var(--tiki-font-size-xs);\n    line-height: var(--tiki-line-height-xs);\n  }\n}\n";
 styleInject(css_248z$1);
 
-var css_248z = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-back-btn {\n  margin-right: 1.25em;\n  height: 1.1rem;\n  width: auto;\n  background-color: transparent;\n  border: none;\n  cursor: pointer;\n  padding: 1px;\n}\n\n.tiki-back-btn-icon {\n  fill: var(--tiki-primary-text-color);\n  height: 100%;\n  width: auto;\n}\n";
+var css_248z = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-back-btn {\n  margin-right: 1.25em;\n  height: 1.1rem;\n  width: auto;\n  background-color: transparent;\n  border: none;\n  cursor: pointer;\n  padding: 1px;\n}\n\n.tiki-back-btn-icon {\n  fill: var(--tiki-primary-text-color);\n  height: 100%;\n  width: auto;\n}\n\n@media (min-width: 1024px) {\n  .tiki-back-btn {\n    height: 1rem;\n  }\n}\n";
 styleInject(css_248z);
 
 /*
@@ -281,46 +282,175 @@ function BackBtn (text, onClick) {
     return button;
 }
 
-var markdownHtml = {"html":"<h1 id=\"learn-more\">learn more</h1>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna<br />\naliqua. Posuere lorem ipsum dolor sit amet consectetur. Sit amet massa vitae tortor condimentum lacinia quis vel. Dictum<br />\nnon consectetur a erat. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod. Lobortis scelerisque fermentum<br />\ndui faucibus in. Amet nulla facilisi morbi tempus. Euismod quis viverra nibh cras pulvinar mattis nunc sed blandit.<br />\nAdipiscing at in tellus integer feugiat scelerisque. Eget egestas purus viverra accumsan in. Consequat ac felis donec et<br />\nodio pellentesque. Egestas dui id ornare arcu odio ut sem. Malesuada fames ac turpis egestas sed tempus urna.</p>\n<p>Nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi. Tortor at auctor urna nunc id. Id volutpat lacus<br />\nlaoreet non curabitur. Morbi tristique senectus et netus et malesuada fames ac turpis. Mi bibendum neque egestas congue<br />\nquisque egestas diam in arcu. Eu tincidunt tortor aliquam nulla. Tincidunt ornare massa eget egestas purus viverra<br />\naccumsan. Bibendum ut tristique et egestas quis. Est ullamcorper eget nulla facilisi etiam dignissim diam. Vivamus at<br />\naugue eget arcu dictum. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. In massa<br />\ntempor nec feugiat nisl. Bibendum ut tristique et egestas quis ipsum suspendisse. Metus aliquam eleifend mi in nulla<br />\nposuere. Donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum. Nulla malesuada pellentesque elit eget<br />\ngravida. Mollis nunc sed id semper.</p>\n<p>Amet venenatis urna cursus eget nunc scelerisque. Amet justo donec enim diam vulputate ut pharetra sit. Diam vel quam<br />\nelementum pulvinar etiam. Cursus turpis massa tincidunt dui ut ornare lectus sit amet. Amet est placerat in egestas.<br />\nMassa vitae tortor condimentum lacinia quis. Vitae justo eget magna fermentum iaculis eu non diam phasellus. Urna neque<br />\nviverra justo nec ultrices dui sapien. Vitae proin sagittis nisl rhoncus mattis. Tempus urna et pharetra pharetra massa<br />\nmassa.</p>\n<p>Odio pellentesque diam volutpat commodo sed egestas. Ac tincidunt vitae semper quis lectus nulla at volutpat diam.<br />\nAdipiscing bibendum est ultricies integer quis auctor. Sed sed risus pretium quam vulputate dignissim suspendisse in<br />\nest. Dolor sed viverra ipsum nunc aliquet bibendum enim. Dapibus ultrices in iaculis nunc. Pellentesque massa placerat<br />\nduis ultricies lacus sed turpis tincidunt. Sodales ut eu sem integer vitae justo eget. Sed elementum tempus egestas sed<br />\nsed risus pretium. Enim lobortis scelerisque fermentum dui faucibus. Et odio pellentesque diam volutpat commodo sed.<br />\nCondimentum lacinia quis vel eros donec ac odio tempor orci. Congue quisque egestas diam in arcu cursus euismod. Arcu<br />\ndictum varius duis at consectetur lorem. Hac habitasse platea dictumst quisque sagittis. Tristique senectus et netus et<br />\nmalesuada. Ullamcorper eget nulla facilisi etiam dignissim diam. Volutpat odio facilisis mauris sit amet massa.</p>\n<p>Id leo in vitae turpis massa sed. Odio facilisis mauris sit amet massa vitae tortor condimentum lacinia. Sed faucibus<br />\nturpis in eu. Diam quam nulla porttitor massa id neque aliquam vestibulum. Nisl pretium fusce id velit. Sit amet<br />\nfacilisis magna etiam tempor orci eu lobortis. In eu mi bibendum neque egestas congue quisque egestas. Sem nulla<br />\npharetra diam sit amet. Elementum tempus egestas sed sed risus. Diam maecenas sed enim ut sem viverra aliquet. Tellus<br />\npellentesque eu tincidunt tortor. Ipsum consequat nisl vel pretium lectus quam id leo in.</p>","metadata":{},"filename":"learn-more.md","path":"/Users/maudi/Development/Repositories/TIKI/tiki-sdk-js/src/ui/screens/learn-more/learn-more.md"};
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+//adapted from: https://github.com/Holixus/nano-markdown
+const escapes = "\\[!]#{()}*+-._";
+const esc_ofs = 16;
+function lex(a) {
+    return a
+        .replace(/\\([(){}[\]#*+\-.!_\\])/g, function (m, ch) {
+        return String.fromCharCode(1, escapes.indexOf(ch) + esc_ofs);
+    })
+        .replace(/(\*\*|__|~~)(.*?)\1/g, function (m, delim, text) {
+        return delim === "~~" ? "<del>" + text + "</del>" : "<b>" + text + "</b>";
+    })
+        .replace(/(\n|^|\W)([_*])(.*?)\2(\W|$|\n)/g, function (m, l, di, ital, r) {
+        return l + "<i>" + ital + "</i>" + r;
+    })
+        .replace(/(!?)\[([^\]<>]+)]\((\+?)([^ )<>]+)(?: "([^()"]+)")?\)/g, function (match, is_img, text, new_tab, ref, title) {
+        var attrs = title ? ' title="' + title + '"' : "";
+        if (is_img)
+            return ('<img src="' + href(ref) + '" alt="' + text + '"' + attrs + "/>");
+        if (new_tab)
+            attrs += ' target="_blank" rel="noopener"';
+        return '<a href="' + href(ref) + '"' + attrs + ">" + text + "</a>";
+    });
+}
+function unesc(a) {
+    // eslint-disable-next-line no-control-regex
+    return a.replace(/\x01([\x0f-\x1c])/g, function (m, c) {
+        return escapes.charAt(c.charCodeAt(0) - esc_ofs);
+    });
+}
+function href(ref) {
+    return ref;
+}
+// eslint-disable-next-line no-unused-vars
+function headAttrs(level, text) {
+    return ""; // return ' id=\''+text.replace(/[^a-z0-9]/g, '_').replace(/_{2,}/g, '_').replace(/^_*(.*?)_*$/, '$1').toLowerCase()+'\'';
+}
+function NanoMd (md) {
+    return md.replace(/.+(?:\n.+)*/g, function (m) {
+        var code = /^\s{4}([^]*)$/.exec(m);
+        if (code)
+            return "<pre><code>" + code[1].replace(/\n {4}/g, "\n") + "</code></pre>";
+        var ps = [], cur, rows = lex(m).split("\n");
+        for (var i = 0, l = rows.length; i < l; ++i) {
+            var row = rows[i], head = /^\s{0,3}(#{1,6})\s+(.*?)\s*#*\s*$/.exec(row);
+            if (head) {
+                // heading
+                ps.push((cur = [head[2], "h", head[1].length])); // cur = [ text, type, level ]
+                continue;
+            }
+            var list = /^(\s*)(?:[-*]|(\d[.)])) (.+)$/.exec(row);
+            if (list)
+                ps.push((cur = [list[3], list[2] ? "ol" : "ul", list[1].length]));
+            // cur = [ text, type, level ]
+            else if (/^\s{0,3}([-])(\s*\1){2,}\s*$/.test(row))
+                ps.push((cur = ["", "hr"]));
+            else if (cur && cur[1] !== "hr" && cur[1] !== "h")
+                cur[0] += "\n" + row;
+            else
+                ps.push((cur = [row, "p", ""]));
+        }
+        var out = "", lists = [];
+        for (i = 0, l = ps.length; i < l; ++i) {
+            cur = ps[i];
+            var text = cur[0], tag = cur[1], lvl = cur[2];
+            if (tag === "ul" || tag === "ol") {
+                if (!lists.length || lvl > lists[0][1]) {
+                    lists.unshift([tag, lvl]);
+                    out += "<" + lists[0][0] + "><li>" + text;
+                }
+                else if (lists.length > 1 && lvl <= lists[1][1]) {
+                    out += "</li></" + lists.shift()[0] + ">";
+                    --i;
+                }
+                else
+                    out += "</li><li>" + text;
+            }
+            else {
+                while (lists.length)
+                    out += "</li></" + lists.shift()[0] + ">";
+                out +=
+                    tag === "hr"
+                        ? "<hr/>"
+                        : "<" +
+                            tag +
+                            lvl +
+                            headAttrs() +
+                            ">" +
+                            text +
+                            "</" +
+                            tag +
+                            lvl +
+                            ">";
+            }
+        }
+        while (lists.length)
+            out += "</li></" + lists.shift()[0] + ">";
+        return unesc(out);
+    });
+}
 
 /*
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
-const id = "tiki-learn-more";
-function LearnMore () {
+const id = "tiki-settings";
+function Settings (terms, isHtml = false) {
     const page = document.createElement("div");
     page.id = id;
     const body = document.createElement("div");
-    body.className = "tiki-learn-more-body";
+    body.className = "tiki-settings-body";
     body.appendChild(heading());
-    body.appendChild(content());
+    body.appendChild(content(terms, isHtml));
+    body.appendChild(cta());
     page.appendChild(body);
     document.body.appendChild(page);
 }
 function heading() {
     const div = document.createElement("div");
-    div.className = "tiki-learn-more-heading";
-    div.appendChild(BackBtn("Learn More", () => {
-        const element = document.getElementById(id);
-        if (element !== null) {
-            document.body.removeChild(element);
-        }
-    }));
-    const span = document.createElement("div");
-    span.className = "tiki-learn-more-title";
-    span.innerHTML = "Learn More";
-    div.appendChild(span);
+    div.className = "tiki-settings-heading";
+    const left = document.createElement("div");
+    left.className = "tiki-settings-heading-left";
+    left.appendChild(BackBtn("", () => { }));
+    left.appendChild(TradeYourData());
+    div.appendChild(left);
+    div.appendChild(LearnMoreBtn(() => { }));
     return div;
 }
-function content() {
+function content(terms, isHtml = false) {
     const div = document.createElement("div");
-    div.className = "tiki-learn-more-content";
-    const markdown = document.createElement("div");
-    markdown.className = "tiki-learn-more-markdown";
-    markdown.innerHTML = markdownHtml.html;
-    div.appendChild(markdown);
+    div.className = "tiki-settings-content";
+    const card = OfferCard("https://static.vecteezy.com/system/resources/previews/011/765/527/original/smiley-face-seamless-pattern-design-cute-colorful-retro-doodle-emoji-smile-background-free-vector.jpg", "Trade your IDFA (kind of like a serial # for your phone) for a discount.");
+    card.className = card.className + " tiki-settings-card";
+    div.appendChild(card);
+    const used = UsedFor(new Map([
+        ["Learn how our ads perform", true],
+        ["Reach you on other platforms", false],
+        ["Sold to other companies", false],
+    ]));
+    used.className = used.className + " tiki-settings-used";
+    div.appendChild(used);
+    div.appendChild(termsTitle());
+    div.appendChild(termsLegal(terms, isHtml));
     return div;
+}
+function termsTitle() {
+    const span = document.createElement("span");
+    span.className = "tiki-settings-terms-title";
+    span.innerHTML = "TERMS & CONDITIONS";
+    return span;
+}
+function termsLegal(terms, isHtml = false) {
+    const div = document.createElement("div");
+    div.className = "tiki-settings-terms-legal";
+    if (isHtml)
+        div.innerHTML = terms;
+    else
+        div.innerHTML = NanoMd(terms);
+    return div;
+}
+function cta(isAccepted = false) {
+    const button = isAccepted
+        ? TextBtn("Opt out", () => { })
+        : TextBtn("Opt in", () => { }, true);
+    button.className = button.className + " tiki-settings-terms-btn";
+    return button;
 }
 
 /*
@@ -330,9 +460,9 @@ function content() {
 function present() {
     OfferPrompt();
 }
-function terms() {
-    LearnMore();
+function settings() {
+    Settings("");
 }
 
 exports.present = present;
-exports.terms = terms;
+exports.settings = settings;

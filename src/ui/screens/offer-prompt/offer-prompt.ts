@@ -11,9 +11,11 @@ import TextBtn from "../../elements/text-btn/text-btn";
 import UsedFor from "../../elements/used-for/used-for";
 import OfferCard from "../../elements/offer-card/offer-card";
 
+const id = "tiki-offer-prompt";
+
 export default function (): void {
   const prompt: HTMLDivElement = document.createElement("div");
-  prompt.className = "tiki-offer-prompt";
+  prompt.id = id;
 
   const body: HTMLDivElement = document.createElement("div");
   body.className = "tiki-offer-prompt-body";

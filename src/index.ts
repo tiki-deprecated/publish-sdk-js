@@ -5,14 +5,14 @@
 
 import "./ui/theme.css";
 import OfferPrompt from "./ui/screens/offer-prompt/offer-prompt";
-import LearnMore from "./ui/screens/learn-more/learn-more";
+import Settings from "./ui/screens/settings/settings";
 
 function present() {
   OfferPrompt();
 }
 
-function terms() {
-  LearnMore();
+function settings() {
+  Settings("");
 }
 
-export { present, terms };
+export { present, settings };

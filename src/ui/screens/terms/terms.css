@@ -54,3 +54,22 @@
   font-weight: 700;
   font-family: var(--tiki-font-family);
 }
+
+@media (min-width: 1024px) {
+  #tiki-terms {
+    height: 36em;
+    max-height: 90vh;
+    max-width: 390px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.5em;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+  }
+
+  .tiki-terms-title {
+    font-size: var(--tiki-font-size);
+    line-height: var(--tiki-line-height);
+  }
+}

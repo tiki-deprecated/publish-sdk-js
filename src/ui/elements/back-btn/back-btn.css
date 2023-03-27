@@ -18,3 +18,9 @@
   height: 100%;
   width: auto;
 }
+
+@media (min-width: 1024px) {
+  .tiki-back-btn {
+    height: 1rem;
+  }
+}

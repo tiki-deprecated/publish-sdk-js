@@ -9,7 +9,6 @@
     "test:js": "jest ./test/js --silent",
     "lint:js": "eslint src/*.ts",
     "test_and_watch:sdk": "jest --watch ./test/js --silent",
-    "build:webdev": "webdev build",
     "build:js": "rollup -c",
     "watch:js": "rollup -c -w",
     "build:dart": "dart compile js web/main.dart -O4 -o src/main.dart.cjs",

@@ -29,7 +29,8 @@ class CoreWrapper {
     origin ??= Uri.base.authority;
     KeyStorage keyStorage = await JSKeyStorage(keyGen).init();
     String address = await TikiSdk.withId(id, keyStorage);
-    final http.Response response = await http.get(Uri.parse('sqlite3.wasm'));
+    final http.Response response = await http
+        .get(Uri.parse('https://cdn.mytiki.com/sqlite/1.10.0/sqlite3.wasm'));
     final IndexedDbFileSystem fs =
         await IndexedDbFileSystem.open(dbName: "TikiSdk.sqlite");
     WasmSqlite3 sqlite3 = await WasmSqlite3.load(

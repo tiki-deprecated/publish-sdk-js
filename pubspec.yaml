@@ -20,5 +20,4 @@ dependencies:
   http: ^0.13.5
   js: ^0.6.7
   sqlite3: ^1.10.1
-  tiki_sdk_dart:
-    path: ../tiki-sdk-dart
+  tiki_sdk_dart: ^2.1.2

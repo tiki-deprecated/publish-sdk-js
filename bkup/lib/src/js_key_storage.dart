@@ -1,13 +1,14 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
 library js_key_storage;
 
 import 'dart:html' as html;
 import 'dart:indexed_db';
-import 'package:js/js.dart';
-import 'package:tiki_sdk_dart/node/key/key_storage.dart';
 
-import 'dart:js_util';
-
-class IndexedDBKeyStorage implements KeyStorage {
+import 'package:tiki_sdk_dart/node/key/key_storage.dartDBKeyStorage implements KeyStorage {
   static const String KEY_STORE = 'com.mytiki';
   static const String DB_NAME = 'TikiDB';
 

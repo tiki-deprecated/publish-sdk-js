@@ -11,7 +11,8 @@ import 'package:tiki_sdk_js/src/js_key_storage.dart';
 
 @JS('___TikiSdk__initialize')
 external set _initialize(
-    Future<CoreWrapper> Function(String publishingId, String id,
+    Future<CoreWrapper> Function(
+            String publishingId, String id, Future<String> Function(),
             {String? origin})
         f);
 
@@ -22,20 +23,19 @@ class CoreWrapper {
     _initialize = allowInterop(initialize);
   }
 
-  Future<CoreWrapper> initialize(String publishingId, String id,
+  Future<CoreWrapper> initialize(
+      String publishingId, String id, Future<String> Function() keyGen,
       {String? origin}) async {
     origin ??= Uri.base.authority;
-    KeyStorage keyStorage = JSKeyStorage();
+    KeyStorage keyStorage = await JSKeyStorage(keyGen).init();
     String address = await TikiSdk.withId(id, keyStorage);
-
     final http.Response response = await http.get(Uri.parse('sqlite3.wasm'));
     final IndexedDbFileSystem fs =
-        await IndexedDbFileSystem.open(dbName: "TikiSdk.db");
-    WasmSqlite3 database = await WasmSqlite3.load(
+        await IndexedDbFileSystem.open(dbName: "TikiSdk.sqlite");
+    WasmSqlite3 sqlite3 = await WasmSqlite3.load(
         response.bodyBytes, SqliteEnvironment(fileSystem: fs));
-
     _tikiSdk = await TikiSdk.init(
-        publishingId, origin, keyStorage, id, database.open("$address.db"));
+        publishingId, origin, keyStorage, id, sqlite3.open("$address.db"));
     return this;
   }
 }

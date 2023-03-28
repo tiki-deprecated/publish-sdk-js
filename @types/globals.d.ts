@@ -9,6 +9,7 @@ declare global {
     ___TikiSdk__initialize: (
       publishingId: string,
       id: string,
+      keyGen: () => Promise<string>,
       origin?: string
     ) => Promise<unknown>;
   }

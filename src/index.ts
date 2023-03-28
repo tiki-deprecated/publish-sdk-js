@@ -3,15 +3,24 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-import "./main.dart.cjs";
-import KeyGen from "./key-gen";
+import "./core/core.dart.cjs";
+import KeyGen from "./core/key-gen";
 
-async function initialize(): Promise<void> {
-  await globalThis.___TikiSdk__initialize(
-    "f3dbd181-1273-4be7-8a56-a9d258feccda",
-    "19532a12-7ad8-4c41-8792-1d3bc04d49e5",
-    KeyGen
-  );
+async function initialize(
+  publishingId: string,
+  id: string,
+  origin?: string
+): Promise<void> {
+  await globalThis.___TikiSdk__initialize(publishingId, id, KeyGen, origin);
 }
 
-export { initialize };
+async function title(
+  ptr: string,
+  tags?: Array<string>,
+  description?: string,
+  origin?: string
+): Promise<TitleRecord> {
+  return globalThis.___TikiSdk__title(ptr, tags, description, origin);
+}
+
+export { initialize, title };

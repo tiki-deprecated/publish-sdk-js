@@ -19,7 +19,5 @@ dependencies:
   html: ^0.15.1
   http: ^0.13.5
   js: ^0.6.7
-  pointycastle: ^3.6.2
-  sqlite3: ^1.9.1
-  tiki_sdk_dart: ^2.1.1
-  uuid: ^3.0.7
+  sqlite3: ^1.10.1
+  tiki_sdk_dart: ^2.1.2

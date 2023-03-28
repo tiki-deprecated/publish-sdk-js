@@ -3,16 +3,15 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-import "./ui/theme.css";
-import OfferPrompt from "./ui/screens/offer-prompt/offer-prompt";
-import Settings from "./ui/screens/settings/settings";
+import "./main.dart.cjs";
+import KeyGen from "./key-gen";
 
-function present() {
-  OfferPrompt();
+async function initialize(): Promise<void> {
+  await globalThis.___TikiSdk__initialize(
+    "f3dbd181-1273-4be7-8a56-a9d258feccda",
+    "19532a12-7ad8-4c41-8792-1d3bc04d49e5",
+    KeyGen
+  );
 }
 
-function settings() {
-  Settings("");
-}
-
-export { present, settings };
+export { initialize };

@@ -1,4 +1,3 @@
-import "./ui/theme.css";
-declare function present(): void;
-declare function settings(): void;
-export { present, settings };
+import "./main.dart.cjs";
+declare function initialize(): Promise<void>;
+export { initialize };

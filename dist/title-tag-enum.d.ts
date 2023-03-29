@@ -1,4 +1,4 @@
-declare enum TitleTagEnum {
+export declare enum TitleTagEnum {
     emailAddress = "email_address",
     phoneNumber = "phone_number",
     physicalAddress = "physical_address",

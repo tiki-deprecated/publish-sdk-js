@@ -1,4 +1,4 @@
-declare class TitleTag {
+export declare class TitleTag {
     private readonly _value;
     private constructor();
     get value(): string;

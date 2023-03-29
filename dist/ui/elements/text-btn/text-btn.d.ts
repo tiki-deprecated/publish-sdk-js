@@ -1,2 +1,2 @@
 import "./text-btn.css";
-export default function (text: string, onClick: Function, isSolid?: boolean): HTMLButtonElement;
+export declare function create(text: string, onClick: () => void, isSolid?: boolean): HTMLButtonElement;

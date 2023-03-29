@@ -6,7 +6,7 @@
 import "./trade-your-data.css";
 import Html from "./trade-your-data-html";
 
-export default function (): HTMLSpanElement {
+export function create(): HTMLSpanElement {
   const span: HTMLSpanElement = document.createElement("span");
   span.innerHTML = Html();
   span.className = "tiki-trade-your-data";

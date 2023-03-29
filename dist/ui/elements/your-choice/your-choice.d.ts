@@ -1,2 +1,2 @@
 import "./your-choice.css";
-export default function (): HTMLSpanElement;
+export declare function create(): HTMLSpanElement;

@@ -3,7 +3,9 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-class LicenseUsecase {
+import { LicenseUsecaseEnum } from "./license-usecase-enum";
+
+export class LicenseUsecase {
   private readonly _value: string;
 
   private constructor(value: string) {

@@ -6,10 +6,10 @@
 import "./back-btn.css";
 import Html from "./back-btn-html";
 
-export default function (text: string, onClick?: Function): HTMLButtonElement {
+export function create(text: string, onClick?: () => void): HTMLButtonElement {
   const button: HTMLButtonElement = document.createElement("button");
   button.className = "tiki-back-btn";
   button.innerHTML = Html();
-  if (onClick !== undefined) button.onclick = () => onClick();
+  if (onClick !== undefined) button.onclick = onClick;
   return button;
 }

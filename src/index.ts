@@ -6,27 +6,25 @@
 import "./core/core.dart.cjs";
 import KeyGen from "./core/key-gen";
 
-export {
-  initialize,
-  title,
-  license,
-  getTitle,
-  getLicense,
-  id,
-  all,
-  guard,
-  latest,
-  address,
-};
+import { TitleRecord } from "./title-record";
+import { LicenseRecord } from "./license-record";
+import { LicenseUsecase } from "./license-usecase";
+import { LicenseUse } from "./license-use";
+import { flow } from "./ui/screens/flow";
+import { FlowStep } from "./ui/screens/flow-step";
 
-const initialize = async (
+export const present = () => flow();
+
+export const settings = () => flow(FlowStep.settings);
+
+export const initialize = async (
   publishingId: string,
   id: string,
   origin?: string
 ): Promise<void> =>
   await globalThis.___TikiSdk__initialize(publishingId, id, KeyGen, origin);
 
-const title = async (
+export const title = async (
   ptr: string,
   tags?: Array<string>,
   description?: string,
@@ -34,7 +32,7 @@ const title = async (
 ): Promise<TitleRecord> =>
   globalThis.___TikiSdk__title(ptr, tags, description, origin);
 
-const license = async (
+export const license = async (
   ptr: string,
   uses: Array<LicenseUse>,
   terms: string,
@@ -55,19 +53,21 @@ const license = async (
     origin
   );
 
-const getTitle = (id: string): TitleRecord | undefined =>
+export const getTitle = (id: string): TitleRecord | undefined =>
   globalThis.___TikiSdk__getTitle(id);
 
-const getLicense = (id: string): LicenseRecord | undefined =>
+export const getLicense = (id: string): LicenseRecord | undefined =>
   globalThis.___TikiSdk__getLicense(id);
 
-const all = (ptr: string, origin?: string): Array<LicenseRecord> =>
+export const all = (ptr: string, origin?: string): Array<LicenseRecord> =>
   globalThis.___TikiSdk__all(ptr, origin);
 
-const latest = (ptr: string, origin?: string): LicenseRecord | undefined =>
-  globalThis.___TikiSdk__latest(ptr, origin);
+export const latest = (
+  ptr: string,
+  origin?: string
+): LicenseRecord | undefined => globalThis.___TikiSdk__latest(ptr, origin);
 
-const guard = (
+export const guard = (
   ptr: string,
   usecases: Array<LicenseUsecase>,
   destinations?: Array<string>,
@@ -84,6 +84,6 @@ const guard = (
     origin
   );
 
-const address = (): string => globalThis.___TikiSdk__address();
+export const address = (): string => globalThis.___TikiSdk__address();
 
-const id = (): string => globalThis.___TikiSdk__id();
+export const id = (): string => globalThis.___TikiSdk__id();

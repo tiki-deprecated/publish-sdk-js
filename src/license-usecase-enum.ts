@@ -3,7 +3,7 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-enum LicenseUsecaseEnum {
+export enum LicenseUsecaseEnum {
   attribution = "attribution",
   retargeting = "retargeting",
   personalization = "personalization",

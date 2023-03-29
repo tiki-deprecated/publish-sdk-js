@@ -3,7 +3,9 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-class TitleTag {
+import { TitleTagEnum } from "./title-tag-enum";
+
+export class TitleTag {
   private readonly _value: string;
 
   private constructor(value: string) {

@@ -1,2 +1,2 @@
 import "./terms.css";
-export default function (terms: string, isHtml?: boolean): void;
+export declare function create(terms: string, onAccept: () => void, onBack: () => void, isHtml?: boolean): HTMLDivElement;

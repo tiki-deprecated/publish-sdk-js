@@ -3,7 +3,9 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-interface LicenseUse {
+import { LicenseUsecase } from "./license-usecase";
+
+export interface LicenseUse {
   usecases: Array<LicenseUsecase>;
   destinations?: Array<string>;
 }

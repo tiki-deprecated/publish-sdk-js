@@ -3,7 +3,7 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-interface TitleRecord {
+export interface TitleRecord {
   id: string;
   hashedPtr: string;
   origin?: string;

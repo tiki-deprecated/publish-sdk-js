@@ -1,2 +1,2 @@
 import "./ending.css";
-export default function (text: string, settings: HTMLSpanElement): void;
+export declare function create(text: string, settings: HTMLSpanElement): HTMLDivElement;

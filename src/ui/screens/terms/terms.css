@@ -3,7 +3,7 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-#tiki-terms {
+.tiki-terms {
   background-color: var(--tiki-primary-background-color);
   position: fixed;
   top: 50%;
@@ -56,7 +56,7 @@
 }
 
 @media (min-width: 1024px) {
-  #tiki-terms {
+  .tiki-terms {
     height: 36em;
     max-height: 90vh;
     max-width: 390px;

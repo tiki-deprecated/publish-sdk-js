@@ -1,2 +1,2 @@
 import "./learn-more.css";
-export default function (): void;
+export declare function create(onBack: () => void): HTMLDivElement;

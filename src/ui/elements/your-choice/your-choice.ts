@@ -6,7 +6,7 @@
 import "./your-choice.css";
 import Html from "./your-choice-html";
 
-export default function (): HTMLSpanElement {
+export function create(): HTMLSpanElement {
   const span: HTMLSpanElement = document.createElement("span");
   span.innerHTML = Html();
   span.className = "tiki-your-choice";

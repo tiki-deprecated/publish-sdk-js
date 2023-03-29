@@ -1,4 +1,4 @@
-interface TitleRecord {
+export interface TitleRecord {
     id: string;
     hashedPtr: string;
     origin?: string;

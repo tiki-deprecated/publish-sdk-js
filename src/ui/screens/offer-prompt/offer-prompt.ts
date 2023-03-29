@@ -4,65 +4,65 @@
  */
 
 import "./offer-prompt.css";
-import Overlay from "../overlay/overlay";
-import TradeYourData from "../../elements/trade-your-data/trade-your-data";
-import LearnMoreBtn from "../../elements/learn-more-btn/learn-more-btn";
-import TextBtn from "../../elements/text-btn/text-btn";
-import UsedFor from "../../elements/used-for/used-for";
-import OfferCard from "../../elements/offer-card/offer-card";
+import * as TradeYourData from "../../elements/trade-your-data/trade-your-data";
+import * as LearnMoreBtn from "../../elements/learn-more-btn/learn-more-btn";
+import * as TextBtn from "../../elements/text-btn/text-btn";
+import * as UsedFor from "../../elements/used-for/used-for";
+import * as OfferCard from "../../elements/offer-card/offer-card";
+import { Offer } from "../offer";
 
-const id = "tiki-offer-prompt";
-
-export default function (): void {
-  const prompt: HTMLDivElement = document.createElement("div");
-  prompt.id = id;
-
+export function create(
+  offer: Offer,
+  onAccept: (offer: Offer) => void,
+  onDecline: (offer: Offer) => void,
+  onLearnMore: () => void
+): HTMLDivElement {
+  const div: HTMLDivElement = document.createElement("div");
+  div.className = "tiki-offer-prompt";
   const body: HTMLDivElement = document.createElement("div");
   body.className = "tiki-offer-prompt-body";
-  body.appendChild(heading());
-  body.appendChild(offer());
-  body.appendChild(cta());
-
-  prompt.appendChild(body);
-  Overlay(true, () => document.body.removeChild(prompt));
-  document.body.appendChild(prompt);
-}
-
-function heading(): HTMLDivElement {
-  const div: HTMLDivElement = document.createElement("div");
-  div.className = "tiki-offer-prompt-heading";
-  div.appendChild(TradeYourData());
-  div.appendChild(LearnMoreBtn(() => console.log("Learn More")));
+  body.appendChild(createHeading(onLearnMore));
+  body.appendChild(createOffer(offer));
+  body.appendChild(
+    createCta(
+      () => onAccept(offer),
+      () => onDecline(offer)
+    )
+  );
+  div.appendChild(body);
   return div;
 }
 
-function offer(): HTMLDivElement {
+function createHeading(onLearnMore: () => void): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
-  const card: HTMLDivElement = OfferCard(
-    "https://static.vecteezy.com/system/resources/previews/011/765/527/original/smiley-face-seamless-pattern-design-cute-colorful-retro-doodle-emoji-smile-background-free-vector.jpg",
-    "Trade your IDFA (kind of like a serial # for your phone) for a discount."
+  div.className = "tiki-offer-prompt-heading";
+  div.appendChild(TradeYourData.create());
+  div.appendChild(LearnMoreBtn.create(onLearnMore));
+  return div;
+}
+
+function createOffer(offer: Offer): HTMLDivElement {
+  const div: HTMLDivElement = document.createElement("div");
+  const card: HTMLDivElement = OfferCard.create(
+    offer.reward,
+    offer.description
   );
   div.appendChild(card);
-  const usedFor: HTMLDivElement = UsedFor(
-    new Map([
-      ["Learn how our ads perform", true],
-      ["Reach you on other platforms", false],
-      ["Sold to other companies", false],
-    ])
-  );
+  const usedFor: HTMLDivElement = UsedFor.create(offer.bullets);
   usedFor.className = "tiki-used-for";
   div.appendChild(usedFor);
   return div;
 }
 
-function cta(): HTMLDivElement {
+function createCta(
+  onAccept: () => void,
+  onDecline: () => void
+): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-offer-prompt-cta";
-  const backOff: HTMLButtonElement = TextBtn("Back Off", () =>
-    console.log("Back Off")
-  );
+  const backOff: HTMLButtonElement = TextBtn.create("Back Off", onDecline);
   backOff.className = backOff.className + " tiki-back-off-btn";
   div.appendChild(backOff);
-  div.appendChild(TextBtn("I'm In", () => console.log("I'm In"), true));
+  div.appendChild(TextBtn.create("I'm In", onAccept, true));
   return div;
 }

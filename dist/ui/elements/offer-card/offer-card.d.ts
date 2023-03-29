@@ -1,2 +1,2 @@
 import "./offer-card.css";
-export default function (src: string, text: string, alt?: string): HTMLDivElement;
+export declare function create(src: string, text: string, alt?: string): HTMLDivElement;

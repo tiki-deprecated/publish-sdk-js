@@ -5,19 +5,19 @@
 
 import "./offer-card.css";
 
-export default function (
+export function create(
   src: string,
   text: string,
   alt?: string
 ): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-offer-card";
-  div.appendChild(img(src, alt));
-  div.appendChild(description(text));
+  div.appendChild(createImg(src, alt));
+  div.appendChild(createDescription(text));
   return div;
 }
 
-function img(src: string, alt?: string): HTMLImageElement {
+function createImg(src: string, alt?: string): HTMLImageElement {
   const image: HTMLImageElement = document.createElement("img");
   image.className = "tiki-offer-card-img";
   image.src = src;
@@ -25,7 +25,7 @@ function img(src: string, alt?: string): HTMLImageElement {
   return image;
 }
 
-function description(text: string): HTMLSpanElement {
+function createDescription(text: string): HTMLSpanElement {
   const span: HTMLSpanElement = document.createElement("span");
   span.className = "tiki-offer-card-text";
   const cell: HTMLDivElement = document.createElement("div");

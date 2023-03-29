@@ -1,2 +1,3 @@
 import "./used-for.css";
-export default function (bullets: Map<string, boolean>): HTMLDivElement;
+import { Bullet } from "../../screens/bullet";
+export declare function create(bullets: Array<Bullet>): HTMLDivElement;

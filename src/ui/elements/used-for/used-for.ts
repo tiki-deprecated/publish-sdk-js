@@ -5,31 +5,32 @@
 
 import "./used-for.css";
 import * as Html from "./used-for-html";
+import { Bullet } from "../../screens/bullet";
 
-export default function (bullets: Map<string, boolean>): HTMLDivElement {
+export function create(bullets: Array<Bullet>): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
-  div.appendChild(title());
-  div.appendChild(bulletList(bullets));
+  div.appendChild(createTitle());
+  div.appendChild(createList(bullets));
   return div;
 }
 
-function title(): HTMLSpanElement {
+function createTitle(): HTMLSpanElement {
   const span: HTMLSpanElement = document.createElement("span");
   span.innerHTML = "HOW YOUR DATA WILL BE USED";
   span.className = "tiki-used-for-title";
   return span;
 }
 
-function bulletList(bullets: Map<string, boolean>): HTMLUListElement {
+function createList(bullets: Array<Bullet>): HTMLUListElement {
   const ul: HTMLUListElement = document.createElement("ul");
   ul.className = "tiki-used-for-list";
-  bullets.forEach((value: boolean, key: string) =>
-    ul.appendChild(bullet(key, value))
+  bullets.forEach((bullet) =>
+    ul.appendChild(createBullet(bullet.text, bullet.isUsed))
   );
   return ul;
 }
 
-function bullet(text: string, isUsed: boolean = true): HTMLLIElement {
+function createBullet(text: string, isUsed = true): HTMLLIElement {
   const li: HTMLLIElement = document.createElement("li");
   li.className = "tiki-used-for-list-item";
   const template: HTMLTemplateElement = document.createElement("template");

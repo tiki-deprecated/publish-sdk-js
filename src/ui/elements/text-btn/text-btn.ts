@@ -5,15 +5,15 @@
 
 import "./text-btn.css";
 
-export default function (
+export function create(
   text: string,
-  onClick: Function,
-  isSolid: boolean = false
+  onClick: () => void,
+  isSolid = false
 ): HTMLButtonElement {
   const button: HTMLButtonElement = document.createElement("button");
   if (isSolid) button.className = "tiki-text-btn tiki-text-btn-solid";
   else button.className = "tiki-text-btn tiki-text-btn-outline";
-  button.onclick = () => onClick();
+  button.onclick = onClick;
   button.innerHTML = text;
   return button;
 }

@@ -12,11 +12,21 @@ import * as LearnMoreBtn from "../../elements/learn-more-btn/learn-more-btn";
 import { toHtml } from "../../utils/nano-md";
 import * as TextBtn from "../../elements/text-btn/text-btn";
 import { Offer } from "../../offer";
+import { cssVar } from "../../utils/null-safe";
+
+interface Style {
+  backgroundColor: string;
+  fontFamily: string;
+  termsBackgroundColor: string;
+  termsTextColor: string;
+  accentColor: string;
+}
 
 export function create(
   offer: Offer,
   onBack: () => void,
-  onLearnMore: () => void
+  onLearnMore: () => void,
+  style?: Style
 ): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-settings";
@@ -26,6 +36,28 @@ export function create(
   body.appendChild(createContent(offer));
   body.appendChild(cta());
   div.appendChild(body);
+  cssVar(div, [
+    {
+      property: "--tiki-settings-background-color",
+      value: style?.backgroundColor,
+    },
+    {
+      property: "--tiki-settings-font-family",
+      value: style?.fontFamily,
+    },
+    {
+      property: "--tiki-settings-terms-background-color",
+      value: style?.termsBackgroundColor,
+    },
+    {
+      property: "--tiki-settings-terms-text-color",
+      value: style?.termsTextColor,
+    },
+    {
+      property: "--tiki-settings-accent-color",
+      value: style?.accentColor,
+    },
+  ]);
   return div;
 }
 

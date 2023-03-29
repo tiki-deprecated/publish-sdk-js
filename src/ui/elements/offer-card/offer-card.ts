@@ -9,6 +9,7 @@ import { cssVar } from "../../utils/null-safe";
 interface Style {
   backgroundColor?: string;
   textColor?: string;
+  fontFamily?: string;
 }
 
 interface Img {
@@ -29,6 +30,10 @@ export function create(img: Img, text: string, style?: Style): HTMLDivElement {
     {
       property: "--tiki-offer-card-text-color",
       value: style?.textColor,
+    },
+    {
+      property: "--tiki-offer-card-font-family",
+      value: style?.fontFamily,
     },
   ]);
   return div;

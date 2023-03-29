@@ -11,6 +11,7 @@ import { cssVar } from "../../utils/null-safe";
 interface Style {
   titleColor?: string;
   textColor?: string;
+  fontFamily?: string;
 }
 
 export function create(bullets: Array<Bullet>, style?: Style): HTMLDivElement {
@@ -26,6 +27,10 @@ export function create(bullets: Array<Bullet>, style?: Style): HTMLDivElement {
     {
       property: "--tiki-used-for-text-color",
       value: style?.textColor,
+    },
+    {
+      property: "--tiki-used-for-font-family",
+      value: style?.fontFamily,
     },
   ]);
   return div;

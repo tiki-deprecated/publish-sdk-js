@@ -67,7 +67,9 @@ function goTo(step: FlowStep, offer?: Offer, from?: FlowStep): void {
     }
     case FlowStep.terms: {
       const terms = Terms.create(
-        offer._terms,
+        {
+          value: offer._terms,
+        },
         () => {
           terms.remove();
           goTo(FlowStep.endingAccepted, offer);

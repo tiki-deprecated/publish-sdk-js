@@ -4,7 +4,12 @@
  */
 
 .tiki-terms {
-  background-color: var(--tiki-primary-background-color);
+  --tiki-terms-background-color: var(--tiki-primary-background-color);
+  --tiki-terms-font-family: var(--tiki-font-family);
+  --tiki-terms-border-color: var(--tiki-accent-color);
+  --tiki-terms-text-color: var(--tiki-primary-text-color);
+
+  background-color: var(--tiki-terms-background-color);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -35,9 +40,9 @@
   display: block;
   overflow: scroll;
   box-sizing: border-box;
-  border-bottom: 1px solid var(--tiki-accent-color);
-  font-family: var(--tiki-font-family);
-  color: var(--tiki-primary-text-color);
+  border-bottom: 1px solid var(--tiki-terms-border-color);
+  font-family: var(--tiki-terms-font-family);
+  color: var(--tiki-terms-text-color);
   height: 100%;
 }
 
@@ -48,11 +53,11 @@
 }
 
 .tiki-terms-title {
-  color: var(--tiki-primary-text-color);
+  color: var(--tiki-terms-text-color);
   font-size: var(--tiki-font-size-lg);
   line-height: var(--tiki-line-height-lg);
   font-weight: 700;
-  font-family: var(--tiki-font-family);
+  font-family: var(--tiki-terms-font-family);
 }
 
 @media (min-width: 1024px) {

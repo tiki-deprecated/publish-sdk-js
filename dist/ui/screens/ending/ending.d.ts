@@ -1,2 +1,9 @@
 import "./ending.css";
-export declare function create(text: string, settings: HTMLSpanElement): HTMLDivElement;
+interface Style {
+    backgroundColor: string;
+    fontFamily: string;
+    titleColor: string;
+    textColor: string;
+}
+export declare function create(text: string, settings: HTMLSpanElement, style?: Style): HTMLDivElement;
+export {};

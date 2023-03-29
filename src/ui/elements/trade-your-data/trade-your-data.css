@@ -6,9 +6,10 @@
 .tiki-trade-your-data {
   --tiki-trade-your-data-text-color: var(--tiki-primary-text-color);
   --tiki-trade-your-data-accent-color: var(--tiki-accent-color);
+  --tiki-trade-your-data-font-family: var(--tiki-font-family);
 
   color: var(--tiki-trade-your-data-text-color);
-  font-family: var(--tiki-font-family);
+  font-family: var(--tiki-trade-your-data-font-family);
   font-size: var(--tiki-font-size-xl);
   line-height: var(--tiki-line-height-xl);
   font-weight: 700;

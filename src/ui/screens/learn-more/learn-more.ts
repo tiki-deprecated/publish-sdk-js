@@ -6,8 +6,15 @@
 import "./learn-more.css";
 import * as BackBtn from "../../elements/back-btn/back-btn";
 import markdownHtml from "./learn-more.md";
+import { cssVar } from "../../utils/null-safe";
 
-export function create(onBack: () => void): HTMLDivElement {
+interface Style {
+  backgroundColor?: string;
+  textColor?: string;
+  fontFamily?: string;
+}
+
+export function create(onBack: () => void, style?: Style): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-learn-more";
   const body: HTMLDivElement = document.createElement("div");
@@ -15,6 +22,20 @@ export function create(onBack: () => void): HTMLDivElement {
   body.appendChild(createHeading(onBack));
   body.appendChild(createContent());
   div.appendChild(body);
+  cssVar(div, [
+    {
+      property: "--tiki-learn-more-background-color",
+      value: style?.backgroundColor,
+    },
+    {
+      property: "--tiki-learn-more-font-family",
+      value: style?.fontFamily,
+    },
+    {
+      property: "--tiki-learn-more-text-color",
+      value: style?.textColor,
+    },
+  ]);
   return div;
 }
 

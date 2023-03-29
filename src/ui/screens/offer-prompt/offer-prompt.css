@@ -4,13 +4,16 @@
  */
 
 .tiki-offer-prompt {
+  --tiki-offer-prompt-background-color: var(--tiki-secondary-background-color);
+  --tiki-offer-prompt-font-family: var(--tiki-font-family);
+
   width: 100vw;
-  background-color: var(--tiki-secondary-background-color);
+  background-color: var(--tiki-offer-prompt-background-color);
   position: fixed;
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 0);
-  font-family: var(--tiki-font-family);
+  font-family: var(--tiki-offer-prompt-font-family);
   border-radius: 2.5em 2.5em 0 0;
 }
 

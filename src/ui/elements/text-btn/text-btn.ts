@@ -10,6 +10,7 @@ interface Style {
   outlineColor?: string;
   backgroundColor?: string;
   textColor?: string;
+  fontFamily?: string;
 }
 
 export function create(
@@ -28,6 +29,7 @@ export function create(
       value: style?.backgroundColor,
     },
     { property: "--tiki-text-btn-text-color", value: style?.textColor },
+    { property: "--tiki-text-btn-font-family", value: style?.fontFamily },
   ]);
   return button;
 }

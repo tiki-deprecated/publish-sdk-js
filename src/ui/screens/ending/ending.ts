@@ -5,10 +5,19 @@
 
 import "./ending.css";
 import * as YourChoice from "../../elements/your-choice/your-choice";
+import { cssVar } from "../../utils/null-safe";
+
+interface Style {
+  backgroundColor: string;
+  fontFamily: string;
+  titleColor: string;
+  textColor: string;
+}
 
 export function create(
   text: string,
-  settings: HTMLSpanElement
+  settings: HTMLSpanElement,
+  style?: Style
 ): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-ending";
@@ -18,6 +27,21 @@ export function create(
   body.appendChild(createTitle(text));
   body.appendChild(settings);
   div.appendChild(body);
+  cssVar(div, [
+    {
+      property: "--tiki-ending-background-color",
+      value: style?.backgroundColor,
+    },
+    {
+      property: "--tiki-ending-font-family",
+      value: style?.fontFamily,
+    },
+    { property: "--tiki-ending-title-color", value: style?.titleColor },
+    {
+      property: "--tiki-ending-text-color",
+      value: style?.textColor,
+    },
+  ]);
   return div;
 }
 

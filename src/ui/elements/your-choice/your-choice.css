@@ -6,9 +6,10 @@
 .tiki-your-choice {
   --tiki-your-choice-text-color: var(--tiki-primary-text-color);
   --tiki-your-choice-accent-color: var(--tiki-accent-color);
+  --tiki-your-choice-font-family: var(--tiki-font-family);
 
   color: var(--tiki-your-choice-text-color);
-  font-family: var(--tiki-font-family);
+  font-family: var(--tiki-your-choice-font-family);
   font-size: var(--tiki-font-size-xl);
   line-height: var(--tiki-line-height-xl);
   font-weight: 700;

@@ -7,21 +7,52 @@ import "./terms.css";
 import * as BackBtn from "../../elements/back-btn/back-btn";
 import * as TextBtn from "../../elements/text-btn/text-btn";
 import { toHtml } from "../../utils/nano-md";
+import { cssVar } from "../../utils/null-safe";
+
+interface Style {
+  backgroundColor: string;
+  borderColor: string;
+  fontFamily: string;
+  textColor: string;
+}
+
+interface Terms {
+  value: string;
+  isHtml?: boolean;
+}
 
 export function create(
-  terms: string,
+  terms: Terms,
   onAccept: () => void,
   onBack: () => void,
-  isHtml = false
+  style?: Style
 ): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-terms";
   const body: HTMLDivElement = document.createElement("div");
   body.className = "tiki-terms-body";
   body.appendChild(createHeading(onBack));
-  body.appendChild(createContent(terms, isHtml));
+  body.appendChild(createContent(terms.value, terms.isHtml));
   body.appendChild(TextBtn.create("I agree", onAccept));
   div.appendChild(body);
+  cssVar(div, [
+    {
+      property: "--tiki-terms-background-color",
+      value: style?.backgroundColor,
+    },
+    {
+      property: "--tiki-terms-font-family",
+      value: style?.fontFamily,
+    },
+    {
+      property: "--tiki-terms-border-color",
+      value: style?.borderColor,
+    },
+    {
+      property: "--tiki-terms-text-color",
+      value: style?.textColor,
+    },
+  ]);
   return div;
 }
 

@@ -4,7 +4,7 @@
  */
 
 .tiki-background-overlay {
-  --tiki-background-overlay-background-color: "#0000004D";
+  --tiki-background-overlay-background-color: #0000004d;
 
   background-color: var(--tiki-background-overlay-background-color);
   position: fixed;

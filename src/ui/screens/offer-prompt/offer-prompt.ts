@@ -15,12 +15,19 @@ import {
   CSS_VAR_PRIMARY_BACKGROUND_COLOR,
   CSS_VAR_PRIMARY_TEXT_COLOR,
 } from "../../theme";
+import { cssVar } from "../../utils/null-safe";
+
+interface Style {
+  backgroundColor: string;
+  fontFamily: string;
+}
 
 export function create(
   offer: Offer,
   onAccept: (offer: Offer) => void,
   onDecline: (offer: Offer) => void,
-  onLearnMore: () => void
+  onLearnMore: () => void,
+  style?: Style
 ): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-offer-prompt";
@@ -35,6 +42,13 @@ export function create(
     )
   );
   div.appendChild(body);
+  cssVar(div, [
+    {
+      property: "--tiki-offer-prompt-background-color",
+      value: style?.backgroundColor,
+    },
+    { property: "--tiki-offer-prompt-font-family", value: style?.fontFamily },
+  ]);
   return div;
 }
 

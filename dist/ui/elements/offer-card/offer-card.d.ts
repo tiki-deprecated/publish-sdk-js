@@ -2,6 +2,7 @@ import "./offer-card.css";
 interface Style {
     backgroundColor?: string;
     textColor?: string;
+    fontFamily?: string;
 }
 interface Img {
     src: string;

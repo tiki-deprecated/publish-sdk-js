@@ -10,6 +10,7 @@ import { cssVar } from "../../utils/null-safe";
 interface Style {
   textColor?: string;
   accentColor?: string;
+  fontFamily?: string;
 }
 
 export function create(style?: Style): HTMLSpanElement {
@@ -24,6 +25,10 @@ export function create(style?: Style): HTMLSpanElement {
     {
       property: "--tiki-trade-your-data-accent-color",
       value: style?.accentColor,
+    },
+    {
+      property: "--tiki-trade-your-data-font-family",
+      value: style?.fontFamily,
     },
   ]);
   return span;

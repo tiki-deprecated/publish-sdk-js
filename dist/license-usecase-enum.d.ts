@@ -1,4 +1,4 @@
-declare enum LicenseUsecaseEnum {
+export declare enum LicenseUsecaseEnum {
     attribution = "attribution",
     retargeting = "retargeting",
     personalization = "personalization",

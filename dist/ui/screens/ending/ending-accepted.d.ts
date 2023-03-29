@@ -1,1 +1,1 @@
-export default function (onSettings?: Function): void;
+export declare function create(onSettings?: () => void): HTMLDivElement;

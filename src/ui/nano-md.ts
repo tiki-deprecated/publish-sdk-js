@@ -22,7 +22,7 @@ function lex(a) {
     .replace(
       /(!?)\[([^\]<>]+)]\((\+?)([^ )<>]+)(?: "([^()"]+)")?\)/g,
       function (match, is_img, text, new_tab, ref, title) {
-        var attrs = title ? ' title="' + title + '"' : "";
+        let attrs = title ? ' title="' + title + '"' : "";
         if (is_img)
           return (
             '<img src="' + href(ref) + '" alt="' + text + '"' + attrs + "/>"
@@ -44,41 +44,40 @@ function href(ref) {
   return ref;
 }
 
-// eslint-disable-next-line no-unused-vars
 function headAttrs(level, text) {
   return ""; // return ' id=\''+text.replace(/[^a-z0-9]/g, '_').replace(/_{2,}/g, '_').replace(/^_*(.*?)_*$/, '$1').toLowerCase()+'\'';
 }
 
-export default function (md) {
+export function toHtml(md) {
   return md.replace(/.+(?:\n.+)*/g, function (m) {
-    var code = /^\s{4}([^]*)$/.exec(m);
+    const code = /^\s{4}([^]*)$/.exec(m);
     if (code)
       return "<pre><code>" + code[1].replace(/\n {4}/g, "\n") + "</code></pre>";
-    var ps = [],
-      cur,
-      rows = lex(m).split("\n");
-    for (var i = 0, l = rows.length; i < l; ++i) {
-      var row = rows[i],
+    const ps = [];
+    let cur;
+    const rows = lex(m).split("\n");
+    for (let i = 0, l = rows.length; i < l; ++i) {
+      const row = rows[i],
         head = /^\s{0,3}(#{1,6})\s+(.*?)\s*#*\s*$/.exec(row);
       if (head) {
         // heading
         ps.push((cur = [head[2], "h", head[1].length])); // cur = [ text, type, level ]
         continue;
       }
-      var list = /^(\s*)(?:[-*]|(\d[.)])) (.+)$/.exec(row);
+      const list = /^(\s*)(?:[-*]|(\d[.)])) (.+)$/.exec(row);
       if (list)
         ps.push((cur = [list[3], list[2] ? "ol" : "ul", list[1].length]));
       // cur = [ text, type, level ]
-      else if (/^\s{0,3}([-])(\s*\1){2,}\s*$/.test(row))
+      else if (/^\s{0,3}(-)(\s*\1){2,}\s*$/.test(row))
         ps.push((cur = ["", "hr"]));
       else if (cur && cur[1] !== "hr" && cur[1] !== "h") cur[0] += "\n" + row;
       else ps.push((cur = [row, "p", ""]));
     }
-    var out = "",
-      lists = [];
-    for (i = 0, l = ps.length; i < l; ++i) {
+    let out = "";
+    const lists = [];
+    for (let i = 0, l = ps.length; i < l; ++i) {
       cur = ps[i];
-      var text = cur[0],
+      const text = cur[0],
         tag = cur[1],
         lvl = cur[2];
       if (tag === "ul" || tag === "ol") {

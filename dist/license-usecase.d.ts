@@ -1,4 +1,4 @@
-declare class LicenseUsecase {
+export declare class LicenseUsecase {
     private readonly _value;
     private constructor();
     get value(): string;

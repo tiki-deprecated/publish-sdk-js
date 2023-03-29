@@ -3,7 +3,7 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-enum TitleTagEnum {
+export enum TitleTagEnum {
   emailAddress = "email_address",
   phoneNumber = "phone_number",
   physicalAddress = "physical_address",

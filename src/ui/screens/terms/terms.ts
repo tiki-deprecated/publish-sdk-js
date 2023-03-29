@@ -4,48 +4,39 @@
  */
 
 import "./terms.css";
-import BackBtn from "../../elements/back-btn/back-btn";
-import TextBtn from "../../elements/text-btn/text-btn";
-import NanoMd from "../../nano-md";
+import * as BackBtn from "../../elements/back-btn/back-btn";
+import * as TextBtn from "../../elements/text-btn/text-btn";
+import { toHtml } from "../../nano-md";
 
-const id = "tiki-terms";
-
-export default function (terms: string, isHtml: boolean = false): void {
-  const page: HTMLDivElement = document.createElement("div");
-  page.id = id;
-
+export function create(
+  terms: string,
+  onAccept: () => void,
+  onBack: () => void,
+  isHtml = false
+): HTMLDivElement {
+  const div: HTMLDivElement = document.createElement("div");
+  div.className = "tiki-terms";
   const body: HTMLDivElement = document.createElement("div");
   body.className = "tiki-terms-body";
-  body.appendChild(heading());
-  body.appendChild(content(terms, isHtml));
-  body.appendChild(TextBtn("I agree", () => {}, true));
-
-  page.appendChild(body);
-  document.body.appendChild(page);
+  body.appendChild(createHeading(onBack));
+  body.appendChild(createContent(terms, isHtml));
+  body.appendChild(TextBtn.create("I agree", onAccept, true));
+  div.appendChild(body);
+  return div;
 }
 
-function heading(): HTMLDivElement {
+function createHeading(onBack: () => void): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-terms-heading";
-
-  div.appendChild(
-    BackBtn("Terms and Conditions", () => {
-      const element: HTMLElement = document.getElementById(id);
-      if (element !== null) {
-        document.body.removeChild(element);
-      }
-    })
-  );
-
+  div.appendChild(BackBtn.create("Terms and Conditions", onBack));
   const span: HTMLSpanElement = document.createElement("div");
   span.className = "tiki-terms-title";
   span.innerHTML = "Terms & Conditions";
   div.appendChild(span);
-
   return div;
 }
 
-function content(terms: string, isHtml: boolean = false): HTMLDivElement {
+function createContent(terms: string, isHtml = false): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-terms-content";
   const container: HTMLDivElement = document.createElement("div");
@@ -53,7 +44,7 @@ function content(terms: string, isHtml: boolean = false): HTMLDivElement {
   const html: HTMLDivElement = document.createElement("div");
   html.className = "tiki-terms-legal-md";
   if (isHtml) html.innerHTML = terms;
-  else html.innerHTML = NanoMd(terms);
+  else html.innerHTML = toHtml(terms);
   container.appendChild(html);
   div.appendChild(container);
   return div;

@@ -1,2 +1,2 @@
 import "./back-btn.css";
-export default function (text: string, onClick?: Function): HTMLButtonElement;
+export declare function create(text: string, onClick?: () => void): HTMLButtonElement;

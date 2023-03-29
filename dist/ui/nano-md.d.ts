@@ -1,1 +1,1 @@
-export default function (md: any): any;
+export declare function toHtml(md: any): any;

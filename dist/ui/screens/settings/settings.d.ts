@@ -1,2 +1,3 @@
 import "./settings.css";
-export default function (terms: string, isHtml?: boolean): void;
+import { Offer } from "../offer";
+export declare function create(offer: Offer, onBack: () => void, onLearnMore: () => void): HTMLDivElement;

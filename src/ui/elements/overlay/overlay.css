@@ -3,7 +3,7 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-#tiki-background-overlay {
+.tiki-background-overlay {
   background-color: rgb(0 0 0 / 30%);
   position: fixed;
   top: 50%;

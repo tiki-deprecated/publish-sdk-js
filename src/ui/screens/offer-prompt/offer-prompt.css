@@ -3,7 +3,7 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-#tiki-offer-prompt {
+.tiki-offer-prompt {
   width: 100vw;
   background-color: var(--tiki-secondary-background-color);
   position: fixed;
@@ -54,7 +54,7 @@
 }
 
 @media (min-width: 1024px) {
-  #tiki-offer-prompt {
+  .tiki-offer-prompt {
     height: 36em;
     max-height: 90vh;
     max-width: 390px;

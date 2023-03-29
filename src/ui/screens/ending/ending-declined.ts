@@ -4,19 +4,17 @@
  */
 
 import * as Settings from "./ending-settings-html";
-import Ending from "./ending";
+import * as Ending from "./ending";
 
-export default function (onSettings?: Function): void {
+export function create(onSettings?: () => void): HTMLDivElement {
   const span: HTMLSpanElement = document.createElement("span");
   span.innerHTML = Settings.declined();
   span.className = "tiki-ending-subtitle";
-
   if (onSettings !== undefined) {
     const link = span.children.namedItem(
       "tiki-ending-settings"
     ) as HTMLLinkElement;
     link.onclick = () => onSettings();
   }
-
-  Ending("Backing Off", span);
+  return Ending.create("Backing Off", span);
 }

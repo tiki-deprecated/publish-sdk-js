@@ -1,2 +1,2 @@
 import "./overlay.css";
-export default function display(show: boolean, onDismiss?: Function): void;
+export default function display(onClick?: () => void): HTMLDivElement;

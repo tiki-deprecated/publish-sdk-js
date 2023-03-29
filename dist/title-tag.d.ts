@@ -1,0 +1,37 @@
+declare class TitleTag {
+    private readonly _value;
+    private constructor();
+    get value(): string;
+    static custom(value: string): TitleTag;
+    static from(value: string): TitleTag;
+    static emailAddress(): TitleTag;
+    static phoneNumber(): TitleTag;
+    static physicalAddress(): TitleTag;
+    static contactInfo(): TitleTag;
+    static health(): TitleTag;
+    static fitness(): TitleTag;
+    static paymentInfo(): TitleTag;
+    static creditInfo(): TitleTag;
+    static financialInfo(): TitleTag;
+    static preciseLocation(): TitleTag;
+    static coarseLocation(): TitleTag;
+    static sensitiveInfo(): TitleTag;
+    static contacts(): TitleTag;
+    static messages(): TitleTag;
+    static photoVideo(): TitleTag;
+    static audio(): TitleTag;
+    static gameplayContent(): TitleTag;
+    static customerSupport(): TitleTag;
+    static userContent(): TitleTag;
+    static browsingHistory(): TitleTag;
+    static searchHistory(): TitleTag;
+    static userId(): TitleTag;
+    static deviceId(): TitleTag;
+    static purchaseHistory(): TitleTag;
+    static productInteraction(): TitleTag;
+    static advertisingData(): TitleTag;
+    static usageData(): TitleTag;
+    static crashData(): TitleTag;
+    static performanceData(): TitleTag;
+    static diagnosticData(): TitleTag;
+}

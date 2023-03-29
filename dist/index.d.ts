@@ -1,3 +1,12 @@
-import "./main.dart.cjs";
-declare function initialize(): Promise<void>;
-export { initialize };
+import "./core/core.dart.cjs";
+export { initialize, title, license, getTitle, getLicense, id, all, guard, latest, address, };
+declare const initialize: (publishingId: string, id: string, origin?: string) => Promise<void>;
+declare const title: (ptr: string, tags?: Array<string>, description?: string, origin?: string) => Promise<TitleRecord>;
+declare const license: (ptr: string, uses: Array<LicenseUse>, terms: string, tags?: Array<string>, expiry?: Date, licenseDescription?: string, titleDescription?: string, origin?: string) => Promise<LicenseRecord>;
+declare const getTitle: (id: string) => TitleRecord | undefined;
+declare const getLicense: (id: string) => LicenseRecord | undefined;
+declare const all: (ptr: string, origin?: string) => Array<LicenseRecord>;
+declare const latest: (ptr: string, origin?: string) => LicenseRecord | undefined;
+declare const guard: (ptr: string, usecases: Array<LicenseUsecase>, destinations?: Array<string>, onPass?: () => void, onFail?: () => void, origin?: string) => boolean;
+declare const address: () => string;
+declare const id: () => string;

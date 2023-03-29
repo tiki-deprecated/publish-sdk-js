@@ -4,7 +4,10 @@
  */
 
 .tiki-trade-your-data {
-  color: var(--tiki-primary-text-color);
+  --tiki-trade-your-data-text-color: var(--tiki-primary-text-color);
+  --tiki-trade-your-data-accent-color: var(--tiki-accent-color);
+
+  color: var(--tiki-trade-your-data-text-color);
   font-family: var(--tiki-font-family);
   font-size: var(--tiki-font-size-xl);
   line-height: var(--tiki-line-height-xl);
@@ -12,7 +15,7 @@
 }
 
 .tiki-trade-your-data-accent {
-  color: var(--tiki-accent-color);
+  color: var(--tiki-trade-your-data-accent-color);
 }
 
 @media (min-width: 1024px) {

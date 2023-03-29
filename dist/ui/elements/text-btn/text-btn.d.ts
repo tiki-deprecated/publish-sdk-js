@@ -1,2 +1,8 @@
 import "./text-btn.css";
-export declare function create(text: string, onClick: () => void, isSolid?: boolean): HTMLButtonElement;
+interface Style {
+    outlineColor?: string;
+    backgroundColor?: string;
+    textColor?: string;
+}
+export declare function create(text: string, onClick: () => void, style?: Style): HTMLButtonElement;
+export {};

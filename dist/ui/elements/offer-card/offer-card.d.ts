@@ -1,2 +1,11 @@
 import "./offer-card.css";
-export declare function create(src: string, text: string, alt?: string): HTMLDivElement;
+interface Style {
+    backgroundColor?: string;
+    textColor?: string;
+}
+interface Img {
+    src: string;
+    alt?: string;
+}
+export declare function create(img: Img, text: string, style?: Style): HTMLDivElement;
+export {};

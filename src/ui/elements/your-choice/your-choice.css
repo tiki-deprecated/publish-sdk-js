@@ -4,7 +4,10 @@
  */
 
 .tiki-your-choice {
-  color: var(--tiki-primary-text-color);
+  --tiki-your-choice-text-color: var(--tiki-primary-text-color);
+  --tiki-your-choice-accent-color: var(--tiki-accent-color);
+
+  color: var(--tiki-your-choice-text-color);
   font-family: var(--tiki-font-family);
   font-size: var(--tiki-font-size-xl);
   line-height: var(--tiki-line-height-xl);
@@ -12,7 +15,7 @@
 }
 
 .tiki-your-choice-accent {
-  color: var(--tiki-accent-color);
+  color: var(--tiki-your-choice-accent-color);
 }
 
 @media (min-width: 1024px) {

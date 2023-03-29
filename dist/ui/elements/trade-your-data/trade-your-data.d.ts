@@ -1,2 +1,7 @@
 import "./trade-your-data.css";
-export declare function create(): HTMLSpanElement;
+interface Style {
+    textColor?: string;
+    accentColor?: string;
+}
+export declare function create(style?: Style): HTMLSpanElement;
+export {};

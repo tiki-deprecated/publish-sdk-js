@@ -10,6 +10,11 @@ import * as TextBtn from "../../elements/text-btn/text-btn";
 import * as UsedFor from "../../elements/used-for/used-for";
 import * as OfferCard from "../../elements/offer-card/offer-card";
 import { Offer } from "../../offer";
+import {
+  CSS_VAR_ACCENT_COLOR,
+  CSS_VAR_PRIMARY_BACKGROUND_COLOR,
+  CSS_VAR_PRIMARY_TEXT_COLOR,
+} from "../../theme";
 
 export function create(
   offer: Offer,
@@ -44,7 +49,7 @@ function createHeading(onLearnMore: () => void): HTMLDivElement {
 function createOffer(offer: Offer): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   const card: HTMLDivElement = OfferCard.create(
-    offer._reward,
+    { src: offer._reward },
     offer._description
   );
   div.appendChild(card);
@@ -60,9 +65,13 @@ function createCta(
 ): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-offer-prompt-cta";
-  const backOff: HTMLButtonElement = TextBtn.create("Back Off", onDecline);
+  const backOff: HTMLButtonElement = TextBtn.create("Back Off", onDecline, {
+    textColor: CSS_VAR_PRIMARY_TEXT_COLOR,
+    backgroundColor: CSS_VAR_PRIMARY_BACKGROUND_COLOR,
+    outlineColor: CSS_VAR_ACCENT_COLOR,
+  });
   backOff.className = backOff.className + " tiki-back-off-btn";
   div.appendChild(backOff);
-  div.appendChild(TextBtn.create("I'm In", onAccept, true));
+  div.appendChild(TextBtn.create("I'm In", onAccept));
   return div;
 }

@@ -8,14 +8,14 @@ import { Offer } from "./ui/offer";
 import { Theme } from "./ui/theme";
 
 export class Config {
-  private _isAcceptEndingDisabled = false;
-  private _isDeclineEndingDisabled = false;
-  private _onAccept = () => undefined;
-  private _onDecline = () => undefined;
-  private _onSettings = () => undefined;
-  private _offers: Array<Offer> = [];
-  private _theme = new Theme(this);
-  private _dark: Theme | undefined;
+  _isAcceptEndingDisabled = false;
+  _isDeclineEndingDisabled = false;
+  _onAccept = () => undefined;
+  _onDecline = () => undefined;
+  _onSettings = () => undefined;
+  _offers: Array<Offer> = [];
+  _theme = new Theme(this);
+  _dark: Theme | undefined;
 
   get theme(): Theme {
     return this._theme;

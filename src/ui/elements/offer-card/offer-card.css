@@ -4,7 +4,10 @@
  */
 
 .tiki-offer-card {
-  background-color: var(--tiki-primary-background-color);
+  --tiki-offer-card-background-color: var(--tiki-primary-background-color);
+  --tiki-offer-card-text-color: var(--tiki-secondary-text-color);
+
+  background-color: var(--tiki-offer-card-background-color);
   padding: 1.25em;
   box-sizing: border-box;
   border-radius: 0.625em;
@@ -19,7 +22,7 @@
 }
 
 .tiki-offer-card-text {
-  color: var(--tiki-secondary-text-color);
+  color: var(--tiki-offer-card-text-color);
   font-weight: 700;
   font-size: var(--tiki-font-size);
   line-height: var(--tiki-line-height);

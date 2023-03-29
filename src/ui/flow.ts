@@ -17,40 +17,17 @@ import { Offer } from "./offer";
 const id = "tiki-offer";
 const overlayId = "tiki-offer-overlay";
 
-const offer: Offer = {
-  id: "1",
-  description:
-    "Trade your IDFA (kind of like a serial # for your phone) for a discount.",
-  terms: "# TERMS in md.",
-  reward:
-    "https://static.vecteezy.com/system/resources/previews/011/765/527/original/smiley-face-seamless-pattern-design-cute-colorful-retro-doodle-emoji-smile-background-free-vector.jpg",
-  bullets: [
-    {
-      text: "Learn how our ads perform",
-      isUsed: true,
-    },
-    {
-      text: "Reach you on other platforms",
-      isUsed: false,
-    },
-    {
-      text: "Sold to other companies",
-      isUsed: false,
-    },
-  ],
-};
-
-export function flow(start: FlowStep = FlowStep.prompt): void {
+export function flow(start: FlowStep = FlowStep.prompt, offer?: Offer): void {
   if (document.getElementById(id) == null) {
     const div: HTMLDivElement = document.createElement("div");
     div.id = id;
     div.appendChild(createOverlay());
     document.body.appendChild(div);
-    goTo(start);
+    goTo(start, offer);
   }
 }
 
-function goTo(step: FlowStep, from?: FlowStep): void {
+function goTo(step: FlowStep, offer?: Offer, from?: FlowStep): void {
   switch (step) {
     case FlowStep.none: {
       const element: HTMLElement = document.getElementById(id);
@@ -62,18 +39,18 @@ function goTo(step: FlowStep, from?: FlowStep): void {
         offer,
         (offer) => {
           offerPrompt.remove();
-          goTo(FlowStep.terms);
+          goTo(FlowStep.terms, offer);
         },
         (offer) => {
           // callback
           offerPrompt.remove();
           //if ending enabled
           //if not, and callback
-          goTo(FlowStep.endingDeclined);
+          goTo(FlowStep.endingDeclined, offer);
         },
         () => {
           offerPrompt.remove();
-          goTo(FlowStep.learnMore, FlowStep.prompt);
+          goTo(FlowStep.learnMore, offer, FlowStep.prompt);
         }
       );
       showScreen(offerPrompt);
@@ -82,22 +59,22 @@ function goTo(step: FlowStep, from?: FlowStep): void {
     case FlowStep.learnMore: {
       const learnMore = LearnMore.create(() => {
         learnMore.remove();
-        if (from === FlowStep.settings) goTo(FlowStep.settings);
-        else goTo(FlowStep.prompt);
+        if (from === FlowStep.settings) goTo(FlowStep.settings, offer);
+        else goTo(FlowStep.prompt, offer);
       });
       showScreen(learnMore);
       break;
     }
     case FlowStep.terms: {
       const terms = Terms.create(
-        offer.terms,
+        offer._terms,
         () => {
           terms.remove();
-          goTo(FlowStep.endingAccepted);
+          goTo(FlowStep.endingAccepted, offer);
         },
         () => {
           terms.remove();
-          goTo(FlowStep.prompt);
+          goTo(FlowStep.prompt, offer);
         }
       );
       showScreen(terms);
@@ -106,7 +83,7 @@ function goTo(step: FlowStep, from?: FlowStep): void {
     case FlowStep.endingAccepted: {
       const endingAccepted = EndingAccepted.create(() => {
         endingAccepted.remove();
-        goTo(FlowStep.settings);
+        goTo(FlowStep.settings, offer);
       });
       showScreen(endingAccepted);
       break;
@@ -114,7 +91,7 @@ function goTo(step: FlowStep, from?: FlowStep): void {
     case FlowStep.endingDeclined: {
       const endingDeclined = EndingDeclined.create(() => {
         endingDeclined.remove();
-        goTo(FlowStep.settings);
+        goTo(FlowStep.settings, offer);
       });
       showScreen(endingDeclined);
       break;
@@ -128,7 +105,7 @@ function goTo(step: FlowStep, from?: FlowStep): void {
         },
         () => {
           settings.remove();
-          goTo(FlowStep.learnMore, FlowStep.settings);
+          goTo(FlowStep.learnMore, offer, FlowStep.settings);
         }
       );
       showScreen(settings);

@@ -15,8 +15,30 @@ import { Config } from "./config";
 
 const _config = new Config();
 
-export const present = () => flow();
-export const settings = () => flow(FlowStep.settings);
+_config.offer
+  .reward(
+    "https://static.vecteezy.com/system/resources/previews/011/765/527/original/smiley-face-seamless-pattern-design-cute-colorful-retro-doodle-emoji-smile-background-free-vector.jpg"
+  )
+  .description(
+    "Trade your IDFA (kind of like a serial # for your phone) for a discount."
+  )
+  .terms("# TERMS in md.")
+  .bullet({
+    text: "Learn how our ads perform",
+    isUsed: true,
+  })
+  .bullet({
+    text: "Reach you on other platforms",
+    isUsed: false,
+  })
+  .bullet({
+    text: "Sold to other companies",
+    isUsed: false,
+  })
+  .add();
+
+export const present = () => flow(FlowStep.prompt, _config._offers[0]);
+export const settings = () => flow(FlowStep.settings, _config._offers[0]);
 export const config = (): Config => _config;
 
 export const title = async (

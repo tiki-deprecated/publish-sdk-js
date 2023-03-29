@@ -9,7 +9,7 @@ import * as OfferCard from "../../elements/offer-card/offer-card";
 import * as UsedFor from "../../elements/used-for/used-for";
 import * as TradeYourData from "../../elements/trade-your-data/trade-your-data";
 import * as LearnMoreBtn from "../../elements/learn-more-btn/learn-more-btn";
-import { toHtml } from "../../nano-md";
+import { toHtml } from "../../utils/nano-md";
 import * as TextBtn from "../../elements/text-btn/text-btn";
 import { Offer } from "../../offer";
 
@@ -48,7 +48,7 @@ function createContent(offer: Offer): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-settings-content";
   const card: HTMLDivElement = OfferCard.create(
-    offer._reward,
+    { src: offer._reward },
     offer._description
   );
   card.className = card.className + " tiki-settings-card";
@@ -82,13 +82,9 @@ function cta(isAccepted = false): HTMLButtonElement {
     ? TextBtn.create("Opt out", () => {
         //
       })
-    : TextBtn.create(
-        "Opt in",
-        () => {
-          //
-        },
-        true
-      );
+    : TextBtn.create("Opt in", () => {
+        //
+      });
   button.className = button.className + " tiki-settings-terms-btn";
   return button;
 }

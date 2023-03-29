@@ -44,8 +44,8 @@ export class Offer {
     return this;
   }
 
-  reward(val: string): Offer {
-    this._reward = val;
+  reward(src: string): Offer {
+    this._reward = src;
     return this;
   }
 

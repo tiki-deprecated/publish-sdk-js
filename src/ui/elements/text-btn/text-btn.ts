@@ -4,16 +4,30 @@
  */
 
 import "./text-btn.css";
+import { cssVar } from "../../utils/null-safe";
+
+interface Style {
+  outlineColor?: string;
+  backgroundColor?: string;
+  textColor?: string;
+}
 
 export function create(
   text: string,
   onClick: () => void,
-  isSolid = false
+  style?: Style
 ): HTMLButtonElement {
   const button: HTMLButtonElement = document.createElement("button");
-  if (isSolid) button.className = "tiki-text-btn tiki-text-btn-solid";
-  else button.className = "tiki-text-btn tiki-text-btn-outline";
+  button.className = "tiki-text-btn";
   button.onclick = onClick;
   button.innerHTML = text;
+  cssVar(button, [
+    { property: "--tiki-text-btn-outline-color", value: style?.outlineColor },
+    {
+      property: "--tiki-text-btn-background-color",
+      value: style?.backgroundColor,
+    },
+    { property: "--tiki-text-btn-text-color", value: style?.textColor },
+  ]);
   return button;
 }

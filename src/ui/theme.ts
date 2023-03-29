@@ -5,6 +5,15 @@
 
 import { Config } from "../config";
 
+export const CSS_VAR_FONT_FAMILY = "var(--tiki-font-family)";
+export const CSS_VAR_PRIMARY_TEXT_COLOR = "var(--tiki-primary-text-color)";
+export const CSS_VAR_SECONDARY_TEXT_COLOR = "var(--tiki-secondary-text-color)";
+export const CSS_VAR_PRIMARY_BACKGROUND_COLOR =
+  "var(--tiki-primary-background-color)";
+export const CSS_VAR_SECONDARY_BACKGROUND_COLOR =
+  "var(--tiki-secondary-background-color)";
+export const CSS_VAR_ACCENT_COLOR = "var(--tiki-accent-color)";
+
 export class Theme {
   private readonly _config;
   private _fontFamily = '"Space Grotesk", sans-serif';

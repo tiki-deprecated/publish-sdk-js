@@ -4,6 +4,8 @@
  */
 
 .tiki-back-btn {
+  --tiki-back-btn-fill: var(--tiki-primary-text-color);
+
   margin-right: 1.25em;
   height: 1.1rem;
   width: auto;
@@ -14,7 +16,7 @@
 }
 
 .tiki-back-btn-icon {
-  fill: var(--tiki-primary-text-color);
+  fill: var(--tiki-back-btn-fill);
   height: 100%;
   width: auto;
 }

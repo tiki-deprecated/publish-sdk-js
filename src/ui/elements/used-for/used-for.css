@@ -3,6 +3,11 @@
  * MIT license. See LICENSE file in root directory.
  */
 
+.tiki-used-for {
+  --tiki-used-for-title-color: var(--tiki-primary-text-color);
+  --tiki-used-for-text-color: var(--tiki-secondary-text-color);
+}
+
 .tiki-used-for-no-icon {
   height: 0.75em;
   width: auto;
@@ -18,7 +23,7 @@
 }
 
 .tiki-used-for-title {
-  color: var(--tiki-primary-text-color);
+  color: var(--tiki-used-for-title-color);
   font-weight: 700;
   font-size: var(--tiki-font-size);
   line-height: var(--tiki-line-height);
@@ -28,7 +33,7 @@
 .tiki-used-for-list {
   list-style-type: none;
   padding-left: 0;
-  color: var(--tiki-secondary-text-color);
+  color: var(--tiki-used-for-text-color);
   font-weight: 700;
   font-size: var(--tiki-font-size);
   line-height: var(--tiki-line-height);

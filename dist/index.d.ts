@@ -3,9 +3,10 @@ import { TitleRecord } from "./title-record";
 import { LicenseRecord } from "./license-record";
 import { LicenseUsecase } from "./license-usecase";
 import { LicenseUse } from "./license-use";
+import { Config } from "./config";
 export declare const present: () => void;
 export declare const settings: () => void;
-export declare const initialize: (publishingId: string, id: string, origin?: string) => Promise<void>;
+export declare const config: () => Config;
 export declare const title: (ptr: string, tags?: Array<string>, description?: string, origin?: string) => Promise<TitleRecord>;
 export declare const license: (ptr: string, uses: Array<LicenseUse>, terms: string, tags?: Array<string>, expiry?: Date, licenseDescription?: string, titleDescription?: string, origin?: string) => Promise<LicenseRecord>;
 export declare const getTitle: (id: string) => TitleRecord | undefined;
@@ -15,3 +16,4 @@ export declare const latest: (ptr: string, origin?: string) => LicenseRecord | u
 export declare const guard: (ptr: string, usecases: Array<LicenseUsecase>, destinations?: Array<string>, onPass?: () => void, onFail?: () => void, origin?: string) => boolean;
 export declare const address: () => string;
 export declare const id: () => string;
+export declare const isInitialized: () => boolean;

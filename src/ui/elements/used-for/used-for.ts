@@ -6,11 +6,28 @@
 import "./used-for.css";
 import * as Html from "./used-for-html";
 import { Bullet } from "../../bullet";
+import { cssVar } from "../../utils/null-safe";
 
-export function create(bullets: Array<Bullet>): HTMLDivElement {
+interface Style {
+  titleColor?: string;
+  textColor?: string;
+}
+
+export function create(bullets: Array<Bullet>, style?: Style): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.appendChild(createTitle());
   div.appendChild(createList(bullets));
+  div.className = "tiki-used-for";
+  cssVar(div, [
+    {
+      property: "--tiki-used-for-title-color",
+      value: style?.titleColor,
+    },
+    {
+      property: "--tiki-used-for-text-color",
+      value: style?.textColor,
+    },
+  ]);
   return div;
 }
 

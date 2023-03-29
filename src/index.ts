@@ -4,25 +4,20 @@
  */
 
 import "./core/core.dart.cjs";
-import KeyGen from "./core/key-gen";
 
 import { TitleRecord } from "./title-record";
 import { LicenseRecord } from "./license-record";
 import { LicenseUsecase } from "./license-usecase";
 import { LicenseUse } from "./license-use";
-import { flow } from "./ui/screens/flow";
-import { FlowStep } from "./ui/screens/flow-step";
+import { flow } from "./ui/flow";
+import { FlowStep } from "./ui/flow-step";
+import { Config } from "./config";
+
+const _config = new Config();
 
 export const present = () => flow();
-
 export const settings = () => flow(FlowStep.settings);
-
-export const initialize = async (
-  publishingId: string,
-  id: string,
-  origin?: string
-): Promise<void> =>
-  await globalThis.___TikiSdk__initialize(publishingId, id, KeyGen, origin);
+export const config = (): Config => _config;
 
 export const title = async (
   ptr: string,
@@ -87,3 +82,6 @@ export const guard = (
 export const address = (): string => globalThis.___TikiSdk__address();
 
 export const id = (): string => globalThis.___TikiSdk__id();
+
+export const isInitialized = (): boolean =>
+  globalThis.___TikiSdk__isInitialized();

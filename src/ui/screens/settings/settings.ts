@@ -11,7 +11,7 @@ import * as TradeYourData from "../../elements/trade-your-data/trade-your-data";
 import * as LearnMoreBtn from "../../elements/learn-more-btn/learn-more-btn";
 import { toHtml } from "../../nano-md";
 import * as TextBtn from "../../elements/text-btn/text-btn";
-import { Offer } from "../offer";
+import { Offer } from "../../offer";
 
 export function create(
   offer: Offer,
@@ -48,17 +48,17 @@ function createContent(offer: Offer): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-settings-content";
   const card: HTMLDivElement = OfferCard.create(
-    offer.reward,
-    offer.description
+    offer._reward,
+    offer._description
   );
   card.className = card.className + " tiki-settings-card";
   div.appendChild(card);
 
-  const used: HTMLDivElement = UsedFor.create(offer.bullets);
+  const used: HTMLDivElement = UsedFor.create(offer._bullets);
   used.className = used.className + " tiki-settings-used";
   div.appendChild(used);
   div.appendChild(createTermsTitle());
-  div.appendChild(createTermsLegal(offer.terms));
+  div.appendChild(createTermsLegal(offer._terms));
   return div;
 }
 

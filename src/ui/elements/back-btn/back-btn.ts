@@ -10,6 +10,7 @@ export function create(text: string, onClick?: () => void): HTMLButtonElement {
   const button: HTMLButtonElement = document.createElement("button");
   button.className = "tiki-back-btn";
   button.innerHTML = Html();
+  button.style.backgroundColor = "";
   if (onClick !== undefined) button.onclick = onClick;
   return button;
 }

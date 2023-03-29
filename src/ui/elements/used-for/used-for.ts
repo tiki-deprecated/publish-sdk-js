@@ -5,7 +5,7 @@
 
 import "./used-for.css";
 import * as Html from "./used-for-html";
-import { Bullet } from "../../screens/bullet";
+import { Bullet } from "../../bullet";
 
 export function create(bullets: Array<Bullet>): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");

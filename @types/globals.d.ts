@@ -3,6 +3,11 @@
  * MIT license. See LICENSE file in root directory.
  */
 
+import { LicenseUsecase } from "../src/license-usecase";
+import { LicenseRecord } from "../src/license-record";
+import { TitleRecord } from "../src/title-record";
+import { LicenseUse } from "../src/license-use";
+
 export {};
 
 declare global {
@@ -54,4 +59,6 @@ declare global {
   function ___TikiSdk__address(): string;
 
   function ___TikiSdk__id(): string;
+
+  function ___TikiSdk__isInitialized(): boolean;
 }

@@ -60,6 +60,9 @@ external set _address(String Function() f);
 @JS('___TikiSdk__id')
 external set _id(String Function() f);
 
+@JS('___TikiSdk__isInitialized')
+external set _isInitialized(bool Function() f);
+
 class CoreWrapper {
   TikiSdk? _tikiSdk;
 
@@ -74,6 +77,7 @@ class CoreWrapper {
     _guard = allowInterop(guard);
     _address = allowInterop(() => address);
     _id = allowInterop(() => id);
+    _isInitialized = allowInterop(isInitialized);
   }
 
   Future<void> initialize(

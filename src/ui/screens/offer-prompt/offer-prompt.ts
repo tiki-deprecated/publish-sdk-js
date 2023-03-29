@@ -9,7 +9,7 @@ import * as LearnMoreBtn from "../../elements/learn-more-btn/learn-more-btn";
 import * as TextBtn from "../../elements/text-btn/text-btn";
 import * as UsedFor from "../../elements/used-for/used-for";
 import * as OfferCard from "../../elements/offer-card/offer-card";
-import { Offer } from "../offer";
+import { Offer } from "../../offer";
 
 export function create(
   offer: Offer,
@@ -44,11 +44,11 @@ function createHeading(onLearnMore: () => void): HTMLDivElement {
 function createOffer(offer: Offer): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   const card: HTMLDivElement = OfferCard.create(
-    offer.reward,
-    offer.description
+    offer._reward,
+    offer._description
   );
   div.appendChild(card);
-  const usedFor: HTMLDivElement = UsedFor.create(offer.bullets);
+  const usedFor: HTMLDivElement = UsedFor.create(offer._bullets);
   usedFor.className = "tiki-used-for";
   div.appendChild(usedFor);
   return div;

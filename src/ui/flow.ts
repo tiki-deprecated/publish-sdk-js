@@ -3,14 +3,14 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-import "../theme.css";
-import * as Overlay from "../elements/overlay/overlay";
-import * as OfferPrompt from "./offer-prompt/offer-prompt";
-import * as LearnMore from "./learn-more/learn-more";
-import * as Terms from "./terms/terms";
-import * as EndingAccepted from "./ending/ending-accepted";
-import * as EndingDeclined from "./ending/ending-declined";
-import * as Settings from "./settings/settings";
+import "./theme.css";
+import * as Overlay from "./elements/overlay/overlay";
+import * as OfferPrompt from "./screens/offer-prompt/offer-prompt";
+import * as LearnMore from "./screens/learn-more/learn-more";
+import * as Terms from "./screens/terms/terms";
+import * as EndingAccepted from "./screens/ending/ending-accepted";
+import * as EndingDeclined from "./screens/ending/ending-declined";
+import * as Settings from "./screens/settings/settings";
 import { FlowStep } from "./flow-step";
 import { Offer } from "./offer";
 

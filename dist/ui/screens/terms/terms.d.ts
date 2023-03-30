@@ -1,2 +1,8 @@
 import "./terms.css";
-export declare function create(terms: string, onAccept: () => void, onBack: () => void, isHtml?: boolean): HTMLDivElement;
+import { Theme } from "../../theme";
+interface Terms {
+    value: string;
+    isHtml?: boolean;
+}
+export declare function create(terms: Terms, onAccept: () => void, onBack: () => void, theme?: Theme): HTMLDivElement;
+export {};

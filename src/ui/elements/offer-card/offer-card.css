@@ -4,7 +4,11 @@
  */
 
 .tiki-offer-card {
-  background-color: var(--tiki-primary-background-color);
+  --tiki-offer-card-background-color: var(--tiki-primary-background-color);
+  --tiki-offer-card-text-color: var(--tiki-secondary-text-color);
+  --tiki-offer-card-font-family: var(--tiki-font-family);
+
+  background-color: var(--tiki-offer-card-background-color);
   padding: 1.25em;
   box-sizing: border-box;
   border-radius: 0.625em;
@@ -19,7 +23,7 @@
 }
 
 .tiki-offer-card-text {
-  color: var(--tiki-secondary-text-color);
+  color: var(--tiki-offer-card-text-color);
   font-weight: 700;
   font-size: var(--tiki-font-size);
   line-height: var(--tiki-line-height);
@@ -27,7 +31,7 @@
   height: calc(3 * var(--tiki-line-height));
   text-overflow: ellipsis;
   display: block;
-  font-family: var(--tiki-font-family);
+  font-family: var(--tiki-offer-card-font-family);
 }
 
 .tiki-offer-card-text-cell {

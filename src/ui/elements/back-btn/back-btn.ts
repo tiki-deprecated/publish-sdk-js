@@ -5,11 +5,21 @@
 
 import "./back-btn.css";
 import Html from "./back-btn-html";
+import { cssVar } from "../../utils/null-safe";
 
-export function create(text: string, onClick?: () => void): HTMLButtonElement {
+interface Style {
+  color?: string;
+}
+
+export function create(
+  text: string,
+  onClick?: () => void,
+  style?: Style
+): HTMLButtonElement {
   const button: HTMLButtonElement = document.createElement("button");
   button.className = "tiki-back-btn";
   button.innerHTML = Html();
   if (onClick !== undefined) button.onclick = onClick;
+  cssVar(button, [{ property: "--tiki-back-btn-fill", value: style?.color }]);
   return button;
 }

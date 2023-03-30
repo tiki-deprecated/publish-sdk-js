@@ -4,16 +4,32 @@
  */
 
 import "./offer-card.css";
+import { cssVar } from "../../utils/null-safe";
 
-export function create(
-  src: string,
-  text: string,
-  alt?: string
-): HTMLDivElement {
+interface Style {
+  backgroundColor?: string;
+  textColor?: string;
+  fontFamily?: string;
+}
+
+interface Img {
+  src: string;
+  alt?: string;
+}
+
+export function create(img: Img, text: string, style?: Style): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-offer-card";
-  div.appendChild(createImg(src, alt));
+  div.appendChild(createImg(img.src, img.alt));
   div.appendChild(createDescription(text));
+  cssVar(div, [
+    {
+      property: "--tiki-offer-card-background-color",
+      value: style?.backgroundColor,
+    },
+    { property: "--tiki-offer-card-text-color", value: style?.textColor },
+    { property: "--tiki-offer-card-font-family", value: style?.fontFamily },
+  ]);
   return div;
 }
 

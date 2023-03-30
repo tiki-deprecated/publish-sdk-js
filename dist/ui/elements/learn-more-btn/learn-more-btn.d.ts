@@ -1,2 +1,6 @@
 import "./learn-more-btn.css";
-export declare function create(onClick: () => void): HTMLButtonElement;
+interface Style {
+    color?: string;
+}
+export declare function create(onClick: () => void, style?: Style): HTMLButtonElement;
+export {};

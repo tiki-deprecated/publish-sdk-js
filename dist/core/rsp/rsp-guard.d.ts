@@ -1,0 +1,3 @@
+interface RspGuard {
+    success: boolean;
+}

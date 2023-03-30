@@ -4,25 +4,22 @@
  */
 
 .tiki-text-btn {
+  --tiki-text-btn-outline-color: var(--tiki-accent-color);
+  --tiki-text-btn-background-color: var(--tiki-accent-color);
+  --tiki-text-btn-text-color: var(--tiki-primary-background-color);
+  --tiki-text-btn-font-family: var(--tiki-font-family);
+
   width: 100%;
   height: 3.3em;
   border-radius: 0.625em;
-  border: solid 1px var(--tiki-accent-color);
+  border: solid 1px var(--tiki-text-btn-outline-color);
   cursor: pointer;
   font-weight: 500;
   font-size: var(--tiki-font-size-xl);
   line-height: var(--tiki-line-height-xl);
-  font-family: var(--tiki-font-family);
-}
-
-.tiki-text-btn-solid {
-  background-color: var(--tiki-accent-color);
-  color: var(--tiki-primary-background-color);
-}
-
-.tiki-text-btn-outline {
-  background-color: var(--tiki-primary-background-color);
-  color: var(--tiki-primary-text-color);
+  font-family: var(--tiki-text-btn-font-family);
+  background-color: var(--tiki-text-btn-background-color);
+  color: var(--tiki-text-btn-text-color);
 }
 
 @media (min-width: 1024px) {

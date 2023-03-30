@@ -1,0 +1,3 @@
+interface RspAddress {
+    address: string;
+}

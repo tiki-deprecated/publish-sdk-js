@@ -4,7 +4,13 @@
  */
 
 .tiki-settings {
-  background-color: var(--tiki-secondary-background-color);
+  --tiki-settings-background-color: var(--tiki-secondary-background-color);
+  --tiki-settings-font-family: var(--tiki-font-family);
+  --tiki-settings-terms-background-color: var(--tiki-primary-background-color);
+  --tiki-settings-terms-text-color: var(--tiki-primary-text-color);
+  --tiki-settings-accent-color: var(--tiki-accent-color);
+
+  background-color: var(--tiki-settings-background-color);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -48,8 +54,8 @@
 
 .tiki-settings-terms-title {
   padding: 0 1em;
-  font-family: var(--tiki-font-family);
-  color: var(--tiki-primary-text-color);
+  font-family: var(--tiki-settings-font-family);
+  color: var(--tiki-settings-terms-text-color);
   line-height: var(--tiki-line-height);
   font-size: var(--tiki-font-size);
   font-weight: 700;
@@ -61,24 +67,15 @@
 .tiki-settings-content {
   overflow: scroll;
   margin-bottom: 1.875em;
-}
-
-.tiki-settings-content::after {
-  content: "";
-  background: var(--tiki-accent-color);
-  position: absolute;
-  bottom: 8em;
-  left: 1.8em;
-  right: 1.8em;
-  height: 1px;
+  border-bottom: 1px solid var(--tiki-settings-accent-color);
 }
 
 .tiki-settings-terms-legal {
   margin: 0.77em 1em 0;
   padding: 0.5em;
-  background-color: var(--tiki-primary-background-color);
-  color: var(--tiki-primary-text-color);
-  font-family: var(--tiki-font-family);
+  background-color: var(--tiki-settings-terms-background-color);
+  color: var(--tiki-settings-terms-text-color);
+  font-family: var(--tiki-settings-font-family);
   font-size: var(--tiki-font-size-sm);
   line-height: var(--tiki-line-height-sm);
 }

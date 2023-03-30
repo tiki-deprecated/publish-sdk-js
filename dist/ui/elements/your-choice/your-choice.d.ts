@@ -1,2 +1,8 @@
 import "./your-choice.css";
-export declare function create(): HTMLSpanElement;
+interface Style {
+    textColor?: string;
+    accentColor?: string;
+    fontFamily?: string;
+}
+export declare function create(style?: Style): HTMLSpanElement;
+export {};

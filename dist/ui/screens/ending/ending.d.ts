@@ -1,2 +1,3 @@
 import "./ending.css";
-export declare function create(text: string, settings: HTMLSpanElement): HTMLDivElement;
+import { Theme } from "../../theme";
+export declare function create(text: string, settings: HTMLSpanElement, theme?: Theme): HTMLDivElement;

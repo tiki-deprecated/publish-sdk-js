@@ -17,7 +17,7 @@ export class LicenseUsecase {
   }
 
   static custom(value: string): LicenseUsecase {
-    return new LicenseUsecase(`custom:${value}`);
+    return new LicenseUsecase(`custom:${value.replace("custom:", "")}`);
   }
 
   static from(value: string): LicenseUsecase {

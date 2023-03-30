@@ -6,29 +6,54 @@
 import "./terms.css";
 import * as BackBtn from "../../elements/back-btn/back-btn";
 import * as TextBtn from "../../elements/text-btn/text-btn";
-import { toHtml } from "../../nano-md";
+import { toHtml } from "../../utils/nano-md";
+import { cssVar } from "../../utils/null-safe";
+import { Theme } from "../../theme";
+
+interface Terms {
+  value: string;
+  isHtml?: boolean;
+}
 
 export function create(
-  terms: string,
+  terms: Terms,
   onAccept: () => void,
   onBack: () => void,
-  isHtml = false
+  theme: Theme = new Theme()
 ): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-terms";
   const body: HTMLDivElement = document.createElement("div");
   body.className = "tiki-terms-body";
-  body.appendChild(createHeading(onBack));
-  body.appendChild(createContent(terms, isHtml));
-  body.appendChild(TextBtn.create("I agree", onAccept, true));
+  body.appendChild(createHeading(onBack, theme._primaryTextColor));
+  body.appendChild(createContent(terms.value, terms.isHtml));
+  body.appendChild(
+    TextBtn.create("I agree", onAccept, {
+      outlineColor: theme._accentColor,
+      backgroundColor: theme._accentColor,
+      textColor: theme._primaryBackgroundColor,
+      fontFamily: theme._fontFamily,
+    })
+  );
   div.appendChild(body);
+  cssVar(div, [
+    {
+      property: "--tiki-terms-background-color",
+      value: theme._primaryBackgroundColor,
+    },
+    { property: "--tiki-terms-font-family", value: theme._fontFamily },
+    { property: "--tiki-terms-border-color", value: theme._accentColor },
+    { property: "--tiki-terms-text-color", value: theme._primaryTextColor },
+  ]);
   return div;
 }
 
-function createHeading(onBack: () => void): HTMLDivElement {
+function createHeading(onBack: () => void, color: string): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-terms-heading";
-  div.appendChild(BackBtn.create("Terms and Conditions", onBack));
+  div.appendChild(
+    BackBtn.create("Terms and Conditions", onBack, { color: color })
+  );
   const span: HTMLSpanElement = document.createElement("div");
   span.className = "tiki-terms-title";
   span.innerHTML = "Terms & Conditions";

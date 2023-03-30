@@ -4,7 +4,11 @@
  */
 
 .tiki-learn-more {
-  background-color: var(--tiki-primary-background-color);
+  --tiki-learn-more-background-color: var(--tiki-primary-background-color);
+  --tiki-learn-more-font-family: var(--tiki-font-family);
+  --tiki-learn-more-text-color: var(--tiki-primary-text-color);
+
+  background-color: var(--tiki-learn-more-background-color);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -36,8 +40,8 @@
   height: 100%;
   box-sizing: border-box;
   overflow: scroll;
-  font-family: var(--tiki-font-family);
-  color: var(--tiki-primary-text-color);
+  font-family: var(--tiki-learn-more-font-family);
+  color: var(--tiki-learn-more-text-color);
 }
 
 .tiki-learn-more-heading {
@@ -47,11 +51,11 @@
 }
 
 .tiki-learn-more-title {
-  color: var(--tiki-primary-text-color);
+  color: var(--tiki-learn-more-text-color);
   font-size: var(--tiki-font-size-lg);
   line-height: var(--tiki-line-height-lg);
   font-weight: 700;
-  font-family: var(--tiki-font-family);
+  font-family: var(--tiki-learn-more-font-family);
 }
 
 @media (min-width: 1024px) {

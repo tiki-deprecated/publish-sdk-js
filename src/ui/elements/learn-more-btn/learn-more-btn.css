@@ -3,18 +3,20 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-.tiki-learn-more-button-icon {
-  fill: var(--tiki-secondary-text-color);
-  height: 100%;
-  width: auto;
-}
-
 .tiki-learn-more-button {
+  --tiki-learn-more-btn-fill: var(--tiki-secondary-text-color);
+
   height: var(--tiki-line-height-xl);
   background-color: transparent;
   border: none;
   cursor: pointer;
   padding: 1px;
+}
+
+.tiki-learn-more-button-icon {
+  fill: var(--tiki-learn-more-btn-fill);
+  height: 100%;
+  width: auto;
 }
 
 @media (min-width: 1024px) {

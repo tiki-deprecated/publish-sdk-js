@@ -1,2 +1,6 @@
 import "./back-btn.css";
-export declare function create(text: string, onClick?: () => void): HTMLButtonElement;
+interface Style {
+    color?: string;
+}
+export declare function create(text: string, onClick?: () => void, style?: Style): HTMLButtonElement;
+export {};

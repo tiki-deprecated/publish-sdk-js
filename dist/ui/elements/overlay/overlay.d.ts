@@ -1,2 +1,6 @@
 import "./overlay.css";
-export declare function create(onClick?: () => void): HTMLDivElement;
+interface Style {
+    color?: string;
+}
+export declare function create(onClick?: () => void, style?: Style): HTMLDivElement;
+export {};

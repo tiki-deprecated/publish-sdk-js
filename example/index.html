@@ -11,7 +11,29 @@
     <script defer src="dist/index.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body
+    onload="TikiSdk.config()
+      .offer
+        .ptr('27214a4a-f261-470f-8748-d696a11070e6')
+        .use({ usecases:[TikiSdk.LicenseUsecase.custom('test')] })
+        .reward('https://static.vecteezy.com/system/resources/previews/011/765/527/original/smiley-face-seamless-pattern-design-cute-colorful-retro-doodle-emoji-smile-background-free-vector.jpg')
+        .description('Trade your IDFA (kind of like a serial # for your phone) for a discount.')
+        .terms('# TERMS in md.')
+        .bullet({
+          text: 'Learn how our ads perform',
+          isUsed: true,
+        })
+        .bullet({
+          text: 'Reach you on other platforms',
+          isUsed: false,
+        })
+        .bullet({
+          text: 'Sold to other companies',
+          isUsed: false,
+        })
+        .add()
+      .initialize('f3dbd181-1273-4be7-8a56-a9d258feccda','521239d9-d9cc-4a49-82a0-dcf225fbd65d');"
+  >
     <div class="centered">
       <div class="btns">
         <button class="btn" onclick="TikiSdk.present()">present</button>

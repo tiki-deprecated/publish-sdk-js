@@ -5,15 +5,12 @@
 
 import * as Settings from "./ending-settings-html";
 import * as Ending from "./ending";
+import { Theme } from "../../theme";
 
-interface Style {
-  backgroundColor: string;
-  fontFamily: string;
-  titleColor: string;
-  textColor: string;
-}
-
-export function create(onSettings?: () => void, style?: Style): HTMLDivElement {
+export function create(
+  onSettings?: () => void,
+  theme: Theme = new Theme()
+): HTMLDivElement {
   const span: HTMLSpanElement = document.createElement("span");
   span.innerHTML = Settings.declined();
   span.className = "tiki-ending-subtitle";
@@ -23,5 +20,5 @@ export function create(onSettings?: () => void, style?: Style): HTMLDivElement {
     ) as HTMLLinkElement;
     link.onclick = () => onSettings();
   }
-  return Ending.create("Backing Off", span, style);
+  return Ending.create("Backing Off", span, theme);
 }

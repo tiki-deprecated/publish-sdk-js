@@ -8,9 +8,9 @@ import Html from "./your-choice-html";
 import { cssVar } from "../../utils/null-safe";
 
 interface Style {
-  textColor: string;
-  accentColor: string;
-  fontFamily: string;
+  textColor?: string;
+  accentColor?: string;
+  fontFamily?: string;
 }
 
 export function create(style?: Style): HTMLSpanElement {
@@ -18,18 +18,9 @@ export function create(style?: Style): HTMLSpanElement {
   span.innerHTML = Html();
   span.className = "tiki-your-choice";
   cssVar(span, [
-    {
-      property: "--tiki-your-choice-text-color",
-      value: style?.textColor,
-    },
-    {
-      property: "--tiki-your-choice-accent-color",
-      value: style?.accentColor,
-    },
-    {
-      property: "--tiki-your-choice-font-family",
-      value: style?.fontFamily,
-    },
+    { property: "--tiki-your-choice-text-color", value: style?.textColor },
+    { property: "--tiki-your-choice-accent-color", value: style?.accentColor },
+    { property: "--tiki-your-choice-font-family", value: style?.fontFamily },
   ]);
   return span;
 }

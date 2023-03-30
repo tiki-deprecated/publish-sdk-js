@@ -20,7 +20,7 @@ export class Offer {
   _tags?: Array<TitleTag> = [];
   _expiry?: Date;
 
-  constructor(config: Config) {
+  constructor(config?: Config) {
     this._id = Date.now().toString();
     this._config = config;
   }

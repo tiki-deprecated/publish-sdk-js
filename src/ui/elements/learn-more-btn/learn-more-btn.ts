@@ -17,10 +17,7 @@ export function create(onClick: () => void, style?: Style): HTMLButtonElement {
   button.onclick = onClick;
   button.className = "tiki-learn-more-button";
   cssVar(button, [
-    {
-      property: "--tiki-learn-more-btn-fill",
-      value: style?.color,
-    },
+    { property: "--tiki-learn-more-btn-fill", value: style?.color },
   ]);
   return button;
 }

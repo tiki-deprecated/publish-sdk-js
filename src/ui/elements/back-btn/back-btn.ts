@@ -20,11 +20,6 @@ export function create(
   button.className = "tiki-back-btn";
   button.innerHTML = Html();
   if (onClick !== undefined) button.onclick = onClick;
-  cssVar(button, [
-    {
-      property: "--tiki-back-btn-fill",
-      value: style?.color,
-    },
-  ]);
+  cssVar(button, [{ property: "--tiki-back-btn-fill", value: style?.color }]);
   return button;
 }

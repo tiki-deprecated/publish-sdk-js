@@ -10,64 +10,75 @@ import * as TextBtn from "../../elements/text-btn/text-btn";
 import * as UsedFor from "../../elements/used-for/used-for";
 import * as OfferCard from "../../elements/offer-card/offer-card";
 import { Offer } from "../../offer";
-import {
-  CSS_VAR_ACCENT_COLOR,
-  CSS_VAR_PRIMARY_BACKGROUND_COLOR,
-  CSS_VAR_PRIMARY_TEXT_COLOR,
-} from "../../theme";
 import { cssVar } from "../../utils/null-safe";
-
-interface Style {
-  backgroundColor: string;
-  fontFamily: string;
-}
+import { Theme } from "../../theme";
 
 export function create(
   offer: Offer,
   onAccept: (offer: Offer) => void,
   onDecline: (offer: Offer) => void,
   onLearnMore: () => void,
-  style?: Style
+  theme: Theme = new Theme()
 ): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-offer-prompt";
   const body: HTMLDivElement = document.createElement("div");
   body.className = "tiki-offer-prompt-body";
-  body.appendChild(createHeading(onLearnMore));
-  body.appendChild(createOffer(offer));
+  body.appendChild(createHeading(onLearnMore, theme));
+  body.appendChild(createOffer(offer, theme));
   body.appendChild(
     createCta(
       () => onAccept(offer),
-      () => onDecline(offer)
+      () => onDecline(offer),
+      theme
     )
   );
   div.appendChild(body);
   cssVar(div, [
     {
       property: "--tiki-offer-prompt-background-color",
-      value: style?.backgroundColor,
+      value: theme._secondaryBackgroundColor,
     },
-    { property: "--tiki-offer-prompt-font-family", value: style?.fontFamily },
+    { property: "--tiki-offer-prompt-font-family", value: theme._fontFamily },
   ]);
   return div;
 }
 
-function createHeading(onLearnMore: () => void): HTMLDivElement {
+function createHeading(onLearnMore: () => void, theme: Theme): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-offer-prompt-heading";
-  div.appendChild(TradeYourData.create());
-  div.appendChild(LearnMoreBtn.create(onLearnMore));
+  div.appendChild(
+    TradeYourData.create({
+      textColor: theme._primaryTextColor,
+      accentColor: theme._accentColor,
+      fontFamily: theme._fontFamily,
+    })
+  );
+  div.appendChild(
+    LearnMoreBtn.create(onLearnMore, {
+      color: theme._secondaryTextColor,
+    })
+  );
   return div;
 }
 
-function createOffer(offer: Offer): HTMLDivElement {
+function createOffer(offer: Offer, theme: Theme): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   const card: HTMLDivElement = OfferCard.create(
     { src: offer._reward },
-    offer._description
+    offer._description,
+    {
+      backgroundColor: theme._primaryBackgroundColor,
+      textColor: theme._secondaryTextColor,
+      fontFamily: theme._fontFamily,
+    }
   );
   div.appendChild(card);
-  const usedFor: HTMLDivElement = UsedFor.create(offer._bullets);
+  const usedFor: HTMLDivElement = UsedFor.create(offer._bullets, {
+    textColor: theme._secondaryTextColor,
+    titleColor: theme._primaryTextColor,
+    fontFamily: theme._fontFamily,
+  });
   usedFor.className = "tiki-used-for";
   div.appendChild(usedFor);
   return div;
@@ -75,17 +86,26 @@ function createOffer(offer: Offer): HTMLDivElement {
 
 function createCta(
   onAccept: () => void,
-  onDecline: () => void
+  onDecline: () => void,
+  theme: Theme
 ): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-offer-prompt-cta";
   const backOff: HTMLButtonElement = TextBtn.create("Back Off", onDecline, {
-    textColor: CSS_VAR_PRIMARY_TEXT_COLOR,
-    backgroundColor: CSS_VAR_PRIMARY_BACKGROUND_COLOR,
-    outlineColor: CSS_VAR_ACCENT_COLOR,
+    textColor: theme._primaryTextColor,
+    backgroundColor: theme._primaryBackgroundColor,
+    outlineColor: theme._accentColor,
+    fontFamily: theme._fontFamily,
   });
   backOff.className = backOff.className + " tiki-back-off-btn";
   div.appendChild(backOff);
-  div.appendChild(TextBtn.create("I'm In", onAccept));
+  div.appendChild(
+    TextBtn.create("I'm In", onAccept, {
+      textColor: theme._primaryBackgroundColor,
+      backgroundColor: theme._accentColor,
+      outlineColor: theme._accentColor,
+      fontFamily: theme._fontFamily,
+    })
+  );
   return div;
 }

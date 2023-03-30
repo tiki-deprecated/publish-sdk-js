@@ -20,18 +20,9 @@ export function create(bullets: Array<Bullet>, style?: Style): HTMLDivElement {
   div.appendChild(createList(bullets));
   div.className = "tiki-used-for";
   cssVar(div, [
-    {
-      property: "--tiki-used-for-title-color",
-      value: style?.titleColor,
-    },
-    {
-      property: "--tiki-used-for-text-color",
-      value: style?.textColor,
-    },
-    {
-      property: "--tiki-used-for-font-family",
-      value: style?.fontFamily,
-    },
+    { property: "--tiki-used-for-title-color", value: style?.titleColor },
+    { property: "--tiki-used-for-text-color", value: style?.textColor },
+    { property: "--tiki-used-for-font-family", value: style?.fontFamily },
   ]);
   return div;
 }

@@ -18,10 +18,7 @@ export function create(style?: Style): HTMLSpanElement {
   span.innerHTML = Html();
   span.className = "tiki-trade-your-data";
   cssVar(span, [
-    {
-      property: "--tiki-trade-your-data-text-color",
-      value: style?.textColor,
-    },
+    { property: "--tiki-trade-your-data-text-color", value: style?.textColor },
     {
       property: "--tiki-trade-your-data-accent-color",
       value: style?.accentColor,

@@ -17,7 +17,7 @@ export class TitleTag {
   }
 
   static custom(value: string): TitleTag {
-    return new TitleTag(`custom:${value}`);
+    return new TitleTag(`custom:${value.replace("custom:", "")}`);
   }
 
   static from(value: string): TitleTag {

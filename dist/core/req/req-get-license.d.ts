@@ -1,0 +1,3 @@
+interface ReqGetLicense {
+    id: string;
+}

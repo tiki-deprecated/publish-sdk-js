@@ -17,8 +17,10 @@ import { Theme } from "../../theme";
 
 export function create(
   offer: Offer,
+  isOptIn: boolean,
   onBack: () => void,
   onLearnMore: () => void,
+  onOpt: () => void,
   theme: Theme = new Theme()
 ): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
@@ -27,7 +29,7 @@ export function create(
   body.className = "tiki-settings-body";
   body.appendChild(createHeading(onBack, onLearnMore, theme));
   body.appendChild(createContent(offer, theme));
-  body.appendChild(cta(false, theme));
+  body.appendChild(cta(isOptIn, onOpt, theme));
   div.appendChild(body);
   cssVar(div, [
     {
@@ -120,32 +122,24 @@ function createTermsLegal(terms: string, isHtml = false): HTMLDivElement {
   return div;
 }
 
-function cta(isAccepted = false, theme: Theme): HTMLButtonElement {
+function cta(
+  isAccepted = false,
+  onOpt: () => void,
+  theme: Theme
+): HTMLButtonElement {
   const button: HTMLButtonElement = isAccepted
-    ? TextBtn.create(
-        "Opt out",
-        () => {
-          //
-        },
-        {
-          outlineColor: theme._accentColor,
-          backgroundColor: theme._primaryBackgroundColor,
-          fontFamily: theme._fontFamily,
-          textColor: theme._primaryTextColor,
-        }
-      )
-    : TextBtn.create(
-        "Opt in",
-        () => {
-          //
-        },
-        {
-          outlineColor: theme._accentColor,
-          backgroundColor: theme._accentColor,
-          fontFamily: theme._fontFamily,
-          textColor: theme._primaryBackgroundColor,
-        }
-      );
+    ? TextBtn.create("Opt out", onOpt, {
+        outlineColor: theme._accentColor,
+        backgroundColor: theme._primaryBackgroundColor,
+        fontFamily: theme._fontFamily,
+        textColor: theme._primaryTextColor,
+      })
+    : TextBtn.create("Opt in", onOpt, {
+        outlineColor: theme._accentColor,
+        backgroundColor: theme._accentColor,
+        fontFamily: theme._fontFamily,
+        textColor: theme._primaryBackgroundColor,
+      });
   button.className = button.className + " tiki-settings-terms-btn";
   return button;
 }

@@ -6,13 +6,14 @@
 import KeyGen from "./core/key-gen";
 import { Offer } from "./ui/offer";
 import { Theme } from "./ui/theme";
+import { LicenseRecord } from "./license-record";
 
 export class Config {
   _isAcceptEndingDisabled = false;
   _isDeclineEndingDisabled = false;
-  _onAccept = () => undefined;
-  _onDecline = () => undefined;
-  _onSettings = () => undefined;
+  _onAccept: (offer: Offer, license: LicenseRecord) => void | undefined;
+  _onDecline: (offer: Offer, license?: LicenseRecord) => void | undefined;
+  _onSettings: () => void | undefined;
   _offers: Array<Offer> = [];
   _theme = new Theme(this);
   _dark: Theme | undefined;
@@ -47,12 +48,12 @@ export class Config {
     return this;
   }
 
-  onAccept(callback: () => void): Config {
+  onAccept(callback: (offer: Offer) => void): Config {
     this._onAccept = callback;
     return this;
   }
 
-  onDecline(callback: () => void): Config {
+  onDecline(callback: (offer: Offer) => void): Config {
     this._onDecline = callback;
     return this;
   }
@@ -67,7 +68,21 @@ export class Config {
     id: string,
     origin?: string
   ): Promise<void> {
-    return globalThis.___TikiSdk__initialize(publishingId, id, KeyGen, origin);
+    return new Promise((resolve, reject) => {
+      try {
+        globalThis.___TikiSdk__initialize(
+          JSON.stringify({
+            id: id,
+            publishingId: publishingId,
+            origin: origin,
+          }),
+          KeyGen,
+          () => resolve()
+        );
+      } catch (e) {
+        reject(e);
+      }
+    });
   }
 
   get activeTheme(): Theme {

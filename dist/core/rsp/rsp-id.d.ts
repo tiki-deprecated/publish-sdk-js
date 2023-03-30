@@ -1,0 +1,3 @@
+interface RspId {
+    id: string;
+}

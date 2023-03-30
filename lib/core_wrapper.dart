@@ -7,51 +7,51 @@ import 'package:http/http.dart' as http;
 import 'package:js/js.dart';
 import 'package:sqlite3/wasm.dart';
 import 'package:tiki_sdk_dart/tiki_sdk.dart';
-import 'package:tiki_sdk_js/src/js_key_storage.dart';
+
+import 'src/js_key_storage.dart';
+import 'src/req/req_all.dart';
+import 'src/req/req_get_license.dart';
+import 'src/req/req_get_title.dart';
+import 'src/req/req_guard.dart';
+import 'src/req/req_init.dart';
+import 'src/req/req_latest.dart';
+import 'src/req/req_license.dart';
+import 'src/req/req_title.dart';
+import 'src/rsp/rsp_address.dart';
+import 'src/rsp/rsp_guard.dart';
+import 'src/rsp/rsp_id.dart';
+import 'src/rsp/rsp_is_initialized.dart';
+import 'src/rsp/rsp_license.dart';
+import 'src/rsp/rsp_title.dart';
 
 @JS('___TikiSdk__initialize')
 external set _initialize(
-    Future<void> Function(
-            String publishingId, String id, Future<String> Function(),
-            {String? origin})
+    void Function(String json, Future<String> Function() keyGen,
+            Function()? onComplete)
         f);
 
 @JS('___TikiSdk__title')
-external set _title(
-    Future<TitleRecord> Function(String ptr,
-            {List<TitleTag> tags, String? description, String? origin})
-        f);
+external set _title(void Function(String json, Function(String)? onComplete) f);
 
 @JS('___TikiSdk__license')
 external set _license(
-    Future<LicenseRecord> Function(
-            String ptr, List<LicenseUse> uses, String terms,
-            {List<TitleTag> tags,
-            DateTime? expiry,
-            String? licenseDescription,
-            String? titleDescription,
-            String? origin})
-        f);
+    void Function(String json, Function(String)? onComplete) f);
 
 @JS('___TikiSdk__getTitle')
-external set _getTitle(TitleRecord? Function(String id) f);
+external set _getTitle(String? Function(String id) f);
 
 @JS('___TikiSdk__getLicense')
-external set _getLicense(LicenseRecord? Function(String id) f);
+external set _getLicense(String? Function(String id) f);
 
 @JS('___TikiSdk__all')
-external set _all(List<LicenseRecord> Function(String ptr, {String? origin}) f);
+external set _all(List<String> Function(String json) f);
 
 @JS('___TikiSdk__latest')
-external set _latest(LicenseRecord? Function(String ptr, {String? origin}) f);
+external set _latest(String? Function(String json) f);
 
 @JS('___TikiSdk__guard')
 external set _guard(
-    bool Function(String ptr, List<LicenseUsecase> usecases,
-            {List<String>? destinations,
-            Function()? onPass,
-            Function(String)? onFail,
-            String? origin})
+    String Function(String json, Function()? onPass, Function(String)? onFail)
         f);
 
 @JS('___TikiSdk__address')
@@ -61,7 +61,7 @@ external set _address(String Function() f);
 external set _id(String Function() f);
 
 @JS('___TikiSdk__isInitialized')
-external set _isInitialized(bool Function() f);
+external set _isInitialized(String Function() f);
 
 class CoreWrapper {
   TikiSdk? _tikiSdk;
@@ -80,66 +80,78 @@ class CoreWrapper {
     _isInitialized = allowInterop(isInitialized);
   }
 
-  Future<void> initialize(
-      String publishingId, String id, Future<String> Function() keyGen,
-      {String? origin}) async {
-    origin ??= Uri.base.authority;
+  void initialize(String json, Future<String> Function() keyGen,
+      Function()? onComplete) async {
+    ReqInit req = ReqInit.fromJson(json);
     KeyStorage keyStorage = await JSKeyStorage(keyGen).init();
-    String address = await TikiSdk.withId(id, keyStorage);
+    String address = await TikiSdk.withId(req.id, keyStorage);
     final http.Response response = await http
         .get(Uri.parse('https://cdn.mytiki.com/sqlite/1.10.0/sqlite3.wasm'));
     final IndexedDbFileSystem fs =
         await IndexedDbFileSystem.open(dbName: "TikiSdk.sqlite");
     WasmSqlite3 sqlite3 = await WasmSqlite3.load(
         response.bodyBytes, SqliteEnvironment(fileSystem: fs));
-    _tikiSdk = await TikiSdk.init(
-        publishingId, origin, keyStorage, id, sqlite3.open("$address.db"));
+    _tikiSdk = await TikiSdk.init(req.publishingId, req.origin ?? Uri.base.host,
+        keyStorage, req.id, sqlite3.open("$address.db"));
+    if (onComplete != null) onComplete();
   }
 
-  String get address => _tikiSdk!.address;
+  String get address => RspAddress(_tikiSdk!.address).toJson();
 
-  String get id => _tikiSdk!.id;
+  String get id => RspId(_tikiSdk!.id).toJson();
 
-  bool isInitialized() => _tikiSdk != null;
+  String isInitialized() => RspIsInitialized(_tikiSdk != null).toJson();
 
-  Future<TitleRecord> title(String ptr,
-          {String? origin,
-          List<TitleTag> tags = const [],
-          String? description}) =>
-      _tikiSdk!
-          .title(ptr, origin: origin, tags: tags, description: description);
+  void title(String json, Function(String)? onComplete) async {
+    ReqTitle req = ReqTitle.fromJson(json);
+    TitleRecord title = await _tikiSdk!.title(req.ptr,
+        origin: req.origin, tags: req.tags, description: req.description);
+    if (onComplete != null) onComplete(RspTitle(title).toJson());
+  }
 
-  Future<LicenseRecord> license(String ptr, List<LicenseUse> uses, String terms,
-          {String? origin,
-          List<TitleTag> tags = const [],
-          String? titleDescription,
-          String? licenseDescription,
-          DateTime? expiry}) =>
-      _tikiSdk!.license(ptr, uses, terms,
-          origin: origin,
-          tags: tags,
-          titleDescription: titleDescription,
-          licenseDescription: licenseDescription,
-          expiry: expiry);
+  void license(String json, Function(String)? onComplete) async {
+    ReqLicense req = ReqLicense.fromJson(json);
+    LicenseRecord license = await _tikiSdk!.license(
+        req.ptr, req.uses, req.terms,
+        tags: req.tags,
+        expiry: req.expiry,
+        licenseDescription: req.licenseDescription,
+        titleDescription: req.titleDescription);
+    print("license succeeded. callback time");
+    if (onComplete != null) onComplete(RspLicense(license).toJson());
+  }
 
-  LicenseRecord? latest(String ptr, {String? origin}) =>
-      _tikiSdk!.latest(ptr, origin: origin);
+  String? latest(String json) {
+    ReqLatest req = ReqLatest.fromJson(json);
+    LicenseRecord? license = _tikiSdk!.latest(req.ptr, origin: req.origin);
+    return license == null ? null : RspLicense(license).toJson();
+  }
 
-  List<LicenseRecord> all(String ptr, {String? origin}) =>
-      _tikiSdk!.all(ptr, origin: origin);
+  List<String> all(String json) {
+    ReqAll req = ReqAll.fromJson(json);
+    List<LicenseRecord> licenses = _tikiSdk!.all(req.ptr, origin: req.origin);
+    return licenses.map((license) => RspLicense(license).toJson()).toList();
+  }
 
-  LicenseRecord? getLicense(String id) => _tikiSdk!.getLicense(id);
+  String? getLicense(String json) {
+    ReqGetLicense req = ReqGetLicense.fromJson(json);
+    LicenseRecord? license = _tikiSdk!.getLicense(req.id);
+    return license == null ? null : RspLicense(license).toJson();
+  }
 
-  TitleRecord? getTitle(String id) => _tikiSdk!.getTitle(id);
+  String? getTitle(String json) {
+    ReqGetTitle req = ReqGetTitle.fromJson(json);
+    TitleRecord? title = _tikiSdk!.getTitle(req.id);
+    return title == null ? null : RspTitle(title).toJson();
+  }
 
-  bool guard(String ptr, List<LicenseUsecase> usecases,
-          {String? origin,
-          List<String>? destinations,
-          Function()? onPass,
-          Function(String)? onFail}) =>
-      _tikiSdk!.guard(ptr, usecases,
-          origin: origin,
-          destinations: destinations,
-          onPass: onPass,
-          onFail: onFail);
+  String guard(String json, Function()? onPass, Function(String)? onFail) {
+    ReqGuard req = ReqGuard.fromJson(json);
+    bool success = _tikiSdk!.guard(req.ptr, req.usecases,
+        destinations: req.destinations,
+        origin: req.origin,
+        onFail: onFail,
+        onPass: onPass);
+    return RspGuard(success).toJson();
+  }
 }

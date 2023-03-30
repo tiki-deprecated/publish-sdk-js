@@ -13,6 +13,9 @@ import * as EndingDeclined from "./screens/ending/ending-declined";
 import * as Settings from "./screens/settings/settings";
 import { FlowStep } from "./flow-step";
 import { Config } from "../config";
+import { LicenseRecord } from "../license-record";
+import { latest, license } from "../core/core";
+import { Offer } from "./offer";
 
 const id = "tiki-offer";
 const overlayId = "tiki-offer-overlay";
@@ -42,11 +45,10 @@ function goTo(step: FlowStep, config?: Config, from?: FlowStep): void {
           goTo(FlowStep.terms, config);
         },
         (offer) => {
-          // callback
           offerPrompt.remove();
-          //if ending enabled
-          //if not, and callback
-          goTo(FlowStep.endingDeclined, config);
+          if (config._onDecline != undefined) config._onDecline(offer);
+          if (config._isDeclineEndingDisabled) goTo(FlowStep.none);
+          else goTo(FlowStep.endingDeclined, config);
         },
         () => {
           offerPrompt.remove();
@@ -71,9 +73,21 @@ function goTo(step: FlowStep, config?: Config, from?: FlowStep): void {
         {
           value: config._offers[0]._terms,
         },
-        () => {
+        async () => {
+          const offer = config._offers[0];
+          const record: LicenseRecord = await license(
+            offer._ptr,
+            offer._uses,
+            offer._terms,
+            offer._tags,
+            offer._description,
+            offer._expiry
+          );
           terms.remove();
-          goTo(FlowStep.endingAccepted, config);
+          if (config._onAccept != undefined)
+            config._onAccept(config._offers[0], record);
+          if (config._isAcceptEndingDisabled) goTo(FlowStep.none);
+          else goTo(FlowStep.endingAccepted, config);
         },
         () => {
           terms.remove();
@@ -87,7 +101,10 @@ function goTo(step: FlowStep, config?: Config, from?: FlowStep): void {
     case FlowStep.endingAccepted: {
       const endingAccepted = EndingAccepted.create(() => {
         endingAccepted.remove();
-        goTo(FlowStep.settings, config);
+        if (config._onSettings != undefined) {
+          config._onSettings();
+          goTo(FlowStep.none);
+        } else goTo(FlowStep.settings, config);
       }, config.activeTheme);
       showScreen(endingAccepted);
       break;
@@ -95,14 +112,20 @@ function goTo(step: FlowStep, config?: Config, from?: FlowStep): void {
     case FlowStep.endingDeclined: {
       const endingDeclined = EndingDeclined.create(() => {
         endingDeclined.remove();
-        goTo(FlowStep.settings, config);
+        if (config._onSettings != undefined) {
+          config._onSettings();
+          goTo(FlowStep.none);
+        } else goTo(FlowStep.settings, config);
       }, config.activeTheme);
       showScreen(endingDeclined);
       break;
     }
     case FlowStep.settings: {
+      const offer: Offer = config._offers[0];
+      const optIn: boolean = isOptIn(offer);
       const settings = Settings.create(
         config._offers[0],
+        optIn,
         () => {
           settings.remove();
           goTo(FlowStep.none);
@@ -110,6 +133,34 @@ function goTo(step: FlowStep, config?: Config, from?: FlowStep): void {
         () => {
           settings.remove();
           goTo(FlowStep.learnMore, config, FlowStep.settings);
+        },
+        async () => {
+          if (optIn) {
+            const record: LicenseRecord = await license(
+              offer._ptr,
+              [],
+              offer._terms,
+              offer._tags,
+              offer._description,
+              offer._expiry
+            );
+            if (config._onDecline != undefined)
+              config._onDecline(offer, record);
+            settings.remove();
+            goTo(FlowStep.settings, config);
+          } else {
+            const record: LicenseRecord = await license(
+              offer._ptr,
+              offer._uses,
+              offer._terms,
+              offer._tags,
+              offer._description,
+              offer._expiry
+            );
+            if (config._onAccept != undefined) config._onAccept(offer, record);
+            settings.remove();
+            goTo(FlowStep.settings, config);
+          }
         },
         config.activeTheme
       );
@@ -130,4 +181,13 @@ function createOverlay(): HTMLDivElement {
   const overlay: HTMLDivElement = Overlay.create(() => goTo(FlowStep.none));
   overlay.id = overlayId;
   return overlay;
+}
+
+function isOptIn(offer: Offer): boolean {
+  const license: LicenseRecord | undefined = latest(offer._ptr);
+  return (
+    license != undefined &&
+    license.uses.length > 0 &&
+    license.uses[0].usecases.length > 0
+  );
 }

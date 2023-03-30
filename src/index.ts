@@ -37,8 +37,8 @@ _config.offer
   })
   .add();
 
-export const present = () => flow(FlowStep.prompt, _config._offers[0]);
-export const settings = () => flow(FlowStep.settings, _config._offers[0]);
+export const present = () => flow(FlowStep.prompt, _config);
+export const settings = () => flow(FlowStep.settings, _config);
 export const config = (): Config => _config;
 
 export const title = async (

@@ -13,7 +13,7 @@ export declare class Offer {
     _uses?: Array<LicenseUse>;
     _tags?: Array<TitleTag>;
     _expiry?: Date;
-    constructor(config: Config);
+    constructor(config?: Config);
     get id(): string;
     ptr(val: string): Offer;
     description(val: string): Offer;

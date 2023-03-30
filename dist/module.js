@@ -26206,10 +26206,7 @@ function create$d(style) {
     span.innerHTML = Html$3();
     span.className = "tiki-trade-your-data";
     cssVar(span, [
-        {
-            property: "--tiki-trade-your-data-text-color",
-            value: style?.textColor,
-        },
+        { property: "--tiki-trade-your-data-text-color", value: style?.textColor },
         {
             property: "--tiki-trade-your-data-accent-color",
             value: style?.accentColor,
@@ -26244,10 +26241,7 @@ function create$c(onClick, style) {
     button.onclick = onClick;
     button.className = "tiki-learn-more-button";
     cssVar(button, [
-        {
-            property: "--tiki-learn-more-btn-fill",
-            value: style?.color,
-        },
+        { property: "--tiki-learn-more-btn-fill", value: style?.color },
     ]);
     return button;
 }
@@ -26302,18 +26296,9 @@ function create$a(bullets, style) {
     div.appendChild(createList(bullets));
     div.className = "tiki-used-for";
     cssVar(div, [
-        {
-            property: "--tiki-used-for-title-color",
-            value: style?.titleColor,
-        },
-        {
-            property: "--tiki-used-for-text-color",
-            value: style?.textColor,
-        },
-        {
-            property: "--tiki-used-for-font-family",
-            value: style?.fontFamily,
-        },
+        { property: "--tiki-used-for-title-color", value: style?.titleColor },
+        { property: "--tiki-used-for-text-color", value: style?.textColor },
+        { property: "--tiki-used-for-font-family", value: style?.fontFamily },
     ]);
     return div;
 }
@@ -26361,14 +26346,8 @@ function create$9(img, text, style) {
             property: "--tiki-offer-card-background-color",
             value: style?.backgroundColor,
         },
-        {
-            property: "--tiki-offer-card-text-color",
-            value: style?.textColor,
-        },
-        {
-            property: "--tiki-offer-card-font-family",
-            value: style?.fontFamily,
-        },
+        { property: "--tiki-offer-card-text-color", value: style?.textColor },
+        { property: "--tiki-offer-card-font-family", value: style?.fontFamily },
     ]);
     return div;
 }
@@ -26393,9 +26372,6 @@ function createDescription(text) {
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
-const CSS_VAR_PRIMARY_TEXT_COLOR = "var(--tiki-primary-text-color)";
-const CSS_VAR_PRIMARY_BACKGROUND_COLOR = "var(--tiki-primary-background-color)";
-const CSS_VAR_ACCENT_COLOR = "var(--tiki-accent-color)";
 class Theme {
     constructor(config) {
         this._fontFamily = '"Space Grotesk", sans-serif';
@@ -26439,51 +26415,71 @@ class Theme {
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
-function create$8(offer, onAccept, onDecline, onLearnMore, style) {
+function create$8(offer, onAccept, onDecline, onLearnMore, theme = new Theme()) {
     const div = document.createElement("div");
     div.className = "tiki-offer-prompt";
     const body = document.createElement("div");
     body.className = "tiki-offer-prompt-body";
-    body.appendChild(createHeading$3(onLearnMore));
-    body.appendChild(createOffer(offer));
-    body.appendChild(createCta(() => onAccept(offer), () => onDecline(offer)));
+    body.appendChild(createHeading$3(onLearnMore, theme));
+    body.appendChild(createOffer(offer, theme));
+    body.appendChild(createCta(() => onAccept(offer), () => onDecline(offer), theme));
     div.appendChild(body);
     cssVar(div, [
         {
             property: "--tiki-offer-prompt-background-color",
-            value: style?.backgroundColor,
+            value: theme._secondaryBackgroundColor,
         },
-        { property: "--tiki-offer-prompt-font-family", value: style?.fontFamily },
+        { property: "--tiki-offer-prompt-font-family", value: theme._fontFamily },
     ]);
     return div;
 }
-function createHeading$3(onLearnMore) {
+function createHeading$3(onLearnMore, theme) {
     const div = document.createElement("div");
     div.className = "tiki-offer-prompt-heading";
-    div.appendChild(create$d());
-    div.appendChild(create$c(onLearnMore));
+    div.appendChild(create$d({
+        textColor: theme._primaryTextColor,
+        accentColor: theme._accentColor,
+        fontFamily: theme._fontFamily,
+    }));
+    div.appendChild(create$c(onLearnMore, {
+        color: theme._secondaryTextColor,
+    }));
     return div;
 }
-function createOffer(offer) {
+function createOffer(offer, theme) {
     const div = document.createElement("div");
-    const card = create$9({ src: offer._reward }, offer._description);
+    const card = create$9({ src: offer._reward }, offer._description, {
+        backgroundColor: theme._primaryBackgroundColor,
+        textColor: theme._secondaryTextColor,
+        fontFamily: theme._fontFamily,
+    });
     div.appendChild(card);
-    const usedFor = create$a(offer._bullets);
+    const usedFor = create$a(offer._bullets, {
+        textColor: theme._secondaryTextColor,
+        titleColor: theme._primaryTextColor,
+        fontFamily: theme._fontFamily,
+    });
     usedFor.className = "tiki-used-for";
     div.appendChild(usedFor);
     return div;
 }
-function createCta(onAccept, onDecline) {
+function createCta(onAccept, onDecline, theme) {
     const div = document.createElement("div");
     div.className = "tiki-offer-prompt-cta";
     const backOff = create$b("Back Off", onDecline, {
-        textColor: CSS_VAR_PRIMARY_TEXT_COLOR,
-        backgroundColor: CSS_VAR_PRIMARY_BACKGROUND_COLOR,
-        outlineColor: CSS_VAR_ACCENT_COLOR,
+        textColor: theme._primaryTextColor,
+        backgroundColor: theme._primaryBackgroundColor,
+        outlineColor: theme._accentColor,
+        fontFamily: theme._fontFamily,
     });
     backOff.className = backOff.className + " tiki-back-off-btn";
     div.appendChild(backOff);
-    div.appendChild(create$b("I'm In", onAccept));
+    div.appendChild(create$b("I'm In", onAccept, {
+        textColor: theme._primaryBackgroundColor,
+        backgroundColor: theme._accentColor,
+        outlineColor: theme._accentColor,
+        fontFamily: theme._fontFamily,
+    }));
     return div;
 }
 
@@ -26512,12 +26508,7 @@ function create$7(text, onClick, style) {
     button.innerHTML = Html$1();
     if (onClick !== undefined)
         button.onclick = onClick;
-    cssVar(button, [
-        {
-            property: "--tiki-back-btn-fill",
-            value: style?.color,
-        },
-    ]);
+    cssVar(button, [{ property: "--tiki-back-btn-fill", value: style?.color }]);
     return button;
 }
 
@@ -26527,34 +26518,34 @@ var markdownHtml = {"html":"<h1 id=\"learn-more\">learn more</h1>\n<p>Lorem ipsu
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
-function create$6(onBack, style) {
+function create$6(onBack, theme = new Theme()) {
     const div = document.createElement("div");
     div.className = "tiki-learn-more";
     const body = document.createElement("div");
     body.className = "tiki-learn-more-body";
-    body.appendChild(createHeading$2(onBack));
+    body.appendChild(createHeading$2(onBack, theme._primaryTextColor));
     body.appendChild(createContent$2());
     div.appendChild(body);
     cssVar(div, [
         {
             property: "--tiki-learn-more-background-color",
-            value: style?.backgroundColor,
+            value: theme._primaryBackgroundColor,
         },
         {
             property: "--tiki-learn-more-font-family",
-            value: style?.fontFamily,
+            value: theme._fontFamily,
         },
         {
             property: "--tiki-learn-more-text-color",
-            value: style?.textColor,
+            value: theme._primaryTextColor,
         },
     ]);
     return div;
 }
-function createHeading$2(onBack) {
+function createHeading$2(onBack, color) {
     const div = document.createElement("div");
     div.className = "tiki-learn-more-heading";
-    div.appendChild(create$7("Learn More", onBack));
+    div.appendChild(create$7("Learn More", onBack, { color: color }));
     const span = document.createElement("div");
     span.className = "tiki-learn-more-title";
     span.innerHTML = "Learn More";
@@ -26684,39 +26675,35 @@ function toHtml(md) {
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
-function create$5(terms, onAccept, onBack, style) {
+function create$5(terms, onAccept, onBack, theme = new Theme()) {
     const div = document.createElement("div");
     div.className = "tiki-terms";
     const body = document.createElement("div");
     body.className = "tiki-terms-body";
-    body.appendChild(createHeading$1(onBack));
+    body.appendChild(createHeading$1(onBack, theme._primaryTextColor));
     body.appendChild(createContent$1(terms.value, terms.isHtml));
-    body.appendChild(create$b("I agree", onAccept));
+    body.appendChild(create$b("I agree", onAccept, {
+        outlineColor: theme._accentColor,
+        backgroundColor: theme._accentColor,
+        textColor: theme._primaryBackgroundColor,
+        fontFamily: theme._fontFamily,
+    }));
     div.appendChild(body);
     cssVar(div, [
         {
             property: "--tiki-terms-background-color",
-            value: style?.backgroundColor,
+            value: theme._primaryBackgroundColor,
         },
-        {
-            property: "--tiki-terms-font-family",
-            value: style?.fontFamily,
-        },
-        {
-            property: "--tiki-terms-border-color",
-            value: style?.borderColor,
-        },
-        {
-            property: "--tiki-terms-text-color",
-            value: style?.textColor,
-        },
+        { property: "--tiki-terms-font-family", value: theme._fontFamily },
+        { property: "--tiki-terms-border-color", value: theme._accentColor },
+        { property: "--tiki-terms-text-color", value: theme._primaryTextColor },
     ]);
     return div;
 }
-function createHeading$1(onBack) {
+function createHeading$1(onBack, color) {
     const div = document.createElement("div");
     div.className = "tiki-terms-heading";
-    div.appendChild(create$7("Terms and Conditions", onBack));
+    div.appendChild(create$7("Terms and Conditions", onBack, { color: color }));
     const span = document.createElement("div");
     span.className = "tiki-terms-title";
     span.innerHTML = "Terms & Conditions";
@@ -26763,18 +26750,9 @@ function create$4(style) {
     span.innerHTML = Html();
     span.className = "tiki-your-choice";
     cssVar(span, [
-        {
-            property: "--tiki-your-choice-text-color",
-            value: style?.textColor,
-        },
-        {
-            property: "--tiki-your-choice-accent-color",
-            value: style?.accentColor,
-        },
-        {
-            property: "--tiki-your-choice-font-family",
-            value: style?.fontFamily,
-        },
+        { property: "--tiki-your-choice-text-color", value: style?.textColor },
+        { property: "--tiki-your-choice-accent-color", value: style?.accentColor },
+        { property: "--tiki-your-choice-font-family", value: style?.fontFamily },
     ]);
     return span;
 }
@@ -26783,29 +26761,27 @@ function create$4(style) {
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
-function create$3(text, settings, style) {
+function create$3(text, settings, theme = new Theme()) {
     const div = document.createElement("div");
     div.className = "tiki-ending";
     const body = document.createElement("div");
     body.className = "tiki-ending-body";
-    body.appendChild(create$4());
+    body.appendChild(create$4({
+        textColor: theme._primaryTextColor,
+        accentColor: theme._accentColor,
+        fontFamily: theme._fontFamily,
+    }));
     body.appendChild(createTitle(text));
     body.appendChild(settings);
     div.appendChild(body);
     cssVar(div, [
         {
             property: "--tiki-ending-background-color",
-            value: style?.backgroundColor,
+            value: theme._primaryBackgroundColor,
         },
-        {
-            property: "--tiki-ending-font-family",
-            value: style?.fontFamily,
-        },
-        { property: "--tiki-ending-title-color", value: style?.titleColor },
-        {
-            property: "--tiki-ending-text-color",
-            value: style?.textColor,
-        },
+        { property: "--tiki-ending-font-family", value: theme._fontFamily },
+        { property: "--tiki-ending-title-color", value: theme._primaryTextColor },
+        { property: "--tiki-ending-text-color", value: theme._secondaryTextColor },
     ]);
     return div;
 }
@@ -26833,7 +26809,7 @@ function declined() {
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
-function create$2(onSettings, style) {
+function create$2(onSettings, theme = new Theme()) {
     const span = document.createElement("span");
     span.innerHTML = accepted();
     span.className = "tiki-ending-subtitle";
@@ -26841,14 +26817,14 @@ function create$2(onSettings, style) {
         const link = span.children.namedItem("tiki-ending-settings");
         link.onclick = () => onSettings();
     }
-    return create$3("Awesome! You're in", span, style);
+    return create$3("Awesome! You're in", span, theme);
 }
 
 /*
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
-function create$1(onSettings, style) {
+function create$1(onSettings, theme = new Theme()) {
     const span = document.createElement("span");
     span.innerHTML = declined();
     span.className = "tiki-ending-subtitle";
@@ -26856,67 +26832,77 @@ function create$1(onSettings, style) {
         const link = span.children.namedItem("tiki-ending-settings");
         link.onclick = () => onSettings();
     }
-    return create$3("Backing Off", span, style);
+    return create$3("Backing Off", span, theme);
 }
 
-var css_248z = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-settings {\n  --tiki-settings-background-color: var(--tiki-secondary-background-color);\n  --tiki-settings-font-family: var(--tiki-font-family);\n  --tiki-settings-terms-background-color: var(--tiki-primary-background-color);\n  --tiki-settings-terms-text-color: var(--tiki-primary-text-color);\n  --tiki-settings-accent-color: var(--tiki-accent-color);\n\n  background-color: var(--tiki-secondary-background-color);\n\n  background-color: var(--tiki-settings-background-color);\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 100vw;\n  height: 100vh;\n}\n\n.tiki-settings-body {\n  width: 100%;\n  padding: 2em 1em;\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  height: 100%;\n}\n\n.tiki-settings-heading {\n  display: flex;\n  width: 100%;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 0.375em;\n}\n\n.tiki-settings-heading-left {\n  display: flex;\n  width: -moz-fit-content;\n  width: fit-content;\n  align-items: center;\n  justify-content: flex-start;\n}\n\n.tiki-settings-card {\n  margin: 1.5em 4px;\n}\n\n.tiki-settings-used {\n  padding: 0 1em;\n}\n\n.tiki-settings-terms-title {\n  padding: 0 1em;\n  font-family: var(--tiki-settings-font-family);\n  color: var(--tiki-settings-terms-text-color);\n  line-height: var(--tiki-line-height);\n  font-size: var(--tiki-font-size);\n  font-weight: 700;\n  margin-top: 1.875em;\n  margin-bottom: 0.7em;\n  display: block;\n}\n\n.tiki-settings-content {\n  overflow: scroll;\n  margin-bottom: 1.875em;\n}\n\n.tiki-settings-content::after {\n  content: \"\";\n  background: var(--tiki-settings-accent-color);\n  position: absolute;\n  bottom: 8em;\n  left: 1.8em;\n  right: 1.8em;\n  height: 1px;\n}\n\n.tiki-settings-terms-legal {\n  margin: 0.77em 1em 0;\n  padding: 0.5em;\n  background-color: var(--tiki-settings-terms-background-color);\n  color: var(--tiki-settings-terms-text-color);\n  font-family: var(--tiki-settings-font-family);\n  font-size: var(--tiki-font-size-sm);\n  line-height: var(--tiki-line-height-sm);\n}\n\n.tiki-settings-terms-legal,\nh1 {\n  font-size: var(--tiki-font-size-lg);\n  line-height: var(--tiki-line-height-lg);\n}\n\n.tiki-settings-terms-legal,\nh2 {\n  font-size: var(--tiki-font-size);\n  line-height: var(--tiki-line-height);\n}\n\n.tiki-settings-terms-legal,\nh3 {\n  font-size: var(--tiki-font-size);\n  line-height: var(--tiki-line-height);\n}\n\n.tiki-settings-terms-legal,\nh4 {\n  font-size: var(--tiki-font-size-sm);\n  line-height: var(--tiki-line-height-sm);\n}\n\n.tiki-settings-terms-btn {\n  flex-shrink: 0;\n}\n\n@media (min-width: 1024px) {\n  .tiki-settings {\n    height: 36em;\n    max-height: 90vh;\n    max-width: 390px;\n    position: fixed;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    border-radius: 0.5em;\n    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);\n  }\n\n  .tiki-settings-content::after {\n    bottom: 7.1em;\n    left: 1.85em;\n    right: 1.85em;\n  }\n\n  .tiki-settings-terms-title {\n    font-size: var(--tiki-font-size-sm);\n    line-height: var(--tiki-line-height-sm);\n  }\n\n  .tiki-settings-terms-legal {\n    font-size: var(--tiki-font-size-xs);\n    line-height: var(--tiki-line-height-xs);\n  }\n\n  .tiki-settings-terms-legal,\n  h1 {\n    font-size: var(--tiki-font-size);\n    line-height: var(--tiki-line-height);\n  }\n\n  .tiki-settings-terms-legal,\n  h2 {\n    font-size: var(--tiki-font-size-sm);\n    line-height: var(--tiki-line-height-sm);\n  }\n\n  .tiki-settings-terms-legal,\n  h3 {\n    font-size: var(--tiki-font-size-sm);\n    line-height: var(--tiki-line-height-sm);\n  }\n\n  .tiki-settings-terms-legal,\n  h4 {\n    font-size: var(--tiki-font-size-xs);\n    line-height: var(--tiki-line-height-xs);\n  }\n}\n";
+var css_248z = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-settings {\n  --tiki-settings-background-color: var(--tiki-secondary-background-color);\n  --tiki-settings-font-family: var(--tiki-font-family);\n  --tiki-settings-terms-background-color: var(--tiki-primary-background-color);\n  --tiki-settings-terms-text-color: var(--tiki-primary-text-color);\n  --tiki-settings-accent-color: var(--tiki-accent-color);\n\n  background-color: var(--tiki-secondary-background-color);\n\n  background-color: var(--tiki-settings-background-color);\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 100vw;\n  height: 100vh;\n}\n\n.tiki-settings-body {\n  width: 100%;\n  padding: 2em 1em;\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  height: 100%;\n}\n\n.tiki-settings-heading {\n  display: flex;\n  width: 100%;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 0.375em;\n}\n\n.tiki-settings-heading-left {\n  display: flex;\n  width: -moz-fit-content;\n  width: fit-content;\n  align-items: center;\n  justify-content: flex-start;\n}\n\n.tiki-settings-card {\n  margin: 1.5em 4px;\n}\n\n.tiki-settings-used {\n  padding: 0 1em;\n}\n\n.tiki-settings-terms-title {\n  padding: 0 1em;\n  font-family: var(--tiki-settings-font-family);\n  color: var(--tiki-settings-terms-text-color);\n  line-height: var(--tiki-line-height);\n  font-size: var(--tiki-font-size);\n  font-weight: 700;\n  margin-top: 1.875em;\n  margin-bottom: 0.7em;\n  display: block;\n}\n\n.tiki-settings-content {\n  overflow: scroll;\n  margin-bottom: 1.875em;\n  border-bottom: 1px solid var(--tiki-settings-accent-color);\n}\n\n.tiki-settings-terms-legal {\n  margin: 0.77em 1em 0;\n  padding: 0.5em;\n  background-color: var(--tiki-settings-terms-background-color);\n  color: var(--tiki-settings-terms-text-color);\n  font-family: var(--tiki-settings-font-family);\n  font-size: var(--tiki-font-size-sm);\n  line-height: var(--tiki-line-height-sm);\n}\n\n.tiki-settings-terms-legal,\nh1 {\n  font-size: var(--tiki-font-size-lg);\n  line-height: var(--tiki-line-height-lg);\n}\n\n.tiki-settings-terms-legal,\nh2 {\n  font-size: var(--tiki-font-size);\n  line-height: var(--tiki-line-height);\n}\n\n.tiki-settings-terms-legal,\nh3 {\n  font-size: var(--tiki-font-size);\n  line-height: var(--tiki-line-height);\n}\n\n.tiki-settings-terms-legal,\nh4 {\n  font-size: var(--tiki-font-size-sm);\n  line-height: var(--tiki-line-height-sm);\n}\n\n.tiki-settings-terms-btn {\n  flex-shrink: 0;\n}\n\n@media (min-width: 1024px) {\n  .tiki-settings {\n    height: 36em;\n    max-height: 90vh;\n    max-width: 390px;\n    position: fixed;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    border-radius: 0.5em;\n    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);\n  }\n\n  .tiki-settings-content::after {\n    bottom: 7.1em;\n    left: 1.85em;\n    right: 1.85em;\n  }\n\n  .tiki-settings-terms-title {\n    font-size: var(--tiki-font-size-sm);\n    line-height: var(--tiki-line-height-sm);\n  }\n\n  .tiki-settings-terms-legal {\n    font-size: var(--tiki-font-size-xs);\n    line-height: var(--tiki-line-height-xs);\n  }\n\n  .tiki-settings-terms-legal,\n  h1 {\n    font-size: var(--tiki-font-size);\n    line-height: var(--tiki-line-height);\n  }\n\n  .tiki-settings-terms-legal,\n  h2 {\n    font-size: var(--tiki-font-size-sm);\n    line-height: var(--tiki-line-height-sm);\n  }\n\n  .tiki-settings-terms-legal,\n  h3 {\n    font-size: var(--tiki-font-size-sm);\n    line-height: var(--tiki-line-height-sm);\n  }\n\n  .tiki-settings-terms-legal,\n  h4 {\n    font-size: var(--tiki-font-size-xs);\n    line-height: var(--tiki-line-height-xs);\n  }\n}\n";
 styleInject(css_248z);
 
 /*
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
-function create(offer, onBack, onLearnMore, style) {
+function create(offer, onBack, onLearnMore, theme = new Theme()) {
     const div = document.createElement("div");
     div.className = "tiki-settings";
     const body = document.createElement("div");
     body.className = "tiki-settings-body";
-    body.appendChild(createHeading(onBack, onLearnMore));
-    body.appendChild(createContent(offer));
-    body.appendChild(cta());
+    body.appendChild(createHeading(onBack, onLearnMore, theme));
+    body.appendChild(createContent(offer, theme));
+    body.appendChild(cta(false, theme));
     div.appendChild(body);
     cssVar(div, [
         {
             property: "--tiki-settings-background-color",
-            value: style?.backgroundColor,
+            value: theme._secondaryBackgroundColor,
         },
-        {
-            property: "--tiki-settings-font-family",
-            value: style?.fontFamily,
-        },
+        { property: "--tiki-settings-font-family", value: theme._fontFamily },
         {
             property: "--tiki-settings-terms-background-color",
-            value: style?.termsBackgroundColor,
+            value: theme._primaryBackgroundColor,
         },
         {
             property: "--tiki-settings-terms-text-color",
-            value: style?.termsTextColor,
+            value: theme._primaryTextColor,
         },
-        {
-            property: "--tiki-settings-accent-color",
-            value: style?.accentColor,
-        },
+        { property: "--tiki-settings-accent-color", value: theme._accentColor },
     ]);
     return div;
 }
-function createHeading(onBack, onLearMore) {
+function createHeading(onBack, onLearMore, theme) {
     const div = document.createElement("div");
     div.className = "tiki-settings-heading";
     const left = document.createElement("div");
     left.className = "tiki-settings-heading-left";
-    left.appendChild(create$7("", onBack));
-    left.appendChild(create$d());
+    left.appendChild(create$7("", onBack, {
+        color: theme._primaryTextColor,
+    }));
+    left.appendChild(create$d({
+        textColor: theme._primaryTextColor,
+        accentColor: theme._accentColor,
+        fontFamily: theme._fontFamily,
+    }));
     div.appendChild(left);
-    div.appendChild(create$c(onLearMore));
+    div.appendChild(create$c(onLearMore, {
+        color: theme._secondaryTextColor,
+    }));
     return div;
 }
-function createContent(offer) {
+function createContent(offer, theme) {
     const div = document.createElement("div");
     div.className = "tiki-settings-content";
-    const card = create$9({ src: offer._reward }, offer._description);
+    const card = create$9({ src: offer._reward }, offer._description, {
+        fontFamily: theme._fontFamily,
+        textColor: theme._secondaryTextColor,
+        backgroundColor: theme._primaryBackgroundColor,
+    });
     card.className = card.className + " tiki-settings-card";
     div.appendChild(card);
-    const used = create$a(offer._bullets);
+    const used = create$a(offer._bullets, {
+        titleColor: theme._primaryTextColor,
+        textColor: theme._secondaryTextColor,
+        fontFamily: theme._fontFamily,
+    });
     used.className = used.className + " tiki-settings-used";
     div.appendChild(used);
     div.appendChild(createTermsTitle());
@@ -26938,13 +26924,23 @@ function createTermsLegal(terms, isHtml = false) {
         div.innerHTML = toHtml(terms);
     return div;
 }
-function cta(isAccepted = false) {
+function cta(isAccepted = false, theme) {
     const button = isAccepted
         ? create$b("Opt out", () => {
             //
+        }, {
+            outlineColor: theme._accentColor,
+            backgroundColor: theme._primaryBackgroundColor,
+            fontFamily: theme._fontFamily,
+            textColor: theme._primaryTextColor,
         })
         : create$b("Opt in", () => {
             //
+        }, {
+            outlineColor: theme._accentColor,
+            backgroundColor: theme._accentColor,
+            fontFamily: theme._fontFamily,
+            textColor: theme._primaryBackgroundColor,
         });
     button.className = button.className + " tiki-settings-terms-btn";
     return button;
@@ -26971,16 +26967,16 @@ var FlowStep;
  */
 const id$1 = "tiki-offer";
 const overlayId = "tiki-offer-overlay";
-function flow(start = FlowStep.prompt, offer) {
+function flow(start = FlowStep.prompt, config) {
     if (document.getElementById(id$1) == null) {
         const div = document.createElement("div");
         div.id = id$1;
         div.appendChild(createOverlay());
         document.body.appendChild(div);
-        goTo(start, offer);
+        goTo(start, config);
     }
 }
-function goTo(step, offer, from) {
+function goTo(step, config, from) {
     switch (step) {
         case FlowStep.none: {
             const element = document.getElementById(id$1);
@@ -26989,19 +26985,19 @@ function goTo(step, offer, from) {
             break;
         }
         case FlowStep.prompt: {
-            const offerPrompt = create$8(offer, (offer) => {
+            const offerPrompt = create$8(config._offers[0], (offer) => {
                 offerPrompt.remove();
-                goTo(FlowStep.terms, offer);
+                goTo(FlowStep.terms, config);
             }, (offer) => {
                 // callback
                 offerPrompt.remove();
                 //if ending enabled
                 //if not, and callback
-                goTo(FlowStep.endingDeclined, offer);
+                goTo(FlowStep.endingDeclined, config);
             }, () => {
                 offerPrompt.remove();
-                goTo(FlowStep.learnMore, offer, FlowStep.prompt);
-            });
+                goTo(FlowStep.learnMore, config, FlowStep.prompt);
+            }, config.activeTheme);
             showScreen(offerPrompt);
             break;
         }
@@ -27009,50 +27005,50 @@ function goTo(step, offer, from) {
             const learnMore = create$6(() => {
                 learnMore.remove();
                 if (from === FlowStep.settings)
-                    goTo(FlowStep.settings, offer);
+                    goTo(FlowStep.settings, config);
                 else
-                    goTo(FlowStep.prompt, offer);
-            });
+                    goTo(FlowStep.prompt, config);
+            }, config.activeTheme);
             showScreen(learnMore);
             break;
         }
         case FlowStep.terms: {
             const terms = create$5({
-                value: offer._terms,
+                value: config._offers[0]._terms,
             }, () => {
                 terms.remove();
-                goTo(FlowStep.endingAccepted, offer);
+                goTo(FlowStep.endingAccepted, config);
             }, () => {
                 terms.remove();
-                goTo(FlowStep.prompt, offer);
-            });
+                goTo(FlowStep.prompt, config);
+            }, config.activeTheme);
             showScreen(terms);
             break;
         }
         case FlowStep.endingAccepted: {
             const endingAccepted = create$2(() => {
                 endingAccepted.remove();
-                goTo(FlowStep.settings, offer);
-            });
+                goTo(FlowStep.settings, config);
+            }, config.activeTheme);
             showScreen(endingAccepted);
             break;
         }
         case FlowStep.endingDeclined: {
             const endingDeclined = create$1(() => {
                 endingDeclined.remove();
-                goTo(FlowStep.settings, offer);
-            });
+                goTo(FlowStep.settings, config);
+            }, config.activeTheme);
             showScreen(endingDeclined);
             break;
         }
         case FlowStep.settings: {
-            const settings = create(offer, () => {
+            const settings = create(config._offers[0], () => {
                 settings.remove();
                 goTo(FlowStep.none);
             }, () => {
                 settings.remove();
-                goTo(FlowStep.learnMore, offer, FlowStep.settings);
-            });
+                goTo(FlowStep.learnMore, config, FlowStep.settings);
+            }, config.activeTheme);
             showScreen(settings);
             break;
         }
@@ -27192,6 +27188,15 @@ class Config {
     async initialize(publishingId, id, origin) {
         return globalThis.___TikiSdk__initialize(publishingId, id, KeyGen, origin);
     }
+    get activeTheme() {
+        if (this._dark != undefined &&
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            return this._dark;
+        }
+        else
+            return this._theme;
+    }
 }
 
 /*
@@ -27216,8 +27221,8 @@ _config.offer
     isUsed: false,
 })
     .add();
-const present = () => flow(FlowStep.prompt, _config._offers[0]);
-const settings = () => flow(FlowStep.settings, _config._offers[0]);
+const present = () => flow(FlowStep.prompt, _config);
+const settings = () => flow(FlowStep.settings, _config);
 const config = () => _config;
 const title = async (ptr, tags, description, origin) => globalThis.___TikiSdk__title(ptr, tags, description, origin);
 const license = async (ptr, uses, terms, tags, expiry, licenseDescription, titleDescription, origin) => globalThis.___TikiSdk__license(ptr, uses, terms, tags, expiry, licenseDescription, titleDescription, origin);

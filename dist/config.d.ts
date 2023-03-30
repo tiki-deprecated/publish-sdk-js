@@ -19,4 +19,5 @@ export declare class Config {
     onDecline(callback: () => void): Config;
     onSettings(callback: () => void): Config;
     initialize(publishingId: string, id: string, origin?: string): Promise<void>;
+    get activeTheme(): Theme;
 }

@@ -67,16 +67,7 @@
 .tiki-settings-content {
   overflow: scroll;
   margin-bottom: 1.875em;
-}
-
-.tiki-settings-content::after {
-  content: "";
-  background: var(--tiki-settings-accent-color);
-  position: absolute;
-  bottom: 8em;
-  left: 1.8em;
-  right: 1.8em;
-  height: 1px;
+  border-bottom: 1px solid var(--tiki-settings-accent-color);
 }
 
 .tiki-settings-terms-legal {

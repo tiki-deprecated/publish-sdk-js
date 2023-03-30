@@ -12,22 +12,22 @@ import * as EndingAccepted from "./screens/ending/ending-accepted";
 import * as EndingDeclined from "./screens/ending/ending-declined";
 import * as Settings from "./screens/settings/settings";
 import { FlowStep } from "./flow-step";
-import { Offer } from "./offer";
+import { Config } from "../config";
 
 const id = "tiki-offer";
 const overlayId = "tiki-offer-overlay";
 
-export function flow(start: FlowStep = FlowStep.prompt, offer?: Offer): void {
+export function flow(start: FlowStep = FlowStep.prompt, config?: Config): void {
   if (document.getElementById(id) == null) {
     const div: HTMLDivElement = document.createElement("div");
     div.id = id;
     div.appendChild(createOverlay());
     document.body.appendChild(div);
-    goTo(start, offer);
+    goTo(start, config);
   }
 }
 
-function goTo(step: FlowStep, offer?: Offer, from?: FlowStep): void {
+function goTo(step: FlowStep, config?: Config, from?: FlowStep): void {
   switch (step) {
     case FlowStep.none: {
       const element: HTMLElement = document.getElementById(id);
@@ -36,22 +36,23 @@ function goTo(step: FlowStep, offer?: Offer, from?: FlowStep): void {
     }
     case FlowStep.prompt: {
       const offerPrompt = OfferPrompt.create(
-        offer,
+        config._offers[0],
         (offer) => {
           offerPrompt.remove();
-          goTo(FlowStep.terms, offer);
+          goTo(FlowStep.terms, config);
         },
         (offer) => {
           // callback
           offerPrompt.remove();
           //if ending enabled
           //if not, and callback
-          goTo(FlowStep.endingDeclined, offer);
+          goTo(FlowStep.endingDeclined, config);
         },
         () => {
           offerPrompt.remove();
-          goTo(FlowStep.learnMore, offer, FlowStep.prompt);
-        }
+          goTo(FlowStep.learnMore, config, FlowStep.prompt);
+        },
+        config.activeTheme
       );
       showScreen(offerPrompt);
       break;
@@ -59,25 +60,26 @@ function goTo(step: FlowStep, offer?: Offer, from?: FlowStep): void {
     case FlowStep.learnMore: {
       const learnMore = LearnMore.create(() => {
         learnMore.remove();
-        if (from === FlowStep.settings) goTo(FlowStep.settings, offer);
-        else goTo(FlowStep.prompt, offer);
-      });
+        if (from === FlowStep.settings) goTo(FlowStep.settings, config);
+        else goTo(FlowStep.prompt, config);
+      }, config.activeTheme);
       showScreen(learnMore);
       break;
     }
     case FlowStep.terms: {
       const terms = Terms.create(
         {
-          value: offer._terms,
+          value: config._offers[0]._terms,
         },
         () => {
           terms.remove();
-          goTo(FlowStep.endingAccepted, offer);
+          goTo(FlowStep.endingAccepted, config);
         },
         () => {
           terms.remove();
-          goTo(FlowStep.prompt, offer);
-        }
+          goTo(FlowStep.prompt, config);
+        },
+        config.activeTheme
       );
       showScreen(terms);
       break;
@@ -85,30 +87,31 @@ function goTo(step: FlowStep, offer?: Offer, from?: FlowStep): void {
     case FlowStep.endingAccepted: {
       const endingAccepted = EndingAccepted.create(() => {
         endingAccepted.remove();
-        goTo(FlowStep.settings, offer);
-      });
+        goTo(FlowStep.settings, config);
+      }, config.activeTheme);
       showScreen(endingAccepted);
       break;
     }
     case FlowStep.endingDeclined: {
       const endingDeclined = EndingDeclined.create(() => {
         endingDeclined.remove();
-        goTo(FlowStep.settings, offer);
-      });
+        goTo(FlowStep.settings, config);
+      }, config.activeTheme);
       showScreen(endingDeclined);
       break;
     }
     case FlowStep.settings: {
       const settings = Settings.create(
-        offer,
+        config._offers[0],
         () => {
           settings.remove();
           goTo(FlowStep.none);
         },
         () => {
           settings.remove();
-          goTo(FlowStep.learnMore, offer, FlowStep.settings);
-        }
+          goTo(FlowStep.learnMore, config, FlowStep.settings);
+        },
+        config.activeTheme
       );
       showScreen(settings);
       break;

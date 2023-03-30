@@ -69,4 +69,14 @@ export class Config {
   ): Promise<void> {
     return globalThis.___TikiSdk__initialize(publishingId, id, KeyGen, origin);
   }
+
+  get activeTheme(): Theme {
+    if (
+      this._dark != undefined &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      return this._dark;
+    } else return this._theme;
+  }
 }

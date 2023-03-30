@@ -16,7 +16,7 @@ export { LicenseUse } from "./license-use";
 export { LicenseRecord } from "./license-record";
 export { TitleTag } from "./title-tag";
 export { TitleRecord } from "./title-record";
-export * from "./ui/ui";
+export * as UI from "./ui/ui";
 
 const _config = new Config();
 

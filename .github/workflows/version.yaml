@@ -74,6 +74,5 @@ jobs:
           git add pubspec.yaml
           git add package.json
           git add package-lock.json
-          git add docs/
           git commit -m 'version bump'
           git push

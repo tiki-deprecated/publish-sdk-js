@@ -1,9 +1,8 @@
 {
-  "name": "tiki-sdk-js",
+  "name": "@mytiki/tiki-sdk-js",
   "version": "0.0.1",
   "description": "JS SDK for client-side integration with TIKI",
-  "source": "src/index.js",
-  "browser": "dist/main.js",
+  "source": "dist/index.js",
   "license": "MIT",
   "scripts": {
     "test": "npm run test:dart; npm run test:js;",
@@ -25,7 +24,8 @@
   },
   "keywords": [
     "TIKI",
-    "L0 Storage"
+    "Data Licensing",
+    "TIKI JS SDK"
   ],
   "author": {
     "name": "Tiki inc.",
@@ -36,7 +36,6 @@
     "url": "https://github.com/tiki/tiki-sdk-js/issues"
   },
   "homepage": "https://github.com/tiki/tiki-sdk-js#readme",
-  "private": true,
   "devDependencies": {
     "@babel/core": "^7.21.0",
     "@babel/preset-env": "^7.20.2",
@@ -74,5 +73,9 @@
     "ts-jest": "^29.0.5",
     "typedoc": "^0.23.28",
     "typescript": "^4.9.5"
-  }
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "types:" : "dist/index.d.ts"
 }

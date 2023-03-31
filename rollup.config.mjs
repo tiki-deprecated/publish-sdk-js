@@ -11,48 +11,10 @@ import postcssReporter from "postcss-reporter";
 import stylelint from "stylelint";
 import commonjs from "@rollup/plugin-commonjs";
 import markdown from "@jackfranklin/rollup-plugin-markdown";
+import cssnano from "cssnano";
+import terser from "@rollup/plugin-terser";
 
 export default [
-  {
-    input: "src/index.ts",
-    output: [
-      {
-        file: "dist/module.js",
-        name: "TikiSdk",
-        exports: "named",
-        format: "esm",
-      },
-      {
-        file: "dist/bundle.js",
-        exports: "named",
-        name: "TikiSdk",
-        format: "cjs",
-      },
-    ],
-    plugins: [
-      babel({
-        exclude: "node_modules/**",
-        presets: ["@babel/preset-env", "@babel/preset-react"],
-        plugins: ["babel-plugin-transform-html-import-to-string"],
-        extensions: [".js", ".html"],
-        babelHelpers: "bundled",
-      }),
-      postcss({
-        plugins: [
-          stylelint(),
-          postcssPresetEnv(),
-          //cssnano(),
-          postcssReporter(),
-        ],
-      }),
-      //terser(),
-      typescript(),
-      markdown({
-        include: "src/ui/screens/learn-more/learn-more.md",
-        allowImports: true,
-      }),
-    ],
-  },
   {
     input: "src/index.ts",
     output: [
@@ -79,11 +41,11 @@ export default [
         plugins: [
           stylelint(),
           postcssPresetEnv(),
-          //cssnano(),
+          cssnano(),
           postcssReporter(),
         ],
       }),
-      //terser(),
+      terser(),
       typescript(),
       markdown({
         include: "src/ui/screens/learn-more/learn-more.md",

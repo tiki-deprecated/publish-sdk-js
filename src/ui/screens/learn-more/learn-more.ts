@@ -30,8 +30,16 @@ export function create(
       value: theme._fontFamily,
     },
     {
-      property: "--tiki-learn-more-text-color",
+      property: "--tiki-learn-more-title-color",
       value: theme._primaryTextColor,
+    },
+    {
+      property: "--tiki-learn-more-text-color",
+      value: theme._secondaryTextColor,
+    },
+    {
+      property: "--tiki-learn-more-accent-color",
+      value: theme._accentColor,
     },
   ]);
   return div;

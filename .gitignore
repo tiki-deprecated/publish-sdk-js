@@ -17,8 +17,8 @@ build/
 # Fuckin' MACs
 .DS_Store
 
-# Example Debugging
-example/dist
-
-# Reports
+# Generated Files
 reports
+dist
+src/core/core.dart.*
+example/dist

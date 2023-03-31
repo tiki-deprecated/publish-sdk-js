@@ -1,4 +1,4 @@
-name: JS library tests
+name: Dart/JS Tests
 
 on:
   push:
@@ -16,14 +16,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout'
+      - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - uses: dart-lang/setup-dart@v1.3
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1.3
 
-      - uses: actions/setup-node@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
           node-version: 18
 

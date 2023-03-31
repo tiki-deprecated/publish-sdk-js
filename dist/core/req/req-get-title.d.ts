@@ -1,3 +1,0 @@
-interface ReqGetTitle {
-    id: string;
-}

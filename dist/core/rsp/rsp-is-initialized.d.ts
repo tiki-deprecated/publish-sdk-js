@@ -1,3 +1,0 @@
-interface RspIsInitialized {
-    isInitialized: boolean;
-}

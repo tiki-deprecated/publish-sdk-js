@@ -66,6 +66,7 @@
     "postcss": "^8.4.21",
     "postcss-preset-env": "^8.0.1",
     "postcss-reporter": "^7.0.5",
+    "prettier": "^2.8.7",
     "rollup": "^3.20.1",
     "rollup-plugin-postcss": "^4.0.2",
     "stylelint": "^15.3.0",

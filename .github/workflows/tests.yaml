@@ -25,23 +25,22 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
-          cache: 'yarn'
+          node-version: 18
 
       - name: Install Dart dependencies
         run: dart pub get
 
       - name: Install JS dependencies
-        run: yarn install --frozen-lockfile --dev
+        run: npm ci
 
       - name: Compile Dart to JS
-        run: yarn build:dart
+        run: npm run build:dart
 
       - name: Compile JS
-        run: yarn build:js
+        run: npm run build:js
 
       - name: Run Dart Library tests
-        run: yarn test:dart
+        run: npm run test:dart
 
       - name: Lint JS
-        run: yarn lint:js
+        run: npm run lint:js

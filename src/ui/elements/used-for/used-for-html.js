@@ -7,11 +7,11 @@ import yesHtml from "./used-for-yes.html";
 import noHtml from "./used-for-no.html";
 
 function yes() {
-  return yesHtml.replace(/<!--(.|\n)*-->/g, "");
+  return yesHtml;
 }
 
 function no() {
-  return noHtml.replace(/<!--(.|\n)*-->/g, "");
+  return noHtml;
 }
 
 export { yes, no };

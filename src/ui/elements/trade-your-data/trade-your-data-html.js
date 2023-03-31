@@ -6,5 +6,5 @@
 import template from "./trade-your-data.html";
 
 export default function () {
-  return template.replace(/<!--[\s\S]*?-->/g, "");
+  return template.replace(/<!--(.|\n)*-->/g, "");
 }

@@ -32,7 +32,7 @@ export * as UI from "./ui/ui";
 const _config = new Config();
 
 /**
- * Presents an {@link Offer} to the user and allows them to accept or decline it. Acceptance results in
+ * Presents an {@link UI.Offer} to the user and allows them to accept or decline it. Acceptance results in
  * a new {@link LicenseRecord} being created based on the presented Offer.
  *
  * If the Offer has already been accepted by the user, this method does nothing.
@@ -72,7 +72,7 @@ export function settings() {
  * Starts the configuration process for the Tiki SDK.
  *
  * This method returns the shared instance of {@link Config}, which can be used to configure the SDK before
- * initializing it. You can access child configurations such as {@link Theme} or {@link Offer}, and call methods
+ * initializing it. You can access child configurations such as {@link UI.Theme} or {@link UI.Offer}, and call methods
  * such as {@link Config.disableAcceptEnding} and {@link Config.onAccept} on the returned instance to
  * customize the SDK behavior to your needs.
  *

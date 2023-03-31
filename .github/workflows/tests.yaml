@@ -34,16 +34,14 @@ jobs:
       - name: Install JS dependencies
         run: yarn install --frozen-lockfile --dev
 
-      - name: Download Sqlite3 WASM binary
-        run:  wget -O ./web/sqlite3.wasm https://github.com/simolus3/sqlite3.dart/releases/download/sqlite3-1.9.3/sqlite3.wasm
-
-      - run: ln -s web/sqlite3.wasm sqlite3.wasm
-
       - name: Compile Dart to JS
         run: yarn build:dart
 
-      - name: Run JS Library tests
-        run: yarn test:lib
+      - name: Compile JS
+        run: yarn build:js
 
-      - name: Linting
-        run: yarn lint:lib
+      - name: Run Dart Library tests
+        run: yarn test:dart
+
+      - name: Lint JS
+        run: yarn lint:js

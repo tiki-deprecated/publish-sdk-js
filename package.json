@@ -6,7 +6,9 @@
   "browser": "dist/main.js",
   "license": "MIT",
   "scripts": {
+    "test": "npm run test:dart; npm run test:js;",
     "test:js": "jest ./test/js --silent",
+    "test:dart": "dart test",
     "lint:js": "eslint src/*.ts",
     "build": "npm run build:dart; npm run build:js;",
     "build:js": "rollup -c",

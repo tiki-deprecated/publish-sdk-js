@@ -21,6 +21,7 @@
     "name": "TikiSdk",
     "includeVersion": true,
     "navigationLinks": {
+      "TIKI": "https://mytiki.com",
       "Log in": "https://console.mytiki.com"
     },
     "hideGenerator": true

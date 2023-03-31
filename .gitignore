@@ -22,3 +22,4 @@ reports
 dist
 src/core/core.dart.*
 example/dist
+docs

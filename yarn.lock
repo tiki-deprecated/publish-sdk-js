@@ -6284,7 +6284,7 @@
     "semver" "7.x"
     "yargs-parser" "^21.0.1"
 
-"ts-node@^10.9.1", "ts-node@>=9.0.0":
+"ts-node@>=9.0.0":
   "integrity" "sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw=="
   "resolved" "https://registry.npmjs.org/ts-node/-/ts-node-10.9.1.tgz"
   "version" "10.9.1"

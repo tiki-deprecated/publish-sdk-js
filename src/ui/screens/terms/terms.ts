@@ -6,27 +6,27 @@
 import "./terms.css";
 import * as BackBtn from "../../elements/back-btn/back-btn";
 import * as TextBtn from "../../elements/text-btn/text-btn";
-import { toHtml } from "../../utils/nano-md";
+import { fromSrc } from "../../utils/nano-md";
 import { cssVar } from "../../utils/null-safe";
 import { Theme } from "../../theme";
 
 interface Terms {
-  value: string;
+  src: string;
   isHtml?: boolean;
 }
 
-export function create(
+export async function create(
   terms: Terms,
   onAccept: () => void,
   onBack: () => void,
   theme: Theme = new Theme()
-): HTMLDivElement {
+): Promise<HTMLDivElement> {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-terms";
   const body: HTMLDivElement = document.createElement("div");
   body.className = "tiki-terms-body";
   body.appendChild(createHeading(onBack, theme._primaryTextColor));
-  body.appendChild(createContent(terms.value, terms.isHtml));
+  body.appendChild(await createContent(terms.src, terms.isHtml));
   body.appendChild(
     TextBtn.create("I agree", onAccept, {
       outlineColor: theme._accentColor,
@@ -61,7 +61,10 @@ function createHeading(onBack: () => void, color: string): HTMLDivElement {
   return div;
 }
 
-function createContent(terms: string, isHtml = false): HTMLDivElement {
+async function createContent(
+  terms: string,
+  isHtml = false
+): Promise<HTMLDivElement> {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-terms-content";
   const container: HTMLDivElement = document.createElement("div");
@@ -69,7 +72,7 @@ function createContent(terms: string, isHtml = false): HTMLDivElement {
   const html: HTMLDivElement = document.createElement("div");
   html.className = "tiki-terms-legal-md";
   if (isHtml) html.innerHTML = terms;
-  else html.innerHTML = toHtml(terms);
+  else html.innerHTML = await fromSrc(terms);
   container.appendChild(html);
   div.appendChild(container);
   return div;

@@ -30,7 +30,11 @@ export function flow(start: FlowStep = FlowStep.prompt, config?: Config): void {
   }
 }
 
-function goTo(step: FlowStep, config?: Config, from?: FlowStep): void {
+async function goTo(
+  step: FlowStep,
+  config?: Config,
+  from?: FlowStep
+): Promise<void> {
   switch (step) {
     case FlowStep.none: {
       const element: HTMLElement = document.getElementById(id);
@@ -69,9 +73,9 @@ function goTo(step: FlowStep, config?: Config, from?: FlowStep): void {
       break;
     }
     case FlowStep.terms: {
-      const terms = Terms.create(
+      const terms = await Terms.create(
         {
-          value: config._offers[0]._terms,
+          src: config._offers[0]._terms,
         },
         async () => {
           const offer = config._offers[0];

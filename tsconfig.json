@@ -16,5 +16,13 @@
     "src/**/*"
   ],
   "exclude": ["node_modules"],
-  "files": ["./src/index.ts"]
+  "files": ["./src/index.ts"],
+  "typedocOptions": {
+    "name": "TikiSdk",
+    "includeVersion": true,
+    "navigationLinks": {
+      "Log in": "https://console.mytiki.com"
+    },
+    "hideGenerator": true
+  }
 }

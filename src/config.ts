@@ -8,6 +8,9 @@ import { Offer } from "./ui/offer";
 import { Theme } from "./ui/theme";
 import { LicenseRecord } from "./license-record";
 
+/**
+ * The top-level class for configuring and initializing a TikiSdk instance.
+ */
 export class Config {
   /**
    * @hidden
@@ -43,14 +46,14 @@ export class Config {
   _dark: Theme | undefined;
 
   /**
-   * A configurable {@link Theme} object for pre-built UIs.
+   * A configurable {@link UI.Theme} object for pre-built UIs.
    */
   get theme(): Theme {
     return this._theme;
   }
 
   /**
-   * A {@link Theme} object for pre-built UIs with a dark mode appearance.
+   * A {@link UI.Theme} object for pre-built UIs with a dark mode appearance.
    *
    * The dark mode theme is applied to the UI elements only when explicitly called. By default, the dark
    * mode theme is identical to the default (light) theme. Each individual property of the dark mode theme
@@ -62,10 +65,10 @@ export class Config {
   }
 
   /**
-   * Creates a new, empty {@link Offer} object.
+   * Creates a new, empty {@link UI.Offer} object.
    *
    * This Offer object can be used to define a new offer before adding it to the TIKI SDK.
-   * To add the offer, call the {@link Offer#add} method on the Offer object.
+   * To add the offer, call the {@link UI.Offer.add} method on the Offer object.
    */
   get offer(): Offer {
     const offer = new Offer(this);
@@ -74,7 +77,7 @@ export class Config {
   }
 
   /**
-   * Adds an {@link Offer} object to the offers list.
+   * Adds an Offer object to the offers list.
    *
    * Currently only a single offer is supported in TIKI's pre-built UI.
    *
@@ -119,7 +122,7 @@ export class Config {
    * This method sets the onAccept event handler, which is triggered when the user accepts a licensing offer.
    *
    * @param callback - The closure to be executed when an offer is declined. The closure takes two arguments: the
-   * {@link Offer} that was accepted, and the {@link LicenseRecord} object containing the license information for the
+   * {@link UI.Offer} that was accepted, and the {@link LicenseRecord} object containing the license information for the
    * accepted offer.
    */
   onAccept(callback: (offer: Offer, license: LicenseRecord) => void): Config {
@@ -134,7 +137,7 @@ export class Config {
    * The event is triggered either when the user selects "Back Off" or "Opts Out" in settings.
    *
    * @param callback - The closure to be executed when an offer is declined. The closure takes two arguments: the
-   * {@link Offer} that was declined, and an optional {@link LicenseRecord} object containing the license information
+   * {@link UI.Offer} that was declined, and an optional {@link LicenseRecord} object containing the license information
    * for the declined offer, if it was previously accepted.
    */
   onDecline(callback: (offer: Offer, license?: LicenseRecord) => void): Config {
@@ -162,7 +165,7 @@ export class Config {
    * Use this method to initialize the TIKI SDK with the specified publishingId, id, and origin.
    *
    * @param publishingId - The publishingId is required for connecting to TIKI's services. Get a free publishingId at
-   * {@link https://console.mytiki.com}.
+   * [console.mytiki.com](https://console.mytiki.com).
    *
    * @param id - The ID that uniquely identifies your user.
    *
@@ -191,9 +194,10 @@ export class Config {
   }
 
   /**
-   * @returns the active {@link Theme} depending on the user's configuration
+   * The active {@link UI.Theme} depending on the user's configuration
    *
-   * The active theme defaults to light if a dark theme has not been set (see {@link dark}).
+   * Defaults to *light* if a *dark* theme has not been set.
+   * @see {@link dark}
    */
   get activeTheme(): Theme {
     if (

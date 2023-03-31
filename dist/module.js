@@ -26312,11 +26312,6 @@ function create$e(onClick, style) {
     return div;
 }
 
-var overlay = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  create: create$e
-});
-
 var css_248z$b = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-offer-prompt {\n  --tiki-offer-prompt-background-color: var(--tiki-secondary-background-color);\n  --tiki-offer-prompt-font-family: var(--tiki-font-family);\n\n  width: 100vw;\n  background-color: var(--tiki-secondary-background-color);\n  background-color: var(--tiki-offer-prompt-background-color);\n  position: fixed;\n  bottom: 0;\n  left: 50%;\n  transform: translate(-50%, 0);\n  font-family: var(--tiki-font-family);\n  font-family: var(--tiki-offer-prompt-font-family);\n  border-radius: 2.5em 2.5em 0 0;\n}\n\n.tiki-offer-prompt-body {\n  width: 100%;\n  padding: 2em 0.9375em;\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  height: 100%;\n}\n\n.tiki-offer-prompt-heading {\n  width: 100%;\n  padding: 0 0.9375em;\n  display: flex;\n  justify-content: space-between;\n  box-sizing: border-box;\n  height: -moz-fit-content;\n  height: fit-content;\n  margin-bottom: 2em;\n}\n\n.tiki-offer-prompt-cta {\n  display: flex;\n  flex-wrap: nowrap;\n  justify-content: space-between;\n  align-items: center;\n  box-sizing: border-box;\n  height: -moz-fit-content;\n  height: fit-content;\n  margin-top: 1em;\n}\n\n.tiki-back-off-btn {\n  margin-right: 1.5em;\n}\n\n.tiki-used-for {\n  margin-top: 1.5em;\n  padding-left: 0.9375em;\n}\n\n@media (min-width: 1024px) {\n  .tiki-offer-prompt {\n    height: 36em;\n    max-height: 90vh;\n    max-width: 390px;\n    position: fixed;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    border-radius: 0.5em;\n    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);\n  }\n\n  .tiki-offer-prompt-heading {\n    margin-bottom: 1.5em;\n  }\n}\n";
 styleInject(css_248z$b);
 
@@ -26354,11 +26349,6 @@ function create$d(style) {
     return span;
 }
 
-var tradeYourData = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  create: create$d
-});
-
 var css_248z$9 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-learn-more-button {\n  --tiki-learn-more-btn-fill: var(--tiki-secondary-text-color);\n\n  height: var(--tiki-line-height-xl);\n  background-color: transparent;\n  border: none;\n  cursor: pointer;\n  padding: 1px;\n}\n\n.tiki-learn-more-button-icon {\n  fill: var(--tiki-learn-more-btn-fill);\n  height: 100%;\n  width: auto;\n}\n\n@media (min-width: 1024px) {\n  .tiki-learn-more-button {\n    height: var(--tiki-line-height-lg);\n  }\n}\n";
 styleInject(css_248z$9);
 
@@ -26386,11 +26376,6 @@ function create$c(onClick, style) {
     return button;
 }
 
-var learnMoreBtn = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  create: create$c
-});
-
 var css_248z$8 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-text-btn {\n  --tiki-text-btn-outline-color: var(--tiki-accent-color);\n  --tiki-text-btn-background-color: var(--tiki-accent-color);\n  --tiki-text-btn-text-color: var(--tiki-primary-background-color);\n  --tiki-text-btn-font-family: var(--tiki-font-family);\n\n  width: 100%;\n  height: 3.3em;\n  border-radius: 0.625em;\n  border: solid 1px var(--tiki-accent-color);\n  border: solid 1px var(--tiki-text-btn-outline-color);\n  cursor: pointer;\n  font-weight: 500;\n  font-size: var(--tiki-font-size-xl);\n  line-height: var(--tiki-line-height-xl);\n  font-family: var(--tiki-font-family);\n  font-family: var(--tiki-text-btn-font-family);\n  background-color: var(--tiki-accent-color);\n  background-color: var(--tiki-text-btn-background-color);\n  color: var(--tiki-primary-background-color);\n  color: var(--tiki-text-btn-text-color);\n}\n\n@media (min-width: 1024px) {\n  .tiki-text-btn {\n    font-size: var(--tiki-font-size);\n    line-height: var(--tiki-line-height);\n  }\n}\n";
 styleInject(css_248z$8);
 
@@ -26414,11 +26399,6 @@ function create$b(text, onClick, style) {
     ]);
     return button;
 }
-
-var textBtn = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  create: create$b
-});
 
 var css_248z$7 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-used-for {\n  --tiki-used-for-title-color: var(--tiki-primary-text-color);\n  --tiki-used-for-text-color: var(--tiki-secondary-text-color);\n  --tiki-used-for-font-family: var(--tiki-font-family);\n}\n\n.tiki-used-for-no-icon {\n  height: 0.75em;\n  width: auto;\n  fill: #c73000;\n  margin-right: 0.625em;\n}\n\n.tiki-used-for-yes-icon {\n  height: 0.75em;\n  width: auto;\n  fill: #00b272;\n  margin-right: 0.625em;\n}\n\n.tiki-used-for-title {\n  color: var(--tiki-used-for-title-color);\n  font-weight: 700;\n  font-size: var(--tiki-font-size);\n  line-height: var(--tiki-line-height);\n  font-family: var(--tiki-used-for-font-family);\n}\n\n.tiki-used-for-list {\n  list-style-type: none;\n  padding-left: 0;\n  color: var(--tiki-used-for-text-color);\n  font-weight: 700;\n  font-size: var(--tiki-font-size);\n  line-height: var(--tiki-line-height);\n  margin-top: 0.5em;\n  margin-bottom: 0;\n  font-family: var(--tiki-used-for-font-family);\n}\n\n.tiki-used-for-list-item {\n  display: flex;\n  align-items: center;\n  margin: 1em 0;\n}\n\n@media (min-width: 1024px) {\n  .tiki-used-for-title {\n    font-size: var(--tiki-font-size-sm);\n    line-height: var(--tiki-line-height-sm);\n  }\n\n  .tiki-used-for-list {\n    font-size: var(--tiki-font-size-sm);\n    line-height: var(--tiki-line-height-sm);\n  }\n}\n";
 styleInject(css_248z$7);
@@ -26479,11 +26459,6 @@ function createBullet(text, isUsed = true) {
     return li;
 }
 
-var usedFor = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  create: create$a
-});
-
 var css_248z$6 = "/*\n * Copyright (c) TIKI Inc.\n * MIT license. See LICENSE file in root directory.\n */\n\n.tiki-offer-card {\n  --tiki-offer-card-background-color: var(--tiki-primary-background-color);\n  --tiki-offer-card-text-color: var(--tiki-secondary-text-color);\n  --tiki-offer-card-font-family: var(--tiki-font-family);\n\n  background-color: var(--tiki-primary-background-color);\n\n  background-color: var(--tiki-offer-card-background-color);\n  padding: 1.25em;\n  box-sizing: border-box;\n  border-radius: 0.625em;\n  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.05);\n}\n\n.tiki-offer-card-img {\n  width: 100%;\n  height: 5.375em;\n  -o-object-fit: cover;\n     object-fit: cover;\n  box-sizing: border-box;\n}\n\n.tiki-offer-card-text {\n  color: var(--tiki-offer-card-text-color);\n  font-weight: 700;\n  font-size: var(--tiki-font-size);\n  line-height: var(--tiki-line-height);\n  overflow: hidden;\n  height: calc(3 * var(--tiki-line-height));\n  text-overflow: ellipsis;\n  display: block;\n  font-family: var(--tiki-offer-card-font-family);\n}\n\n.tiki-offer-card-text-cell {\n  display: table-cell;\n  height: calc(3 * var(--tiki-line-height));\n  vertical-align: middle;\n}\n\n@media (min-width: 1024px) {\n  .tiki-offer-card-text {\n    font-size: var(--tiki-font-size-sm);\n    line-height: var(--tiki-line-height-sm);\n  }\n}\n";
 styleInject(css_248z$6);
 
@@ -26523,49 +26498,130 @@ function createDescription(text) {
     return span;
 }
 
-var offerCard = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  create: create$9
-});
-
 /*
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
+/**
+ * The theme for pre-built UIs.
+ *
+ * The pre-built UI styles are defined by a `Theme` object. To configure a theme,
+ * chain calls to the `config()` method.
+ *
+ * @example
+ * ```ts
+ * TikiSdk.config()
+ *     .theme
+ *         .primaryTextColor('#000000')
+ *         .primaryBackgroundColor('#FFFFFF')
+ *         .accentColor('blue')
+ *         .fontFamily('"Space Grotesk", sans-serif')
+ * ```
+ */
 class Theme {
+    /**
+     * Create a new Theme object
+     *
+     * @param config - The optional {@link Config} object to attach this Theme to. Required for {@link and}.
+     */
     constructor(config) {
+        /**
+         * @hidden
+         */
         this._fontFamily = '"Space Grotesk", sans-serif';
+        /**
+         * @hidden
+         */
         this._primaryTextColor = "#1C0000";
+        /**
+         * @hidden
+         */
         this._secondaryTextColor = "#1C000099";
+        /**
+         * @hidden
+         */
         this._primaryBackgroundColor = "#FFFFFF";
+        /**
+         * @hidden
+         */
         this._secondaryBackgroundColor = "#F6F6F6";
+        /**
+         * @hidden
+         */
         this._accentColor = "#00b272";
         this._config = config;
     }
+    /**
+     * Set the CSS font family
+     *
+     * @param val - The font family to use
+     */
     fontFamily(val) {
         this._fontFamily = val;
         return this;
     }
+    /**
+     * Set the primary text CSS color
+     *
+     * @param color - The color to use
+     */
     primaryTextColor(color) {
         this._primaryTextColor = color;
         return this;
     }
+    /**
+     * Set the secondary text CSS color
+     *
+     * @param color - The color to use
+     */
     secondaryTextColor(color) {
         this._secondaryTextColor = color;
         return this;
     }
+    /**
+     * Set the primary background CSS color
+     *
+     * @param color - The color to use
+     */
     primaryBackgroundColor(color) {
         this._primaryBackgroundColor = color;
         return this;
     }
+    /**
+     * Set the secondary background CSS color
+     *
+     * @param color - The color to use
+     */
     secondaryBackgroundColor(color) {
         this._secondaryBackgroundColor = color;
         return this;
     }
+    /**
+     * Set the accent CSS color
+     *
+     * @param color - The color to use
+     */
     accentColor(color) {
         this._accentColor = color;
         return this;
     }
+    /**
+     * Use to return to parent {@link Config} object for chaining
+     *
+     * @example
+     * ```ts
+     * TikiSdk.config()
+     *     .theme
+     *         .primaryTextColor('#000000')
+     *         .primaryBackgroundColor('#FFFFFF')
+     *         .accentColor('blue')
+     *         .fontFamily('"Space Grotesk", sans-serif')
+     *         .and()
+     *     .dark
+     *         .primaryTextColor('#FFFFFF')
+     *         .primaryBackgroundColor('#000000')
+     * ```
+     */
     and() {
         return this._config;
     }
@@ -26614,13 +26670,13 @@ function createOffer(offer, theme) {
         fontFamily: theme._fontFamily,
     });
     div.appendChild(card);
-    const usedFor$1 = create$a(offer._bullets, {
+    const usedFor = create$a(offer._bullets, {
         textColor: theme._secondaryTextColor,
         titleColor: theme._primaryTextColor,
         fontFamily: theme._fontFamily,
     });
-    usedFor$1.className = "tiki-used-for";
-    div.appendChild(usedFor$1);
+    usedFor.className = "tiki-used-for";
+    div.appendChild(usedFor);
     return div;
 }
 function createCta(onAccept, onDecline, theme) {
@@ -26671,11 +26727,6 @@ function create$7(text, onClick, style) {
     cssVar(button, [{ property: "--tiki-back-btn-fill", value: style?.color }]);
     return button;
 }
-
-var backBtn = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  create: create$7
-});
 
 var markdownHtml = {"html":"<h1 id=\"learn-more\">learn more</h1>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna<br />\naliqua. Posuere lorem ipsum dolor sit amet consectetur. Sit amet massa vitae tortor condimentum lacinia quis vel. Dictum<br />\nnon consectetur a erat. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod. Lobortis scelerisque fermentum<br />\ndui faucibus in. Amet nulla facilisi morbi tempus. Euismod quis viverra nibh cras pulvinar mattis nunc sed blandit.<br />\nAdipiscing at in tellus integer feugiat scelerisque. Eget egestas purus viverra accumsan in. Consequat ac felis donec et<br />\nodio pellentesque. Egestas dui id ornare arcu odio ut sem. Malesuada fames ac turpis egestas sed tempus urna.</p>\n<p>Nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi. Tortor at auctor urna nunc id. Id volutpat lacus<br />\nlaoreet non curabitur. Morbi tristique senectus et netus et malesuada fames ac turpis. Mi bibendum neque egestas congue<br />\nquisque egestas diam in arcu. Eu tincidunt tortor aliquam nulla. Tincidunt ornare massa eget egestas purus viverra<br />\naccumsan. Bibendum ut tristique et egestas quis. Est ullamcorper eget nulla facilisi etiam dignissim diam. Vivamus at<br />\naugue eget arcu dictum. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. In massa<br />\ntempor nec feugiat nisl. Bibendum ut tristique et egestas quis ipsum suspendisse. Metus aliquam eleifend mi in nulla<br />\nposuere. Donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum. Nulla malesuada pellentesque elit eget<br />\ngravida. Mollis nunc sed id semper.</p>\n<p>Amet venenatis urna cursus eget nunc scelerisque. Amet justo donec enim diam vulputate ut pharetra sit. Diam vel quam<br />\nelementum pulvinar etiam. Cursus turpis massa tincidunt dui ut ornare lectus sit amet. Amet est placerat in egestas.<br />\nMassa vitae tortor condimentum lacinia quis. Vitae justo eget magna fermentum iaculis eu non diam phasellus. Urna neque<br />\nviverra justo nec ultrices dui sapien. Vitae proin sagittis nisl rhoncus mattis. Tempus urna et pharetra pharetra massa<br />\nmassa.</p>\n<p>Odio pellentesque diam volutpat commodo sed egestas. Ac tincidunt vitae semper quis lectus nulla at volutpat diam.<br />\nAdipiscing bibendum est ultricies integer quis auctor. Sed sed risus pretium quam vulputate dignissim suspendisse in<br />\nest. Dolor sed viverra ipsum nunc aliquet bibendum enim. Dapibus ultrices in iaculis nunc. Pellentesque massa placerat<br />\nduis ultricies lacus sed turpis tincidunt. Sodales ut eu sem integer vitae justo eget. Sed elementum tempus egestas sed<br />\nsed risus pretium. Enim lobortis scelerisque fermentum dui faucibus. Et odio pellentesque diam volutpat commodo sed.<br />\nCondimentum lacinia quis vel eros donec ac odio tempor orci. Congue quisque egestas diam in arcu cursus euismod. Arcu<br />\ndictum varius duis at consectetur lorem. Hac habitasse platea dictumst quisque sagittis. Tristique senectus et netus et<br />\nmalesuada. Ullamcorper eget nulla facilisi etiam dignissim diam. Volutpat odio facilisis mauris sit amet massa.</p>\n<p>Id leo in vitae turpis massa sed. Odio facilisis mauris sit amet massa vitae tortor condimentum lacinia. Sed faucibus<br />\nturpis in eu. Diam quam nulla porttitor massa id neque aliquam vestibulum. Nisl pretium fusce id velit. Sit amet<br />\nfacilisis magna etiam tempor orci eu lobortis. In eu mi bibendum neque egestas congue quisque egestas. Sem nulla<br />\npharetra diam sit amet. Elementum tempus egestas sed sed risus. Diam maecenas sed enim ut sem viverra aliquet. Tellus<br />\npellentesque eu tincidunt tortor. Ipsum consequat nisl vel pretium lectus quam id leo in.</p>","metadata":{},"filename":"learn-more.md","path":"/Users/maudi/Development/Repositories/TIKI/tiki-sdk-js/src/ui/screens/learn-more/learn-more.md"};
 
@@ -26737,37 +26788,9 @@ styleInject(css_248z$3);
 //adapted from: https://github.com/Holixus/nano-markdown
 const escapes = "\\[!]#{()}*+-._";
 const esc_ofs = 16;
-function lex(a) {
-    return a
-        .replace(/\\([(){}[\]#*+\-.!_\\])/g, function (m, ch) {
-        return String.fromCharCode(1, escapes.indexOf(ch) + esc_ofs);
-    })
-        .replace(/(\*\*|__|~~)(.*?)\1/g, function (m, delim, text) {
-        return delim === "~~" ? "<del>" + text + "</del>" : "<b>" + text + "</b>";
-    })
-        .replace(/(\n|^|\W)([_*])(.*?)\2(\W|$|\n)/g, function (m, l, di, ital, r) {
-        return l + "<i>" + ital + "</i>" + r;
-    })
-        .replace(/(!?)\[([^\]<>]+)]\((\+?)([^ )<>]+)(?: "([^()"]+)")?\)/g, function (match, is_img, text, new_tab, ref, title) {
-        let attrs = title ? ' title="' + title + '"' : "";
-        if (is_img)
-            return ('<img src="' + href(ref) + '" alt="' + text + '"' + attrs + "/>");
-        if (new_tab)
-            attrs += ' target="_blank" rel="noopener"';
-        return '<a href="' + href(ref) + '"' + attrs + ">" + text + "</a>";
-    });
-}
-function unesc(a) {
-    // eslint-disable-next-line no-control-regex
-    return a.replace(/\x01([\x0f-\x1c])/g, function (m, c) {
-        return escapes.charAt(c.charCodeAt(0) - esc_ofs);
-    });
-}
-function href(ref) {
-    return ref;
-}
-function headAttrs(level, text) {
-    return ""; // return ' id=\''+text.replace(/[^a-z0-9]/g, '_').replace(/_{2,}/g, '_').replace(/^_*(.*?)_*$/, '$1').toLowerCase()+'\'';
+async function fromSrc(src) {
+    const md = await load(src);
+    return toHtml(md);
 }
 function toHtml(md) {
     return md.replace(/.+(?:\n.+)*/g, function (m) {
@@ -26835,18 +26858,56 @@ function toHtml(md) {
         return unesc(out);
     });
 }
+function lex(a) {
+    return a
+        .replace(/\\([(){}[\]#*+\-.!_\\])/g, function (m, ch) {
+        return String.fromCharCode(1, escapes.indexOf(ch) + esc_ofs);
+    })
+        .replace(/(\*\*|__|~~)(.*?)\1/g, function (m, delim, text) {
+        return delim === "~~" ? "<del>" + text + "</del>" : "<b>" + text + "</b>";
+    })
+        .replace(/(\n|^|\W)([_*])(.*?)\2(\W|$|\n)/g, function (m, l, di, ital, r) {
+        return l + "<i>" + ital + "</i>" + r;
+    })
+        .replace(/(!?)\[([^\]<>]+)]\((\+?)([^ )<>]+)(?: "([^()"]+)")?\)/g, function (match, is_img, text, new_tab, ref, title) {
+        let attrs = title ? ' title="' + title + '"' : "";
+        if (is_img)
+            return ('<img src="' + href(ref) + '" alt="' + text + '"' + attrs + "/>");
+        if (new_tab)
+            attrs += ' target="_blank" rel="noopener"';
+        return '<a href="' + href(ref) + '"' + attrs + ">" + text + "</a>";
+    });
+}
+function unesc(a) {
+    // eslint-disable-next-line no-control-regex
+    return a.replace(/\x01([\x0f-\x1c])/g, function (m, c) {
+        return escapes.charAt(c.charCodeAt(0) - esc_ofs);
+    });
+}
+function href(ref) {
+    return ref;
+}
+function headAttrs(level, text) {
+    return ""; // return ' id=\''+text.replace(/[^a-z0-9]/g, '_').replace(/_{2,}/g, '_').replace(/^_*(.*?)_*$/, '$1').toLowerCase()+'\'';
+}
+async function load(src) {
+    const rsp = await fetch(src);
+    if (rsp.ok)
+        return await rsp.text();
+    return `Failed to resolve: ${src}`;
+}
 
 /*
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
-function create$5(terms, onAccept, onBack, theme = new Theme()) {
+async function create$5(terms, onAccept, onBack, theme = new Theme()) {
     const div = document.createElement("div");
     div.className = "tiki-terms";
     const body = document.createElement("div");
     body.className = "tiki-terms-body";
     body.appendChild(createHeading$1(onBack, theme._primaryTextColor));
-    body.appendChild(createContent$1(terms.value, terms.isHtml));
+    body.appendChild(await createContent$1(terms.src, terms.isHtml));
     body.appendChild(create$b("I agree", onAccept, {
         outlineColor: theme._accentColor,
         backgroundColor: theme._accentColor,
@@ -26875,7 +26936,7 @@ function createHeading$1(onBack, color) {
     div.appendChild(span);
     return div;
 }
-function createContent$1(terms, isHtml = false) {
+async function createContent$1(terms, isHtml = false) {
     const div = document.createElement("div");
     div.className = "tiki-terms-content";
     const container = document.createElement("div");
@@ -26885,7 +26946,7 @@ function createContent$1(terms, isHtml = false) {
     if (isHtml)
         html.innerHTML = terms;
     else
-        html.innerHTML = toHtml(terms);
+        html.innerHTML = await fromSrc(terms);
     container.appendChild(html);
     div.appendChild(container);
     return div;
@@ -26921,11 +26982,6 @@ function create$4(style) {
     ]);
     return span;
 }
-
-var yourChoice = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  create: create$4
-});
 
 /*
  * Copyright (c) TIKI Inc.
@@ -27133,6 +27189,7 @@ var FlowStep;
  */
 var TitleTagEnum;
 (function (TitleTagEnum) {
+    TitleTagEnum["name"] = "name";
     TitleTagEnum["emailAddress"] = "email_address";
     TitleTagEnum["phoneNumber"] = "phone_number";
     TitleTagEnum["physicalAddress"] = "physical_address";
@@ -27169,16 +27226,40 @@ var TitleTagEnum;
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
+/**
+ * A TitleTag object represents a tag that describes a data asset included in a {@link TitleRecord}.
+ * Tags improve record searchability and come in handy when bulk searching and filtering licenses.
+ *
+ * You can use our list of common enumerations or define your own using {@link custom}.
+ */
 class TitleTag {
     constructor(value) {
         this._value = value;
     }
+    /**
+     * The string value of the use case.
+     */
     get value() {
         return this._value;
     }
+    /**
+     * Define a custom tag.
+     *
+     * The resulting {@link value} is `custom:<tag>`
+     *
+     * @param value - your custom tag
+     */
     static custom(value) {
         return new TitleTag(`custom:${value.replace("custom:", "")}`);
     }
+    /**
+     * Create a new TitleTag from a string value
+     *
+     * Attempts to resolve to one of our standard enumerated values. If it does not match,
+     * a custom tag is created.
+     *
+     * @param value - The string value to resolve
+     */
     static from(value) {
         const maybeTag = TitleTagEnum[value];
         if (maybeTag !== undefined) {
@@ -27187,93 +27268,196 @@ class TitleTag {
         else
             return TitleTag.custom(value);
     }
+    /**
+     * Name: Such as first or last name
+     */
+    static nam3() {
+        return new TitleTag(TitleTagEnum.name);
+    }
+    /**
+     * Email Address: Including but not limited to a hashed email address
+     */
     static emailAddress() {
         return new TitleTag(TitleTagEnum.emailAddress);
     }
+    /**
+     * Phone Number: Including but not limited to a hashed phone number
+     */
     static phoneNumber() {
         return new TitleTag(TitleTagEnum.phoneNumber);
     }
+    /**
+     * Physical Address: Such as home address, physical address, or mailing address
+     */
     static physicalAddress() {
         return new TitleTag(TitleTagEnum.physicalAddress);
     }
+    /**
+     * Contact Info: Any other information that can be used to contact the user
+     */
     static contactInfo() {
         return new TitleTag(TitleTagEnum.contactInfo);
     }
+    /**
+     * Health: Health and medical data or health-related human subject research
+     */
     static health() {
         return new TitleTag(TitleTagEnum.health);
     }
+    /**
+     * Fitness: Fitness and exercise data
+     */
     static fitness() {
         return new TitleTag(TitleTagEnum.fitness);
     }
+    /**
+     * Payment Info: Such as form of payment, payment card number, or bank account number
+     */
     static paymentInfo() {
         return new TitleTag(TitleTagEnum.paymentInfo);
     }
+    /**
+     * Credit Info: Such as credit score
+     */
     static creditInfo() {
         return new TitleTag(TitleTagEnum.creditInfo);
     }
+    /**
+     * Financial Info: Such as salary, income, assets, debts, or any other financial information
+     */
     static financialInfo() {
         return new TitleTag(TitleTagEnum.financialInfo);
     }
+    /**
+     * Precise Location: Information that describes the location of a user or device with the same or greater
+     * resolution as a latitude and longitude with three or more decimal places
+     */
     static preciseLocation() {
         return new TitleTag(TitleTagEnum.preciseLocation);
     }
+    /**
+     * Coarse Location: Information that describes the location of a user or device with lower resolution than a
+     * latitude and longitude with three or more decimal places
+     */
     static coarseLocation() {
         return new TitleTag(TitleTagEnum.coarseLocation);
     }
+    /**
+     * Sensitive Info: Such as racial or ethnic data, sexual orientation, pregnancy or childbirth information,
+     * disability, religious or philosophical beliefs, trade union membership, political opinion,
+     * genetic information, or biometric data
+     */
     static sensitiveInfo() {
         return new TitleTag(TitleTagEnum.sensitiveInfo);
     }
+    /**
+     * Contacts: Such as a list of contacts in the user’s phone, address book, or social graph
+     */
     static contacts() {
         return new TitleTag(TitleTagEnum.contacts);
     }
+    /**
+     * Messages: Including subject line, sender, recipients, and contents of the email, sms, or other
+     * text-based messages.
+     */
     static messages() {
         return new TitleTag(TitleTagEnum.messages);
     }
+    /**
+     * Photo/Video: The user’s photos or videos.
+     */
     static photoVideo() {
         return new TitleTag(TitleTagEnum.photoVideo);
     }
+    /**
+     * Audio: The user’s voice or sound recordings
+     */
     static audio() {
         return new TitleTag(TitleTagEnum.audio);
     }
+    /**
+     * Gameplay Content: Such as saved games, multiplayer matching or gameplay logic, or user-generated content in-game
+     */
     static gameplayContent() {
         return new TitleTag(TitleTagEnum.gameplayContent);
     }
+    /**
+     * Customer Support: Data generated by the user during a customer support request
+     */
     static customerSupport() {
         return new TitleTag(TitleTagEnum.customerSupport);
     }
+    /**
+     * User Content: Any other user-generated content
+     */
     static userContent() {
         return new TitleTag(TitleTagEnum.userContent);
     }
+    /**
+     * Browsing History: Information about content the user has viewed that is not part of your app, such as websites
+     */
     static browsingHistory() {
         return new TitleTag(TitleTagEnum.browsingHistory);
     }
+    /**
+     * Search History: Information about searches performed
+     */
     static searchHistory() {
         return new TitleTag(TitleTagEnum.searchHistory);
     }
+    /**
+     * User Id: Such as screen name, handle, account ID, assigned user ID, customer number, or other user-level or
+     * account-level ID that can be used to identify a particular user or account
+     */
     static userId() {
         return new TitleTag(TitleTagEnum.userId);
     }
+    /**
+     * Device Id: Such as the device’s advertising identifier, or other device-level ID
+     */
     static deviceId() {
         return new TitleTag(TitleTagEnum.deviceId);
     }
+    /**
+     * Purchase History: An account’s or individual’s purchases or purchase tendencies
+     */
     static purchaseHistory() {
         return new TitleTag(TitleTagEnum.purchaseHistory);
     }
+    /**
+     * Product Interaction: Such as app launches, taps, clicks, scrolling information, music listening data, video
+     * views, saved place in a game, video, or song, or other information about how the user interacts with your app
+     */
     static productInteraction() {
         return new TitleTag(TitleTagEnum.productInteraction);
     }
+    /**
+     * Advertising Data: Such as information about the advertisements the user has seen
+     */
     static advertisingData() {
         return new TitleTag(TitleTagEnum.advertisingData);
     }
+    /**
+     * Usage Data: Any other data about user activity in your app
+     */
     static usageData() {
         return new TitleTag(TitleTagEnum.usageData);
     }
+    /**
+     * Crash Data: Such as crash logs
+     */
     static crashData() {
         return new TitleTag(TitleTagEnum.crashData);
     }
+    /**
+     * Performance Data: Such as launch time, hang rate, or energy use
+     */
     static performanceData() {
         return new TitleTag(TitleTagEnum.performanceData);
     }
+    /**
+     * Diagnostic Data: Any other data collected for the purposes of measuring technical diagnostics related to your app
+     */
     static diagnosticData() {
         return new TitleTag(TitleTagEnum.diagnosticData);
     }
@@ -27298,16 +27482,41 @@ var LicenseUsecaseEnum;
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
+/**
+ * A use case for a license, describing how an asset may be used.
+ *
+ * Use cases explicitly define how an asset may be used. Use either our list of common enumerations or define your
+ * own using {@link LicenseUsecase.custom}. Custom use cases can be created by using a value that does not match
+ * any of the predefined cases.
+ */
 class LicenseUsecase {
     constructor(value) {
         this._value = value;
     }
+    /**
+     * The string value of the use case.
+     */
     get value() {
         return this._value;
     }
+    /**
+     * Define a custom use case.
+     *
+     * The resulting {@link value} is `custom:<usecase>`
+     *
+     * @param value - your custom use case
+     */
     static custom(value) {
         return new LicenseUsecase(`custom:${value.replace("custom:", "")}`);
     }
+    /**
+     * Create a new LicenseUsecase from a string value
+     *
+     * Attempts to resolve to one of our standard enumerated values. If it does not match,
+     * a custom usecase is created.
+     *
+     * @param value - The string value to resolve
+     */
     static from(value) {
         const maybeTag = (LicenseUsecaseEnum)[value];
         if (maybeTag !== undefined) {
@@ -27316,24 +27525,45 @@ class LicenseUsecase {
         else
             return LicenseUsecase.custom(value);
     }
+    /**
+     * Attribution: determine the actions that led to an outcome
+     */
     static attribution() {
         return new LicenseUsecase(LicenseUsecaseEnum.attribution);
     }
+    /**
+     * Retargeting: advertise to and reach users, often on other platforms
+     */
     static retargeting() {
         return new LicenseUsecase(LicenseUsecaseEnum.retargeting);
     }
+    /**
+     * Personalization: tailor messaging, offers, features, etc., to an individual
+     */
     static personalization() {
         return new LicenseUsecase(LicenseUsecaseEnum.personalization);
     }
+    /**
+     * AI Training: train machine learning models with user data
+     */
     static aiTraining() {
         return new LicenseUsecase(LicenseUsecaseEnum.aiTraining);
     }
+    /**
+     * Distribution: distribute/relicense data, insights, signals, etc., to 3rd-parties
+     */
     static distribution() {
         return new LicenseUsecase(LicenseUsecaseEnum.distribution);
     }
+    /**
+     * Analytics: extract insights and signals from user data
+     */
     static analytics() {
         return new LicenseUsecase(LicenseUsecaseEnum.analytics);
     }
+    /**
+     * Support: Add user data into customer support processes
+     */
     static support() {
         return new LicenseUsecase(LicenseUsecaseEnum.support);
     }
@@ -27343,21 +27573,47 @@ class LicenseUsecase {
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
+/**
+ * Returns the address assigned to the User
+ */
 function address() {
     const json = globalThis.___TikiSdk__address();
     const rsp = JSON.parse(json);
     return rsp.address;
 }
+/**
+ * Returns the User ID used to initialize the TikiSdk for
+ */
 function id$1() {
     const json = globalThis.___TikiSdk__id();
     const rsp = JSON.parse(json);
     return rsp.id;
 }
+/**
+ * Returns a Boolean value indicating whether the TikiSdk has been initialized.
+ *
+ * If `true`, it means that the TikiSdk has been successfully initialized.
+ * If `false`, it means that the TikiSdk has not yet been initialized or has failed to initialize.
+ */
 function isInitialized() {
     const json = globalThis.___TikiSdk__isInitialized();
     const rsp = JSON.parse(json);
     return rsp.isInitialized;
 }
+/**
+ * Creates a new {@link TitleRecord}, or retrieves an existing one.
+ *
+ * Use this function to create a new {@link TitleRecord} for a given Pointer Record (ptr), or retrieve an existing
+ * one if it already exists.
+ *
+ *
+ * @param ptr - The Pointer Record that identifies the data stored in your system, similar to a foreign key.
+ * Learn more about selecting good pointer records at https://docs.mytiki.com/docs/selecting-a-pointer-record.
+ * @param tags - A list of metadata tags included in the {@link TitleRecord} describing the asset, for your use in
+ * record search and filtering. Learn more about adding tags at https://docs.mytiki.com/docs/adding-tags.
+ * @param description - A short, human-readable, description of the {@link TitleRecord} as a future reminder.
+ * @param origin - An optional override of the default origin specified in {@link Config.initialize}.
+ */
 async function title(ptr, tags, description, origin) {
     const req = {
         ptr: ptr,
@@ -27377,6 +27633,41 @@ async function title(ptr, tags, description, origin) {
         }
     });
 }
+/**
+ * Creates a new {@link LicenseRecord} object.
+ *
+ * The method searches for a {@link TitleRecord} object that matches the provided ptr parameter. If such a record
+ * exists, the tags and titleDescription parameters are ignored. Otherwise, a new {@link TitleRecord} is created
+ * using the provided tags and titleDescription parameters.
+ *
+ * If the origin parameter is not provided, the default origin specified in initialization is used.
+ *
+ * The expiry parameter sets the expiration date of the {@link LicenseRecord}. If the license never expires,
+ * leave this parameter as `undefined`.
+ *
+ * @param ptr - The pointer record identifies data stored in your system, similar to a foreign key.
+ * Learn more about selecting good pointer records at https://docs.mytiki.com/docs/selecting-a-pointer-record.
+ *
+ * @param uses - A list defining how and where an asset may be used, in the format of `LicenseUse` objects.
+ * Learn more about specifying uses at https://docs.mytiki.com/docs/specifying-terms-and-usage.
+ *
+ * @param terms - A URL to the legal terms of the contract. This is a long text document that explains the
+ * terms of the license.
+ *
+ * @param tags - A list of metadata tags included in the {@link TitleRecord} describing the asset, for your use in
+ * record search and filtering. This parameter is used only if a {@link TitleRecord} does not already exist for the
+ * provided ptr.
+ *
+ * @param titleDescription - A short, human-readable description of the {@link TitleRecord} as a future reminder.
+ * This parameter is used only if a {@link TitleRecord} does not already exist for the provided ptr.
+ *
+ * @param licenseDescription - A short, human-readable description of the {@link LicenseRecord} as a future reminder.
+ *
+ * @param expiry - The expiration date of the {@link LicenseRecord}. If the license never expires, leave this parameter
+ * as `undefined`.
+ *
+ * @param origin - An optional override of the default origin specified in {@link Config.initialize}.
+ */
 async function license(ptr, uses, terms, tags, licenseDescription, expiry, titleDescription, origin) {
     const req = {
         ptr: ptr,
@@ -27405,6 +27696,12 @@ async function license(ptr, uses, terms, tags, licenseDescription, expiry, title
         }
     });
 }
+/**
+ * Retrieves the {@link TitleRecord} with the specified ID, or `undefined` if the record is not found.
+ *
+ * Use this method to retrieve the metadata associated with an asset identified by its {@link TitleRecord} ID.
+ * @param id - The ID of the TitleRecord to retrieve.
+ */
 function getTitle(id) {
     const req = {
         id: id,
@@ -27417,6 +27714,12 @@ function getTitle(id) {
     else
         return undefined;
 }
+/**
+ * Retrieves the {@link LicenseRecord} with the specified ID, or `undefined` if the record is not found.
+ *
+ * Use this method to retrieve the metadata associated with an license identified by its {@link LicenseRecord} ID.
+ * @param id - The ID of the LicenseRecord to retrieve.
+ */
 function getLicense(id) {
     const req = {
         id: id,
@@ -27429,6 +27732,16 @@ function getLicense(id) {
     else
         return undefined;
 }
+/**
+ * Returns all {@link LicenseRecord}s associated with a given Pointer Record.
+ *
+ * Use this method to retrieve all {@link LicenseRecord}s that have been previously stored for a given
+ * Pointer Record in your system.
+ *
+ * @param ptr - The Pointer Record that identifies the data stored in your system, similar to a foreign key.
+ * @param origin - An optional origin. If `undefined`, the origin defaults to the origin set during
+ * {@link Config.initialize}
+ */
 function all(ptr, origin) {
     const req = {
         ptr: ptr,
@@ -27438,6 +27751,16 @@ function all(ptr, origin) {
     const rsp = json.map((item) => JSON.parse(item));
     return rsp.map((license) => toLicense(license));
 }
+/**
+ * Returns the latest {@link LicenseRecord} associated with a given Pointer Record or `undefined` if no
+ * records are found.
+ *
+ * Use this method to retrieve the current {@link LicenseRecord} for a given Pointer Record.
+ *
+ * @param ptr - The Pointer Record that identifies the data stored in your system, similar to a foreign key.
+ * @param origin - An optional origin. If `undefined`, the origin defaults to the origin set during
+ * {@link Config.initialize}
+ */
 function latest(ptr, origin) {
     const req = {
         ptr: ptr,
@@ -27451,6 +27774,40 @@ function latest(ptr, origin) {
     else
         return undefined;
 }
+/**
+ * Guard against an invalid {@link LicenseRecord} for a list of usecases and destinations.
+ *
+ * Use this method to verify that a non-expired {@link LicenseRecord} for the specified pointer record exists
+ * and permits the listed usecases and destinations.
+ *
+ * This method can be used in two ways:
+ * 1. As an async traditional guard, returning a pass/fail boolean:
+ * ```
+ * const pass: boolean = await TikiSdk.guard("example-ptr", [TikiSdk.LicenseUsecase.attribution], ["https://example.com"]);
+ * if (pass) {
+ *   // Perform the action allowed by the LicenseRecord.
+ * }
+ * ```
+ * 2. As a wrapper around a function:
+ * ```
+ * TikiSdk.guard("example-ptr", [TikiSdk.LicenseUsecase.attribution], destinations: ["https://example.com"],
+ * () => {
+ *   // Perform the action allowed by the LicenseRecord.
+ * },
+ * (reason) => {
+ *   // Handle the error.
+ * });
+ * ```
+ *
+ * @param ptr - The pointer record for the asset. Used to locate the latest relevant {@link LicenseRecord}.
+ * @param usecases - A list of usecases defining how the asset will be used.
+ * @param destinations - A list of destinations defining where the asset will be used, often URLs.
+ * @param onPass - A closure to execute automatically upon successfully resolving the {@link LicenseRecord}
+ * against the usecases and destinations.
+ * @param onFail - A closure to execute automatically upon failure to resolve the {@link LicenseRecord}.
+ * Accepts an optional error message describing the reason for failure.
+ * @param origin - An optional override of the default origin specified in {@link Config.initialize}.
+ */
 function guard(ptr, usecases, destinations, onPass, onFail, origin) {
     const req = {
         ptr: ptr,
@@ -27502,7 +27859,7 @@ function flow(start = FlowStep.prompt, config) {
         goTo(start, config);
     }
 }
-function goTo(step, config, from) {
+async function goTo(step, config, from) {
     switch (step) {
         case FlowStep.none: {
             const element = document.getElementById(id);
@@ -27541,8 +27898,8 @@ function goTo(step, config, from) {
             break;
         }
         case FlowStep.terms: {
-            const terms = create$5({
-                value: config._offers[0]._terms,
+            const terms = await create$5({
+                src: config._offers[0]._terms,
             }, async () => {
                 const offer = config._offers[0];
                 const record = await license(offer._ptr, offer._uses, offer._terms, offer._tags, offer._description, offer._expiry);
@@ -27623,9 +27980,9 @@ function showScreen(screen) {
     }
 }
 function createOverlay() {
-    const overlay$1 = create$e(() => goTo(FlowStep.none));
-    overlay$1.id = overlayId;
-    return overlay$1;
+    const overlay = create$e(() => goTo(FlowStep.none));
+    overlay.id = overlayId;
+    return overlay;
 }
 function isOptIn(offer) {
     const license = latest(offer._ptr);
@@ -27654,50 +28011,182 @@ async function KeyGen () {
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
+/**
+ * An Offer represents the Terms and Conditions for a particular offer. Acceptance of an offer by a user
+ * always results in creation a new {@link LicenseRecord}.
+ */
 class Offer {
+    /**
+     * Create a new Offer object
+     *
+     * @param config - The optional {@link Config} object to attach this Offer to. Required for {@link add}.
+     */
     constructor(config) {
+        /**
+         * @hidden
+         */
         this._bullets = [];
+        /**
+         * @hidden
+         */
         this._uses = [];
+        /**
+         * @hidden
+         */
         this._tags = [];
         this._id = Date.now().toString();
         this._config = config;
     }
+    /**
+     * An identifier for this Offer.
+     *
+     * Auto-created on construction using the current time in milliseconds since the epoch.
+     */
     get id() {
         return this._id;
     }
+    /**
+     * The pointer record for the {@link TitleRecord} to which this Offer applies.
+     *
+     * This property is used to create or find the TitleRecord for which the Offer applies.
+     */
     ptr(val) {
         this._ptr = val;
         return this;
     }
+    /**
+     * A brief description of the Offer.
+     *
+     * This property is used to inform the user about the Offer, and is also used as the description for
+     * the {@link LicenseRecord} associated with this Offer.
+     *
+     * @param val - the Offer description
+     */
     description(val) {
         this._description = val;
         return this;
     }
-    terms(val) {
-        this._terms = val;
+    /**
+     * The legal Terms & Conditions of the Offer
+     *
+     * @param src - A **link** (e.g. `'./terms.md'` ) to the markdown file containing the Terms.
+     *
+     * The specified Terms & Conditions are permanently recorded in the {@link LicenseRecord}. Supports **basic
+     * markdown** syntax for speed and package size minimization.
+     *
+     * ```
+     * Heading:
+     * # foo
+     * ## foo
+     * ### foo
+     *
+     * Images:
+     * ![image alt text](/images/picture.jpg)
+     * ![image alt text](/images/picture.jpg "image title text")
+     *
+     * Links:
+     * [link text](http://github.com)
+     * [open link in new window](+http://github.com)
+     * [link with title](http://github.com "title text")
+     *
+     * Bold/Italic/Strikeout:
+     * __bold__, **bold**
+     * _italic_, *italic*
+     * ~~strikeout text~~
+     *
+     * Horizontal Rules:
+     * ---
+     *  - - - -
+     *    -- -- -- -- --
+     * ------------------------
+     *
+     * Lists:
+     *  * unordered list
+     *  1. ordered list
+     *
+     * Code:
+     *    // Four spaces indented text
+     *     var count = 1000;
+     *     while (--count) {
+     *         console.log('Wow %d!', count);
+     *     }
+     * ```
+     */
+    terms(src) {
+        this._terms = src;
         return this;
     }
+    /**
+     * The Image that represents the Offer.
+     *
+     * This property is used to display a graphical representation of the Offer. For best results, it is recommended to
+     * provide an image with at least 300 x 86 resolution (150:43).
+     *
+     * @param src -  A **link** (e.g. `'./reward.png'` ) to the image.
+     */
     reward(src) {
         this._reward = src;
         return this;
     }
+    /**
+     * Add a {@link UI.Bullet} to the array of bullets objects describing how the data will or will not be
+     * used.
+     *
+     * Each bullet provides a {@link UI.Bullet.text} description and a {@link UI.Bullet.isUsed} flag declaring if
+     * this is how the data will or will NOT be used.
+     *
+     * **UI ONLY*: not persisted within a Title or License Record
+     *
+     * @param val - The Bullet to add
+     */
     bullet(val) {
         this._bullets.push(val);
         return this;
     }
+    /**
+     * Add a {@link LicenseUse} to the list of uses for the Offer.
+     *
+     * Each use includes a list of {@link LicenseUse.usecases} explicitly declaring how the data will be used. This differs
+     * from {@link bullet}, in that uses are stored permanently within {@link LicenseRecord}s and searchable via TIKI's
+     * API.
+     *
+     * Uses may optionally include a list of {@link LicenseUse.destinations} explicitly declaring where the data may
+     * be used/reside. Supports ECMAScript Regex (**make sure you escape your tokens!**) (e.g. `'\\.mytiki\\.com'`)
+     *
+     * @param val - The LicenseUse to add
+     */
     use(val) {
         this._uses.push(val);
         return this;
     }
+    /**
+     * Adds a {@link TitleTag} to the list of tags for this Offer.
+     *
+     * Tags describe the type of data for the Offer and are persisted in the {@link TitleRecord}. Tags improve
+     * performance and simplify API searchability and license enforcement.
+     *
+     * @param val - The TitleTag to add
+     */
     tag(val) {
         this._tags.push(val);
         return this;
     }
+    /**
+     * Determines when the resulting license ({@link LicenseRecord}) expires (assuming the user accepts the Offer).
+     *
+     * This method calculates the {@link LicenseRecord.expiry} date by adding the specified number of seconds
+     * to the current date.
+     *
+     * @param seconds - The number of seconds to add to the current date.
+     */
     duration(seconds) {
         const now = new Date();
         this._expiry = new Date(now.getTime() + seconds * 1000);
         return this;
     }
+    /**
+     *  Adds this offer to the parent {@link Config} object.
+     */
     add() {
         return this._config.addOffer(this);
     }
@@ -27707,49 +28196,145 @@ class Offer {
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
+/**
+ * The top-level class for configuring and initializing a TikiSdk instance.
+ */
 class Config {
     constructor() {
+        /**
+         * @hidden
+         */
         this._isAcceptEndingDisabled = false;
+        /**
+         * @hidden
+         */
         this._isDeclineEndingDisabled = false;
+        /**
+         * @hidden
+         */
         this._offers = [];
+        /**
+         * @hidden
+         */
         this._theme = new Theme(this);
     }
+    /**
+     * A configurable {@link UI.Theme} object for pre-built UIs.
+     */
     get theme() {
         return this._theme;
     }
+    /**
+     * A {@link UI.Theme} object for pre-built UIs with a dark mode appearance.
+     *
+     * The dark mode theme is applied to the UI elements only when explicitly called. By default, the dark
+     * mode theme is identical to the default (light) theme. Each individual property of the dark mode theme
+     * can be customized during configuration.
+     */
     get dark() {
         this._dark = new Theme(this);
         return this._dark;
     }
+    /**
+     * Creates a new, empty {@link UI.Offer} object.
+     *
+     * This Offer object can be used to define a new offer before adding it to the TIKI SDK.
+     * To add the offer, call the {@link UI.Offer.add} method on the Offer object.
+     */
     get offer() {
         const offer = new Offer(this);
         this._offers.push(offer);
         return offer;
     }
+    /**
+     * Adds an Offer object to the offers list.
+     *
+     * Currently only a single offer is supported in TIKI's pre-built UI.
+     *
+     * @param offer - The Offer object to add to the offers list.
+     */
     addOffer(offer) {
         this._offers.push(offer);
         return this;
     }
-    disableAcceptEnding(isDisabled = false) {
-        this._isAcceptEndingDisabled = isDisabled;
+    /**
+     * Disables or enables the ending UI for accepted offers.
+     *
+     * If this method is called with a parameter value of `true`, the ending UI will not be shown when an offer
+     * is accepted. If the parameter value is `false`, the ending UI will be shown as usual.
+     *
+     * @param disable - A Boolean value indicating whether the ending UI for accepted offers should be disabled
+     * (`true`) or enabled (`false`).
+     */
+    disableAcceptEnding(disable = false) {
+        this._isAcceptEndingDisabled = disable;
         return this;
     }
-    disableDeclineEnding(isDisabled = false) {
-        this._isDeclineEndingDisabled = isDisabled;
+    /**
+     * Disables or enables the ending UI for declined offers.
+     *
+     * If this method is called with a parameter value of `true`, the ending UI will not be shown when an offer is
+     * declined. If the parameter value is `false`, the ending UI will be shown as usual.
+     *
+     * @param disable - A Boolean value indicating whether the ending UI for declined offers should be disabled
+     * (`true`) or enabled (`false`).
+     */
+    disableDeclineEnding(disable = false) {
+        this._isDeclineEndingDisabled = disable;
         return this;
     }
+    /**
+     * Sets the callback function for when an offer is accepted.
+     *
+     * This method sets the onAccept event handler, which is triggered when the user accepts a licensing offer.
+     *
+     * @param callback - The closure to be executed when an offer is declined. The closure takes two arguments: the
+     * {@link UI.Offer} that was accepted, and the {@link LicenseRecord} object containing the license information for the
+     * accepted offer.
+     */
     onAccept(callback) {
         this._onAccept = callback;
         return this;
     }
+    /**
+     * Sets the callback function for when an offer is declined.
+     *
+     * This method sets the onDecline event handler, which is triggered when the user declines a licensing offer.
+     * The event is triggered either when the user selects "Back Off" or "Opts Out" in settings.
+     *
+     * @param callback - The closure to be executed when an offer is declined. The closure takes two arguments: the
+     * {@link UI.Offer} that was declined, and an optional {@link LicenseRecord} object containing the license information
+     * for the declined offer, if it was previously accepted.
+     */
     onDecline(callback) {
         this._onDecline = callback;
         return this;
     }
+    /**
+     * Sets the callback function for when the user selects "settings" in the ending widget.
+     * This method sets the `onSettings()` event handler, which is triggered when the user selects "settings" in
+     * the ending screen. If a callback function is not registered, the SDK will default to calling the
+     * `TikiSdk.settings()` method.
+     *
+     * @param callback - The closure to be executed when the "settings" option is selected. The closure
+     * takes no arguments and returns no value.
+     */
     onSettings(callback) {
         this._onSettings = callback;
         return this;
     }
+    /**
+     * Initializes the TIKI SDK.
+     *
+     * Use this method to initialize the TIKI SDK with the specified publishingId, id, and origin.
+     *
+     * @param publishingId - The publishingId is required for connecting to TIKI's services. Get a free publishingId at
+     * [console.mytiki.com](https://console.mytiki.com).
+     *
+     * @param id - The ID that uniquely identifies your user.
+     *
+     * @param origin - The default origin for all transactions. Defaults to `window.location.hostname` if `undefined`.
+     */
     async initialize(publishingId, id, origin) {
         return new Promise((resolve, reject) => {
             try {
@@ -27764,6 +28349,12 @@ class Config {
             }
         });
     }
+    /**
+     * The active {@link UI.Theme} depending on the user's configuration
+     *
+     * Defaults to *light* if a *dark* theme has not been set.
+     * @see {@link dark}
+     */
     get activeTheme() {
         if (this._dark != undefined &&
             window.matchMedia &&
@@ -27779,19 +28370,97 @@ class Config {
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
+// export * from "./elements/elements";
+
+var ui = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  Offer: Offer,
+  Theme: Theme
+});
+
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+/**
+ * @hidden
+ */
 const _config = new Config();
+/**
+ * Presents an {@link Offer} to the user and allows them to accept or decline it. Acceptance results in
+ * a new {@link LicenseRecord} being created based on the presented Offer.
+ *
+ * If the Offer has already been accepted by the user, this method does nothing.
+ *
+ * This method executes TIKI's pre-built UI for the Offer, temporarily adding a new `Div` as a `childNode` to the
+ * `window.document.body` as a popup over your application. A user click outside the popup will automatically
+ * dismiss the offer flow.
+ *
+ * @throws Error if the SDK is not initialized.
+ */
 function present() {
     if (isInitialized())
         flow(FlowStep.prompt, _config);
     else
         throw new Error("Cannot present(). Wait for TIKI SDK initialization to complete.");
 }
+/**
+ * Presents the TIKI pre-built UI for the settings screen, which allows the user to accept or decline
+ * the current offer.
+ *
+ * This method temporarily adds a new `Div` as a `childNode` to the `window.document.body` as a popup over your
+ * application. A user click outside the popup will automatically dismiss the offer flow.
+ *
+ * @throws Error if the SDK is not initialized.
+ */
 function settings() {
     if (isInitialized())
         flow(FlowStep.settings, _config);
     else
         throw new Error("Cannot present(). Wait for TIKI SDK initialization to complete.");
 }
+/**
+ * Starts the configuration process for the Tiki SDK.
+ *
+ * This method returns the shared instance of {@link Config}, which can be used to configure the SDK before
+ * initializing it. You can access child configurations such as {@link Theme} or {@link Offer}, and call methods
+ * such as {@link Config.disableAcceptEnding} and {@link Config.onAccept} on the returned instance to
+ * customize the SDK behavior to your needs.
+ *
+ * After the configuration is complete, you initialize the SDK by calling {@link Config.initialize}.
+ *
+ * To configure the Tiki SDK, you can use the builder pattern and chain the methods to customize the SDK
+ * behavior as needed. Here's an example:
+ *
+ * ```
+ * TikiSdk.config()
+ *    .theme
+ *        .primaryTextColor('#000000')
+ *        .primaryBackgroundColor('#FFFFFF')
+ *        .accentColor('green')
+ *        .and()
+ *    .dark
+ *        .primaryTextColor('white')
+ *        .primaryBackgroundColor('black')
+ *        .accentColor('green')
+ *        .and()
+ *    .offer
+ *        .bullet({ text: 'Use for ads', isUsed: true })
+ *        .bullet({ text: 'Share with 3rd party', isUsed: false })
+ *        .bullet({ text: 'Sell to other companies', isUsed: true })
+ *        .ptr('offer1')
+ *        .use({ usecases: [TikiSdk.LicenseUsecase.custom('example')] })
+ *        .tag(TitleTag(TitleTagEnum.advertisingData))
+ *        .duration(365 * 24 * 60 * 60)
+ *        .terms('./terms.md')
+ *        .add()
+ *    .onAccept ((offer, license) => console.log('accepted))
+ *    .onDecline ((offer, license) => console.log('declined))
+ *    .disableAcceptEnding(false)
+ *    .disableDeclineEnding(true)
+ *    .initialize('publishingId', 'userId')
+ * ```
+ */
 const config = () => _config;
 
-export { backBtn as BackBtn, Config, learnMoreBtn as LearnMoreBtn, LicenseUsecase, Offer, offerCard as OfferCard, overlay as Overlay, textBtn as TextBtn, Theme, TitleTag, tradeYourData as TradeYourDataBadge, usedFor as UsedFor, yourChoice as YourChoiceBadge, address, all, config, getLicense, getTitle, guard, id$1 as id, isInitialized, latest, license, present, settings, title };
+export { Config, LicenseUsecase, TitleTag, ui as UI, address, all, config, getLicense, getTitle, guard, id$1 as id, isInitialized, latest, license, present, settings, title };

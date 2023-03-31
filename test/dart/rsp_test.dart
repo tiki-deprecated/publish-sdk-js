@@ -27,7 +27,7 @@ void main() {
       RspTitle rsp = RspTitle(TitleRecord("testId", "testPtr"));
       String json = rsp.toJson();
       expect(json,
-          '{"id":"testId","hashedPtr":"testPtr","tags":[],"origin":null,"description":null}"');
+          '{"id":"testId","hashedPtr":"testPtr","tags":[],"origin":null,"description":null}');
     });
   });
 }

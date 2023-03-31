@@ -8,47 +8,12 @@
 const escapes = "\\[!]#{()}*+-._";
 const esc_ofs = 16;
 
-function lex(a) {
-  return a
-    .replace(/\\([(){}[\]#*+\-.!_\\])/g, function (m, ch) {
-      return String.fromCharCode(1, escapes.indexOf(ch) + esc_ofs);
-    })
-    .replace(/(\*\*|__|~~)(.*?)\1/g, function (m, delim, text) {
-      return delim === "~~" ? "<del>" + text + "</del>" : "<b>" + text + "</b>";
-    })
-    .replace(/(\n|^|\W)([_*])(.*?)\2(\W|$|\n)/g, function (m, l, di, ital, r) {
-      return l + "<i>" + ital + "</i>" + r;
-    })
-    .replace(
-      /(!?)\[([^\]<>]+)]\((\+?)([^ )<>]+)(?: "([^()"]+)")?\)/g,
-      function (match, is_img, text, new_tab, ref, title) {
-        let attrs = title ? ' title="' + title + '"' : "";
-        if (is_img)
-          return (
-            '<img src="' + href(ref) + '" alt="' + text + '"' + attrs + "/>"
-          );
-        if (new_tab) attrs += ' target="_blank" rel="noopener"';
-        return '<a href="' + href(ref) + '"' + attrs + ">" + text + "</a>";
-      }
-    );
+export async function fromSrc(src: string): Promise<string> {
+  const md: string = await load(src);
+  return toHtml(md);
 }
 
-function unesc(a) {
-  // eslint-disable-next-line no-control-regex
-  return a.replace(/\x01([\x0f-\x1c])/g, function (m, c) {
-    return escapes.charAt(c.charCodeAt(0) - esc_ofs);
-  });
-}
-
-function href(ref) {
-  return ref;
-}
-
-function headAttrs(level, text) {
-  return ""; // return ' id=\''+text.replace(/[^a-z0-9]/g, '_').replace(/_{2,}/g, '_').replace(/^_*(.*?)_*$/, '$1').toLowerCase()+'\'';
-}
-
-export function toHtml(md) {
+export function toHtml(md: string): string {
   return md.replace(/.+(?:\n.+)*/g, function (m) {
     const code = /^\s{4}([^]*)$/.exec(m);
     if (code)
@@ -108,4 +73,50 @@ export function toHtml(md) {
     while (lists.length) out += "</li></" + lists.shift()[0] + ">";
     return unesc(out);
   });
+}
+
+function lex(a: string): string {
+  return a
+    .replace(/\\([(){}[\]#*+\-.!_\\])/g, function (m, ch) {
+      return String.fromCharCode(1, escapes.indexOf(ch) + esc_ofs);
+    })
+    .replace(/(\*\*|__|~~)(.*?)\1/g, function (m, delim, text) {
+      return delim === "~~" ? "<del>" + text + "</del>" : "<b>" + text + "</b>";
+    })
+    .replace(/(\n|^|\W)([_*])(.*?)\2(\W|$|\n)/g, function (m, l, di, ital, r) {
+      return l + "<i>" + ital + "</i>" + r;
+    })
+    .replace(
+      /(!?)\[([^\]<>]+)]\((\+?)([^ )<>]+)(?: "([^()"]+)")?\)/g,
+      function (match, is_img, text, new_tab, ref, title) {
+        let attrs = title ? ' title="' + title + '"' : "";
+        if (is_img)
+          return (
+            '<img src="' + href(ref) + '" alt="' + text + '"' + attrs + "/>"
+          );
+        if (new_tab) attrs += ' target="_blank" rel="noopener"';
+        return '<a href="' + href(ref) + '"' + attrs + ">" + text + "</a>";
+      }
+    );
+}
+
+function unesc(a: string): string {
+  // eslint-disable-next-line no-control-regex
+  return a.replace(/\x01([\x0f-\x1c])/g, function (m, c) {
+    return escapes.charAt(c.charCodeAt(0) - esc_ofs);
+  });
+}
+
+function href(ref: string): string {
+  return ref;
+}
+
+function headAttrs(level: string, text: string): string {
+  return ""; // return ' id=\''+text.replace(/[^a-z0-9]/g, '_').replace(/_{2,}/g, '_').replace(/^_*(.*?)_*$/, '$1').toLowerCase()+'\'';
+}
+
+async function load(src: string): Promise<string> {
+  const rsp: Response = await fetch(src);
+  if (rsp.ok) return await rsp.text();
+  return `Failed to resolve: ${src}`;
 }

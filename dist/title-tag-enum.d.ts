@@ -1,4 +1,5 @@
 export declare enum TitleTagEnum {
+    name = "name",
     emailAddress = "email_address",
     phoneNumber = "phone_number",
     physicalAddress = "physical_address",

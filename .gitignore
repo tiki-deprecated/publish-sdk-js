@@ -19,3 +19,6 @@ build/
 
 # Example Debugging
 example/dist
+
+# Reports
+reports

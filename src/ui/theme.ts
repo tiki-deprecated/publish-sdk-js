@@ -51,7 +51,7 @@ export class Theme {
   /**
    * Create a new Theme object
    *
-   * @param config - The optional {@link Config} object to attach this Theme to. Required for {@link and}.
+   * @param config - The optional {@link Config} object to attach this Theme to. Required for {@link and()}.
    */
   constructor(config?: Config) {
     this._config = config;

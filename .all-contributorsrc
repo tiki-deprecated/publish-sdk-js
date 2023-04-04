@@ -15,6 +15,24 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "jcockhren",
+      "name": "Jurnell Cockhren",
+      "avatar_url": "https://avatars.githubusercontent.com/u/316840?v=4",
+      "profile": "https://civichacker.com",
+      "contributions": [
+        "code"
+      ]
+    },
+	{
+      "login": "ricardobrg",
+      "name": "Ricardo Gonçalves",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8357343?v=4",
+      "profile": "https://www.linkedin.com/in/ricardolg/",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,

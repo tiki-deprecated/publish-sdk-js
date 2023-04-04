@@ -1,6 +1,6 @@
 # TIKI SDK (JavaScript) —Consumer Data Licensing
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 The TIKI SDK for JavaScript makes it easy to add consumer data licensing to your web applications. It's the client-side component that your users will interact with to accept (or decline) data licensing offers. TIKI's SDK creates immutable, digitally signed license records using cryptographic hashing, forming an audit trail. Programmatically consume records and enforce terms client or server-side using developer-friendly data structures and [APIs](https://mytiki.com/reference/getting-started).
@@ -99,7 +99,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="http://mytiki.com"><img src="https://avatars.githubusercontent.com/u/3769672?v=4?s=100" width="100px;" alt="Mike Audi"/><br /><sub><b>Mike Audi</b></sub></a><br /><a href="https://github.com/tiki/tiki-sdk-js/commits?author=mike-audi" title="Code">💻</a> <a href="https://github.com/tiki/tiki-sdk-js/commits?author=mike-audi" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://civichacker.com"><img src="https://avatars.githubusercontent.com/u/316840?v=4?s=100" width="100px;" alt="Jurnell Cockhren"/><br /><sub><b>Jurnell Cockhren</b></sub></a><br /><a href="https://github.com/tiki/tiki-sdk-js/commits?author=jcockhren" title="Code">💻</a></td>
-    </tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/ricardolg/"><img src="https://avatars.githubusercontent.com/u/8357343?v=4?s=100" width="100px;" alt="Ricardo Gonçalves"/><br /><sub><b>Ricardo Gonçalves</b></sub></a><br /><a href="#maintenance-ricardobrg" title="Maintenance">🚧</a></td>
+	</tr>
   </tbody>
 </table>
 

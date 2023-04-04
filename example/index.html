@@ -7,32 +7,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TIKI SDK JS Example</title>
     <script defer src="./dist/index.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body
-    onload="TikiSdk.config()
+    onload="
+    TikiSdk.config()
+      .theme
+        .primaryTextColor('#1C0000')
+        .secondaryTextColor('#1C000099')
+        .primaryBackgroundColor('#FFFFFF')
+        .secondaryBackgroundColor('#F6F6F6')
+        .accentColor('#00b272')
+        .fontFamily('&quot;Space Grotesk&quot;, sans-serif')
+        .and()
       .offer
-        .ptr('27214a4a-f261-470f-8748-d696a11070e6')
-        .use({ usecases:[TikiSdk.LicenseUsecase.custom('test')] })
-        .reward('https://static.vecteezy.com/system/resources/previews/011/765/527/original/smiley-face-seamless-pattern-design-cute-colorful-retro-doodle-emoji-smile-background-free-vector.jpg')
         .description('Trade your IDFA (kind of like a serial # for your phone) for a discount.')
+        .reward('https://cdn.mytiki.com/assets/demo-reward.png')
+        .bullet({ text: 'Learn how our ads perform', isUsed: true })
+        .bullet({ text: 'Reach you on other platforms', isUsed: false })
+        .bullet({ text: 'Sold to other companies', isUsed: false })
         .terms('terms.md')
-        .bullet({
-          text: 'Learn how our ads perform',
-          isUsed: true,
-        })
-        .bullet({
-          text: 'Reach you on other platforms',
-          isUsed: false,
-        })
-        .bullet({
-          text: 'Sold to other companies',
-          isUsed: false,
-        })
+        .ptr('db2fd320-aed0-498e-af19-0be1d9630c63')
+        .tag(TikiSdk.TitleTag.deviceId())
+        .use({ usecases:[TikiSdk.LicenseUsecase.attribution()] })
         .add()
-      .initialize('f3dbd181-1273-4be7-8a56-a9d258feccda','521239d9-d9cc-4a49-82a0-dcf225fbd65d');"
+      .initialize('f3dbd181-1273-4be7-8a56-a9d258feccda', '33844684-632c-4d94-9ffe-827d8519d498');"
   >
     <div class="centered">
       <div class="btns">

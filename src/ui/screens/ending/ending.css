@@ -17,6 +17,7 @@
   transform: translate(-50%, 0);
   font-family: var(--tiki-ending-font-family);
   border-radius: 2.5em 2.5em 0 0;
+  z-index: 999;
 }
 
 .tiki-ending-body {

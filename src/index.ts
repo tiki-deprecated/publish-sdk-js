@@ -110,4 +110,6 @@ export function settings() {
  *    .initialize('publishingId', 'userId')
  * ```
  */
-export const config = (): Config => _config;
+export function config(): Config {
+  return _config;
+}

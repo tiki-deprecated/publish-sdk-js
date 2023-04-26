@@ -1,8 +1,8 @@
 {
   "name": "@mytiki/tiki-sdk-js",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "JS SDK for client-side integration with TIKI",
-  "source": "dist/index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
     "test": "npm run test:dart; npm run test:js;",

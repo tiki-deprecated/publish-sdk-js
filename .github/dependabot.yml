@@ -6,6 +6,8 @@ updates:
       interval: "weekly"
     commit-message:
       prefix: "npm"
+    labels:
+      - "chore"
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -13,3 +15,5 @@ updates:
       interval: "weekly"
     commit-message:
       prefix: "gh-action"
+    labels:
+      - "chore"

@@ -117,7 +117,6 @@ class CoreWrapper {
         expiry: req.expiry,
         licenseDescription: req.licenseDescription,
         titleDescription: req.titleDescription);
-    print("license succeeded. callback time");
     if (onComplete != null) onComplete(RspLicense(license).toJson());
   }
 

@@ -1,6 +1,6 @@
 name: tiki_sdk_js
 description: JS SDK for client-side integration with TIKI
-version: 1.0.6
+version: 1.0.7
 homepage: https://mytiki.com
 documentation: https://docs.mytiki.com/docs/sdk-overview
 repository: https://github.com/tiki/tiki-sdk-js

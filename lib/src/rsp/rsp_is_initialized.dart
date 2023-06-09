@@ -11,4 +11,9 @@ class RspIsInitialized {
   RspIsInitialized(this.isInitialized);
 
   String toJson() => jsonEncode({"isInitialized": isInitialized});
+
+  @override
+  String toString() {
+    return 'RspIsInitialized{isInitialized: $isInitialized}';
+  }
 }

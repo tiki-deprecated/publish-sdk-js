@@ -6,15 +6,23 @@
 import 'package:http/http.dart' as http;
 import 'package:js/js.dart';
 import 'package:sqlite3/wasm.dart';
+import 'package:tiki_sdk_dart/receipt_record.dart';
 import 'package:tiki_sdk_dart/tiki_sdk.dart';
+import 'package:tiki_sdk_js/src/req/req_get_payable_id.dart';
+import 'package:tiki_sdk_js/src/req/req_get_payables.dart';
+import 'package:tiki_sdk_js/src/req/req_get_receipt_id.dart';
+import 'package:tiki_sdk_js/src/req/req_get_receipts.dart';
+import 'package:tiki_sdk_js/src/req/req_payable.dart';
+import 'package:tiki_sdk_js/src/req/req_receipt.dart';
 
 import 'src/js_key_storage.dart';
-import 'src/req/req_all.dart';
 import 'src/req/req_get_license.dart';
+import 'src/req/req_get_license_id.dart';
+import 'src/req/req_get_licenses.dart';
 import 'src/req/req_get_title.dart';
+import 'src/req/req_get_title_id.dart';
 import 'src/req/req_guard.dart';
 import 'src/req/req_init.dart';
-import 'src/req/req_latest.dart';
 import 'src/req/req_license.dart';
 import 'src/req/req_title.dart';
 import 'src/rsp/rsp_address.dart';
@@ -22,36 +30,14 @@ import 'src/rsp/rsp_guard.dart';
 import 'src/rsp/rsp_id.dart';
 import 'src/rsp/rsp_is_initialized.dart';
 import 'src/rsp/rsp_license.dart';
+import 'src/rsp/rsp_payable.dart';
+import 'src/rsp/rsp_receipt.dart';
 import 'src/rsp/rsp_title.dart';
 
 @JS('___TikiSdk__initialize')
 external set _initialize(
     void Function(String json, Future<String> Function() keyGen,
             Function()? onComplete)
-        f);
-
-@JS('___TikiSdk__title')
-external set _title(void Function(String json, Function(String)? onComplete) f);
-
-@JS('___TikiSdk__license')
-external set _license(
-    void Function(String json, Function(String)? onComplete) f);
-
-@JS('___TikiSdk__getTitle')
-external set _getTitle(String? Function(String id) f);
-
-@JS('___TikiSdk__getLicense')
-external set _getLicense(String? Function(String id) f);
-
-@JS('___TikiSdk__all')
-external set _all(List<String> Function(String json) f);
-
-@JS('___TikiSdk__latest')
-external set _latest(String? Function(String json) f);
-
-@JS('___TikiSdk__guard')
-external set _guard(
-    String Function(String json, Function()? onPass, Function(String)? onFail)
         f);
 
 @JS('___TikiSdk__address')
@@ -63,21 +49,86 @@ external set _id(String Function() f);
 @JS('___TikiSdk__isInitialized')
 external set _isInitialized(String Function() f);
 
+@JS('___TikiSdk__title')
+external set _title(void Function(String json, Function(String)? onComplete) f);
+
+@JS('___TikiSdk__getTitle')
+external set _getTitle(String? Function(String id) f);
+
+@JS('___TikiSdk__getTitleById')
+external set _getTitleById(String? Function(String id) f);
+
+@JS('___TikiSdk__license')
+external set _license(
+    void Function(String json, Function(String)? onComplete,
+            Function(String)? onError)
+        f);
+
+@JS('___TikiSdk__getLicenses')
+external set _getLicenses(List<String> Function(String id) f);
+
+@JS('___TikiSdk__getLicense')
+external set _getLicense(String? Function(String id) f);
+
+@JS('___TikiSdk__getLicenseById')
+external set _getLicenseById(String? Function(String id) f);
+
+@JS('___TikiSdk__payable')
+external set _payable(
+    void Function(String json, Function(String)? onComplete,
+            Function(String)? onError)
+        f);
+
+@JS('___TikiSdk__getPayables')
+external set _getPayables(List<String> Function(String json) f);
+
+@JS('___TikiSdk__getPayableById')
+external set _getPayableById(String? Function(String json) f);
+
+@JS('___TikiSdk__receipt')
+external set _receipt(
+    void Function(String json, Function(String)? onComplete,
+            Function(String)? onError)
+        f);
+
+@JS('___TikiSdk__getReceipts')
+external set _getReceipts(List<String> Function(String json) f);
+
+@JS('___TikiSdk__getReceiptById')
+external set _getReceiptById(String? Function(String json) f);
+
+@JS('___TikiSdk__guard')
+external set _guard(
+    String Function(String json, Function()? onPass, Function(String)? onFail)
+        f);
+
 class CoreWrapper {
   TikiSdk? _tikiSdk;
 
   CoreWrapper() {
     _initialize = allowInterop(initialize);
-    _title = allowInterop(title);
-    _license = allowInterop(license);
-    _getTitle = allowInterop(getTitle);
-    _getLicense = allowInterop(getLicense);
-    _all = allowInterop(all);
-    _latest = allowInterop(latest);
-    _guard = allowInterop(guard);
     _address = allowInterop(() => address);
     _id = allowInterop(() => id);
     _isInitialized = allowInterop(isInitialized);
+
+    _title = allowInterop(title);
+    _getTitle = allowInterop(getTitle);
+    _getTitleById = allowInterop(getTitleById);
+
+    _license = allowInterop(license);
+    _getLicenses = allowInterop(getLicenses);
+    _getLicense = allowInterop(getLicense);
+    _getLicenseById = allowInterop(getLicenseById);
+
+    _payable = allowInterop(payable);
+    _getPayables = allowInterop(getPayables);
+    _getPayableById = allowInterop(getPayableById);
+
+    _receipt = allowInterop(receipt);
+    _getReceipts = allowInterop(getReceipts);
+    _getReceiptById = allowInterop(getReceiptById);
+
+    _guard = allowInterop(guard);
   }
 
   void initialize(String json, Future<String> Function() keyGen,
@@ -104,44 +155,120 @@ class CoreWrapper {
 
   void title(String json, Function(String)? onComplete) async {
     ReqTitle req = ReqTitle.fromJson(json);
-    TitleRecord title = await _tikiSdk!.title(req.ptr,
+    TitleRecord title = await _tikiSdk!.title.create(req.ptr,
         origin: req.origin, tags: req.tags, description: req.description);
     if (onComplete != null) onComplete(RspTitle(title).toJson());
   }
 
-  void license(String json, Function(String)? onComplete) async {
+  String? getTitle(String json) {
+    ReqGetTitle req = ReqGetTitle.fromJson(json);
+    TitleRecord? title = _tikiSdk!.title.get(req.ptr, origin: req.origin);
+    return title == null ? null : RspTitle(title).toJson();
+  }
+
+  String? getTitleById(String json) {
+    ReqGetTitleId req = ReqGetTitleId.fromJson(json);
+    TitleRecord? title = _tikiSdk!.title.id(req.id);
+    return title == null ? null : RspTitle(title).toJson();
+  }
+
+  void license(String json, Function(String)? onComplete,
+      Function(String)? onError) async {
     ReqLicense req = ReqLicense.fromJson(json);
-    LicenseRecord license = await _tikiSdk!.license(
-        req.ptr, req.uses, req.terms,
-        tags: req.tags,
-        expiry: req.expiry,
-        licenseDescription: req.licenseDescription,
-        titleDescription: req.titleDescription);
+    TitleRecord? title = _tikiSdk!.title.id(req.titleId);
+    if (title == null) {
+      if (onError != null) {
+        onError("Cannot create license. Title required.");
+      }
+      return;
+    }
+    LicenseRecord license = await _tikiSdk!.license.create(
+        title, req.uses, req.terms,
+        expiry: req.expiry, description: req.description);
     if (onComplete != null) onComplete(RspLicense(license).toJson());
   }
 
-  String? latest(String json) {
-    ReqLatest req = ReqLatest.fromJson(json);
-    LicenseRecord? license = _tikiSdk!.latest(req.ptr, origin: req.origin);
-    return license == null ? null : RspLicense(license).toJson();
-  }
-
-  List<String> all(String json) {
-    ReqAll req = ReqAll.fromJson(json);
-    List<LicenseRecord> licenses = _tikiSdk!.all(req.ptr, origin: req.origin);
+  List<String> getLicenses(String json) {
+    ReqGetLicenses req = ReqGetLicenses.fromJson(json);
+    TitleRecord? title = _tikiSdk!.title.id(req.titleId);
+    if (title == null) return List.empty();
+    List<LicenseRecord> licenses = _tikiSdk!.license.all(title);
     return licenses.map((license) => RspLicense(license).toJson()).toList();
   }
 
   String? getLicense(String json) {
     ReqGetLicense req = ReqGetLicense.fromJson(json);
-    LicenseRecord? license = _tikiSdk!.getLicense(req.id);
+    TitleRecord? title = _tikiSdk!.title.id(req.titleId);
+    if (title == null) return null;
+    LicenseRecord? license = _tikiSdk!.license.latest(title);
     return license == null ? null : RspLicense(license).toJson();
   }
 
-  String? getTitle(String json) {
-    ReqGetTitle req = ReqGetTitle.fromJson(json);
-    TitleRecord? title = _tikiSdk!.getTitle(req.id);
-    return title == null ? null : RspTitle(title).toJson();
+  String? getLicenseById(String json) {
+    ReqGetLicenseId req = ReqGetLicenseId.fromJson(json);
+    LicenseRecord? license = _tikiSdk!.license.get(req.id);
+    return license == null ? null : RspLicense(license).toJson();
+  }
+
+  void payable(String json, Function(String)? onComplete,
+      Function(String)? onError) async {
+    ReqPayable req = ReqPayable.fromJson(json);
+    LicenseRecord? license = _tikiSdk!.license.get(req.licenseId);
+    if (license == null) {
+      if (onError != null) {
+        onError("Cannot create payable. Missing license record.");
+      }
+      return;
+    }
+    PayableRecord? payable = await _tikiSdk!.payable.create(
+        license, req.amount, req.type,
+        expiry: req.expiry,
+        description: req.description,
+        reference: req.reference);
+    if (onComplete != null) onComplete(RspPayable(payable).toJson());
+  }
+
+  List<String> getPayables(String json) {
+    ReqGetPayables req = ReqGetPayables.fromJson(json);
+    LicenseRecord? license = _tikiSdk!.license.get(req.licenseId);
+    if (license == null) return List.empty();
+    List<PayableRecord> payables = _tikiSdk!.payable.all(license);
+    return payables.map((payable) => RspPayable(payable).toJson()).toList();
+  }
+
+  String? getPayableById(String json) {
+    ReqGetPayableId req = ReqGetPayableId.fromJson(json);
+    PayableRecord? payable = _tikiSdk!.payable.get(req.id);
+    return payable == null ? null : RspPayable(payable).toJson();
+  }
+
+  void receipt(String json, Function(String)? onComplete,
+      Function(String)? onError) async {
+    ReqReceipt req = ReqReceipt.fromJson(json);
+    PayableRecord? payable = _tikiSdk!.payable.get(req.payableId);
+    if (payable == null) {
+      if (onError != null) {
+        onError("Cannot create receipt. Missing payable record.");
+      }
+      return;
+    }
+    ReceiptRecord? receipt = await _tikiSdk!.receipt.create(payable, req.amount,
+        description: req.description, reference: req.reference);
+    if (onComplete != null) onComplete(RspReceipt(receipt).toJson());
+  }
+
+  List<String> getReceipts(String json) {
+    ReqGetReceipts req = ReqGetReceipts.fromJson(json);
+    PayableRecord? payable = _tikiSdk!.payable.get(req.payableId);
+    if (payable == null) return List.empty();
+    List<ReceiptRecord> receipts = _tikiSdk!.receipt.all(payable);
+    return receipts.map((receipt) => RspReceipt(receipt).toJson()).toList();
+  }
+
+  String? getReceiptById(String json) {
+    ReqGetReceiptId req = ReqGetReceiptId.fromJson(json);
+    ReceiptRecord? receipt = _tikiSdk!.receipt.get(req.id);
+    return receipt == null ? null : RspReceipt(receipt).toJson();
   }
 
   String guard(String json, Function()? onPass, Function(String)? onFail) {

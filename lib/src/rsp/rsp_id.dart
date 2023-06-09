@@ -11,4 +11,9 @@ class RspId {
   RspId(this.id);
 
   String toJson() => jsonEncode({"id": id});
+
+  @override
+  String toString() {
+    return 'RspId{id: $id}';
+  }
 }

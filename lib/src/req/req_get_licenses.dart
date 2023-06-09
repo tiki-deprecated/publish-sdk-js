@@ -5,18 +5,18 @@
 
 import 'dart:convert';
 
-class ReqGetLicense {
+class ReqGetLicenses {
   String titleId;
 
-  ReqGetLicense(this.titleId);
+  ReqGetLicenses(this.titleId);
 
-  static ReqGetLicense fromJson(String json) {
+  static ReqGetLicenses fromJson(String json) {
     Map<String, dynamic> map = jsonDecode(json);
-    return ReqGetLicense(map['titleId']);
+    return ReqGetLicenses(map['titleId']);
   }
 
   @override
   String toString() {
-    return 'ReqGetLicense{titleId: $titleId}';
+    return 'ReqGetLicenses{titleId: $titleId}';
   }
 }

@@ -6,12 +6,18 @@
 import 'dart:convert';
 
 class ReqGetTitle {
-  String id;
+  String ptr;
+  String? origin;
 
-  ReqGetTitle(this.id);
+  ReqGetTitle(this.ptr, {this.origin});
 
   static ReqGetTitle fromJson(String json) {
     Map<String, dynamic> map = jsonDecode(json);
-    return ReqGetTitle(map['id']);
+    return ReqGetTitle(map['id'], origin: map['origin']);
+  }
+
+  @override
+  String toString() {
+    return 'ReqGetTitle{ptr: $ptr}';
   }
 }

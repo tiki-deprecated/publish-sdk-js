@@ -4,5 +4,5 @@
  */
 
 interface ReqGetLicense {
-  id: string;
+  titleId: string;
 }

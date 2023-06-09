@@ -14,8 +14,9 @@ import * as Settings from "./screens/settings/settings";
 import { FlowStep } from "./flow-step";
 import { Config } from "../config";
 import { LicenseRecord } from "../license-record";
-import { latest, license } from "../core/core";
+import { title, license, getTitle, getLicense } from "../core/core";
 import { Offer } from "./offer";
+import { TitleRecord } from "../title-record";
 
 const id = "tiki-offer";
 const overlayId = "tiki-offer-overlay";
@@ -79,17 +80,20 @@ async function goTo(
         },
         async () => {
           const offer = config._offers[0];
-          const record: LicenseRecord = await license(
-            offer._ptr,
+          let titleRecord: TitleRecord | undefined = getTitle(offer._ptr);
+          if (titleRecord === undefined) {
+            titleRecord = await title(offer._ptr);
+          }
+          const licenseRecord: LicenseRecord = await license(
+            titleRecord.id,
             offer._uses,
             offer._terms,
-            offer._tags,
             offer._description,
             offer._expiry
           );
           terms.remove();
           if (config._onAccept != undefined)
-            config._onAccept(config._offers[0], record);
+            config._onAccept(config._offers[0], licenseRecord);
           if (config._isAcceptEndingDisabled) goTo(FlowStep.none);
           else goTo(FlowStep.endingAccepted, config);
         },
@@ -139,12 +143,15 @@ async function goTo(
           goTo(FlowStep.learnMore, config, FlowStep.settings);
         },
         async () => {
+          let titleRecord: TitleRecord | undefined = getTitle(offer._ptr);
+          if (titleRecord === undefined) {
+            titleRecord = await title(offer._ptr);
+          }
           if (optIn) {
             const record: LicenseRecord = await license(
-              offer._ptr,
+              titleRecord.id,
               [],
               offer._terms,
-              offer._tags,
               offer._description,
               offer._expiry
             );
@@ -154,10 +161,9 @@ async function goTo(
             goTo(FlowStep.settings, config);
           } else {
             const record: LicenseRecord = await license(
-              offer._ptr,
+              titleRecord.id,
               offer._uses,
               offer._terms,
-              offer._tags,
               offer._description,
               offer._expiry
             );
@@ -188,10 +194,14 @@ function createOverlay(): HTMLDivElement {
 }
 
 function isOptIn(offer: Offer): boolean {
-  const license: LicenseRecord | undefined = latest(offer._ptr);
+  const titleRecord: TitleRecord | undefined = getTitle(offer._ptr);
+  let licenseRecord: LicenseRecord | undefined = undefined;
+  if (titleRecord !== undefined) {
+    licenseRecord = getLicense(titleRecord.id);
+  }
   return (
-    license != undefined &&
-    license.uses.length > 0 &&
-    license.uses[0].usecases.length > 0
+    licenseRecord != undefined &&
+    licenseRecord.uses.length > 0 &&
+    licenseRecord.uses[0].usecases.length > 0
   );
 }

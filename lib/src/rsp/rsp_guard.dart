@@ -11,4 +11,9 @@ class RspGuard {
   RspGuard(this.success);
 
   String toJson() => jsonEncode({"success": success});
+
+  @override
+  String toString() {
+    return 'RspGuard{success: $success}';
+  }
 }

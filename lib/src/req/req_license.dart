@@ -6,23 +6,16 @@
 import 'dart:convert';
 
 import 'package:tiki_sdk_dart/cache/license/license_use.dart';
-import 'package:tiki_sdk_dart/cache/title/title_tag.dart';
 
 class ReqLicense {
-  String ptr;
+  String titleId;
   List<LicenseUse> uses;
   String terms;
-  List<TitleTag> tags;
   DateTime? expiry;
-  String? licenseDescription;
-  String? titleDescription;
-  String? origin;
+  String? description;
 
-  ReqLicense(this.ptr, this.uses, this.terms, this.tags,
-      {this.expiry,
-      this.licenseDescription,
-      this.titleDescription,
-      this.origin});
+  ReqLicense(this.titleId, this.uses, this.terms,
+      {this.expiry, this.description});
 
   static ReqLicense fromJson(String json) {
     Map<String, dynamic> map = jsonDecode(json);
@@ -31,18 +24,15 @@ class ReqLicense {
       expiry = DateTime.fromMillisecondsSinceEpoch(map['expiry']);
     }
     return ReqLicense(
-        map['ptr'],
+        map['titleId'],
         (map['uses'] as List).map((use) => LicenseUse.fromMap(use)).toList(),
         map['terms'],
-        (map['tags'] as List?)?.map((tag) => TitleTag.from(tag)).toList() ?? [],
         expiry: expiry,
-        origin: map['origin'],
-        licenseDescription: map['licenseDescription'],
-        titleDescription: map['titleDescription']);
+        description: map['description']);
   }
 
   @override
   String toString() {
-    return 'ReqLicense{ptr: $ptr, uses: $uses, terms: $terms, tags: $tags, expiry: $expiry, licenseDescription: $licenseDescription, titleDescription: $titleDescription, origin: $origin}';
+    return 'ReqLicense{titleId: $titleId, uses: $uses, terms: $terms, expiry: $expiry, description: $description}';
   }
 }

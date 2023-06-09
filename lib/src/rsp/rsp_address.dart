@@ -11,4 +11,9 @@ class RspAddress {
   RspAddress(this.address);
 
   String toJson() => jsonEncode({"address": address});
+
+  @override
+  String toString() {
+    return 'RspAddress{address: $address}';
+  }
 }

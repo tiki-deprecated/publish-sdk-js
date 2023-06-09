@@ -3,10 +3,10 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-interface ReqLicense {
-  titleId: string;
-  uses: Array<ReqLicenseUse>;
-  terms: string;
-  expiry?: number;
+interface RspReceipt {
+  id: string;
+  payable: RspPayable;
+  amount: string;
   description?: string;
+  reference?: string;
 }

@@ -21,4 +21,9 @@ class ReqTitle {
         (map['tags'] as List?)?.map((tag) => TitleTag.from(tag)).toList() ?? [],
         origin: map['origin'], description: map['description']);
   }
+
+  @override
+  String toString() {
+    return 'ReqTitle{ptr: $ptr, origin: $origin, tags: $tags, description: $description}';
+  }
 }

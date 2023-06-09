@@ -23,4 +23,9 @@ class RspTitle extends TitleRecord {
         "origin": origin,
         "description": description
       };
+
+  @override
+  String toString() {
+    return 'RspTitle{id: $id, hashedPtr: $hashedPtr, origin: $origin, tags: $tags, description: $description}';
+  }
 }

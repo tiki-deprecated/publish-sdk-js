@@ -16,4 +16,9 @@ class ReqInit {
     Map<String, dynamic> map = jsonDecode(json);
     return ReqInit(map['id'], map['publishingId'], origin: map['origin']);
   }
+
+  @override
+  String toString() {
+    return 'ReqInit{publishingId: $publishingId}';
+  }
 }

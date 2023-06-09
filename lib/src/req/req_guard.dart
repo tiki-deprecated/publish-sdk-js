@@ -27,4 +27,9 @@ class ReqGuard {
             .toList(),
         origin: map['origin']);
   }
+
+  @override
+  String toString() {
+    return 'ReqGuard{ptr: $ptr}';
+  }
 }

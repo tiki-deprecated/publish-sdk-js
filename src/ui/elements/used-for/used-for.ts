@@ -9,11 +9,28 @@ import { Bullet } from "../../bullet";
 import { cssVar } from "../../utils/null-safe";
 
 export interface Style {
+  /**
+   * The title text color
+   */
   titleColor?: string;
+
+  /**
+   * The text color
+   */
   textColor?: string;
+
+  /**
+   * The text font-family
+   */
   fontFamily?: string;
 }
 
+/**
+ * Create the pre-built UI element for the used-for div
+ *
+ * @param bullets - A list of {@link Bullet}s to display
+ * @param style - The {@link Style} to apply to the element
+ */
 export function create(bullets: Array<Bullet>, style?: Style): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.appendChild(createTitle());

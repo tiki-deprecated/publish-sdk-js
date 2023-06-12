@@ -11,7 +11,7 @@ export { PayableRecord } from "./payable-record";
 /**
  * Creates a new {@link PayableRecord} object.
  *
- * Note: This method requires an existing {@link License.LicenseRecord}. Use {@link License.license} first.
+ * Note: This method requires an existing {@link License.LicenseRecord}. Use {@link License.create} first.
  *
  * The expiry parameter sets the expiration date of the {@link PayableRecord}. If the payable never expires,
  * leave this parameter as `undefined`.

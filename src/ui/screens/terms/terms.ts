@@ -11,14 +11,24 @@ import { cssVar } from "../../utils/null-safe";
 import { Theme } from "../../theme";
 
 export interface Terms {
+  /**
+   * The path (URL) to load the legal terms from.
+   */
   src: string;
+
+  /**
+   * Set true to load the terms as an HTML file instead of Markdown.
+   */
   isHtml?: boolean;
 }
 
 /**
- * Create the pre-built UI for terms and conditions screen.
+ * Create the pre-built UI for the terms and conditions screen.
  *
- *
+ * @param terms - The legal terms to display to the user
+ * @param onAccept - Callback fired when the user accepts the offer
+ * @param onBack - Callback fired when the user backs away from the screen
+ * @param theme - {@link Theme} used to style the UI
  */
 export async function create(
   terms: Terms,

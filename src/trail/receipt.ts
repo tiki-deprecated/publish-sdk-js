@@ -11,7 +11,7 @@ export { ReceiptRecord } from "./receipt-record";
 /**
  * Creates a new {@link ReceiptRecord} object.
  *
- * Note: This method requires an existing {@link Payable.PayableRecord}. Use {@link Payable.payable} first.
+ * Note: This method requires an existing {@link Payable.PayableRecord}. Use {@link Payable.create} first.
  *
  * @param payableId - The identifier for the corresponding payable record
  *

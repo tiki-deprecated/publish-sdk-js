@@ -8,6 +8,13 @@ import * as YourChoice from "../../elements/your-choice/your-choice";
 import { cssVar } from "../../utils/null-safe";
 import { Theme } from "../../theme";
 
+/**
+ * Create the pre-built UI for an ending.
+ *
+ * @param text - The primary display text
+ * @param settings - CTA directing users to the settings screen
+ * @param theme - {@link Theme} used to style the UI
+ */
 export function create(
   text: string,
   settings: HTMLSpanElement,

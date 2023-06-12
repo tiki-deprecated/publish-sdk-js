@@ -13,6 +13,15 @@ import { Offer } from "../../offer";
 import { cssVar } from "../../utils/null-safe";
 import { Theme } from "../../theme";
 
+/**
+ * Create the pre-built UI for the offer pop-up.
+ *
+ * @param offer - The {@link Offer} to present to the user
+ * @param onAccept - Callback fired when the user accepts the offer
+ * @param onDecline - Callback fired when the user declines the offer
+ * @param onLearnMore - Callback fired when the user selects the learn more button
+ * @param theme - {@link Theme} used to style the UI
+ */
 export function create(
   offer: Offer,
   onAccept: (offer: Offer) => void,

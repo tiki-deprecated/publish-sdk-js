@@ -33,70 +33,70 @@ import 'src/rsp/rsp_payable.dart';
 import 'src/rsp/rsp_receipt.dart';
 import 'src/rsp/rsp_title.dart';
 
-@JS('___TikiSdk__initialize')
+@JS('___TikiTrail__initialize')
 external set _initialize(
     void Function(String json, Future<String> Function() keyGen,
             Function()? onComplete)
         f);
 
-@JS('___TikiSdk__address')
+@JS('___TikiTrail__address')
 external set _address(String Function() f);
 
-@JS('___TikiSdk__id')
+@JS('___TikiTrail__id')
 external set _id(String Function() f);
 
-@JS('___TikiSdk__isInitialized')
+@JS('___TikiTrail__isInitialized')
 external set _isInitialized(String Function() f);
 
-@JS('___TikiSdk__title')
+@JS('___TikiTrail__title')
 external set _title(void Function(String json, Function(String)? onComplete) f);
 
-@JS('___TikiSdk__getTitle')
+@JS('___TikiTrail__getTitle')
 external set _getTitle(String? Function(String id) f);
 
-@JS('___TikiSdk__getTitleById')
+@JS('___TikiTrail__getTitleById')
 external set _getTitleById(String? Function(String id) f);
 
-@JS('___TikiSdk__license')
+@JS('___TikiTrail__license')
 external set _license(
     void Function(String json, Function(String)? onComplete,
             Function(String)? onError)
         f);
 
-@JS('___TikiSdk__getLicenses')
+@JS('___TikiTrail__getLicenses')
 external set _getLicenses(List<String> Function(String id) f);
 
-@JS('___TikiSdk__getLicense')
+@JS('___TikiTrail__getLicense')
 external set _getLicense(String? Function(String id) f);
 
-@JS('___TikiSdk__getLicenseById')
+@JS('___TikiTrail__getLicenseById')
 external set _getLicenseById(String? Function(String id) f);
 
-@JS('___TikiSdk__payable')
+@JS('___TikiTrail__payable')
 external set _payable(
     void Function(String json, Function(String)? onComplete,
             Function(String)? onError)
         f);
 
-@JS('___TikiSdk__getPayables')
+@JS('___TikiTrail__getPayables')
 external set _getPayables(List<String> Function(String json) f);
 
-@JS('___TikiSdk__getPayableById')
+@JS('___TikiTrail__getPayableById')
 external set _getPayableById(String? Function(String json) f);
 
-@JS('___TikiSdk__receipt')
+@JS('___TikiTrail__receipt')
 external set _receipt(
     void Function(String json, Function(String)? onComplete,
             Function(String)? onError)
         f);
 
-@JS('___TikiSdk__getReceipts')
+@JS('___TikiTrail__getReceipts')
 external set _getReceipts(List<String> Function(String json) f);
 
-@JS('___TikiSdk__getReceiptById')
+@JS('___TikiTrail__getReceiptById')
 external set _getReceiptById(String? Function(String json) f);
 
-@JS('___TikiSdk__guard')
+@JS('___TikiTrail__guard')
 external set _guard(
     String Function(String json, Function()? onPass, Function(String)? onFail)
         f);

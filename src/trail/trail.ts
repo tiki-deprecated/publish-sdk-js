@@ -14,7 +14,7 @@ export * as Receipt from "./receipt";
  * Returns the address assigned to the User
  */
 export function address(): string {
-  const json: string = globalThis.___TikiSdk__address();
+  const json: string = globalThis.___TikiTrail__address();
   const rsp: RspAddress = JSON.parse(json);
   return rsp.address;
 }
@@ -23,7 +23,7 @@ export function address(): string {
  * Returns the User ID used to initialize the TikiSdk for
  */
 export function id(): string {
-  const json: string = globalThis.___TikiSdk__id();
+  const json: string = globalThis.___TikiTrail__id();
   const rsp: RspId = JSON.parse(json);
   return rsp.id;
 }
@@ -35,7 +35,7 @@ export function id(): string {
  * If `false`, it means that the TikiSdk has not yet been initialized or has failed to initialize.
  */
 export function isInitialized(): boolean {
-  const json: string = globalThis.___TikiSdk__isInitialized();
+  const json: string = globalThis.___TikiTrail__isInitialized();
   const rsp: RspIsInitialized = JSON.parse(json);
   return rsp.isInitialized;
 }
@@ -88,7 +88,7 @@ export function guard(
     destinations: destinations,
     origin: origin,
   };
-  const json: string = globalThis.___TikiSdk__guard(
+  const json: string = globalThis.___TikiTrail__guard(
     JSON.stringify(req),
     onPass,
     onFail

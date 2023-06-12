@@ -78,13 +78,13 @@ async function goTo(
         },
         async () => {
           const offer = config._offers[0];
-          let titleRecord: Title.TitleRecord | undefined = Title.getTitle(
+          let titleRecord: Title.TitleRecord | undefined = Title.getByPtr(
             offer._ptr
           );
           if (titleRecord === undefined) {
-            titleRecord = await Title.title(offer._ptr);
+            titleRecord = await Title.create(offer._ptr);
           }
-          const licenseRecord: License.LicenseRecord = await License.license(
+          const licenseRecord: License.LicenseRecord = await License.create(
             titleRecord.id,
             offer._uses,
             offer._terms,
@@ -131,6 +131,7 @@ async function goTo(
     case FlowStep.settings: {
       const offer: Offer = config._offers[0];
       const optIn: boolean = isOptIn(offer);
+      console.log("trying to create settings.");
       const settings = Settings.create(
         config._offers[0],
         optIn,
@@ -143,14 +144,14 @@ async function goTo(
           goTo(FlowStep.learnMore, config, FlowStep.settings);
         },
         async () => {
-          let titleRecord: Title.TitleRecord | undefined = Title.getTitle(
+          let titleRecord: Title.TitleRecord | undefined = Title.getByPtr(
             offer._ptr
           );
           if (titleRecord === undefined) {
-            titleRecord = await Title.title(offer._ptr);
+            titleRecord = await Title.create(offer._ptr);
           }
           if (optIn) {
-            const record: License.LicenseRecord = await License.license(
+            const record: License.LicenseRecord = await License.create(
               titleRecord.id,
               [],
               offer._terms,
@@ -162,7 +163,7 @@ async function goTo(
             settings.remove();
             goTo(FlowStep.settings, config);
           } else {
-            const record: License.LicenseRecord = await License.license(
+            const record: License.LicenseRecord = await License.create(
               titleRecord.id,
               offer._uses,
               offer._terms,
@@ -196,10 +197,11 @@ function createOverlay(): HTMLDivElement {
 }
 
 function isOptIn(offer: Offer): boolean {
-  const titleRecord: Title.TitleRecord | undefined = Title.getTitle(offer._ptr);
+  console.log("in isOptIn");
+  const titleRecord: Title.TitleRecord | undefined = Title.getByPtr(offer._ptr);
   let licenseRecord: License.LicenseRecord | undefined = undefined;
   if (titleRecord !== undefined) {
-    licenseRecord = License.getLicense(titleRecord.id);
+    licenseRecord = License.getLatest(titleRecord.id);
   }
   return (
     licenseRecord != undefined &&

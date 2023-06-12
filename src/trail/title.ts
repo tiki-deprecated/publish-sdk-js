@@ -23,7 +23,7 @@ export { TitleRecord } from "./title-record";
  * @param description - A short, human-readable, description of the {@link TitleRecord} as a future reminder.
  * @param origin - An optional override of the default origin specified in {@link Config.initialize}.
  */
-export async function title(
+export async function create(
   ptr: string,
   tags?: Array<TitleTag>,
   description?: string,
@@ -37,7 +37,7 @@ export async function title(
   };
   return new Promise((resolve, reject) => {
     try {
-      globalThis.___TikiSdk__title(JSON.stringify(req), (json) => {
+      globalThis.___TikiTrail__title(JSON.stringify(req), (json) => {
         const rsp: RspTitle = JSON.parse(json);
         resolve(_toTitle(rsp));
       });
@@ -55,7 +55,7 @@ export async function title(
  * @param ptr - The ptr for the TitleRecord to retrieve.
  * @param origin - The origin, defaults to the origin specified in {@link Config.initialize}.
  */
-export function getTitle(
+export function getByPtr(
   ptr: string,
   origin?: string
 ): TitleRecord | undefined {
@@ -63,7 +63,7 @@ export function getTitle(
     ptr: ptr,
     origin: origin,
   };
-  const json: string | undefined = globalThis.___TikiSdk__getTitle(
+  const json: string | undefined = globalThis.___TikiTrail__getTitle(
     JSON.stringify(req)
   );
   if (json != undefined) {
@@ -78,11 +78,11 @@ export function getTitle(
  * Use this method to retrieve the metadata associated with an asset identified by its {@link TitleRecord} ID.
  * @param id - The ID of the TitleRecord to retrieve.
  */
-export function getTitleById(id: string): TitleRecord | undefined {
+export function getById(id: string): TitleRecord | undefined {
   const req: ReqGetTitleId = {
     id: id,
   };
-  const json: string | undefined = globalThis.___TikiSdk__getTitleById(
+  const json: string | undefined = globalThis.___TikiTrail__getTitleById(
     JSON.stringify(req)
   );
   if (json != undefined) {

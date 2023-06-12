@@ -15,7 +15,7 @@ export { LicenseUsecase } from "./license-usecase";
 /**
  * Creates a new {@link LicenseRecord} object.
  *
- * Note: This method requires an existing {@link Title.TitleRecord}. Use {@link Title.title} first.
+ * Note: This method requires an existing {@link Title.TitleRecord}. Use {@link Title.create} first.
  *
  * The expiry parameter sets the expiration date of the {@link LicenseRecord}. If the license never expires,
  * leave this parameter as `undefined`.
@@ -34,7 +34,7 @@ export { LicenseUsecase } from "./license-usecase";
  * @param expiry - The expiration date of the {@link LicenseRecord}. If the license never expires, leave this parameter
  * as `undefined`.
  */
-export async function license(
+export async function create(
   titleId: string,
   uses: Array<LicenseUse>,
   terms: string,
@@ -55,7 +55,7 @@ export async function license(
   };
   return new Promise((resolve, reject) => {
     try {
-      globalThis.___TikiSdk__license(JSON.stringify(req), (json) => {
+      globalThis.___TikiTrail__license(JSON.stringify(req), (json) => {
         const rsp: RspLicense = JSON.parse(json);
         resolve(_toLicense(rsp));
       });
@@ -71,11 +71,11 @@ export async function license(
  * Use this method to retrieve the metadata associated with an license identified by its {@link LicenseRecord} ID.
  * @param id - The ID of the LicenseRecord to retrieve.
  */
-export function getLicenseById(id: string): LicenseRecord | undefined {
+export function getById(id: string): LicenseRecord | undefined {
   const req: ReqGetLicenseId = {
     id: id,
   };
-  const json: string | undefined = globalThis.___TikiSdk__getLicenseById(
+  const json: string | undefined = globalThis.___TikiTrail__getLicenseById(
     JSON.stringify(req)
   );
   if (json != undefined) {
@@ -92,11 +92,11 @@ export function getLicenseById(id: string): LicenseRecord | undefined {
  *
  * @param titleId - The id of the TitleRecord
  */
-export function getLicenses(titleId: string): Array<LicenseRecord> {
+export function getByTitle(titleId: string): Array<LicenseRecord> {
   const req: ReqGetLicenses = {
     titleId: titleId,
   };
-  const json: Array<string> = globalThis.___TikiSdk__getLicenses(
+  const json: Array<string> = globalThis.___TikiTrail__getLicenses(
     JSON.stringify(req)
   );
   const rsp: Array<RspLicense> = json.map((item) => JSON.parse(item));
@@ -111,11 +111,11 @@ export function getLicenses(titleId: string): Array<LicenseRecord> {
  *
  * @param titleId - The id of the TitleRecord
  */
-export function getLicense(titleId: string): LicenseRecord | undefined {
+export function getLatest(titleId: string): LicenseRecord | undefined {
   const req: ReqGetLicense = {
     titleId: titleId,
   };
-  const json: string | undefined = globalThis.___TikiSdk__getLicense(
+  const json: string | undefined = globalThis.___TikiTrail__getLicense(
     JSON.stringify(req)
   );
   if (json != undefined) {

@@ -30,7 +30,7 @@ export { PayableRecord } from "./payable-record";
  *
  * @param reference - A customer-specific reference identifier
  */
-export async function payable(
+export async function create(
   licenseId: string,
   amount: string,
   type: string,
@@ -48,7 +48,7 @@ export async function payable(
   };
   return new Promise((resolve, reject) => {
     try {
-      globalThis.___TikiSdk__payable(JSON.stringify(req), (json) => {
+      globalThis.___TikiTrail__payable(JSON.stringify(req), (json) => {
         const rsp: RspPayable = JSON.parse(json);
         resolve(_toPayable(rsp));
       });
@@ -63,11 +63,11 @@ export async function payable(
  *
  * @param licenseId - The id of the LicenseRecord
  */
-export function getPayables(licenseId: string): Array<PayableRecord> {
+export function getByLicense(licenseId: string): Array<PayableRecord> {
   const req: ReqGetPayables = {
     licenseId: licenseId,
   };
-  const json: Array<string> = globalThis.___TikiSdk__getPayables(
+  const json: Array<string> = globalThis.___TikiTrail__getPayables(
     JSON.stringify(req)
   );
   const rsp: Array<RspPayable> = json.map((item) => JSON.parse(item));
@@ -79,11 +79,11 @@ export function getPayables(licenseId: string): Array<PayableRecord> {
  *
  * @param id - The ID of the PayableRecord to retrieve.
  */
-export function getPayable(id: string): PayableRecord | undefined {
+export function getById(id: string): PayableRecord | undefined {
   const req: ReqGetPayableId = {
     id: id,
   };
-  const json: string | undefined = globalThis.___TikiSdk__getPayable(
+  const json: string | undefined = globalThis.___TikiTrail__getPayable(
     JSON.stringify(req)
   );
   if (json != undefined) {

@@ -30,6 +30,6 @@ class ReqGuard {
 
   @override
   String toString() {
-    return 'ReqGuard{ptr: $ptr}';
+    return 'ReqGuard{ptr: $ptr, usecases: $usecases, destinations: $destinations, origin: $origin}';
   }
 }

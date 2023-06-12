@@ -178,7 +178,7 @@ export class Config {
   ): Promise<void> {
     return new Promise((resolve, reject) => {
       try {
-        globalThis.___TikiSdk__initialize(
+        globalThis.___TikiTrail__initialize(
           JSON.stringify({
             id: id,
             publishingId: publishingId,

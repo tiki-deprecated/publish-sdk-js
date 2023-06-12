@@ -22,7 +22,7 @@ export { ReceiptRecord } from "./receipt-record";
  *
  * @param reference - A customer-specific reference identifier
  */
-export async function receipt(
+export async function create(
   payableId: string,
   amount: string,
   description?: string,
@@ -36,7 +36,7 @@ export async function receipt(
   };
   return new Promise((resolve, reject) => {
     try {
-      globalThis.___TikiSdk__receipt(JSON.stringify(req), (json) => {
+      globalThis.___TikiTrail__receipt(JSON.stringify(req), (json) => {
         const rsp: RspReceipt = JSON.parse(json);
         resolve(_toReceipt(rsp));
       });
@@ -51,11 +51,11 @@ export async function receipt(
  *
  * @param payableId - The id of the PayableRecord
  */
-export function getReceipts(payableId: string): Array<ReceiptRecord> {
+export function getByPayable(payableId: string): Array<ReceiptRecord> {
   const req: ReqGetReceipts = {
     payableId: payableId,
   };
-  const json: Array<string> = globalThis.___TikiSdk__getReceipts(
+  const json: Array<string> = globalThis.___TikiTrail__getReceipts(
     JSON.stringify(req)
   );
   const rsp: Array<RspReceipt> = json.map((item) => JSON.parse(item));
@@ -67,11 +67,11 @@ export function getReceipts(payableId: string): Array<ReceiptRecord> {
  *
  * @param id - The ID of the ReceiptRecord to retrieve.
  */
-export function getReceipt(id: string): ReceiptRecord | undefined {
+export function getById(id: string): ReceiptRecord | undefined {
   const req: ReqGetReceiptId = {
     id: id,
   };
-  const json: string | undefined = globalThis.___TikiSdk__getReceipt(
+  const json: string | undefined = globalThis.___TikiTrail__getReceipt(
     JSON.stringify(req)
   );
   if (json != undefined) {

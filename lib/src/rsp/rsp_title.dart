@@ -5,7 +5,7 @@
 
 import 'dart:convert';
 
-import 'package:tiki_sdk_dart/title_record.dart';
+import 'package:tiki_trail/title_record.dart';
 
 class RspTitle extends TitleRecord {
   RspTitle(TitleRecord title)

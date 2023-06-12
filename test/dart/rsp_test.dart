@@ -4,9 +4,9 @@
  */
 
 import 'package:test/test.dart';
-import 'package:tiki_sdk_dart/tiki_sdk.dart';
 import 'package:tiki_sdk_js/src/rsp/rsp_license.dart';
 import 'package:tiki_sdk_js/src/rsp/rsp_title.dart';
+import 'package:tiki_trail/tiki_trail.dart';
 
 void main() {
   group('Rsp Marshall Tests', () {

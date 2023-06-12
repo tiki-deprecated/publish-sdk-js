@@ -6,7 +6,7 @@
 import 'dart:html' as html;
 import 'dart:indexed_db';
 
-import 'package:tiki_sdk_dart/node/key/key_storage.dart';
+import 'package:tiki_trail/node/key/key_storage.dart';
 
 class JSKeyStorage implements KeyStorage {
   static const int _dbVersion = 1;

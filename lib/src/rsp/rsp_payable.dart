@@ -5,7 +5,7 @@
 
 import 'dart:convert';
 
-import 'package:tiki_sdk_dart/payable_record.dart';
+import 'package:tiki_trail/payable_record.dart';
 import 'package:tiki_sdk_js/src/rsp/rsp_license.dart';
 
 class RspPayable extends PayableRecord {

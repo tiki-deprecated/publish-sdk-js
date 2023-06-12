@@ -5,7 +5,7 @@
 
 import 'dart:convert';
 
-import 'package:tiki_sdk_dart/cache/license/license_usecase.dart';
+import 'package:tiki_trail/cache/license/license_usecase.dart';
 
 class ReqGuard {
   String ptr;
@@ -30,6 +30,6 @@ class ReqGuard {
 
   @override
   String toString() {
-    return 'ReqGuard{ptr: $ptr}';
+    return 'ReqGuard{ptr: $ptr, usecases: $usecases, destinations: $destinations, origin: $origin}';
   }
 }

@@ -5,7 +5,7 @@
 
 import 'dart:convert';
 
-import 'package:tiki_sdk_dart/cache/title/title_tag.dart';
+import 'package:tiki_trail/cache/title/title_tag.dart';
 
 class ReqTitle {
   String ptr;

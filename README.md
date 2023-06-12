@@ -25,7 +25,7 @@ npm install @mytiki/tiki-sdk-js
 or b) load it browser side from a CDN.
 
 ```
-<script defer src="https://unpkg.com/@mytiki/tiki-sdk-js@1.0.1/dist/index.js"></script>
+<script defer src="https://unpkg.com/@mytiki/tiki-sdk-js@2.0.1/dist/index.js"></script>
 ```
 
 That's it. And yes, it's really that easy.

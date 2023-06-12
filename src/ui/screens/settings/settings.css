@@ -109,7 +109,7 @@ h4 {
   flex-shrink: 0;
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .tiki-settings {
     height: 36em;
     max-height: 90vh;

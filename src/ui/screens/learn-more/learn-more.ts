@@ -9,6 +9,12 @@ import markdownHtml from "./learn-more.md";
 import { cssVar } from "../../utils/null-safe";
 import { Theme } from "../../theme";
 
+/**
+ * Create the pre-built UI for the learn more screen.
+ *
+ * @param onBack - Callback fired when the user backs away from the screen
+ * @param theme - {@link Theme} used to style the UI
+ */
 export function create(
   onBack: () => void,
   theme: Theme = new Theme()

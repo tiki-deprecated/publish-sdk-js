@@ -3,14 +3,14 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-import { LicenseUse } from "../license-use";
-import { TitleTag } from "../title-tag";
+import { LicenseUse } from "../trail/license-use";
+import { TitleTag } from "../trail/title-tag";
 import { Bullet } from "./bullet";
 import { Config } from "../config";
 
 /**
  * An Offer represents the Terms and Conditions for a particular offer. Acceptance of an offer by a user
- * always results in creation a new {@link LicenseRecord}.
+ * always results in creation a new {@link Trail.License.LicenseRecord}.
  */
 export class Offer {
   private readonly _id: string;
@@ -69,7 +69,7 @@ export class Offer {
   }
 
   /**
-   * The pointer record for the {@link TitleRecord} to which this Offer applies.
+   * The pointer record for the {@link Trail.Title.TitleRecord} to which this Offer applies.
    *
    * This property is used to create or find the TitleRecord for which the Offer applies.
    */
@@ -82,7 +82,7 @@ export class Offer {
    * A brief description of the Offer.
    *
    * This property is used to inform the user about the Offer, and is also used as the description for
-   * the {@link LicenseRecord} associated with this Offer.
+   * the {@link Trail.License.LicenseRecord} associated with this Offer.
    *
    * @param val - the Offer description
    */
@@ -96,7 +96,7 @@ export class Offer {
    *
    * @param src - A **link** (e.g. `'./terms.md'` ) to the markdown file containing the Terms.
    *
-   * The specified Terms & Conditions are permanently recorded in the {@link LicenseRecord}. Supports **basic
+   * The specified Terms & Conditions are permanently recorded in the {@link Trail.License.LicenseRecord}. Supports **basic
    * markdown** syntax for speed and package size minimization.
    *
    * ```
@@ -172,13 +172,13 @@ export class Offer {
   }
 
   /**
-   * Add a {@link LicenseUse} to the list of uses for the Offer.
+   * Add a {@link Trail.License.LicenseUse} to the list of uses for the Offer.
    *
-   * Each use includes a list of {@link LicenseUse.usecases} explicitly declaring how the data will be used. This differs
-   * from {@link bullet}, in that uses are stored permanently within {@link LicenseRecord}s and searchable via TIKI's
+   * Each use includes a list of {@link Trail.License.LicenseUse.usecases} explicitly declaring how the data will be used. This differs
+   * from {@link bullet}, in that uses are stored permanently within {@link Trail.License.LicenseRecord}s and searchable via TIKI's
    * API.
    *
-   * Uses may optionally include a list of {@link LicenseUse.destinations} explicitly declaring where the data may
+   * Uses may optionally include a list of {@link Trail.License.LicenseUse.destinations} explicitly declaring where the data may
    * be used/reside. Supports ECMAScript Regex (**make sure you escape your tokens!**) (e.g. `'\\.mytiki\\.com'`)
    *
    * @param val - The LicenseUse to add
@@ -189,9 +189,9 @@ export class Offer {
   }
 
   /**
-   * Adds a {@link TitleTag} to the list of tags for this Offer.
+   * Adds a {@link Trail.Title.TitleTag} to the list of tags for this Offer.
    *
-   * Tags describe the type of data for the Offer and are persisted in the {@link TitleRecord}. Tags improve
+   * Tags describe the type of data for the Offer and are persisted in the {@link Trail.Title.TitleRecord}. Tags improve
    * performance and simplify API searchability and license enforcement.
    *
    * @param val - The TitleTag to add
@@ -202,9 +202,9 @@ export class Offer {
   }
 
   /**
-   * Determines when the resulting license ({@link LicenseRecord}) expires (assuming the user accepts the Offer).
+   * Determines when the resulting license ({@link Trail.License.LicenseRecord}) expires (assuming the user accepts the Offer).
    *
-   * This method calculates the {@link LicenseRecord.expiry} date by adding the specified number of seconds
+   * This method calculates the {@link Trail.License.LicenseRecord.expiry} date by adding the specified number of seconds
    * to the current date.
    *
    * @param seconds - The number of seconds to add to the current date.

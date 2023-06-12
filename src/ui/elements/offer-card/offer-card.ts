@@ -6,17 +6,42 @@
 import "./offer-card.css";
 import { cssVar } from "../../utils/null-safe";
 
-interface Style {
+export interface Style {
+  /**
+   * The background color of the card
+   */
   backgroundColor?: string;
+
+  /**
+   * The text color
+   */
   textColor?: string;
+
+  /**
+   * The text font family
+   */
   fontFamily?: string;
 }
 
-interface Img {
+export interface Img {
+  /**
+   * The src (URL) for the image to display
+   */
   src: string;
+
+  /**
+   * The alt text for the image
+   */
   alt?: string;
 }
 
+/**
+ * Create the pre-built UI element for the offer card
+ *
+ * @param img - The offer {@link Img} to display
+ * @param text - The offer text to display
+ * @param style - The {@link Style} to apply to the element
+ */
 export function create(img: Img, text: string, style?: Style): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.className = "tiki-offer-card";

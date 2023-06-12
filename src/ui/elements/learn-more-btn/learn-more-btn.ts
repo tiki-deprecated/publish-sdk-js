@@ -7,10 +7,19 @@ import "./learn-more-btn.css";
 import Html from "./learn-more-btn-html";
 import { cssVar } from "../../utils/null-safe";
 
-interface Style {
+export interface Style {
+  /**
+   * The button color
+   */
   color?: string;
 }
 
+/**
+ * Create the pre-built UI element for the learn more button
+ *
+ * @param onClick - The callback fired when clicked
+ * @param style - The {@link Style} to apply to the element
+ */
 export function create(onClick: () => void, style?: Style): HTMLButtonElement {
   const button: HTMLButtonElement = document.createElement("button");
   button.innerHTML = Html();

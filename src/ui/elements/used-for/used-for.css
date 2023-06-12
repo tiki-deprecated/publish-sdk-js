@@ -49,7 +49,7 @@
   margin: 1em 0;
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .tiki-used-for-title {
     font-size: var(--tiki-font-size-sm);
     line-height: var(--tiki-line-height-sm);

@@ -13,5 +13,5 @@
 export { Bullet } from "./bullet";
 export { Offer } from "./offer";
 export { Theme } from "./theme";
-export * from "./elements/elements";
-export * from "./screens/screens";
+export * as Element from "./elements/elements";
+export * as Screen from "./screens/screens";

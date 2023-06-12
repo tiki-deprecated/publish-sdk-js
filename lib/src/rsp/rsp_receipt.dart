@@ -5,7 +5,7 @@
 
 import 'dart:convert';
 
-import 'package:tiki_sdk_dart/receipt_record.dart';
+import 'package:tiki_trail/receipt_record.dart';
 
 import 'rsp_payable.dart';
 

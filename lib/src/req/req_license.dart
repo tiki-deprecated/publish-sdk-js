@@ -5,7 +5,7 @@
 
 import 'dart:convert';
 
-import 'package:tiki_sdk_dart/cache/license/license_use.dart';
+import 'package:tiki_trail/cache/license/license_use.dart';
 
 class ReqLicense {
   String titleId;

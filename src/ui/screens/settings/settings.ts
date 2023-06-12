@@ -15,6 +15,16 @@ import { Offer } from "../../offer";
 import { cssVar } from "../../utils/null-safe";
 import { Theme } from "../../theme";
 
+/**
+ * Create the pre-built UI for the settings screen.
+ *
+ * @param offer - The {@link Offer} to present to the user
+ * @param isOptIn - True if the user is currently opted in to the offer
+ * @param onBack - Callback fired when the user backs away from the screen
+ * @param onLearnMore - Callback fired when the user selects the learn more button
+ * @param onOpt - Callback fired when the user selects opt in/out button
+ * @param theme - {@link Theme} used to style the UI
+ */
 export function create(
   offer: Offer,
   isOptIn: boolean,

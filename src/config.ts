@@ -3,10 +3,10 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-import KeyGen from "./core/key-gen";
+import KeyGen from "./trail/key-gen";
 import { Offer } from "./ui/offer";
 import { Theme } from "./ui/theme";
-import { LicenseRecord } from "./license-record";
+import { LicenseRecord } from "./trail/license-record";
 
 /**
  * The top-level class for configuring and initializing a TikiSdk instance.
@@ -178,7 +178,7 @@ export class Config {
   ): Promise<void> {
     return new Promise((resolve, reject) => {
       try {
-        globalThis.___TikiSdk__initialize(
+        globalThis.___TikiTrail__initialize(
           JSON.stringify({
             id: id,
             publishingId: publishingId,

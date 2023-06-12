@@ -13,7 +13,7 @@ class ReqGetTitle {
 
   static ReqGetTitle fromJson(String json) {
     Map<String, dynamic> map = jsonDecode(json);
-    return ReqGetTitle(map['id'], origin: map['origin']);
+    return ReqGetTitle(map['ptr'], origin: map['origin']);
   }
 
   @override

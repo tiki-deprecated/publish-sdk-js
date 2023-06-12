@@ -13,10 +13,8 @@ import * as EndingDeclined from "./screens/ending/ending-declined";
 import * as Settings from "./screens/settings/settings";
 import { FlowStep } from "./flow-step";
 import { Config } from "../config";
-import { LicenseRecord } from "../license-record";
-import { title, license, getTitle, getLicense } from "../core/core";
+import { Title, License } from "../trail/trail";
 import { Offer } from "./offer";
-import { TitleRecord } from "../title-record";
 
 const id = "tiki-offer";
 const overlayId = "tiki-offer-overlay";
@@ -80,11 +78,13 @@ async function goTo(
         },
         async () => {
           const offer = config._offers[0];
-          let titleRecord: TitleRecord | undefined = getTitle(offer._ptr);
+          let titleRecord: Title.TitleRecord | undefined = Title.getByPtr(
+            offer._ptr
+          );
           if (titleRecord === undefined) {
-            titleRecord = await title(offer._ptr);
+            titleRecord = await Title.create(offer._ptr);
           }
-          const licenseRecord: LicenseRecord = await license(
+          const licenseRecord: License.LicenseRecord = await License.create(
             titleRecord.id,
             offer._uses,
             offer._terms,
@@ -131,6 +131,7 @@ async function goTo(
     case FlowStep.settings: {
       const offer: Offer = config._offers[0];
       const optIn: boolean = isOptIn(offer);
+      console.log("trying to create settings.");
       const settings = Settings.create(
         config._offers[0],
         optIn,
@@ -143,12 +144,14 @@ async function goTo(
           goTo(FlowStep.learnMore, config, FlowStep.settings);
         },
         async () => {
-          let titleRecord: TitleRecord | undefined = getTitle(offer._ptr);
+          let titleRecord: Title.TitleRecord | undefined = Title.getByPtr(
+            offer._ptr
+          );
           if (titleRecord === undefined) {
-            titleRecord = await title(offer._ptr);
+            titleRecord = await Title.create(offer._ptr);
           }
           if (optIn) {
-            const record: LicenseRecord = await license(
+            const record: License.LicenseRecord = await License.create(
               titleRecord.id,
               [],
               offer._terms,
@@ -160,7 +163,7 @@ async function goTo(
             settings.remove();
             goTo(FlowStep.settings, config);
           } else {
-            const record: LicenseRecord = await license(
+            const record: License.LicenseRecord = await License.create(
               titleRecord.id,
               offer._uses,
               offer._terms,
@@ -194,10 +197,11 @@ function createOverlay(): HTMLDivElement {
 }
 
 function isOptIn(offer: Offer): boolean {
-  const titleRecord: TitleRecord | undefined = getTitle(offer._ptr);
-  let licenseRecord: LicenseRecord | undefined = undefined;
+  console.log("in isOptIn");
+  const titleRecord: Title.TitleRecord | undefined = Title.getByPtr(offer._ptr);
+  let licenseRecord: License.LicenseRecord | undefined = undefined;
   if (titleRecord !== undefined) {
-    licenseRecord = getLicense(titleRecord.id);
+    licenseRecord = License.getLatest(titleRecord.id);
   }
   return (
     licenseRecord != undefined &&

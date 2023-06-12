@@ -61,7 +61,7 @@
   font-family: var(--tiki-terms-font-family);
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .tiki-terms {
     height: 36em;
     max-height: 90vh;

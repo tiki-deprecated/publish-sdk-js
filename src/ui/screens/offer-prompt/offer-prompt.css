@@ -57,7 +57,7 @@
   padding-left: 0.9375em;
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .tiki-offer-prompt {
     height: 36em;
     max-height: 90vh;

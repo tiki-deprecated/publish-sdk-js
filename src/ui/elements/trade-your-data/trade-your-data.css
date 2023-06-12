@@ -19,7 +19,7 @@
   color: var(--tiki-trade-your-data-accent-color);
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .tiki-trade-your-data {
     font-size: var(--tiki-font-size-lg);
     line-height: var(--tiki-line-height-lg);

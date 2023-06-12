@@ -7,7 +7,7 @@ import "./trade-your-data.css";
 import Html from "./trade-your-data-html";
 import { cssVar } from "../../utils/null-safe";
 
-interface Style {
+export interface Style {
   textColor?: string;
   accentColor?: string;
   fontFamily?: string;

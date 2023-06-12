@@ -7,7 +7,7 @@ import "./learn-more-btn.css";
 import Html from "./learn-more-btn-html";
 import { cssVar } from "../../utils/null-safe";
 
-interface Style {
+export interface Style {
   color?: string;
 }
 

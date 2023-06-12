@@ -11,7 +11,7 @@
     "lint:js": "eslint src/*.ts",
     "build": "npm run build:dart; npm run build:js;",
     "build:js": "rollup -c",
-    "build:dart": "dart compile js web/main.dart -O4 -o src/core/core.dart.cjs",
+    "build:dart": "dart compile js web/main.dart -O4 -o src/trail/trail.dart.cjs",
     "watch:js": "rollup -c -w",
     "watch:js-test": "jest --watch ./test/js --silent",
     "clean": "npm run clean:dart; npm run clean:js",

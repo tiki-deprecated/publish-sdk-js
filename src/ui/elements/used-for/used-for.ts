@@ -8,7 +8,7 @@ import * as Html from "./used-for-html";
 import { Bullet } from "../../bullet";
 import { cssVar } from "../../utils/null-safe";
 
-interface Style {
+export interface Style {
   titleColor?: string;
   textColor?: string;
   fontFamily?: string;

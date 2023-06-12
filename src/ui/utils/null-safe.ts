@@ -3,7 +3,7 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-interface Prop {
+export interface Prop {
   property: string;
   value?: string;
 }

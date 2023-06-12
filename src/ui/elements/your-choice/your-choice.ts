@@ -7,7 +7,7 @@ import "./your-choice.css";
 import Html from "./your-choice-html";
 import { cssVar } from "../../utils/null-safe";
 
-interface Style {
+export interface Style {
   textColor?: string;
   accentColor?: string;
   fontFamily?: string;

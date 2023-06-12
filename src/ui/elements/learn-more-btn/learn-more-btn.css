@@ -19,7 +19,7 @@
   width: auto;
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .tiki-learn-more-button {
     height: var(--tiki-line-height-lg);
   }

@@ -10,11 +10,16 @@ import { fromSrc } from "../../utils/nano-md";
 import { cssVar } from "../../utils/null-safe";
 import { Theme } from "../../theme";
 
-interface Terms {
+export interface Terms {
   src: string;
   isHtml?: boolean;
 }
 
+/**
+ * Create the pre-built UI for terms and conditions screen.
+ *
+ *
+ */
 export async function create(
   terms: Terms,
   onAccept: () => void,

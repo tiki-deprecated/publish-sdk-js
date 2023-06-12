@@ -3,11 +3,11 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-import "./core/core.dart.cjs";
+import "./trail/trail.dart.cjs";
 import { flow } from "./ui/flow";
 import { FlowStep } from "./ui/flow-step";
 import { Config } from "./config";
-import * as Core from "./core/core";
+import { isInitialized } from "./trail/trail";
 
 /**
  * The TikiSdk entrypoint.
@@ -17,14 +17,9 @@ import * as Core from "./core/core";
  * @packageDocumentation
  */
 
-export * from "./core/core";
 export { Config } from "./config";
-export { LicenseUsecase } from "./license-usecase";
-export { LicenseUse } from "./license-use";
-export { LicenseRecord } from "./license-record";
-export { TitleTag } from "./title-tag";
-export { TitleRecord } from "./title-record";
 export * as UI from "./ui/ui";
+export * as Trail from "./trail/trail";
 
 /**
  * @hidden
@@ -33,7 +28,7 @@ const _config = new Config();
 
 /**
  * Presents an {@link UI.Offer} to the user and allows them to accept or decline it. Acceptance results in
- * a new {@link LicenseRecord} being created based on the presented Offer.
+ * a new {@link Trail.License.LicenseRecord} being created based on the presented Offer.
  *
  * If the Offer has already been accepted by the user, this method does nothing.
  *
@@ -44,7 +39,7 @@ const _config = new Config();
  * @throws Error if the SDK is not initialized.
  */
 export function present() {
-  if (Core.isInitialized()) flow(FlowStep.prompt, _config);
+  if (isInitialized()) flow(FlowStep.prompt, _config);
   else
     throw new Error(
       "Cannot present(). Wait for TIKI SDK initialization to complete."
@@ -61,7 +56,7 @@ export function present() {
  * @throws Error if the SDK is not initialized.
  */
 export function settings() {
-  if (Core.isInitialized()) flow(FlowStep.settings, _config);
+  if (isInitialized()) flow(FlowStep.settings, _config);
   else
     throw new Error(
       "Cannot present(). Wait for TIKI SDK initialization to complete."

@@ -101,10 +101,10 @@ external set _guard(
     String Function(String json, Function()? onPass, Function(String)? onFail)
         f);
 
-class CoreWrapper {
+class TrailWrapper {
   TikiTrail? _tikiTrail;
 
-  CoreWrapper() {
+  TrailWrapper() {
     _initialize = allowInterop(initialize);
     _address = allowInterop(() => address);
     _id = allowInterop(() => id);

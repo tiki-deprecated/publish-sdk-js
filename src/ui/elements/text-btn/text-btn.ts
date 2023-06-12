@@ -6,7 +6,7 @@
 import "./text-btn.css";
 import { cssVar } from "../../utils/null-safe";
 
-interface Style {
+export interface Style {
   outlineColor?: string;
   backgroundColor?: string;
   textColor?: string;

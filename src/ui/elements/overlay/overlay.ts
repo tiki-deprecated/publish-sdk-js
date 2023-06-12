@@ -6,7 +6,7 @@
 import "./overlay.css";
 import { cssVar } from "../../utils/null-safe";
 
-interface Style {
+export interface Style {
   color?: string;
 }
 

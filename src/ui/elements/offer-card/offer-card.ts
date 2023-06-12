@@ -6,13 +6,13 @@
 import "./offer-card.css";
 import { cssVar } from "../../utils/null-safe";
 
-interface Style {
+export interface Style {
   backgroundColor?: string;
   textColor?: string;
   fontFamily?: string;
 }
 
-interface Img {
+export interface Img {
   src: string;
   alt?: string;
 }

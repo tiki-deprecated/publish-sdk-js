@@ -22,7 +22,7 @@
   color: var(--tiki-text-btn-text-color);
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .tiki-text-btn {
     font-size: var(--tiki-font-size);
     line-height: var(--tiki-line-height);

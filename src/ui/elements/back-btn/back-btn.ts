@@ -7,7 +7,7 @@ import "./back-btn.css";
 import Html from "./back-btn-html";
 import { cssVar } from "../../utils/null-safe";
 
-interface Style {
+export interface Style {
   color?: string;
 }
 

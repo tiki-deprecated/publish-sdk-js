@@ -11,12 +11,12 @@
     "lint:js": "eslint src/*.ts",
     "build": "npm run build:dart; npm run build:js;",
     "build:js": "rollup -c",
-    "build:dart": "dart compile js web/main.dart -O4 -o src/trail/trail.dart.cjs",
+    "build:dart": "dart compile js web/main.dart -O4 -o src/tiki-wrapper.cjs",
     "watch:js": "rollup -c -w",
     "watch:js-test": "jest --watch ./test/js --silent",
     "clean": "npm run clean:dart; npm run clean:js",
     "clean:js": "rm -rf dist",
-    "clean:dart": "rm -f src/main.dart.cjs src/main.dart.cjs.deps src/main.dart.cjs.map"
+    "clean:dart": "rm -f src/tiki-wrapper.cjs src/tiki-wrapper.cjs.deps src/tiki-wrapper.cjs.map"
   },
   "repository": {
     "type": "git",

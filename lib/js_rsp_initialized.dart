@@ -5,15 +5,15 @@
 
 import 'dart:convert';
 
-class RspIsInitialized {
+class JsRspInitialized {
   bool isInitialized;
 
-  RspIsInitialized(this.isInitialized);
+  JsRspInitialized(this.isInitialized);
 
   String toJson() => jsonEncode({"isInitialized": isInitialized});
 
   @override
   String toString() {
-    return 'RspIsInitialized{isInitialized: $isInitialized}';
+    return 'JsRspInitialized{isInitialized: $isInitialized}';
   }
 }

@@ -29,18 +29,6 @@ export function id(): string {
 }
 
 /**
- * Returns a Boolean value indicating whether the TikiSdk has been initialized.
- *
- * If `true`, it means that the TikiSdk has been successfully initialized.
- * If `false`, it means that the TikiSdk has not yet been initialized or has failed to initialize.
- */
-export function isInitialized(): boolean {
-  const json: string = globalThis.___TikiTrail__isInitialized();
-  const rsp: RspIsInitialized = JSON.parse(json);
-  return rsp.isInitialized;
-}
-
-/**
  * Guard against an invalid {@link License.LicenseRecord} for a list of usecases and destinations.
  *
  * Use this method to verify that a non-expired {@link License.LicenseRecord} for the specified pointer record exists

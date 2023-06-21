@@ -20,6 +20,8 @@ build/
 # Generated Files
 reports
 dist
-src/trail/trail.dart.*
 example/dist
 docs
+src/tiki-wrapper.cjs
+src/tiki-wrapper.cjs.deps
+src/tiki-wrapper.cjs.map

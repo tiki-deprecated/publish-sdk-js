@@ -6,12 +6,14 @@
 import 'package:http/http.dart' as http;
 import 'package:js/js.dart';
 import 'package:sqlite3/wasm.dart';
+import 'package:tiki_idp/tiki_idp.dart';
 import 'package:tiki_sdk_js/src/req/req_get_payable_id.dart';
 import 'package:tiki_sdk_js/src/req/req_get_payables.dart';
 import 'package:tiki_sdk_js/src/req/req_get_receipt_id.dart';
 import 'package:tiki_sdk_js/src/req/req_get_receipts.dart';
 import 'package:tiki_sdk_js/src/req/req_payable.dart';
 import 'package:tiki_sdk_js/src/req/req_receipt.dart';
+import 'package:tiki_trail/key.dart';
 import 'package:tiki_trail/tiki_trail.dart';
 
 import 'src/js_key_storage.dart';
@@ -133,8 +135,9 @@ class TrailWrapper {
   void initialize(String json, Future<String> Function() keyGen,
       Function()? onComplete) async {
     ReqInit req = ReqInit.fromJson(json);
-    KeyStorage keyStorage = await JSKeyStorage(keyGen).init();
-    String address = await TikiTrail.withId(req.id, keyStorage);
+    KeyPlatform platform = await JSKeyStorage(keyGen).init();
+    TikiIdp idp = TikiIdp(['storage', 'registry'], req.publishingId, platform);
+    Key key = await TikiTrail.withId(req.id, idp);
     final http.Response response = await http
         .get(Uri.parse('https://cdn.mytiki.com/sqlite/1.10.0/sqlite3.wasm'));
     final IndexedDbFileSystem fs =
@@ -144,9 +147,9 @@ class TrailWrapper {
     _tikiTrail = await TikiTrail.init(
         req.publishingId,
         req.origin ?? Uri.base.host,
-        keyStorage,
-        req.id,
-        sqlite3.open("$address.db"));
+        idp,
+        key,
+        sqlite3.open("${key.address}.db"));
     if (onComplete != null) onComplete();
   }
 

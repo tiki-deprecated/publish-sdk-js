@@ -6,9 +6,9 @@
 import 'dart:html' as html;
 import 'dart:indexed_db';
 
-import 'package:tiki_trail/node/key/key_storage.dart';
+import 'package:tiki_idp/key/key_platform.dart';
 
-class JSKeyStorage implements KeyStorage {
+class JSKeyStorage implements KeyPlatform {
   static const int _dbVersion = 1;
   static const String _dbName = "TikiSdk.store";
   static const String _storeName = "key_store";

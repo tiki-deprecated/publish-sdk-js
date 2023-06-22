@@ -6,6 +6,8 @@
 import { JWT } from "./jwt";
 import { RspToken } from "./rsp/rsp-token";
 
+export { JWT } from "./jwt";
+
 export async function token(): Promise<JWT> {
   return new Promise((resolve, reject) => {
     try {

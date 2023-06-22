@@ -88,9 +88,9 @@ class Idp {
 
   void verify(String json, Function(String)? onComplete) async {
     ReqVerify req = ReqVerify.fromJson(json);
-    bool success =
+    bool isVerified =
         await _tikiIdp!.verify(req.keyId, req.message, req.signature);
-    if (onComplete != null) onComplete(RspVerify(success).toJson());
+    if (onComplete != null) onComplete(RspVerify(isVerified).toJson());
   }
 
   void token(Function(String)? onComplete) async {

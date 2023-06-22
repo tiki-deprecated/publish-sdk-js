@@ -19,6 +19,7 @@ import { Config } from "./config";
 export { Config } from "./config";
 export * as UI from "./ui/ui";
 export * as Trail from "./trail/trail";
+export * as IDP from "./idp/idp";
 
 /**
  * @hidden

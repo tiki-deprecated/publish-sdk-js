@@ -3,11 +3,10 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-import "./trail/trail.dart.cjs";
+import "./tiki-wrapper.cjs";
 import { flow } from "./ui/flow";
 import { FlowStep } from "./ui/flow-step";
 import { Config } from "./config";
-import { isInitialized } from "./trail/trail";
 
 /**
  * The TikiSdk entrypoint.
@@ -20,6 +19,7 @@ import { isInitialized } from "./trail/trail";
 export { Config } from "./config";
 export * as UI from "./ui/ui";
 export * as Trail from "./trail/trail";
+export * as IDP from "./idp/idp";
 
 /**
  * @hidden
@@ -107,4 +107,16 @@ export function settings() {
  */
 export function config(): Config {
   return _config;
+}
+
+/**
+ * Returns a Boolean value indicating whether the TikiSdk has been initialized.
+ *
+ * If `true`, it means that the TikiSdk has been successfully initialized.
+ * If `false`, it means that the TikiSdk has not yet been initialized or has failed to initialize.
+ */
+export function isInitialized(): boolean {
+  const json: string = globalThis.___TikiWrapper__isInitialized();
+  const rsp: RspIsInitialized = JSON.parse(json);
+  return rsp.isInitialized;
 }

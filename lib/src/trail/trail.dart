@@ -6,47 +6,37 @@
 import 'package:http/http.dart' as http;
 import 'package:js/js.dart';
 import 'package:sqlite3/wasm.dart';
-import 'package:tiki_sdk_js/src/req/req_get_payable_id.dart';
-import 'package:tiki_sdk_js/src/req/req_get_payables.dart';
-import 'package:tiki_sdk_js/src/req/req_get_receipt_id.dart';
-import 'package:tiki_sdk_js/src/req/req_get_receipts.dart';
-import 'package:tiki_sdk_js/src/req/req_payable.dart';
-import 'package:tiki_sdk_js/src/req/req_receipt.dart';
+import 'package:tiki_idp/tiki_idp.dart';
+import 'package:tiki_trail/key.dart';
 import 'package:tiki_trail/tiki_trail.dart';
 
-import 'src/js_key_storage.dart';
-import 'src/req/req_get_license.dart';
-import 'src/req/req_get_license_id.dart';
-import 'src/req/req_get_licenses.dart';
-import 'src/req/req_get_title.dart';
-import 'src/req/req_get_title_id.dart';
-import 'src/req/req_guard.dart';
-import 'src/req/req_init.dart';
-import 'src/req/req_license.dart';
-import 'src/req/req_title.dart';
-import 'src/rsp/rsp_address.dart';
-import 'src/rsp/rsp_guard.dart';
-import 'src/rsp/rsp_id.dart';
-import 'src/rsp/rsp_is_initialized.dart';
-import 'src/rsp/rsp_license.dart';
-import 'src/rsp/rsp_payable.dart';
-import 'src/rsp/rsp_receipt.dart';
-import 'src/rsp/rsp_title.dart';
-
-@JS('___TikiTrail__initialize')
-external set _initialize(
-    void Function(String json, Future<String> Function() keyGen,
-            Function()? onComplete)
-        f);
+import 'req/req_get_license.dart';
+import 'req/req_get_license_id.dart';
+import 'req/req_get_licenses.dart';
+import 'req/req_get_payable_id.dart';
+import 'req/req_get_payables.dart';
+import 'req/req_get_receipt_id.dart';
+import 'req/req_get_receipts.dart';
+import 'req/req_get_title.dart';
+import 'req/req_get_title_id.dart';
+import 'req/req_guard.dart';
+import 'req/req_license.dart';
+import 'req/req_payable.dart';
+import 'req/req_receipt.dart';
+import 'req/req_title.dart';
+import 'rsp/rsp_address.dart';
+import 'rsp/rsp_guard.dart';
+import 'rsp/rsp_id.dart';
+import 'rsp/rsp_license.dart';
+import 'rsp/rsp_payable.dart';
+import 'rsp/rsp_receipt.dart';
+import 'rsp/rsp_title.dart';
 
 @JS('___TikiTrail__address')
 external set _address(String Function() f);
 
 @JS('___TikiTrail__id')
 external set _id(String Function() f);
-
-@JS('___TikiTrail__isInitialized')
-external set _isInitialized(String Function() f);
 
 @JS('___TikiTrail__title')
 external set _title(void Function(String json, Function(String)? onComplete) f);
@@ -101,14 +91,12 @@ external set _guard(
     String Function(String json, Function()? onPass, Function(String)? onFail)
         f);
 
-class TrailWrapper {
+class Trail {
   TikiTrail? _tikiTrail;
 
-  TrailWrapper() {
-    _initialize = allowInterop(initialize);
+  Trail() {
     _address = allowInterop(() => address);
     _id = allowInterop(() => id);
-    _isInitialized = allowInterop(isInitialized);
 
     _title = allowInterop(title);
     _getTitle = allowInterop(getTitle);
@@ -130,31 +118,24 @@ class TrailWrapper {
     _guard = allowInterop(guard);
   }
 
-  void initialize(String json, Future<String> Function() keyGen,
-      Function()? onComplete) async {
-    ReqInit req = ReqInit.fromJson(json);
-    KeyStorage keyStorage = await JSKeyStorage(keyGen).init();
-    String address = await TikiTrail.withId(req.id, keyStorage);
+  Future<void> initialize(String id, String publishingId, TikiIdp idp,
+      {String? origin}) async {
+    Key key = await TikiTrail.withId(id, idp);
     final http.Response response = await http
         .get(Uri.parse('https://cdn.mytiki.com/sqlite/1.10.0/sqlite3.wasm'));
     final IndexedDbFileSystem fs =
         await IndexedDbFileSystem.open(dbName: "TikiSdk.sqlite");
     WasmSqlite3 sqlite3 = await WasmSqlite3.load(
         response.bodyBytes, SqliteEnvironment(fileSystem: fs));
-    _tikiTrail = await TikiTrail.init(
-        req.publishingId,
-        req.origin ?? Uri.base.host,
-        keyStorage,
-        req.id,
-        sqlite3.open("$address.db"));
-    if (onComplete != null) onComplete();
+    _tikiTrail = await TikiTrail.init(publishingId, origin ?? Uri.base.host,
+        idp, key, sqlite3.open("${key.address}.db"));
   }
 
   String get address => RspAddress(_tikiTrail!.address).toJson();
 
   String get id => RspId(_tikiTrail!.id).toJson();
 
-  String isInitialized() => RspIsInitialized(_tikiTrail != null).toJson();
+  bool isInitialized() => _tikiTrail != null;
 
   void title(String json, Function(String)? onComplete) async {
     ReqTitle req = ReqTitle.fromJson(json);

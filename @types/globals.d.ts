@@ -6,17 +6,9 @@
 export {};
 
 declare global {
-  function ___TikiTrail__initialize(
-    json: string,
-    keyGen: () => Promise<string>,
-    onComplete?: () => void
-  ): void;
-
   function ___TikiTrail__address(): string;
 
   function ___TikiTrail__id(): string;
-
-  function ___TikiTrail__isInitialized(): string;
 
   function ___TikiTrail__title(
     json: string,
@@ -64,4 +56,33 @@ declare global {
     onPass?: () => void,
     onFail?: (rsp: string) => void
   ): string;
+
+  function ___TikiIdp__key(json: string, onComplete?: () => void): void;
+
+  function ___TikiIdp__export(
+    json: string,
+    onComplete?: (rsp: string) => void
+  ): void;
+
+  function ___TikiIdp__import(json: string, onComplete?: () => void): void;
+
+  function ___TikiIdp__sign(
+    json: string,
+    onComplete?: (rsp: string) => void
+  ): void;
+
+  function ___TikiIdp__verify(
+    json: string,
+    onComplete?: (rsp: string) => void
+  ): void;
+
+  function ___TikiIdp__token(onComplete?: (rsp: string) => void): void;
+
+  function ___TikiWrapper__initialize(
+    json: string,
+    keyGen: () => Promise<string>,
+    onComplete?: () => void
+  ): void;
+
+  function ___TikiWrapper__isInitialized(): string;
 }

@@ -4,8 +4,8 @@
  */
 
 import 'package:test/test.dart';
-import 'package:tiki_sdk_js/src/req/req_license.dart';
-import 'package:tiki_sdk_js/src/req/req_title.dart';
+import 'package:tiki_sdk_js/src/trail/req/req_license.dart';
+import 'package:tiki_sdk_js/src/trail/req/req_title.dart';
 
 void main() {
   group('Req Marshall Tests', () {

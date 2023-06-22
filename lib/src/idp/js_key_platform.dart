@@ -6,18 +6,18 @@
 import 'dart:html' as html;
 import 'dart:indexed_db';
 
-import 'package:tiki_trail/node/key/key_storage.dart';
+import 'package:tiki_idp/key/key_platform.dart';
 
-class JSKeyStorage implements KeyStorage {
+class JSKeyPlatform implements KeyPlatform {
   static const int _dbVersion = 1;
   static const String _dbName = "TikiSdk.store";
   static const String _storeName = "key_store";
   final Future<String> Function() _keyGen;
   late final Database _db;
 
-  JSKeyStorage(this._keyGen);
+  JSKeyPlatform(this._keyGen);
 
-  Future<JSKeyStorage> init() async {
+  Future<JSKeyPlatform> init() async {
     IdbFactory? factory = html.window.indexedDB;
     if (factory != null) {
       _db = await factory.open(_dbName, version: _dbVersion,

@@ -1,6 +1,6 @@
 {
   "name": "@mytiki/tiki-sdk-js",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "JS SDK for client-side integration with TIKI",
   "main": "dist/index.js",
   "license": "MIT",

@@ -54,6 +54,6 @@ class JSKeyPlatform implements KeyPlatform {
   Future<void> write(String key, String value) async {
     ObjectStore store =
         _db.transaction(_storeName, 'readwrite').objectStore(_storeName);
-    return store.add(value, key);
+    return store.put(value, key);
   }
 }

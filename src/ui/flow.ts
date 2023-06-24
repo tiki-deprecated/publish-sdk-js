@@ -82,7 +82,7 @@ async function goTo(
             offer._ptr
           );
           if (titleRecord === undefined) {
-            titleRecord = await Title.create(offer._ptr);
+            titleRecord = await Title.create(offer._ptr, offer._tags);
           }
           const licenseRecord: License.LicenseRecord = await License.create(
             titleRecord.id,
@@ -148,7 +148,7 @@ async function goTo(
             offer._ptr
           );
           if (titleRecord === undefined) {
-            titleRecord = await Title.create(offer._ptr);
+            titleRecord = await Title.create(offer._ptr, offer._tags);
           }
           if (optIn) {
             const record: License.LicenseRecord = await License.create(

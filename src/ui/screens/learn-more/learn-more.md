@@ -51,7 +51,7 @@ The most important thing is understanding how your data is being accessed/used a
         <img alt="TIKI" src="https://cdn.mytiki.com/assets/icon-logo.svg"
         style="height:3em; margin: auto; width: 100%;">
     </a>
-    <div style="font-size: .75rem; font-style: italic; margin-top: 0.5em; text-align: center">
+    <div style="font-size: 12px; font-style: italic; margin-top: 0.5em; text-align: center">
         TIKI is infrastructure to make data trade and data licensing possible. Located in Nashville, we strive to improve the exchange of data —fairer, safer, easier to understand.
     </div>
 </div>

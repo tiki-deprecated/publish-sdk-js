@@ -25,7 +25,7 @@ export { TitleRecord } from "./title-record";
  */
 export async function create(
   ptr: string,
-  tags?: Array<TitleTag>,
+  tags: Array<TitleTag> = [],
   description?: string,
   origin?: string
 ): Promise<TitleRecord> {

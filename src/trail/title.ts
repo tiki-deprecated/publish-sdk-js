@@ -25,18 +25,18 @@ export { TitleRecord } from "./title-record";
  */
 export async function create(
   ptr: string,
-  tags?: Array<TitleTag>,
+  tags: Array<TitleTag>,
   description?: string,
   origin?: string
 ): Promise<TitleRecord> {
-  const req: ReqTitle = {
-    ptr: ptr,
-    tags: tags.map((tag) => tag.value),
-    description: description,
-    origin: origin,
-  };
   return new Promise((resolve, reject) => {
     try {
+      const req: ReqTitle = {
+        ptr: ptr,
+        tags: tags.map((tag) => tag.value),
+        description: description,
+        origin: origin,
+      };
       globalThis.___TikiTrail__title(JSON.stringify(req), (json) => {
         const rsp: RspTitle = JSON.parse(json);
         resolve(_toTitle(rsp));

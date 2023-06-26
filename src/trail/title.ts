@@ -30,13 +30,13 @@ export async function create(
   origin?: string
 ): Promise<TitleRecord> {
   return new Promise((resolve, reject) => {
+    const req: ReqTitle = {
+      ptr: ptr,
+      tags: tags.map((tag) => tag.value),
+      description: description,
+      origin: origin,
+    };
     try {
-      const req: ReqTitle = {
-        ptr: ptr,
-        tags: tags.map((tag) => tag.value),
-        description: description,
-        origin: origin,
-      };
       globalThis.___TikiTrail__title(JSON.stringify(req), (json) => {
         const rsp: RspTitle = JSON.parse(json);
         resolve(_toTitle(rsp));

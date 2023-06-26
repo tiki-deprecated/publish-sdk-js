@@ -20,24 +20,22 @@ import 'rsp/rsp_token.dart';
 import 'rsp/rsp_verify.dart';
 
 @JS('___TikiIdp__key')
-external set _key(void Function(String json, Function()? onComplete) f);
+external set _key(void Function(String json, Function() onComplete) f);
 
 @JS('___TikiIdp__export')
-external set _export(
-    void Function(String json, Function(String)? onComplete) f);
+external set _export(void Function(String json, Function(String) onComplete) f);
 
 @JS('___TikiIdp__import')
-external set _import(void Function(String json, Function()? onComplete) f);
+external set _import(void Function(String json, Function() onComplete) f);
 
 @JS('___TikiIdp__sign')
-external set _sign(void Function(String json, Function(String)? onComplete) f);
+external set _sign(void Function(String json, Function(String) onComplete) f);
 
 @JS('___TikiIdp__verify')
-external set _verify(
-    void Function(String json, Function(String)? onComplete) f);
+external set _verify(void Function(String json, Function(String) onComplete) f);
 
 @JS('___TikiIdp__token')
-external set _token(void Function(Function(String)? onComplete) f);
+external set _token(void Function(Function(String) onComplete) f);
 
 class Idp {
   TikiIdp? _tikiIdp;
@@ -62,39 +60,39 @@ class Idp {
 
   bool isInitialized() => _tikiIdp != null;
 
-  void key(String json, Function()? onComplete) async {
+  void key(String json, Function() onComplete) async {
     ReqKey req = ReqKey.fromJson(json);
     await _tikiIdp!.key(req.keyId, overwrite: req.overwrite);
-    if (onComplete != null) onComplete();
+    onComplete();
   }
 
-  void export(String json, Function(String)? onComplete) async {
+  void export(String json, Function(String) onComplete) async {
     ReqExport req = ReqExport.fromJson(json);
     String key = await _tikiIdp!.export(req.keyId, public: req.public);
-    if (onComplete != null) onComplete(RspExport(key).toJson());
+    onComplete(RspExport(key).toJson());
   }
 
-  void import(String json, Function()? onComplete) async {
+  void import(String json, Function() onComplete) async {
     ReqImport req = ReqImport.fromJson(json);
     await _tikiIdp!.import(req.keyId, req.key, public: req.public);
-    if (onComplete != null) onComplete();
+    onComplete();
   }
 
-  void sign(String json, Function(String)? onComplete) async {
+  void sign(String json, Function(String) onComplete) async {
     ReqSign req = ReqSign.fromJson(json);
     Uint8List signature = await _tikiIdp!.sign(req.keyId, req.message);
-    if (onComplete != null) onComplete(RspSign(signature).toJson());
+    onComplete(RspSign(signature).toJson());
   }
 
-  void verify(String json, Function(String)? onComplete) async {
+  void verify(String json, Function(String) onComplete) async {
     ReqVerify req = ReqVerify.fromJson(json);
     bool isVerified =
         await _tikiIdp!.verify(req.keyId, req.message, req.signature);
-    if (onComplete != null) onComplete(RspVerify(isVerified).toJson());
+    onComplete(RspVerify(isVerified).toJson());
   }
 
-  void token(Function(String)? onComplete) async {
+  void token(Function(String) onComplete) async {
     JWT jwt = await _tikiIdp!.token;
-    if (onComplete != null) onComplete(RspToken(jwt).toJson());
+    onComplete(RspToken(jwt).toJson());
   }
 }

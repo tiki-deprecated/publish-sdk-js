@@ -76,11 +76,12 @@ export function guard(
     destinations: destinations,
     origin: origin,
   };
-  const json: string = globalThis.___TikiTrail__guard(
-    JSON.stringify(req),
-    onPass,
-    onFail
-  );
+  const json: string = globalThis.___TikiTrail__guard(JSON.stringify(req));
   const rsp: RspGuard = JSON.parse(json);
+  if (rsp.success && onPass != null) {
+    onPass();
+  } else if (!rsp.success && onFail != null) {
+    onFail(rsp.error ?? "unknown error");
+  }
   return rsp.success;
 }

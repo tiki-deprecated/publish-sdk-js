@@ -5,4 +5,5 @@
 
 interface RspGuard {
   success: boolean;
+  error?: string;
 }

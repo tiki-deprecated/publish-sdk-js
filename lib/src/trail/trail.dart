@@ -39,7 +39,7 @@ external set _address(String Function() f);
 external set _id(String Function() f);
 
 @JS('___TikiTrail__title')
-external set _title(void Function(String json, Function(String)? onComplete) f);
+external set _title(void Function(String json, Function(String) onComplete) f);
 
 @JS('___TikiTrail__getTitle')
 external set _getTitle(String? Function(String id) f);
@@ -49,8 +49,8 @@ external set _getTitleById(String? Function(String id) f);
 
 @JS('___TikiTrail__license')
 external set _license(
-    void Function(String json, Function(String)? onComplete,
-            Function(String)? onError)
+    void Function(
+            String json, Function(String) onComplete, Function(String) onError)
         f);
 
 @JS('___TikiTrail__getLicenses')
@@ -64,8 +64,8 @@ external set _getLicenseById(String? Function(String id) f);
 
 @JS('___TikiTrail__payable')
 external set _payable(
-    void Function(String json, Function(String)? onComplete,
-            Function(String)? onError)
+    void Function(
+            String json, Function(String) onComplete, Function(String) onError)
         f);
 
 @JS('___TikiTrail__getPayables')
@@ -76,8 +76,8 @@ external set _getPayableById(String? Function(String json) f);
 
 @JS('___TikiTrail__receipt')
 external set _receipt(
-    void Function(String json, Function(String)? onComplete,
-            Function(String)? onError)
+    void Function(
+            String json, Function(String) onComplete, Function(String) onError)
         f);
 
 @JS('___TikiTrail__getReceipts')
@@ -87,9 +87,7 @@ external set _getReceipts(List<String> Function(String json) f);
 external set _getReceiptById(String? Function(String json) f);
 
 @JS('___TikiTrail__guard')
-external set _guard(
-    String Function(String json, Function()? onPass, Function(String)? onFail)
-        f);
+external set _guard(String Function(String json) f);
 
 class Trail {
   TikiTrail? _tikiTrail;
@@ -156,20 +154,18 @@ class Trail {
     return title == null ? null : RspTitle(title).toJson();
   }
 
-  void license(String json, Function(String)? onComplete,
-      Function(String)? onError) async {
+  void license(String json, Function(String) onComplete,
+      Function(String) onError) async {
     ReqLicense req = ReqLicense.fromJson(json);
     TitleRecord? title = _tikiTrail!.title.id(req.titleId);
     if (title == null) {
-      if (onError != null) {
-        onError("Cannot create license. Title required.");
-      }
+      onError("Cannot create license. Title required.");
       return;
     }
     LicenseRecord license = await _tikiTrail!.license.create(
         title, req.uses, req.terms,
         expiry: req.expiry, description: req.description);
-    if (onComplete != null) onComplete(RspLicense(license).toJson());
+    onComplete(RspLicense(license).toJson());
   }
 
   List<String> getLicenses(String json) {
@@ -194,14 +190,12 @@ class Trail {
     return license == null ? null : RspLicense(license).toJson();
   }
 
-  void payable(String json, Function(String)? onComplete,
-      Function(String)? onError) async {
+  void payable(String json, Function(String) onComplete,
+      Function(String) onError) async {
     ReqPayable req = ReqPayable.fromJson(json);
     LicenseRecord? license = _tikiTrail!.license.get(req.licenseId);
     if (license == null) {
-      if (onError != null) {
-        onError("Cannot create payable. Missing license record.");
-      }
+      onError("Cannot create payable. Missing license record.");
       return;
     }
     PayableRecord? payable = await _tikiTrail!.payable.create(
@@ -209,7 +203,7 @@ class Trail {
         expiry: req.expiry,
         description: req.description,
         reference: req.reference);
-    if (onComplete != null) onComplete(RspPayable(payable).toJson());
+    onComplete(RspPayable(payable).toJson());
   }
 
   List<String> getPayables(String json) {
@@ -226,20 +220,18 @@ class Trail {
     return payable == null ? null : RspPayable(payable).toJson();
   }
 
-  void receipt(String json, Function(String)? onComplete,
-      Function(String)? onError) async {
+  void receipt(String json, Function(String) onComplete,
+      Function(String) onError) async {
     ReqReceipt req = ReqReceipt.fromJson(json);
     PayableRecord? payable = _tikiTrail!.payable.get(req.payableId);
     if (payable == null) {
-      if (onError != null) {
-        onError("Cannot create receipt. Missing payable record.");
-      }
+      onError("Cannot create receipt. Missing payable record.");
       return;
     }
     ReceiptRecord? receipt = await _tikiTrail!.receipt.create(
         payable, req.amount,
         description: req.description, reference: req.reference);
-    if (onComplete != null) onComplete(RspReceipt(receipt).toJson());
+    onComplete(RspReceipt(receipt).toJson());
   }
 
   List<String> getReceipts(String json) {
@@ -256,13 +248,14 @@ class Trail {
     return receipt == null ? null : RspReceipt(receipt).toJson();
   }
 
-  String guard(String json, Function()? onPass, Function(String)? onFail) {
+  String guard(String json) {
     ReqGuard req = ReqGuard.fromJson(json);
-    bool success = _tikiTrail!.guard(req.ptr, req.usecases,
+    RspGuard rsp = RspGuard(false);
+    _tikiTrail!.guard(req.ptr, req.usecases,
         destinations: req.destinations,
         origin: req.origin,
-        onFail: onFail,
-        onPass: onPass);
-    return RspGuard(success).toJson();
+        onPass: () => rsp = RspGuard(true),
+        onFail: (error) => rsp = RspGuard(false, error: error));
+    return rsp.toJson();
   }
 }

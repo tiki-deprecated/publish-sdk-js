@@ -55,10 +55,14 @@ export async function create(
   };
   return new Promise((resolve, reject) => {
     try {
-      globalThis.___TikiTrail__license(JSON.stringify(req), (json) => {
-        const rsp: RspLicense = JSON.parse(json);
-        resolve(_toLicense(rsp));
-      });
+      globalThis.___TikiTrail__license(
+        JSON.stringify(req),
+        (json) => {
+          const rsp: RspLicense = JSON.parse(json);
+          resolve(_toLicense(rsp));
+        },
+        (e) => reject(e)
+      );
     } catch (e) {
       reject(e);
     }

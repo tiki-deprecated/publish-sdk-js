@@ -36,10 +36,14 @@ export async function create(
   };
   return new Promise((resolve, reject) => {
     try {
-      globalThis.___TikiTrail__receipt(JSON.stringify(req), (json) => {
-        const rsp: RspReceipt = JSON.parse(json);
-        resolve(_toReceipt(rsp));
-      });
+      globalThis.___TikiTrail__receipt(
+        JSON.stringify(req),
+        (json) => {
+          const rsp: RspReceipt = JSON.parse(json);
+          resolve(_toReceipt(rsp));
+        },
+        (e) => reject(e)
+      );
     } catch (e) {
       reject(e);
     }

@@ -48,10 +48,14 @@ export async function create(
   };
   return new Promise((resolve, reject) => {
     try {
-      globalThis.___TikiTrail__payable(JSON.stringify(req), (json) => {
-        const rsp: RspPayable = JSON.parse(json);
-        resolve(_toPayable(rsp));
-      });
+      globalThis.___TikiTrail__payable(
+        JSON.stringify(req),
+        (json) => {
+          const rsp: RspPayable = JSON.parse(json);
+          resolve(_toPayable(rsp));
+        },
+        (e) => reject(e)
+      );
     } catch (e) {
       reject(e);
     }

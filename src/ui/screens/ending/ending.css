@@ -34,8 +34,8 @@
 .tiki-ending-title {
   color: var(--tiki-ending-title-color);
   font-weight: 500;
-  font-size: calc(16px * 1.875);
-  line-height: calc(16px * 2.25);
+  font-size: calc(var(--tiki-font-size-base) * 1.875);
+  line-height: calc(var(--tiki-font-size-base) * 2.25);
   margin: 1.2em auto;
 }
 

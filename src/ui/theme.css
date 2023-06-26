@@ -12,14 +12,15 @@
   --tiki-primary-background-color: rgb(255 255 255);
   --tiki-secondary-background-color: rgb(246 246 246);
   --tiki-accent-color: rgb(0 178 114);
-  --tiki-font-size-xs: calc(16px * 0.75);
-  --tiki-line-height-xs: calc(16*1);
-  --tiki-font-size-sm: calc(16*0.875);
-  --tiki-line-height-sm: calc(16*1.25);
-  --tiki-font-size: calc(16*1);
-  --tiki-line-height: calc(16*1.5);
-  --tiki-font-size-lg: calc(16*1.125);
-  --tiki-line-height-lg: calc(16*1.75);
-  --tiki-font-size-xl: calc(16*1.25);
-  --tiki-line-height-xl: calc(16*1.75);
+  --tiki-font-size-base: 16px;
+  --tiki-font-size-xs: calc(var(--tiki-font-size-base) * 0.75);
+  --tiki-line-height-xs: calc(var(--tiki-font-size-base) * 1);
+  --tiki-font-size-sm: calc(var(--tiki-font-size-base) * 0.875);
+  --tiki-line-height-sm: calc(var(--tiki-font-size-base) * 1.25);
+  --tiki-font-size: calc(var(--tiki-font-size-base) * 1);
+  --tiki-line-height: calc(var(--tiki-font-size-base) * 1.5);
+  --tiki-font-size-lg: calc(var(--tiki-font-size-base) * 1.125);
+  --tiki-line-height-lg: calc(var(--tiki-font-size-base) * 1.75);
+  --tiki-font-size-xl: calc(var(--tiki-font-size-base) * 1.25);
+  --tiki-line-height-xl: calc(var(--tiki-font-size-base) * 1.75);
 }

@@ -7,6 +7,7 @@ import { LicenseUse } from "../trail/license-use";
 import { TitleTag } from "../trail/title-tag";
 import { Bullet } from "./bullet";
 import { Config } from "../config";
+import { Terms } from "./terms";
 
 /**
  * An Offer represents the Terms and Conditions for a particular offer. Acceptance of an offer by a user
@@ -27,7 +28,7 @@ export class Offer {
   /**
    * @hidden
    */
-  _terms?: string;
+  _terms?: Terms;
   /**
    * @hidden
    */
@@ -94,7 +95,8 @@ export class Offer {
   /**
    * The legal Terms & Conditions of the Offer
    *
-   * @param src - A **link** (e.g. `'./terms.md'` ) to the markdown file containing the Terms.
+   * @param src - A **link** (e.g. `'./terms.md'` ) to a markdown file containing the Terms or the HTML source text.
+   * @param isHtml - Whether the 'src` parameter is a URL (false) or an HTML source text (true). Defaults to false.
    *
    * The specified Terms & Conditions are permanently recorded in the {@link Trail.License.LicenseRecord}. Supports **basic
    * markdown** syntax for speed and package size minimization.
@@ -137,8 +139,11 @@ export class Offer {
    *     }
    * ```
    */
-  terms(src: string): Offer {
-    this._terms = src;
+  terms(src: string, isHtml = false): Offer {
+    this._terms = {
+      src,
+      isHtml,
+    };
     return this;
   }
 

@@ -72,12 +72,13 @@ async function goTo(
       break;
     }
     case FlowStep.terms: {
+      const offer = config._offers[0];
       const terms = await Terms.create(
         {
-          src: config._offers[0]._terms,
+          src: config._offers[0]._terms.src,
+          isHtml: offer._terms.isHtml,
         },
         async () => {
-          const offer = config._offers[0];
           let titleRecord: Title.TitleRecord | undefined = Title.getByPtr(
             offer._ptr
           );
@@ -87,7 +88,7 @@ async function goTo(
           const licenseRecord: License.LicenseRecord = await License.create(
             titleRecord.id,
             offer._uses,
-            offer._terms,
+            offer._terms.src,
             offer._description,
             offer._expiry
           );
@@ -154,7 +155,7 @@ async function goTo(
             const record: License.LicenseRecord = await License.create(
               titleRecord.id,
               [],
-              offer._terms,
+              offer._terms.src,
               offer._description,
               offer._expiry
             );
@@ -166,7 +167,7 @@ async function goTo(
             const record: License.LicenseRecord = await License.create(
               titleRecord.id,
               offer._uses,
-              offer._terms,
+              offer._terms.src,
               offer._description,
               offer._expiry
             );

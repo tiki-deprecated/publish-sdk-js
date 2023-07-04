@@ -79,7 +79,6 @@ async function goTo(
           isHtml: offer._termsIsHtml
         },
         async () => {
-          const offer = config._offers[0];
           let titleRecord: Title.TitleRecord | undefined = Title.getByPtr(
             offer._ptr
           );

@@ -113,7 +113,7 @@ function createContent(offer: Offer, theme: Theme): HTMLDivElement {
   used.className = used.className + " tiki-settings-used";
   div.appendChild(used);
   div.appendChild(createTermsTitle());
-  div.appendChild(createTermsLegal(offer._terms));
+  div.appendChild(createTermsLegal(offer._terms.src, offer._terms.isHtml));
   return div;
 }
 

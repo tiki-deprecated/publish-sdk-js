@@ -7,7 +7,7 @@ import { LicenseUse } from "../trail/license-use";
 import { TitleTag } from "../trail/title-tag";
 import { Bullet } from "./bullet";
 import { Config } from "../config";
-import { Terms } from "./terms";
+import { Terms } from "./screens/terms/terms";
 
 /**
  * An Offer represents the Terms and Conditions for a particular offer. Acceptance of an offer by a user

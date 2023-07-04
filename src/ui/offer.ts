@@ -31,6 +31,10 @@ export class Offer {
   /**
    * @hidden
    */
+   _termsIsHtml: boolean = false;
+  /**
+   * @hidden
+   */
   _reward?: string;
   /**
    * @hidden
@@ -137,8 +141,9 @@ export class Offer {
    *     }
    * ```
    */
-  terms(src: string): Offer {
+  terms(src: string, isHtml: boolean = false): Offer {
     this._terms = src;
+    this._termsIsHtml = isHtml;
     return this;
   }
 

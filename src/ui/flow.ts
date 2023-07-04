@@ -15,6 +15,7 @@ import { FlowStep } from "./flow-step";
 import { Config } from "../config";
 import { Title, License } from "../trail/trail";
 import { Offer } from "./offer";
+import { LicenseRecord } from "../trail/license";
 
 const id = "tiki-offer";
 const overlayId = "tiki-offer-overlay";
@@ -72,20 +73,15 @@ async function goTo(
       break;
     }
     case FlowStep.terms: {
+      const offer = config._offers[0];
       const terms = await Terms.create(
         {
           src: config._offers[0]._terms,
+          isHtml: offer._termsIsHtml
         },
         async () => {
-          const offer = config._offers[0];
-          let titleRecord: Title.TitleRecord | undefined = Title.getByPtr(
-            offer._ptr
-          );
-          if (titleRecord === undefined) {
-            titleRecord = await Title.create(offer._ptr, offer._tags);
-          }
-          const licenseRecord: License.LicenseRecord = await License.create(
-            titleRecord.id,
+          const record: LicenseRecord = await License.create(
+            offer._ptr,
             offer._uses,
             offer._terms,
             offer._description,
@@ -93,7 +89,7 @@ async function goTo(
           );
           terms.remove();
           if (config._onAccept != undefined)
-            config._onAccept(config._offers[0], licenseRecord);
+            config._onAccept(config._offers[0], record);
           if (config._isAcceptEndingDisabled) goTo(FlowStep.none);
           else goTo(FlowStep.endingAccepted, config);
         },

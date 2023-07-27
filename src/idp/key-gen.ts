@@ -3,13 +3,15 @@
  * MIT license. See LICENSE file in root directory.
  */
 
+import { b64Encode } from "./util";
+
 export default async function (): Promise<string> {
   const crypto: SubtleCrypto = window.crypto.subtle;
   const keypair: CryptoKeyPair = await crypto.generateKey(
     {
       name: "RSASSA-PKCS1-v1_5",
       modulusLength: 2048,
-      publicExponent: new Uint8Array([1, 0, 1]),
+      publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
       hash: "SHA-256",
     },
     true,
@@ -19,5 +21,5 @@ export default async function (): Promise<string> {
     "pkcs8",
     keypair.privateKey
   );
-  return window.btoa(String.fromCharCode.apply(null, new Uint8Array(pkcs8)));
+  return b64Encode(new Uint8Array(pkcs8));
 }

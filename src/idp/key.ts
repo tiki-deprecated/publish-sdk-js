@@ -11,6 +11,7 @@ import { ReqSign } from "./req/req-sign";
 import { RspSign } from "./rsp/rsp-sign";
 import { ReqVerify } from "./req/req-verify";
 import { RspVerify } from "./rsp/rsp-verify";
+import { b64Decode, b64Encode } from "./util";
 
 export const create = (keyId: string, overwrite?: boolean): Promise<void> =>
   new Promise((resolve, reject) => {
@@ -99,9 +100,3 @@ export const verify = (
       reject(e);
     }
   });
-
-const b64Encode = (bytes: Uint8Array): string =>
-  btoa(bytes.reduce((acc, current) => acc + String.fromCharCode(current), ""));
-
-const b64Decode = (b64: string): Uint8Array =>
-  Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));

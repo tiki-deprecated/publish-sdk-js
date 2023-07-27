@@ -3,7 +3,7 @@
  * MIT license. See LICENSE file in root directory.
  */
 
-import KeyGen from "./trail/key-gen";
+import KeyGen from "./idp/key-gen";
 import { Offer } from "./ui/offer";
 import { Theme } from "./ui/theme";
 import { LicenseRecord } from "./trail/license-record";

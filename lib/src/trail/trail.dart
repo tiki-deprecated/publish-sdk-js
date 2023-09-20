@@ -117,16 +117,24 @@ class Trail {
   }
 
   Future<void> initialize(String id, String publishingId, TikiIdp idp,
-      {String? origin}) async {
-    Key key = await TikiTrail.withId(id, idp);
-    final http.Response response = await http
-        .get(Uri.parse('https://cdn.mytiki.com/sqlite/1.10.0/sqlite3.wasm'));
-    final IndexedDbFileSystem fs =
-        await IndexedDbFileSystem.open(dbName: "TikiSdk.sqlite");
-    WasmSqlite3 sqlite3 = await WasmSqlite3.load(
-        response.bodyBytes, SqliteEnvironment(fileSystem: fs));
-    _tikiTrail = await TikiTrail.init(publishingId, origin ?? Uri.base.host,
-        idp, key, sqlite3.open("${key.address}.db"));
+      {String? origin, Function(String)? onError}) async {
+    try {
+      Key key = await TikiTrail.withId(id, idp).catchError((e) => throw (e));
+      final http.Response response = await http
+          .get(Uri.parse('https://cdn.mytiki.com/sqlite/1.10.0/sqlite3.wasm'))
+          .catchError((e) => throw (e));
+      final IndexedDbFileSystem fs =
+          await IndexedDbFileSystem.open(dbName: "TikiSdk.sqlite")
+              .catchError((e) => throw (e));
+      WasmSqlite3 sqlite3 = await WasmSqlite3.load(
+              response.bodyBytes, SqliteEnvironment(fileSystem: fs))
+          .catchError((e) => throw (e));
+      _tikiTrail = await TikiTrail.init(publishingId, origin ?? Uri.base.host,
+              idp, key, sqlite3.open("${key.address}.db"))
+          .catchError((e) => throw (e));
+    } catch (e) {
+      onError != null ? onError(e.toString()) : null;
+    }
   }
 
   String get address => RspAddress(_tikiTrail!.address).toJson();

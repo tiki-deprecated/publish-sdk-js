@@ -185,7 +185,8 @@ export class Config {
             origin: origin,
           }),
           KeyGen,
-          () => resolve()
+          () => resolve(),
+          (e) => reject(e)
         );
       } catch (e) {
         reject(e);

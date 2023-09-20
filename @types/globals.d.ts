@@ -77,7 +77,8 @@ declare global {
   function ___TikiWrapper__initialize(
     json: string,
     keyGen: () => Promise<string>,
-    onComplete: () => void
+    onComplete: () => void,
+    onError: (e) => void
   ): void;
 
   function ___TikiWrapper__isInitialized(): string;
